@@ -1,0 +1,167 @@
+/* ----------------------------- */
+/*        STYLE MÉDIÉVAL         */
+/* ----------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Georgia", serif;
+    background: #f7f3e9 url("../static/parchment_texture.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #2e1a0f;
+    line-height: 1.6;
+}
+
+/* ----------------------------- */
+/*      BANNIÈRE LICORNE         */
+/* ----------------------------- */
+
+.banner-header {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ----------------------------- */
+/*            NAVBAR             */
+/* ----------------------------- */
+
+.navbar {
+    background: #3d2b1f;
+    color: #f5e6c5;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    display: block;
+    padding: 14px 20px;
+    color: #f8edd9;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background: #5b3e2d;
+    color: #fff2d8;
+}
+
+/* ----------------------------- */
+/*        DROPDOWN MENUS         */
+/* ----------------------------- */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #4b3527;
+    min-width: 160px;
+    border: 2px solid #2d1c12;
+    z-index: 1000;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px 15px;
+    border-bottom: 1px solid #3b281c;
+}
+
+.dropdown-content a:hover {
+    background: #704c36;
+}
+
+/* ----------------------------- */
+/*            FOOTER             */
+/* ----------------------------- */
+
+footer {
+    background: #3d2b1f;
+    color: #f2dfc2;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 3px solid #2c1a10;
+    font-size: 16px;
+}
+
+/* ----------------------------- */
+/*       LICORNE ANIMÉE          */
+/* ----------------------------- */
+
+.footer-licorne {
+    position: fixed;
+    bottom: 20px;
+    left: -200px;
+    width: 180px;
+    animation: licorne-marche 18s linear infinite;
+}
+
+@keyframes licorne-marche {
+    0% { left: -250px; }
+    100% { left: 110%; }
+}
+
+/* ----------------------------- */
+/*     ZONE DE CONTENU MAIN      */
+/* ----------------------------- */
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(255, 249, 230, 0.8);
+    padding: 30px;
+    border: 3px solid #d2b48c;
+    border-radius: 8px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.15);
+}
+
+/* ----------------------------- */
+/*          TITRES STYLE         */
+/* ----------------------------- */
+
+h1, h2, h3 {
+    font-family: "Palatino Linotype", serif;
+    text-shadow: 1px 1px 2px #e5d3b3;
+    color: #3d271b;
+}
+
+h1 {
+    font-size: 2.3em;
+    border-bottom: 2px solid #c8a97e;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------- */
+/*  IMAGE GRIMOIRE UTILISABLE    */
+/* ----------------------------- */
+
+.grimoire-img {
+    width: 100%;
+    margin: 20px 0;
+    border: 4px ridge #b08d57;
+}
