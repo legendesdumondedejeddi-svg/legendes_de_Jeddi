@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Grimoire{% endblock %}
+{% block content %}
+<h2>{{ legend.title }}</h2>
+<article class="legend-content">
+    <p>{{ legend.content | nl2br }}</p>
+</article>
+
+<nav class="pagination">
+    {% if page > 1 %}
+        <a href="{{ url_for('grimoire', lang=lang) }}?page={{ page-1 }}">◀ Précédent</a>
+    {% endif %}
+    <span>Page {{ page }} / {{ pages }}</span>
+    {% if page < pages %}
+        <a href="{{ url_for('grimoire', lang=lang) }}?page={{ page+1 }}">Suivant ▶</a>
+    {% endif %}
+</nav>
+
+<section class="comments">
+    <h3>Commentaires</h3>
+    <form action="/{{ lang }}/commentaires" method="post">
+        <textarea name="commentaire" placeholder="Ton commentaire..."></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+    <ul>
+    {% for c in commentaires %}
+        {% if c.lang == lang %}
+        <li>{{ c.texte }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</section>
+{% endblock %}
