@@ -67,7 +67,15 @@ def legendes(lang):
     index = (page-1)*per_page
     legend = legends[index] if legends else {"title":"(Aucune légende)","content":""}
     comments = []
-    return render_template(f"legendes_{lang}.html", lang=lang, page=page, pages=pages, legend_text=legend.get('content',""), comments=comments)
+    return render_template(
+    f"legendes_{lang}.html",
+    lang=lang,
+    page=page,
+    pages=pages,
+    legend_text=legend.get('content', ''),
+    comments=comments
+)
+
 
 @app.route("/<lang>/comment", methods=["POST"])
 def comment_post(lang):
