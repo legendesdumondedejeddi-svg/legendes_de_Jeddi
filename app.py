@@ -1,3 +1,4 @@
+
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash
 from math import ceil
@@ -80,6 +81,12 @@ def legendes(lang):
 @app.route("/<lang>/comment", methods=["POST"])
 def comment_post(lang):
     return redirect(url_for('legendes', lang=lang))
+    
+    @app.route("/<lang>/grimoire")
+def grimoire(lang):
+    if lang not in LANGS:
+        lang = "fr"
+    return render_template(f"grimoire_{lang}.html", lang=lang)
 
 @app.route("/admin/<lang>", methods=["GET","POST"])
 def admin(lang):
