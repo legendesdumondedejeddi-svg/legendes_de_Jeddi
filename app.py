@@ -82,7 +82,7 @@ def legendes(lang):
 def comment_post(lang):
     return redirect(url_for('legendes', lang=lang))
     
-    @app.route("/<lang>/grimoire")
+  @app.route("/<lang>/grimoire")
 def grimoire(lang):
     if lang not in LANGS:
         lang = "fr"
