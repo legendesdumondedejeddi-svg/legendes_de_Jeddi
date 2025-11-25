@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Admin (FR){% endblock %}
+{% block content %}
+<h1>Admin — FR</h1>
+
+<form method="post">
+    <textarea name="raw_legends" style="width:100%;height:300px;">{{ raw_legends }}</textarea><br>
+    <input type="password" name="password" placeholder="Mot de passe"><br>
+    <button type="submit">Enregistrer</button>
+</form>
+
+{% endblock %}
