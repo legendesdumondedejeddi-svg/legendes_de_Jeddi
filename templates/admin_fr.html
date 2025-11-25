@@ -1,12 +1,15 @@
 {% extends "layout.html" %}
-{% block title %}Admin (FR){% endblock %}
+{% block title %}Admin — FR{% endblock %}
 {% block content %}
-<h1>Admin — FR</h1>
+<h2>Admin — FR</h2>
 
-<form method="post">
-    <textarea name="raw_legends" style="width:100%;height:300px;">{{ raw_legends }}</textarea><br>
-    <input type="password" name="password" placeholder="Mot de passe"><br>
-    <button type="submit">Enregistrer</button>
+<form method="POST">
+    <label>Mot de passe admin</label><br>
+    <input type="password" name="password"><br><br>
+
+    <label>Légendes</label><br>
+    <textarea name="raw_legends" rows="15" cols="80">{{ raw_legends }}</textarea><br><br>
+
+    <button>Enregistrer</button>
 </form>
-
 {% endblock %}

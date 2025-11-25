@@ -1,19 +1,12 @@
 {% extends "layout.html" %}
-{% block title %}Légendes (FR){% endblock %}
+{% block title %}Légendes — FR{% endblock %}
 {% block content %}
-<h1>Légendes — FR</h1>
+<h2>Légendes (FR)</h2>
 
-<h2>Légende actuelle :</h2>
-<p>{{ legend_text }}</p>
+<h3>{{ legend_text }}</h3>
 
-<div>
-    <p>Page {{ page }} sur {{ pages }}</p>
-    {% if page > 1 %}
-        <a href="/fr/legendes?page={{ page - 1 }}">Précédent</a>
-    {% endif %}
-    {% if page < pages %}
-        <a href="/fr/legendes?page={{ page + 1 }}">Suivant</a>
-    {% endif %}
-</div>
+<p>Page {{ page }} sur {{ pages }}</p>
 
+<a href="?page={{ page - 1 }}">Page précédente</a> |
+<a href="?page={{ page + 1 }}">Page suivante</a>
 {% endblock %}

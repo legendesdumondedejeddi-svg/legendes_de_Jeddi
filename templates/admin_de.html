@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
-{% block title %}Admin — Légendes (DE){% endblock %}
-
+{% block title %}Admin — DE{% endblock %}
 {% block content %}
-<h2>Admin — Légendes (DE)</h2>
+<h2>Admin — DE</h2>
 
-<form method="post">
-    <textarea name="raw_legends" style="width:100%; min-height:400px;">{{ raw_legends }}</textarea><br><br>
+<form method="POST">
+    <label>Admin Passwort</label><br>
+    <input type="password" name="password"><br><br>
 
-    <input type="password" name="password" placeholder="Admin password"><br><br>
+    <label>Legenden</label><br>
+    <textarea name="raw_legends" rows="15" cols="80">{{ raw_legends }}</textarea><br><br>
 
-    <button type="submit">Save</button>
+    <button>Speichern</button>
 </form>
-
 {% endblock %}

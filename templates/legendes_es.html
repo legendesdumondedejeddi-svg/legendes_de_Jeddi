@@ -1,23 +1,12 @@
 {% extends "layout.html" %}
-{% block title %}Leyendas{% endblock %}
+{% block title %}Leyendas — ES{% endblock %}
 {% block content %}
-<h1>Leyendas</h1>
+<h2>Leyendas (ES)</h2>
 
-<div class="legend-container">
-    <h2>{{ legend_text.title if legend_text.title else "No hay leyendas" }}</h2>
-    <p>{{ legend_text.content|safe }}</p>
-</div>
+<h3>{{ legend_text }}</h3>
 
-<div class="pagination">
-    {% if page > 1 %}
-        <a href="/es/legendes?page={{ page - 1 }}">← Anterior</a>
-    {% endif %}
+<p>Página {{ page }} de {{ pages }}</p>
 
-    <span>Página {{ page }} / {{ pages }}</span>
-
-    {% if page < pages %}
-        <a href="/es/legendes?page={{ page + 1 }}">Siguiente →</a>
-    {% endif %}
-</div>
-
+<a href="?page={{ page - 1 }}">Anterior</a> |
+<a href="?page={{ page + 1 }}">Siguiente</a>
 {% endblock %}
