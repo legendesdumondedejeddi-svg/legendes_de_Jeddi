@@ -1,7 +1,0 @@
-Titre exemple
-Contenu exemple
-
----
-
-Autre titre
-Autre contenu
