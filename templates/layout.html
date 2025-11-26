@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Légendes{% endblock %}</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset="UTF-8">
+<title>{% block title %}Jeddi{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<div class="background"></div>
-
-<header>
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne" class="banner-licorne">
-
-    <h1 class="site-title">Légendes du Monde de Jeddi</h1>
+<header class="top-banner">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="banner-unicorn">
+    <h1>Légendes du Monde de Jeddi</h1>
 
     <nav>
-        <ul class="menu">
+        <ul>
             <li><a href="/{{ lang }}/accueil">Accueil</a></li>
             <li><a href="/{{ lang }}/apropos">À propos</a></li>
 
-            <li class="dropdown">Pages
-                <ul class="submenu">
+            <li class="submenu">Pages ▼
+                <ul>
                     <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
                     <li><a href="/{{ lang }}/galerie">Galerie</a></li>
                     <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
@@ -31,13 +27,11 @@
                 </ul>
             </li>
 
-            <li class="dropdown">Langue
-                <ul class="submenu">
-                    <li><a href="/fr/accueil">FR</a></li>
-                    <li><a href="/en/accueil">EN</a></li>
-                    <li><a href="/es/accueil">ES</a></li>
-                    <li><a href="/de/accueil">DE</a></li>
-                    <li><a href="/it/accueil">IT</a></li>
+            <li class="submenu">Langue ▼
+                <ul>
+                    {% for L in ["fr","en","es","de","it"] %}
+                    <li><a href="/{{ L }}/accueil">{{ L|upper }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
         </ul>
@@ -49,7 +43,7 @@
 </main>
 
 <footer>
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="licorne" class="footer-licorne">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-unicorn">
     <p>© Légendes du Monde de Jeddi</p>
 </footer>
 

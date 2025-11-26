@@ -1,10 +1,46 @@
 {% extends "layout.html" %}
 {% block title %}Admin — Légendes{% endblock %}
+
 {% block content %}
-<h2>Admin — Édition des légendes ({{ lang }})</h2>
+<h2>
+  {% if lang == "fr" %}Administration — Édition des légendes{% elif lang=="en" %}Admin — Edit legends{% elif lang=="es" %}Admin — Editar leyendas{% elif lang=="de" %}Admin — Legenden bearbeiten{% else %}Admin — Modifica leggende{% endif %}
+</h2>
+
+<p class="hint">
+  {% if lang == "fr" %}
+    Format : chaque légende commence par son titre sur la première ligne, puis le contenu. Séparez les légendes par une ligne vide, puis `---`, puis une ligne vide.
+  {% elif lang == "en" %}
+    Format: each legend starts with its title on line 1, then the content. Separate legends with a blank line, `---`, and another blank line.
+  {% elif lang == "es" %}
+    Formato: cada leyenda empieza con su título en la primera línea, luego el contenido. Separe leyendas con una línea vacía, `---`, y otra línea vacía.
+  {% elif lang == "de" %}
+    Format: Jede Legende beginnt mit dem Titel in der ersten Zeile, dann der Inhalt. Trennen Sie Legenden mit einer Leerzeile, `---`, und einer weiteren Leerzeile.
+  {% else %}
+    Formato: ogni leggenda inizia con il titolo sulla prima riga, poi il contenuto. Separa le leggende con una riga vuota, `---`, e un'altra riga vuota.
+  {% endif %}
+</p>
+
 <form method="post">
-    <textarea name="raw_legends" style="min-height:400px;">{{ raw_legends }}</textarea><br>
-    <input type="password" name="password" placeholder="Mot de passe admin"><br>
-    <button type="submit">Enregistrer</button>
+    <textarea name="raw_legends" style="min-height:420px; width:100%;">{{ raw_legends|default('') }}</textarea><br><br>
+
+    <input type="password" name="password" placeholder="{% if lang=='fr' %}Mot de passe admin{% elif lang=='en' %}Admin password{% endif %}" style="padding:8px; width:300px;"><br><br>
+
+    <button type="submit" style="padding:10px 16px; font-weight:bold;">
+      {% if lang=='fr' %}Enregistrer{% elif lang=='en' %}Save{% elif lang=='es' %}Guardar{% elif lang=='de' %}Speichern{% else %}Salva{% endif %}
+    </button>
 </form>
+
+<hr>
+<h3>{% if lang=='fr' %}Aide rapide{% elif lang=='en' %}Quick help{% endif %}</h3>
+<ul>
+  <li>{% if lang=='fr' %}Exemple :<br><pre>Titre 1
+Texte de la légende 1...
+
+---
+
+Titre 2
+Texte de la légende 2...</pre>{% else %}See example above.{% endif %}</li>
+  <li>{% if lang=='fr' %}Après enregistrement : la page /{{ lang }}/legendes affichera les légendes.{% endif %}</li>
+  <li>{% if lang=='fr' %}Pour joindre une image à la légende n°1 : envoyez une image dans static/images/legendes/{{ lang }}/legend_1.jpg (ou .png).{% endif %}</li>
+</ul>
 {% endblock %}
