@@ -1,6 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}Galerie — FR{% endblock %}
 {% block content %}
-<h2>Galerie (FR)</h2>
-<p>Images et illustrations françaises.</p>
+
+<h2>Galerie d'images</h2>
+
+<div class="gallery">
+
+    <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne">
+
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée">
+
+    <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire">
+
+    <img src="{{ url_for('static', filename='images/parchment_texture.jpg') }}" alt="Parchemin">
+
+</div>
+
 {% endblock %}
