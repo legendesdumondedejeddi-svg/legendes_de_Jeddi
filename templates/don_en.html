@@ -1,41 +1,16 @@
 {% extends "layout.html" %}
-{% block title %}Don — EN{% endblock %}
+{% block title %}Donate — EN{% endblock %}
+
 {% block content %}
-
-<h2>Support the Project (EN)</h2>
-
-<p>
-This site preserves and shares ancient stories and texts. Your support keeps this archive alive.
-</p>
+<h2>✨ Support Jeddi’s World</h2>
 
 <p>
-Many essential sources require subscriptions, access fees, or specialized work such as transcription and translation. Your help makes this possible.
+Your contribution helps preserve ancient texts, translations,
+and the restoration of forgotten stories.
 </p>
-
-<p>
-Every contribution, even small, strengthens the continuity and quality of this project.
-</p>
-
-<hr>
-
-<h3>Support via PayPal</h3>
 
 <form action="https://www.paypal.com/donate" method="post" target="_blank">
     <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
-    <input type="hidden" name="no_recurring" value="0">
-    <input type="hidden" name="currency_code" value="EUR">
-
-    <button type="submit" style="
-        padding: 10px 20px;
-        background-color: #0070ba;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1.1rem;
-    ">
-        Donate via PayPal
-    </button>
+    <button class="don-btn">Donate via PayPal</button>
 </form>
-
 {% endblock %}

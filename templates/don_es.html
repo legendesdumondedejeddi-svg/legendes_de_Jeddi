@@ -1,41 +1,16 @@
 {% extends "layout.html" %}
-{% block title %}Don — ES{% endblock %}
+{% block title %}Donar — ES{% endblock %}
+
 {% block content %}
-
-<h2>Donaciones (ES)</h2>
-
-<p>
-Este sitio preserva y comparte textos e historias antiguas. Tu ayuda mantiene estos archivos vivos.
-</p>
+<h2>✨ Apoyar el Mundo de Jeddi</h2>
 
 <p>
-Muchas fuentes importantes requieren suscripciones, tarifas o trabajo especializado. Tu apoyo lo hace posible.
+Tu ayuda permite preservar textos antiguos, traducirlos
+y mantener vivas las historias olvidadas.
 </p>
-
-<p>
-Cada contribución, incluso pequeña, fortalece la continuidad de este proyecto.
-</p>
-
-<hr>
-
-<h3>Apoyar vía PayPal</h3>
 
 <form action="https://www.paypal.com/donate" method="post" target="_blank">
     <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
-    <input type="hidden" name="no_recurring" value="0">
-    <input type="hidden" name="currency_code" value="EUR">
-
-    <button type="submit" style="
-        padding: 10px 20px;
-        background-color: #0070ba;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1.1rem;
-    ">
-        Donar con PayPal
-    </button>
+    <button class="don-btn">Donar con PayPal</button>
 </form>
-
 {% endblock %}
