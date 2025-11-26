@@ -1,148 +1,86 @@
 import os
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, redirect, url_for
+from math import ceil
 
 app = Flask(__name__)
 
 LANGS = ["fr", "en", "es", "de", "it"]
 
-# -------------------------------
-# ROUTES ACCUEIL
-# -------------------------------
+# dossier de stockage des légendes
+SAVE_FOLDER = "legendes_data"
+os.makedirs(SAVE_FOLDER, exist_ok=True)
 
-@app.route("/")
-def home_redirect():
-    return render_template("accueil_fr.html", lang="fr")
+def legend_file(lang):
+    return os.path.join(SAVE_FOLDER, f"legendes_{lang}.txt")
 
-@app.route("/<lang>/accueil")
-def accueil(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    return render_template(f"accueil_{lang}.html", lang=lang)
+def load_legends(lang):
+    path = legend_file(lang)
+    if not os.path.exists(path):
+        return []
 
-# -------------------------------
-# ROUTES A PROPOS
-# -------------------------------
+    with open(path, "r", encoding="utf-8") as f:
+        raw = f.read().strip()
 
-@app.route("/<lang>/apropos")
-def apropos(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    return render_template(f"apropos_{lang}.html", lang=lang)
+    blocks = raw.split("\n\n---\n\n")
+    legends = []
 
-# -------------------------------
-# ROUTES DON
-# -------------------------------
+    for i, block in enumerate(blocks):
+        if not block.strip():
+            continue
+        lines = block.split("\n", 1)
+        title = lines[0].strip()
+        content = lines[1].strip() if len(lines) > 1 else "[Contenu vide]"
+        legends.append({"id": i+1, "title": title, "content": content})
 
-@app.route("/<lang>/don")
-def don(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    return render_template(f"don_{lang}.html", lang=lang)
+    return legends
 
-# -------------------------------
-# ROUTES JEDDI
-# -------------------------------
-
-@app.route("/<lang>/jeddi")
-def jeddi(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    return render_template(f"jeddi_{lang}.html", lang=lang)
-
-# -------------------------------
-# ROUTES GRIMOIRE
-# -------------------------------
-
-@app.route("/<lang>/grimoire")
-def grimoire(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    return render_template(f"grimoire_{lang}.html", lang=lang)
-
-# -------------------------------
-# ROUTES GALERIE (DYNAMIQUE)
-# -------------------------------
-
-@app.route("/<lang>/galerie")
-def galerie(lang):
-    if lang not in LANGS:
-        lang = "fr"
-
-    folder = os.path.join("static", "images", "galerie")
-    if not os.path.exists(folder):
-        images = []
-    else:
-        images = [
-            f for f in os.listdir(folder)
-            if f.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".webp"))
-        ]
-
-    return render_template(f"galerie_{lang}.html", lang=lang, images=images)
-
-# -------------------------------
-# ROUTES LÉGENDES (TEXTE)
-# -------------------------------
-
-from jinja2 import TemplateNotFound
 
 @app.route("/<lang>/legendes")
 def legendes(lang):
     if lang not in LANGS:
         lang = "fr"
 
+    # pagination
     page = int(request.args.get("page", 1))
-    legends = load_legend_texts(lang)
+    legends = load_legends(lang)
+
     total = len(legends)
-    per_page = 1
-    pages = max(1, ceil(total / per_page))
-    if page < 1:
-        page = 1
-    if page > pages:
-        page = pages
+    pages = max(1, ceil(total))
 
-    index = (page - 1) * per_page
-    legend = legends[index] if legends else {"title": "(Aucune légende)", "content": ""}
+    if page < 1: page = 1
+    if page > total: page = total
 
-    # Essaye d'abord le template spécifique (legendes_fr.html etc.)
-    tpl_specific = f"legendes_{lang}.html"
-    try:
-        return render_template(tpl_specific, lang=lang, page=page, pages=pages, legend_text=legend.get("content",""))
-    except TemplateNotFound:
-        # Si le template spécifique n'existe pas, utilise un template générique legendes.html
-        return render_template("legendes.html", lang=lang, page=page, pages=pages, legend_text=legend.get("content",""))
+    legend = legends[page - 1] if legends else {"title": "Aucune légende", "content": ""}
+
+    return render_template(
+        "legendes.html",
+        lang=lang,
+        page=page,
+        pages=total,
+        legend=legend
+    )
 
 
-# -------------------------------
-# ADMIN
-# -------------------------------
+@app.route("/")
+def root():
+    return redirect("/fr/accueil")
 
-ADMIN_PASSWORD = os.environ.get("ADMIN_JEDDI_PASSWORD", "jedditest")
 
-@app.route("/admin/<lang>", methods=["GET", "POST"])
-def admin(lang):
-    if lang not in LANGS:
-        lang = "fr"
+# pages classiques
+PAGES = ["accueil", "apropos", "jeddi", "galerie", "grimoire", "don"]
 
-    path = os.path.join("legendes_data", f"legendes_{lang}.txt")
+for lang in LANGS:
+    for page in PAGES:
+        route = f"/{lang}/{page}"
+        tpl = f"{page}_{lang}.html"
 
-    if request.method == "POST":
-        if request.form.get("password") != ADMIN_PASSWORD:
-            return "Mot de passe incorrect", 403
+        def make_route(tpl=tpl, lg=lang):
+            def route_func():
+                return render_template(tpl, lang=lg)
+            return route_func
 
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(request.form.get("raw_legends", ""))
+        app.add_url_rule(route, f"{page}_{lang}", make_route())
 
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            raw = f.read()
-    else:
-        raw = ""
-
-    return render_template("admin.html", lang=lang, raw_legends=raw)
-
-# -------------------------------
-# RUN
-# -------------------------------
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
