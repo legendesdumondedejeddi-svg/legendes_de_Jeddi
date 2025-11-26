@@ -1,52 +1,64 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Légendes{% endblock %}</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<header>
-    <h1>Bannière Licorne</h1>
-
-    <nav>
-        <ul>
-            <li><a href="/{{ lang }}/accueil">Accueil</a></li>
-            <li><a href="/{{ lang }}/apropos">À propos</a></li>
-
-            <li>
-                Pages ▼
-                <ul>
-                    <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
-                    <li><a href="/{{ lang }}/galerie">Galerie</a></li>
-                    <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
-                    <li><a href="/{{ lang }}/don">Don</a></li>
-                    <li><a href="/{{ lang }}/legendes">Légendes</a></li>
-                </ul>
-            </li>
-
-            <li>
-                Langue ▼
-                <ul>
-                    <li><a href="/fr/accueil">FR</a></li>
-                    <li><a href="/en/accueil">EN</a></li>
-                    <li><a href="/es/accueil">ES</a></li>
-                    <li><a href="/de/accueil">DE</a></li>
-                    <li><a href="/it/accueil">IT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<!-- BANNIÈRE LICORNE -->
+<header class="banner-header">
+    <img src="{{ url_for('static', filename='images/licorne.png') }}" 
+         alt="Bannière Licorne"
+         class="banner-image">
 </header>
 
+<!-- MENU -->
+<nav class="navbar">
+    <ul>
+        <li><a href="/{{ lang }}/accueil">Accueil</a></li>
+        <li><a href="/{{ lang }}/apropos">À propos</a></li>
+
+        <li class="dropdown">
+            <a href="#">Pages ▾</a>
+            <div class="dropdown-content">
+                <a href="/{{ lang }}/jeddi">Jeddi</a>
+                <a href="/{{ lang }}/galerie">Galerie</a>
+                <a href="/{{ lang }}/grimoire">Grimoire</a>
+                <a href="/{{ lang }}/don">Don</a>
+                <a href="/{{ lang }}/legendes">Légendes</a>
+            </div>
+        </li>
+
+        <li class="dropdown">
+            <a href="#">Langue ▾</a>
+            <div class="dropdown-content">
+                <a href="/fr/accueil">FR</a>
+                <a href="/en/accueil">EN</a>
+                <a href="/es/accueil">ES</a>
+                <a href="/de/accueil">DE</a>
+                <a href="/it/accueil">IT</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<!-- PAGE -->
 <main>
     {% block content %}{% endblock %}
 </main>
 
+<!-- BAS DE PAGE -->
 <footer>
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée" width="120">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" 
+         alt="Licorne animée"
+         class="footer-licorne"
+         width="120">
+
     <p>© Légendes du Monde de Jeddi</p>
 </footer>
 
