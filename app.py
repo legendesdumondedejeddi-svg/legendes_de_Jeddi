@@ -83,20 +83,34 @@ def galerie(lang):
 # ROUTES LÉGENDES (TEXTE)
 # -------------------------------
 
+from jinja2 import TemplateNotFound
+
 @app.route("/<lang>/legendes")
 def legendes(lang):
     if lang not in LANGS:
         lang = "fr"
 
-    path = os.path.join("legendes_data", f"legendes_{lang}.txt")
+    page = int(request.args.get("page", 1))
+    legends = load_legend_texts(lang)
+    total = len(legends)
+    per_page = 1
+    pages = max(1, ceil(total / per_page))
+    if page < 1:
+        page = 1
+    if page > pages:
+        page = pages
 
-    if not os.path.exists(path):
-        raw = ""
-    else:
-        with open(path, "r", encoding="utf-8") as f:
-            raw = f.read()
+    index = (page - 1) * per_page
+    legend = legends[index] if legends else {"title": "(Aucune légende)", "content": ""}
 
-    return render_template("legendes.html", lang=lang, text=raw)
+    # Essaye d'abord le template spécifique (legendes_fr.html etc.)
+    tpl_specific = f"legendes_{lang}.html"
+    try:
+        return render_template(tpl_specific, lang=lang, page=page, pages=pages, legend_text=legend.get("content",""))
+    except TemplateNotFound:
+        # Si le template spécifique n'existe pas, utilise un template générique legendes.html
+        return render_template("legendes.html", lang=lang, page=page, pages=pages, legend_text=legend.get("content",""))
+
 
 # -------------------------------
 # ADMIN
