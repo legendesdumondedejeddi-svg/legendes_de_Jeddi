@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="{{ lang if lang else 'fr' }}">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Légendes{% endblock %}</title>
-
-    <!-- CSS -->
+    <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-
-<!-- BANNIÈRE LICORNE -->
 <header class="banner-header">
-    <img src="{{ url_for('static', filename='images/licorne.png') }}" 
-         alt="Bannière Licorne"
-         class="banner-image">
+    <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Bannière Licorne" class="banner-image">
 </header>
 
-<!-- MENU -->
 <nav class="navbar">
     <ul>
         <li><a href="/{{ lang }}/accueil">Accueil</a></li>
         <li><a href="/{{ lang }}/apropos">À propos</a></li>
-
         <li class="dropdown">
             <a href="#">Pages ▾</a>
             <div class="dropdown-content">
@@ -33,34 +25,36 @@
                 <a href="/{{ lang }}/legendes">Légendes</a>
             </div>
         </li>
-
         <li class="dropdown">
             <a href="#">Langue ▾</a>
             <div class="dropdown-content">
-                <a href="/fr/accueil">FR</a>
-                <a href="/en/accueil">EN</a>
-                <a href="/es/accueil">ES</a>
-                <a href="/de/accueil">DE</a>
-                <a href="/it/accueil">IT</a>
+                <a href="/fr{{ request.path }}">FR</a>
+                <a href="/en{{ request.path }}">EN</a>
+                <a href="/es{{ request.path }}">ES</a>
+                <a href="/de{{ request.path }}">DE</a>
+                <a href="/it{{ request.path }}">IT</a>
             </div>
         </li>
     </ul>
 </nav>
 
-<!-- PAGE -->
 <main>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for m in messages %}<div class="flash-item">{{ m }}</div>{% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
 </main>
 
-<!-- BAS DE PAGE -->
-<footer>
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" 
-         alt="Licorne animée"
-         class="footer-licorne"
-         width="120">
+<img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée" class="footer-licorne">
 
+<footer>
     <p>© Légendes du Monde de Jeddi</p>
 </footer>
 
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
