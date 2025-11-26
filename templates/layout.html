@@ -4,31 +4,25 @@
     <meta charset="UTF-8">
     <title>{% block title %}Légendes{% endblock %}</title>
 
-    <!-- Style enchanté -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-    <!-- Script JS -->
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="parchment">
+<body>
 
-<header class="banner-header">
+<div class="background"></div>
 
-    <!-- Bannière image (si tu veux une image en haut, mets-la ici) -->
-    <img src="{{ url_for('static', filename='images/licorne.png') }}"
-         alt="Bannière Licorne" class="banner-image">
+<header>
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne" class="banner-licorne">
 
-    <h1>Bannière Licorne</h1>
+    <h1 class="site-title">Légendes du Monde de Jeddi</h1>
 
-    <nav class="navbar">
-        <ul>
+    <nav>
+        <ul class="menu">
             <li><a href="/{{ lang }}/accueil">Accueil</a></li>
             <li><a href="/{{ lang }}/apropos">À propos</a></li>
 
-            <li>
-                Pages ▾
-                <ul>
+            <li class="dropdown">Pages
+                <ul class="submenu">
                     <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
                     <li><a href="/{{ lang }}/galerie">Galerie</a></li>
                     <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
@@ -37,9 +31,8 @@
                 </ul>
             </li>
 
-            <li>
-                Langue ▾
-                <ul>
+            <li class="dropdown">Langue
+                <ul class="submenu">
                     <li><a href="/fr/accueil">FR</a></li>
                     <li><a href="/en/accueil">EN</a></li>
                     <li><a href="/es/accueil">ES</a></li>
@@ -49,7 +42,6 @@
             </li>
         </ul>
     </nav>
-
 </header>
 
 <main>
@@ -57,9 +49,7 @@
 </main>
 
 <footer>
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}"
-         alt="Licorne animée"
-         class="footer-licorne">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="licorne" class="footer-licorne">
     <p>© Légendes du Monde de Jeddi</p>
 </footer>
 
