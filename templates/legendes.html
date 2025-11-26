@@ -1,20 +1,28 @@
 {% extends "layout.html" %}
-{% block title %}Grimoire — Légendes{% endblock %}
+{% block title %}Légendes — {{ lang|upper }}{% endblock %}
+
 {% block content %}
-<h1>{{ legend_title if legend_title else "Grimoire des Légendes" }}</h1>
 
-<article class="legend-text">
-  <h2>{{ legend.title }}</h2>
-  <div>{{ legend_text | safe }}</div>
-</article>
+<div class="grimoire-container">
 
-<div class="pagination">
-  {% if page > 1 %}
-    <a href="?page={{ page-1 }}">← Précédent</a>
-  {% endif %}
-  <span> Page {{ page }} / {{ pages }} </span>
-  {% if page < pages %}
-    <a href="?page={{ page+1 }}">Suivant →</a>
-  {% endif %}
+    <h1 class="grimoire-titre">{{ legend.title }}</h1>
+
+    <div class="grimoire-texte">
+        {{ legend.content|safe }}
+    </div>
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a class="page-btn" href="/{{ lang }}/legendes?page={{ page - 1 }}">← Légende précédente</a>
+        {% endif %}
+
+        <span class="page-info">Page {{ page }} / {{ pages }}</span>
+
+        {% if page < pages %}
+            <a class="page-btn" href="/{{ lang }}/legendes?page={{ page + 1 }}">Légende suivante →</a>
+        {% endif %}
+    </div>
+
 </div>
+
 {% endblock %}
