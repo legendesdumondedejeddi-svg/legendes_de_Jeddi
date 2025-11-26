@@ -1,12 +1,7 @@
-La Leggenda del Drago Blu
-Sotto la collina il Drago Blu dormiva e mormorava chiavi per i sogni dei viandanti.
+Titre de la légende 1
+Texte texte texte...
 
 ---
 
-La Fonte Perduta
-A mezzanotte la fonte racconta antiche verità; solo chi sa ascoltare può bere senza invecchiare.
-
----
-
-L'Albero-scaglia
-Le sue foglie luccicano al tramonto e indicano la strada a chi ha perso la mappa.
+Titre 2
+Suite...

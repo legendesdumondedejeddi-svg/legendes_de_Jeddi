@@ -1,12 +1,7 @@
-La Leyenda del Dragón Azul
-Bajo la colina, el Dragón Azul dormía y susurraba llaves para los sueños de los viajeros.
+Titre de la légende 1
+Texte texte texte...
 
 ---
 
-La Fuente Perdida
-A medianoche la fuente cuenta verdades antiguas; solo quien escucha puede beber sin envejecer.
-
----
-
-El Árbol-escama
-Sus hojas brillan al anochecer y muestran caminos a los que han perdido la ruta.
+Titre 2
+Suite...

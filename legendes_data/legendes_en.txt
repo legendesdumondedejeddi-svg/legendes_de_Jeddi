@@ -1,12 +1,7 @@
-The Tale of the Blue Dragon
-Beneath the hill the Blue Dragon slept and hummed secrets that opened doors in the minds of wanderers.
+Titre de la légende 1
+Texte texte texte...
 
 ---
 
-The Lost Fountain
-At midnight the fountain speaks ancient truths; only a listening heart may drink without age catching up.
-
----
-
-The Scale-Tree
-Its leaves shimmer when the sun sets; it guides those who have lost their maps.
+Titre 2
+Suite...
