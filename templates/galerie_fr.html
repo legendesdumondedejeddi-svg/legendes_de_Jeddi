@@ -1,18 +1,25 @@
 {% extends "layout.html" %}
 {% block title %}Galerie — FR{% endblock %}
+
 {% block content %}
+<h2 class="galerie-title">📜 Galerie Enchantée</h2>
 
-<h2>Galerie d'images</h2>
+<div class="galerie-container">
 
-<div class="gallery">
+    <div class="galerie-item">
+        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire">
+        <p>Grimoire ancien</p>
+    </div>
 
-    <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne">
+    <div class="galerie-item">
+        <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne">
+        <p>Licorne mystique</p>
+    </div>
 
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée">
-
-    <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire">
-
-    <img src="{{ url_for('static', filename='images/parchment_texture.jpg') }}" alt="Parchemin">
+    <div class="galerie-item">
+        <img src="{{ url_for('static', filename='images/parchment_texture.jpg') }}" alt="Parchemin">
+        <p>Parchemin oublié</p>
+    </div>
 
 </div>
 
