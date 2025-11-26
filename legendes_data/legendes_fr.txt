@@ -1,7 +1,12 @@
-Titre exemple
-Contenu exemple
+La Légende du Dragon Bleu
+Sous la colline, le Dragon Bleu dormait comme un vieux fou. Ceux qui l’entendaient murmurer trouvaient la clef des rêves.
 
 ---
 
-Autre titre
-Autre contenu
+La Fontaine Perdue
+On raconte qu’à minuit la fontaine raconte des vérités anciennes; seul celui qui sait écouter peut boire sans vieillir.
+
+---
+
+L'Arbre-Écaille
+Ses feuilles brillent la nuit et chuchotent des cartes. Les voyageurs perdus finissent toujours par lui demander la route.
