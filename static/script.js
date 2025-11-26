@@ -1,39 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.querySelector(".menu-toggle");
-    const navbar = document.querySelector(".navbar");
-    if (toggle && navbar) {
-        toggle.addEventListener("click", () => {
-            navbar.classList.toggle("open");
-        });
-    }
-    const topBtn = document.createElement("button");
-    topBtn.textContent = "↑";
-    topBtn.id = "topButton";
-    document.body.appendChild(topBtn);
-    topBtn.style.position = "fixed";
-    topBtn.style.bottom = "25px";
-    topBtn.style.right = "25px";
-    topBtn.style.padding = "10px 15px";
-    topBtn.style.border = "2px solid #3d2b1f";
-    topBtn.style.background = "#f2dfc2";
-    topBtn.style.cursor = "pointer";
-    topBtn.style.fontSize = "20px";
-    topBtn.style.display = "none";
-    topBtn.style.borderRadius = "6px";
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            topBtn.style.display = "block";
-        } else {
-            topBtn.style.display = "none";
-        }
-    });
-    topBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-    const main = document.querySelector("main");
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JS chargé.");
+
+    var main = document.querySelector("main");
     if (main) {
         main.style.opacity = 0;
-        main.style.transition = "opacity 1s ease";
-        setTimeout(() => { main.style.opacity = 1; }, 50);
+        main.style.transition = "opacity 0.8s ease";
+        setTimeout(() => main.style.opacity = 1, 50);
     }
+
+    var btn = document.createElement("button");
+    btn.textContent = "↑";
+    btn.style.position = "fixed";
+    btn.style.bottom = "20px";
+    btn.style.right = "20px";
+    btn.style.padding = "10px";
+    btn.style.zIndex = 999;
+    btn.style.display = "none";
+    document.body.appendChild(btn);
+
+    window.addEventListener("scroll", () => {
+        btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 });
