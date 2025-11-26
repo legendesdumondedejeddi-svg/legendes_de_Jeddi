@@ -5,22 +5,9 @@
 <h2 class="galerie-title">📜 Galerie Enchantée</h2>
 
 <div class="galerie-container">
-
-    <div class="galerie-item">
-        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire">
-        <p>Grimoire ancien</p>
-    </div>
-
-    <div class="galerie-item">
-        <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne">
-        <p>Licorne mystique</p>
-    </div>
-
-    <div class="galerie-item">
-        <img src="{{ url_for('static', filename='images/parchment_texture.jpg') }}" alt="Parchemin">
-        <p>Parchemin oublié</p>
-    </div>
-
+    <div class="galerie-item"><img src="{{ url_for('static', filename='images/grimoire.png') }}"><p>Grimoire ancien</p></div>
+    <div class="galerie-item"><img src="{{ url_for('static', filename='images/licorne.png') }}"><p>Licorne mystique</p></div>
+    <div class="galerie-item"><img src="{{ url_for('static', filename='images/parchment_texture.jpg') }}"><p>Parchemin</p></div>
 </div>
-
 {% endblock %}
+
