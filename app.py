@@ -1,28 +1,36 @@
+# app.py
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from werkzeug.utils import secure_filename
 from math import ceil
 
-# ---------------------------
-#   CONFIGURATION SÉCURISÉE
-# ---------------------------
-
+# -------------------------
+# Configuration
+# -------------------------
 SECRET_KEY = os.environ.get("JEDDI_SECRET_KEY", "DevSecretKeyChangeMe")
 ADMIN_PASSWORD = os.environ.get("JEDDI_ADMIN_PASSWORD", "ChangeMoiEnProd")
+UPLOAD_FOLDER = "static/legendes_images"
+SAVE_FOLDER = "legendes_data"
+ALLOWED_EXT = {"png", "jpg", "jpeg", "gif", "webp"}
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+os.makedirs(SAVE_FOLDER, exist_ok=True)
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024  # 5 MB limit
 
+# -------------------------
+# Langues et pages
+# -------------------------
 LANGS = ["fr", "en", "es", "de", "it"]
-
-# Dossier où sont stockées les légendes
-SAVE_FOLDER = "legendes_data"
-os.makedirs(SAVE_FOLDER, exist_ok=True)
+PAGES = ["accueil", "apropos", "jeddi", "galerie", "don"]
 
 def legend_file(lang):
     return os.path.join(SAVE_FOLDER, f"legendes_{lang}.txt")
 
 def load_legend_texts(lang):
-    """Charge les légendes pour une langue."""
     path = legend_file(lang)
     if not os.path.exists(path):
         return []
@@ -30,16 +38,25 @@ def load_legend_texts(lang):
         blocks = f.read().split("\n\n---\n\n")
         legends = []
         for i, b in enumerate(blocks):
-            if not b.strip():
+            b = b.strip()
+            if not b:
                 continue
             lines = b.split("\n", 1)
             title = lines[0].strip()
             content = lines[1].strip() if len(lines) > 1 else ""
-            legends.append({"id": i+1, "title": title, "content": content})
+            # try to find matching image file (safe name)
+            safe = secure_filename(title).lower().replace(" ", "_")
+            image = None
+            for ext in ALLOWED_EXT:
+                candidate = f"{safe}.{ext}"
+                candidate_path = os.path.join(app.config["UPLOAD_FOLDER"], candidate)
+                if os.path.exists(candidate_path):
+                    image = url_for("static", filename=f"legendes_images/{candidate}")
+                    break
+            legends.append({"id": i+1, "title": title, "content": content, "image": image})
         return legends
 
 def save_legend_texts(lang, texts):
-    """Enregistre les légendes au format texte."""
     path = legend_file(lang)
     with open(path, "w", encoding="utf-8") as f:
         blocks = []
@@ -47,68 +64,60 @@ def save_legend_texts(lang, texts):
             blocks.append(f"{t['title']}\n{t['content']}")
         f.write("\n\n---\n\n".join(blocks))
 
-# -----------------------------------------
-#   ROUTES POUR ACCUEIL / APROPOS / JE D D I / ETC
-# -----------------------------------------
-
-PAGES = ["accueil", "apropos", "jeddi", "galerie", "grimoire", "don"]
-
+# -------------------------
+# Routes statiques multi-langues
+# -------------------------
 for lang in LANGS:
     for page in PAGES:
-        tpl = f"{page}_{lang}.html"
+        template_name = f"{page}_{lang}.html"
         route = f"/{lang}/{page}"
-        def make_route(tpl=tpl, lg=lang):
+        def make_route(tpl=template_name, lg=lang):
             def route_func():
+                # if template missing, Flask will raise TemplateNotFound -> dev will see logs
                 return render_template(tpl, lang=lg)
             return route_func
         endpoint = f"{page}_{lang}"
         app.add_url_rule(route, endpoint, make_route())
 
-# -----------------------------
-#   PAGE DES LÉGENDES
-# -----------------------------
-
+# -------------------------
+# Légendes (liste / lecture)
+# -------------------------
 @app.route("/<lang>/legendes")
 def legendes(lang):
     if lang not in LANGS:
         lang = "fr"
-
     page = int(request.args.get("page", 1))
     legends = load_legend_texts(lang)
-
     total = len(legends)
     per_page = 1
     pages = max(1, ceil(total / per_page))
+    if page < 1:
+        page = 1
+    if page > pages:
+        page = pages
+    index = (page - 1) * per_page
+    legend = legends[index] if legends else {"title":"(Aucune légende)","content":""}
+    comments = []  # kept simple (no persistence)
+    return render_template("legendes.html", lang=lang, page=page, pages=pages, legend=legend, comments=comments)
 
-    if page < 1: page = 1
-    if page > pages: page = pages
-
-    index = (page-1) * per_page
-    legend = legends[index] if legends else {"title": "(Aucune légende)", "content": ""}
-
-    comments = []  # pas encore utilisé
-
-    return render_template(
-        f"legendes_{lang}.html", 
-        lang=lang,
-        page=page,
-        pages=pages,
-        legend_text=legend.get("content", ""),
-        legend_title=legend.get("title", ""),
-        comments=comments
-    )
-
-# --------------------------------------
-#   FORMULAIRE DE COMMENTAIRES (VIDE)
-# --------------------------------------
-
+# -------------------------
+# Commentaires simple (non persistants)
+# -------------------------
+comments_store = []
 @app.route("/<lang>/comment", methods=["POST"])
 def comment_post(lang):
-    return redirect(url_for('legendes', lang=lang))
+    author = request.form.get("author", "Anonyme").strip()
+    text = request.form.get("comment", "").strip()
+    if text:
+        comments_store.append({"lang": lang, "author": author, "text": text})
+        flash("Merci, commentaire enregistré.")
+    return redirect(url_for("legendes", lang=lang))
 
-# -----------------------------
-#        ADMIN SÉCURISÉ
-# -----------------------------
+# -------------------------
+# Admin : éditer + upload image
+# -------------------------
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXT
 
 @app.route("/admin/<lang>", methods=["GET", "POST"])
 def admin(lang):
@@ -121,57 +130,53 @@ def admin(lang):
             flash("Mot de passe incorrect.")
             return redirect(url_for("admin", lang=lang))
 
+        # handle upload image
+        file = request.files.get("image")
+        title_for_image = request.form.get("title_for_image", "").strip()
+        if file and file.filename:
+            if not allowed_file(file.filename):
+                flash("Type de fichier non autorisé (png/jpg/gif/webp).")
+            else:
+                # use title_for_image if provided, else filename base
+                if title_for_image:
+                    base = secure_filename(title_for_image).lower().replace(" ", "_")
+                    ext = file.filename.rsplit(".", 1)[1].lower()
+                    filename = f"{base}.{ext}"
+                else:
+                    filename = secure_filename(file.filename)
+                save_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+                file.save(save_path)
+                flash(f"Image sauvegardée : {filename}")
+
+        # handle legends text
         raw = request.form.get("raw_legends", "")
         texts = []
-
         for block in raw.split("\n\n---\n\n"):
             b = block.strip()
             if not b:
                 continue
-           lines = b.split("\n")
-title = lines[0].strip()
-
-image = ""
-content_lines = []
-
-for line in lines[1:]:
-    if line.startswith("image:"):
-        image = line.replace("image:", "").strip()
-    else:
-        content_lines.append(line)
-
-content = "\n".join(content_lines).strip()
-
+            lines = b.split("\n", 1)
+            title = lines[0].strip()
+            content = lines[1].strip() if len(lines) > 1 else ""
             texts.append({"title": title, "content": content})
-
         save_legend_texts(lang, texts)
         flash("Légendes sauvegardées.")
         return redirect(url_for("legendes", lang=lang))
 
     existing = load_legend_texts(lang)
     raw = "\n\n---\n\n".join([f"{e['title']}\n{e['content']}" for e in existing])
+    return render_template("admin.html", lang=lang, raw_legends=raw)
 
-    return render_template(f"admin_{lang}.html", lang=lang, raw_legends=raw)
-
-# -----------------------------
-#   REDIRECTION RACINE
-# -----------------------------
-
+# -------------------------
+# Root + santé
+# -------------------------
 @app.route("/")
 def root():
     return redirect("/fr/accueil")
 
-# -----------------------------
-#   PROBE POUR RENDER
-# -----------------------------
-
 @app.route("/sante")
 def sante():
     return "ok", 200
-
-# -----------------------------
-#   LANCEMENT LOCAL
-# -----------------------------
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
