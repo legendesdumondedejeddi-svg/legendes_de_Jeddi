@@ -1,6 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}Grimorio — IT{% endblock %}
+
 {% block content %}
-<h2>Grimorio (IT)</h2>
-<p>Pagine antiche e segreti.</p>
+<h2>Grimorio delle Leggende</h2>
+
+<section class="grimoire-area">
+  <div class="parchment-corner">
+    <div class="legend-text">
+      {{ legend_text|default("(Nessuna leggenda al momento)")|safe }}
+    </div>
+  </div>
+
+  <div class="pagination">
+    <a href="/{{ lang }}/legendes?page=prev">← Precedente</a>
+    <a href="/{{ lang }}/legendes?page=next">Successiva →</a>
+  </div>
+</section>
 {% endblock %}

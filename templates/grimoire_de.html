@@ -1,6 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}Grimoire — DE{% endblock %}
+
 {% block content %}
-<h2>Grimoire (DE)</h2>
-<p>Alte Seiten und Geheimnisse.</p>
+<h2>Grimoire der Legenden</h2>
+
+<section class="grimoire-area">
+  <div class="parchment-corner">
+    <div class="legend-text">
+      {{ legend_text|default("(Noch keine Legende)")|safe }}
+    </div>
+  </div>
+
+  <div class="pagination">
+    <a href="/{{ lang }}/legendes?page=prev">← Zurück</a>
+    <a href="/{{ lang }}/legendes?page=next">Weiter →</a>
+  </div>
+</section>
 {% endblock %}
