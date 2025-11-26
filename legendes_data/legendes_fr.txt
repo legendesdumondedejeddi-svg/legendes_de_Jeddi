@@ -1,12 +1,7 @@
-La Légende du Dragon Bleu
-Sous la colline, le Dragon Bleu dormait comme un vieux fou. Ceux qui l’entendaient murmurer trouvaient la clef des rêves.
+Titre de la légende 1
+Voici le texte de la légende 1...
 
 ---
 
-La Fontaine Perdue
-On raconte qu’à minuit la fontaine raconte des vérités anciennes; seul celui qui sait écouter peut boire sans vieillir.
-
----
-
-L'Arbre-Écaille
-Ses feuilles brillent la nuit et chuchotent des cartes. Les voyageurs perdus finissent toujours par lui demander la route.
+Titre de la légende 2
+Voici la suite de la saga...
