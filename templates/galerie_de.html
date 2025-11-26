@@ -2,11 +2,16 @@
 {% block title %}Galerie — DE{% endblock %}
 
 {% block content %}
-<h2 class="galerie-title">📜 Verzauberte Galerie</h2>
+<h2>✨ Bildergalerie</h2>
 
-<div class="galerie-container">
-    <div class="galerie-item"><img src="{{ url_for('static', filename='images/grimoire.png') }}"><p>Altes Zauberbuch</p></div>
-    <div class="galerie-item"><img src="{{ url_for('static', filename='images/licorne.png') }}"><p>Magisches Einhorn</p></div>
-    <div class="galerie-item"><img src="{{ url_for('static', filename='images/parchment_texture.jpg') }}"><p>Pergament</p></div>
+<div class="gallery-grid">
+    {% for image in images %}
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/galerie/' ~ image) }}" alt="">
+        </div>
+    {% else %}
+        <p>Noch keine Bilder.</p>
+    {% endfor %}
 </div>
+
 {% endblock %}
