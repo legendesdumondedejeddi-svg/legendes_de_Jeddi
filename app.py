@@ -1,3 +1,9 @@
+from flask import Flask, render_template, request, redirect, url_for, flash
+import os
+from math import ceil
+
+app = Flask(__name__)
+
 @app.route("/admin/<lang>", methods=["GET","POST"])
 def admin(lang):
     if lang not in LANGS:
