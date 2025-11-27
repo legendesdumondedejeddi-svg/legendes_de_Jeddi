@@ -1,86 +1,53 @@
 body {
-  margin:0;
-  padding:0;
-  font-family: "Georgia", serif;
-  background: url("../static/images/parchment_texture.jpg") center/cover fixed;
-  color:#2c1a0b;
+    margin: 0;
+    padding: 0;
+    font-family: "Book Antiqua", serif;
+    color: #2a1a0a;
+    background: #f4efe6;
 }
 
-.top-banner {
-  text-align:center;
-  padding:20px;
-  background: rgba(255,245,235,0.75);
-  border-bottom: 3px solid #c9a36b;
-  position:relative;
+/* Fond parchemin */
+.background {
+    background-image: url("../static/images/parchment_texture.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
-.banner-unicorn {
-  position:absolute;
-  left:20px;
-  top:10px;
-  width:90px;
-}
-
+/* Menu */
 nav ul {
-  list-style:none;
-  padding:0;
-  display:flex;
-  gap:20px;
-  justify-content:center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
 nav a {
-  text-decoration:none;
-  font-weight:bold;
-  color:#3d2414;
+    text-decoration: none;
+    font-weight: bold;
+    color: #3a250f;
 }
 
-.submenu ul {
-  display:none;
-  position:absolute;
-  background:#fff6e4;
-  padding:10px;
-  border:1px solid #c9a36b;
+.dropdown ul {
+    display: none;
+    position: absolute;
+    background: #f4efe6;
+    padding: 10px;
+    border: 1px solid #cfa96a;
 }
 
-.submenu:hover ul {
-  display:block;
+.dropdown:hover ul {
+    display: block;
 }
 
-main {
-  max-width:900px;
-  margin:30px auto;
-  padding:20px;
-  background: rgba(255,255,255,0.8);
-  border-radius:10px;
-  box-shadow:0 0 18px rgba(0,0,0,0.2);
-}
-
-/*** Galeries ***/
-.gallery-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:18px;
-}
-
-.card img {
-  width:100%;
-  border-radius:8px;
-  transition: transform .4s ease;
-}
-
-.card img:hover {
-  transform:scale(1.05);
-}
-
-/*** Légendes ***/
-.legend-image {
-  max-width:100%;
-  border-radius:12px;
-  margin:10px 0 20px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
-}
-
-.footer-unicorn {
-  width:120px;
+/* Footer licorne */
+.licorne-footer {
+    width: 140px;
 }
