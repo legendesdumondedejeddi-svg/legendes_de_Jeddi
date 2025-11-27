@@ -1,8 +1,18 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 
+# ============================
+# TON MOT DE PASSE ADMIN ICI
+# ============================
+ADMIN_PASSWORD = "1997.Monde-1958-Jeddi.1998"
+UPLOAD_FOLDER = "static/uploads"
+
+# ============================
+# Suite du code normal
+# ============================
 app = Flask(__name__)
-app.config["UPLOAD_FOLDER"] = "static/uploads"
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 LANGS = ["fr", "en", "es", "de", "it"]
