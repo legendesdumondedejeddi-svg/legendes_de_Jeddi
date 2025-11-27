@@ -138,3 +138,11 @@ h2 {
     transform: scale(1.06);
     box-shadow: 0 0 18px rgba(0,0,0,0.5);
 }
+.legende-contenu p:first-child::first-letter {
+    font-size: 58px;
+    float: left;
+    padding-right: 10px;
+    font-weight: bold;
+    line-height: 0.8;
+    color: #5b2d00;
+}
