@@ -26,3 +26,18 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const bouton = document.getElementById("lireLegende");
+    const texte = document.getElementById("texteLegende");
+
+    if (bouton && texte) {
+        bouton.addEventListener("click", () => {
+            const utterance = new SpeechSynthesisUtterance(texte.innerText);
+            utterance.lang = "fr-FR";
+            utterance.rate = 1.0;    // vitesse
+            utterance.pitch = 1.0;   // hauteur
+            speechSynthesis.cancel();
+            speechSynthesis.speak(utterance);
+        });
+    }
+});

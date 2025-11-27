@@ -121,3 +121,20 @@ h2 {
     font-family: "Cormorant Garamond", "Georgia", serif;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
+.btn-lecture {
+    background: linear-gradient(135deg, #b8860b, #d4a017);
+    border: none;
+    padding: 12px 22px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+.btn-lecture:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 18px rgba(0,0,0,0.5);
+}
