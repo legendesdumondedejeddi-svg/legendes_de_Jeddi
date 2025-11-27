@@ -1,65 +1,99 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
-from math import ceil
 
 app = Flask(__name__)
+app.config["UPLOAD_FOLDER"] = "static/uploads"
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 LANGS = ["fr", "en", "es", "de", "it"]
 
-# dossier où les légendes sont stockées
-SAVE_FOLDER = "legendes_data"
-os.makedirs(SAVE_FOLDER, exist_ok=True)
-
-def legend_file(lang):
-    return os.path.join(SAVE_FOLDER, f"legendes_{lang}.txt")
-
+# -------------------------
+# FONCTION : Charger légendes
+# -------------------------
 def load_legends(lang):
-    path = legend_file(lang)
+    path = f"legendes_data/legendes_{lang}.txt"
     if not os.path.exists(path):
         return []
 
+    legends = []
     with open(path, "r", encoding="utf-8") as f:
-        blocks = f.read().split("\n\n---\n\n")
+        blocks = f.read().split("\n---\n")
+        for block in blocks:
+            if block.strip():
+                try:
+                    title, content = block.split("\n", 1)
+                    legends.append({"title": title.strip(), "content": content.strip()})
+                except:
+                    pass
+    return legends
 
-        legends = []
-        for i, block in enumerate(blocks):
-            block = block.strip()
-            if not block:
-                continue
+# -------------------------
+# FONCTION : Sauvegarder légende FR
+# -------------------------
+def save_legend_fr(title, content, image_filename=None):
+    with open("legendes_data/legendes_fr.txt", "a", encoding="utf-8") as f:
+        f.write(f"{title}\n{content}\n---\n")
 
-            lines = block.split("\n", 1)
-            title = lines[0].strip()
-            content = lines[1].strip() if len(lines) > 1 else ""
+# -------------------------
+# ACCUEIL
+# -------------------------
+@app.route("/<lang>/accueil")
+def accueil(lang):
+    if lang not in LANGS:
+        lang = "fr"
+    return render_template(f"accueil_{lang}.html", lang=lang)
 
-            legends.append({
-                "id": i + 1,
-                "title": title,
-                "content": content
-            })
-
-        return legends
-
-def save_legends(lang, legends):
-    path = legend_file(lang)
-
-    with open(path, "w", encoding="utf-8") as f:
-        blocks = []
-        for L in legends:
-            blocks.append(f"{L['title']}\n{L['content']}")
-        f.write("\n\n---\n\n".join(blocks))
-
-# ROUTES
-@app.route("/")
-def root():
-    return redirect("/fr/accueil")
-
+# -------------------------
+# PAGES SIMPLES
+# -------------------------
 @app.route("/<lang>/<page>")
 def pages(lang, page):
     if lang not in LANGS:
         lang = "fr"
     return render_template(f"{page}_{lang}.html", lang=lang)
 
-# PAGE : LÉGENDES
+# -------------------------
+# ADMIN
+# -------------------------
+@app.route("/admin/<lang>", methods=["GET","POST"])
+def admin(lang):
+    if lang not in LANGS:
+        lang = "fr"
+
+    if request.method == "POST":
+        title = request.form["title"]
+        content = request.form["content"]
+
+        # Upload image
+        image_file = request.files["image"]
+        filename = None
+        if image_file and image_file.filename:
+            filename = image_file.filename
+            image_file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+
+        save_legend_fr(title, content)
+
+        return redirect(f"/{lang}/legendes")
+
+    return render_template("admin.html", lang=lang)
+
+# -------------------------
+# GALERIE
+# -------------------------
+@app.route("/<lang>/galerie")
+def galerie(lang):
+    if lang not in LANGS:
+        lang = "fr"
+
+    images = []
+    for filename in os.listdir(app.config["UPLOAD_FOLDER"]):
+        images.append({"filename": filename, "title": filename})
+
+    return render_template("galerie.html", lang=lang, images=images)
+
+# -------------------------
+# LÉGENDES + PAGINATION
+# -------------------------
 @app.route("/<lang>/legendes")
 def legendes(lang):
     if lang not in LANGS:
@@ -68,53 +102,19 @@ def legendes(lang):
     page = int(request.args.get("page", 1))
 
     legends = load_legends(lang)
-    total = len(legends)
-    per_page = 1
-    pages = max(1, ceil(total / per_page))
+    pages = len(legends)
 
-    if page < 1:
-        page = 1
-    if page > pages:
-        page = pages
+    if pages == 0:
+        return render_template("legendes.html", lang=lang,
+                               legend={"title":"Aucune légende","content":"Le grimoire attend tes mots."},
+                               page=1, pages=1)
 
-    index = (page - 1)
+    page = max(1, min(page, pages))
 
-    current = legends[index] if legends else {
-        "title": "(Aucune légende)",
-        "content": ""
-    }
+    return render_template("legendes.html", lang=lang, legend=legends[page-1], page=page, pages=pages)
 
-    return render_template(
-        "legendes.html",
-        lang=lang,
-        legend=current,
-        page=page,
-        pages=pages
-    )
-
-# ADMIN : écrire les légendes
-@app.route("/admin/<lang>", methods=["GET", "POST"])
-def admin(lang):
-    if lang not in LANGS:
-        lang = "fr"
-
-    file_path = legend_file(lang)
-
-    if request.method == "POST":
-        raw = request.form.get("raw_legends", "")
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(raw)
-
-        return redirect(f"/{lang}/legendes")
-
-    # lecture pour affichage
-    if os.path.exists(file_path):
-        with open(file_path, "r", encoding="utf-8") as f:
-            raw = f.read()
-    else:
-        raw = ""
-
-    return render_template("admin.html", lang=lang, raw_legends=raw)
-
+# -------------------------
+# LANCER
+# -------------------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True)
