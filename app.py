@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 LANGS = ["fr", "en", "es", "de", "it"]
 
-# dossier de stockage des légendes
+# dossier où les légendes sont stockées
 SAVE_FOLDER = "legendes_data"
 os.makedirs(SAVE_FOLDER, exist_ok=True)
 
@@ -19,68 +19,102 @@ def load_legends(lang):
         return []
 
     with open(path, "r", encoding="utf-8") as f:
-        raw = f.read().strip()
+        blocks = f.read().split("\n\n---\n\n")
 
-    blocks = raw.split("\n\n---\n\n")
-    legends = []
+        legends = []
+        for i, block in enumerate(blocks):
+            block = block.strip()
+            if not block:
+                continue
 
-    for i, block in enumerate(blocks):
-        if not block.strip():
-            continue
-        lines = block.split("\n", 1)
-        title = lines[0].strip()
-        content = lines[1].strip() if len(lines) > 1 else "[Contenu vide]"
-        legends.append({"id": i+1, "title": title, "content": content})
+            lines = block.split("\n", 1)
+            title = lines[0].strip()
+            content = lines[1].strip() if len(lines) > 1 else ""
 
-    return legends
+            legends.append({
+                "id": i + 1,
+                "title": title,
+                "content": content
+            })
 
+        return legends
 
+def save_legends(lang, legends):
+    path = legend_file(lang)
+
+    with open(path, "w", encoding="utf-8") as f:
+        blocks = []
+        for L in legends:
+            blocks.append(f"{L['title']}\n{L['content']}")
+        f.write("\n\n---\n\n".join(blocks))
+
+# ROUTES
+@app.route("/")
+def root():
+    return redirect("/fr/accueil")
+
+@app.route("/<lang>/<page>")
+def pages(lang, page):
+    if lang not in LANGS:
+        lang = "fr"
+    return render_template(f"{page}_{lang}.html", lang=lang)
+
+# PAGE : LÉGENDES
 @app.route("/<lang>/legendes")
 def legendes(lang):
     if lang not in LANGS:
         lang = "fr"
 
-    # pagination
     page = int(request.args.get("page", 1))
+
     legends = load_legends(lang)
-
     total = len(legends)
-    pages = max(1, ceil(total))
+    per_page = 1
+    pages = max(1, ceil(total / per_page))
 
-    if page < 1: page = 1
-    if page > total: page = total
+    if page < 1:
+        page = 1
+    if page > pages:
+        page = pages
 
-    legend = legends[page - 1] if legends else {"title": "Aucune légende", "content": ""}
+    index = (page - 1)
+
+    current = legends[index] if legends else {
+        "title": "(Aucune légende)",
+        "content": ""
+    }
 
     return render_template(
         "legendes.html",
         lang=lang,
+        legend=current,
         page=page,
-        pages=total,
-        legend=legend
+        pages=pages
     )
 
+# ADMIN : écrire les légendes
+@app.route("/admin/<lang>", methods=["GET", "POST"])
+def admin(lang):
+    if lang not in LANGS:
+        lang = "fr"
 
-@app.route("/")
-def root():
-    return redirect("/fr/accueil")
+    file_path = legend_file(lang)
 
+    if request.method == "POST":
+        raw = request.form.get("raw_legends", "")
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(raw)
 
-# pages classiques
-PAGES = ["accueil", "apropos", "jeddi", "galerie", "grimoire", "don"]
+        return redirect(f"/{lang}/legendes")
 
-for lang in LANGS:
-    for page in PAGES:
-        route = f"/{lang}/{page}"
-        tpl = f"{page}_{lang}.html"
+    # lecture pour affichage
+    if os.path.exists(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            raw = f.read()
+    else:
+        raw = ""
 
-        def make_route(tpl=tpl, lg=lang):
-            def route_func():
-                return render_template(tpl, lang=lg)
-            return route_func
-
-        app.add_url_rule(route, f"{page}_{lang}", make_route())
-
+    return render_template("admin.html", lang=lang, raw_legends=raw)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
