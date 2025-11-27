@@ -5,6 +5,11 @@ body {
 	font-size: 22px;
     color: #2a1a0a;
     background: #f4efe6;
+	h1, h2, h3 {
+    font-size: 32px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
 }
 
 /* Fond parchemin */
