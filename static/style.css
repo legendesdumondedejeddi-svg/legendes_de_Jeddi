@@ -66,3 +66,43 @@ nav a {
     0%   { left: -200px; }
     100% { left: 110%; }
 }
+/* ------------------------------------------------ */
+/*   TYPOGRAPHIE MAGIQUE MAIS LISIBLE               */
+/* ------------------------------------------------ */
+
+body {
+    font-size: 22px;              /* Texte normal */
+    line-height: 1.7;
+    font-family: "Georgia", serif;
+    color: #2b1c0f;
+}
+
+/* Titres généraux */
+h1, h2 {
+    font-size: 30px;
+    font-family: "Trajan Pro", "Georgia", serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
+/* Pour être encore plus joli */
+h1 {
+    margin-bottom: 20px;
+}
+h2 {
+    margin-bottom: 16px;
+}
+
+/* ------------------------------------------- */
+/*   STYLE SPÉCIAL POUR LES LÉGENDES           */
+/* ------------------------------------------- */
+
+.legende-contenu {
+    font-size: 24px;              /* Texte des légendes */
+    line-height: 1.8;
+    white-space: pre-line;        /* Respecte chaque retour à la ligne */
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 248, 230, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
