@@ -1,18 +1,17 @@
 {% extends "layout.html" %}
-{% block title %}Légendes — {{ lang.upper() }}{% endblock %}
+{% block title %}Légendes — {{ lang }}{% endblock %}
 {% block content %}
 
 <h2>{{ legend.title }}</h2>
-
 <p>{{ legend.content }}</p>
 
-<div style="margin-top:20px;">
+<div class="pagination">
     {% if page > 1 %}
-    <a href="/{{ lang }}/legendes?page={{ page-1 }}">⬅ Légende précédente</a>
+        <a href="/{{ lang }}/legendes?page={{ page-1 }}">⬅ Précédent</a>
     {% endif %}
 
     {% if page < pages %}
-    <a href="/{{ lang }}/legendes?page={{ page+1 }}" style="float:right;">Légende suivante ➡</a>
+        <a href="/{{ lang }}/legendes?page={{ page+1 }}">Suivant ➡</a>
     {% endif %}
 </div>
 
