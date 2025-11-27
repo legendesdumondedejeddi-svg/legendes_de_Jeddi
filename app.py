@@ -65,33 +65,36 @@ def pages(lang, page):
 # -------------------------
 # ADMIN
 # -------------------------
-@app.route("/admin/<lang>", methods=["GET","POST"])
+@app.route("/admin/<lang>", methods=["GET", "POST"])
 def admin(lang):
-    if lang not in LANGS:
-        lang = "fr"
-
-    # Vérifier mot de passe
-    if request.args.get("key") != ADMIN_PASSWORD:
-        return "<h1>Accès refusé</h1><p>1997.Monde-1958-Jeddi.1998.</p>"
-
     if request.method == "POST":
-        title = request.form["title"]
-        content = request.form["content"]
+        pwd = request.form.get("password","")
+        if pwd != ADMIN_JEDDI_PASSWORD:
+            return "Accès refusé", 403
 
-        # Upload image
-        image_file = request.files["image"]
-        filename = None
-        if image_file and image_file.filename:
-            filename = image_file.filename
-            image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-            image_file.save(image_path)
+        # ici l'enregistrement des légendes
+        titre = request.form.get("titre", "")
+        texte = request.form.get("texte", "")
+        image_filename = None
 
-        # Sauvegarde
-        save_legend_fr(title, content)
+        # image upload
+        if "image" in request.files:
+            image = request.files["image"]
+            if image and allowed_file(image.filename):
+                filename = secure_filename(image.filename)
+                image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+                image_filename = filename
 
-        return redirect(f"/{lang}/legendes")
+        # écriture dans fichier
+        target_file = f"legendes_data/legendes_{lang}.txt"
+        with open(target_file, "a", encoding="utf-8") as f:
+            f.write(titre + "\n")
+            if image_filename:
+                f.write(f"==image:{image_filename}==\n")
+            f.write(texte + "\n\n---\n\n")
 
     return render_template("admin.html", lang=lang)
+
 
 
 # -------------------------
