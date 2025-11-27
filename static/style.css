@@ -47,7 +47,15 @@ nav a {
     display: block;
 }
 
-/* Footer licorne */
-.licorne-footer {
-    width: 140px;
+.footer-licorne {
+    position: fixed;
+    bottom: 10px;
+    left: -200px;
+    width: 150px;
+    animation: licorne-run 12s linear infinite;
+}
+
+@keyframes licorne-run {
+    0%   { left: -200px; }
+    100% { left: 110%; }
 }
