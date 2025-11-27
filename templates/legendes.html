@@ -1,17 +1,26 @@
 {% extends "layout.html" %}
-{% block title %}Légendes — {{ lang }}{% endblock %}
+{% block title %}Légende{% endblock %}
+
 {% block content %}
 
 <h2>{{ legend.title }}</h2>
-<p>{{ legend.content }}</p>
 
+<!-- Bouton pour écouter la légende -->
+<button id="lireLegende" class="btn-lecture">🎤 Écouter cette légende</button>
+
+<!-- Contenu de la légende -->
+<div class="legende-contenu" id="texteLegende">
+    {{ legend.text | safe }}
+</div>
+
+<!-- Pagination simple -->
 <div class="pagination">
     {% if page > 1 %}
-        <a href="/{{ lang }}/legendes?page={{ page-1 }}">⬅ Précédent</a>
+        <a href="/{{ lang }}/legendes?page={{ page - 1 }}">&larr; Page précédente</a>
     {% endif %}
 
     {% if page < pages %}
-        <a href="/{{ lang }}/legendes?page={{ page+1 }}">Suivant ➡</a>
+        <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Page suivante &rarr;</a>
     {% endif %}
 </div>
 
