@@ -60,6 +60,10 @@ def admin(lang):
     if lang not in LANGS:
         lang = "fr"
 
+    # Vérifier mot de passe
+    if request.args.get("key") != ADMIN_PASSWORD:
+        return "<h1>Accès refusé</h1><p>1997.Monde-1958-Jeddi.1998.</p>"
+
     if request.method == "POST":
         title = request.form["title"]
         content = request.form["content"]
@@ -69,13 +73,16 @@ def admin(lang):
         filename = None
         if image_file and image_file.filename:
             filename = image_file.filename
-            image_file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            image_file.save(image_path)
 
+        # Sauvegarde
         save_legend_fr(title, content)
 
         return redirect(f"/{lang}/legendes")
 
     return render_template("admin.html", lang=lang)
+
 
 # -------------------------
 # GALERIE
