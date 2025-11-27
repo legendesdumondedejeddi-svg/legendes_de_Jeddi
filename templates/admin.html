@@ -1,14 +1,48 @@
 {% extends "layout.html" %}
-{% block title %}Admin — Légendes ({{ lang.upper() }}){% endblock %}
+{% block title %}Admin enchanté{% endblock %}
+
 {% block content %}
+<h2>✨ Administration des Légendes</h2>
 
-<h2>Administration des légendes — {{ lang.upper() }}</h2>
+<p>Bienvenue, gardien des récits. Ici, tu peux écrire, modifier et enchanter les légendes.</p>
 
-<form method="POST">
-    <label>Écrire ou modifier vos légendes :</label><br>
-    <textarea name="raw_legends" rows="20" style="width:100%;">{{ raw_legends }}</textarea>
-    <br><br>
-    <button type="submit">💾 Enregistrer</button>
+<form method="POST" enctype="multipart/form-data" class="admin-form">
+
+    <label>Titre de la légende :</label>
+    <input type="text" name="title" required>
+
+    <label>Texte de la légende :</label>
+    <textarea name="content" rows="10" required></textarea>
+
+    <label>Image liée (optionnel) :</label>
+    <input type="file" name="image">
+
+    <button type="submit">✨ Enregistrer la légende</button>
 </form>
+
+<style>
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%;
+    margin: auto;
+}
+
+.admin-form input, .admin-form textarea {
+    padding: 10px;
+    border: 2px solid #cfa96a;
+    background: #fff7e6;
+    font-family: "Book Antiqua";
+}
+
+.admin-form button {
+    padding: 10px;
+    font-size: 18px;
+    background: #d6b06e;
+    border: none;
+    cursor: pointer;
+}
+</style>
 
 {% endblock %}

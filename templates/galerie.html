@@ -1,20 +1,43 @@
 {% extends "layout.html" %}
-{% block title %}Galerie{% endblock %}
+{% block title %}Galerie magique{% endblock %}
+
 {% block content %}
+<h2>✨ Galerie des Légendes</h2>
 
-<h2>Galerie magique</h2>
-
-{% if images %}
-<div class="gallery-grid">
-    {% for im in images %}
-    <figure class="card">
-        <img src="{{ url_for('static', filename=im) }}">
-        <figcaption>{{ im.split('/')[-1] }}</figcaption>
-    </figure>
+<div class="galerie">
+    {% for img in images %}
+        <div class="galerie-item">
+            <img src="{{ url_for('static', filename='uploads/' + img.filename) }}" alt="">
+            <p>{{ img.title }}</p>
+        </div>
     {% endfor %}
 </div>
-{% else %}
-<p>Aucune image pour l’instant.</p>
-{% endif %}
+
+<style>
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.galerie-item {
+    text-align: center;
+    background: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #bfa27a;
+    transition: transform 0.3s;
+}
+
+.galerie-item:hover {
+    transform: scale(1.05);
+}
+
+.galerie-item img {
+    width: 100%;
+    border-radius: 10px;
+} 
+</style>
 
 {% endblock %}
