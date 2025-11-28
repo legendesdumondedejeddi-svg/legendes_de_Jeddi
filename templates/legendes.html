@@ -3,46 +3,48 @@
 
 {% block content %}
 
+{% if legend %}
+
 <h2>{{ legend.title }}</h2>
 
 {% if legend.image %}
-<img src="{{ url_for('static', filename='uploads/' ~ legend.image) }}" 
-     class="legende-image"
-     alt="Illustration de la légende">
+    <img src="{{ url_for('static', filename='uploads/' + legend.image) }}"
+         alt="Illustration"
+         class="legende-image">
 {% endif %}
 
 <div class="legende-contenu">
-    {{ legend.content | safe }}
+    {{ legend.content }}
 </div>
 
 <div class="pagination">
     {% if page > 1 %}
-        <a href="/{{ lang }}/legendes?page={{ page - 1 }}">← Précédente</a>
+        <a href="/{{ lang }}/legendes?page={{ page - 1 }}">← Légende précédente</a>
     {% endif %}
-
     {% if page < pages %}
-        <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Suivante →</a>
+        <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Légende suivante →</a>
     {% endif %}
 </div>
 
+{% else %}
+<p>Aucune légende pour le moment.</p>
+{% endif %}
+
 <style>
 .legende-image {
+    width: 60%;
+    max-width: 500px;
     display: block;
-    max-width: 60%;
     margin: 20px auto;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    border: 3px solid #cfa96a;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 .pagination {
     margin-top: 25px;
+    text-align: center;
     display: flex;
     justify-content: space-between;
-    font-size: 22px;
-}
-.pagination a {
-    text-decoration: none;
-    color: #5b2d00;
-    font-weight: bold;
 }
 </style>
 

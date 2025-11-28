@@ -2,72 +2,49 @@
 {% block title %}Admin enchanté{% endblock %}
 
 {% block content %}
-
 <h2>✨ Administration des Légendes</h2>
 
-<p>Bienvenue, gardien des récits. Ici tu peux écrire, illustrer et enchanter les légendes.</p>
+<p>Bienvenue, gardien des récits. Ici tu peux écrire et enchanter les légendes.</p>
 
 <form method="POST" enctype="multipart/form-data" class="admin-form">
 
-    <label for="titre">Titre de la légende :</label>
-    <input type="text" id="titre" name="titre" required>
+    <label>Titre de la légende :</label>
+    <input type="text" name="titre" required>
 
-    <label for="texte">Texte de la légende :</label>
-    <textarea id="texte" name="texte" rows="10" required></textarea>
+    <label>Texte de la légende :</label>
+    <textarea name="texte" rows="10" required></textarea>
 
-    <label for="image">Image liée (optionnel) :</label>
-    <input type="file" id="image" name="image">
+    <label>Image liée (optionnel) :</label>
+    <input type="file" name="image">
 
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required>
+    <label>Mot de passe :</label>
+    <input type="password" name="password" required>
 
-    <button type="submit" class="btn-admin">✨ Enregistrer la légende</button>
+    <button type="submit">✨ Enregistrer la légende</button>
 </form>
 
 <style>
 .admin-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
     width: 80%;
-    margin: 30px auto;
-    background: rgba(255, 250, 235, 0.9);
-    border: 2px solid #d4b06e;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    margin: auto;
 }
 
-.admin-form label {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.admin-form input,
-.admin-form textarea {
+.admin-form input, .admin-form textarea {
     padding: 10px;
     border: 2px solid #cfa96a;
     background: #fff7e6;
     font-family: "Georgia", serif;
+}
+
+.admin-form button {
+    padding: 10px;
     font-size: 18px;
-    border-radius: 6px;
-}
-
-.btn-admin {
-    padding: 12px;
-    font-size: 20px;
-    background: linear-gradient(135deg, #d6b06e, #f0d49a);
+    background: #d6b06e;
     border: none;
-    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    transition: 0.25s;
-}
-
-.btn-admin:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 18px rgba(0,0,0,0.4);
 }
 </style>
 

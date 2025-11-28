@@ -2,36 +2,30 @@
 {% block title %}Galerie magique{% endblock %}
 
 {% block content %}
-<h2>🌙 Galerie Magique</h2>
-<p>Voici toutes les images associées aux légendes.</p>
+<h2>✨ Galerie des Images ✨</h2>
 
-<div class="galerie-container">
+<div class="galerie">
     {% for img in images %}
         <div class="galerie-item">
-            <img src="{{ url_for('static', filename='uploads/' + img) }}" alt="image">
+            <img src="{{ url_for('static', filename='uploads/' + img) }}" alt="{{ img }}">
         </div>
     {% endfor %}
 </div>
 
 <style>
-.galerie-container {
+.galerie {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 20px;
+    justify-content: center;
 }
 
 .galerie-item img {
-    width: 250px;
-    border: 4px solid #cfa96a;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
-}
-
-.galerie-item img:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    width: 260px;
+    height: auto;
+    border: 3px solid #cfa96a;
+    box-shadow: 0 0 12px rgba(0,0,0,0.25);
+    border-radius: 6px;
 }
 </style>
 
