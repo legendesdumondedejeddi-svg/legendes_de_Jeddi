@@ -2,13 +2,8 @@ La Licorne de Cristal
 ==image:licorne.png==
 Voici une légende de test.
 Elle devrait enfin s’afficher correctement.
-
 ---
-
 Le Chant du Grimoire
 ==image:grimoire.png==
 Une autre légende pour vérifier que tout marche.
-
 ---
-
-
