@@ -1,102 +1,106 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 
-# --------------------------------------------------------
-# CONFIGURATION GÉNÉRALE
-# --------------------------------------------------------
+# ----------------------------------------------------
+# CONFIGURATION
+# ----------------------------------------------------
 ADMIN_PASSWORD = "1997.Monde-1958-Jeddi.1998"
-LANGS = ["fr", "en", "es", "de", "it"]
 
 UPLOAD_FOLDER = "static/uploads"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 
+LANGS = ["fr", "en", "es", "de", "it"]
+
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Création des dossiers si manquants (sans erreur si existant)
-os.makedirs("legendes_data", exist_ok=True)
-os.makedirs("static/uploads", exist_ok=True)
+# Ne crée PAS le dossier si déjà existant (Render déteste)
+if not os.path.isdir(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# --------------------------------------------------------
-# Vérifier si fichier autorisé
-# --------------------------------------------------------
+# ----------------------------------------------------
+# OUTIL : extensions autorisées
+# ----------------------------------------------------
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# --------------------------------------------------------
-# Charger les légendes
-# --------------------------------------------------------
+# ----------------------------------------------------
+# FORMAT DES LÉGENDES
+# ----------------------------------------------------
+SEPARATOR = "\n---\n"
+
 def load_legends(lang):
+    """Lit legendes_data/legendes_<lang>.txt et retourne une liste."""
     path = f"legendes_data/legendes_{lang}.txt"
+
     if not os.path.exists(path):
         return []
 
-    legends = []
-
     with open(path, "r", encoding="utf-8") as f:
-        blocks = f.read().strip().split("---")
+        raw = f.read().strip()
 
-        for block in blocks:
-            b = block.strip()
-            if not b:
-                continue
+    if not raw:
+        return []
 
-            lines = b.split("\n")
-            title = lines[0].strip()
+    blocks = [b.strip() for b in raw.split(SEPARATOR) if b.strip()]
 
-            image = None
-            content_lines = []
+    legends = []
+    for block in blocks:
+        lines = block.split("\n")
+        title = lines[0].strip()
+        image = None
+        content_lines = []
 
-            for line in lines[1:]:
-                if line.startswith("==image:") and line.endswith("=="):
-                    image = line.replace("==image:", "").replace("==", "").strip()
-                else:
-                    content_lines.append(line)
+        for line in lines[1:]:
+            if line.startswith("==image:") and line.endswith("=="):
+                image = line.replace("==image:", "").replace("==", "").strip()
+            else:
+                content_lines.append(line)
 
-            legends.append({
-                "title": title,
-                "content": "\n".join(content_lines).strip(),
-                "image": image
-            })
+        content = "\n".join(content_lines).strip()
+        legends.append({
+            "title": title,
+            "content": content,
+            "image": image
+        })
 
     return legends
 
-# --------------------------------------------------------
-# Sauvegarder une légende
-# --------------------------------------------------------
+
 def save_legend(lang, title, content, image_filename=None):
+    """Sauvegarde une nouvelle légende."""
+    os.makedirs("legendes_data", exist_ok=True)
     path = f"legendes_data/legendes_{lang}.txt"
 
     with open(path, "a", encoding="utf-8") as f:
-        f.write(title + "\n")
+        f.write(title.strip() + "\n")
         if image_filename:
             f.write(f"==image:{image_filename}==\n")
-        f.write(content + "\n\n---\n\n")
+        f.write(content.strip() + "\n")
+        f.write(SEPARATOR)
 
-# --------------------------------------------------------
-# ACCUEIL
-# --------------------------------------------------------
+# ----------------------------------------------------
+# ROUTES
+# ----------------------------------------------------
+
 @app.route("/<lang>/accueil")
 def accueil(lang):
     if lang not in LANGS:
         lang = "fr"
     return render_template(f"accueil_{lang}.html", lang=lang)
 
-# --------------------------------------------------------
-# PAGES SIMPLES (apropos, jeddi, galerie, etc.)
-# --------------------------------------------------------
+
 @app.route("/<lang>/<page>")
 def pages(lang, page):
     if lang not in LANGS:
         lang = "fr"
-
     return render_template(f"{page}_{lang}.html", lang=lang)
 
-# --------------------------------------------------------
-# PAGE ADMIN
-# --------------------------------------------------------
-@app.route("/admin/<lang>", methods=["GET", "POST"])
+# ----------------------------------------------------
+# ADMIN
+# ----------------------------------------------------
+@app.route("/admin/<lang>", methods=["GET","POST"])
 def admin(lang):
     if lang not in LANGS:
         lang = "fr"
@@ -111,37 +115,37 @@ def admin(lang):
 
         image_filename = None
 
-        # Enregistrement image si fournie
+        # Upload de l'image
         if "image" in request.files:
             image = request.files["image"]
             if image and allowed_file(image.filename):
                 filename = secure_filename(image.filename)
-                image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+                filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+                image.save(filepath)
                 image_filename = filename
 
         save_legend(lang, title, content, image_filename)
 
     return render_template("admin.html", lang=lang)
 
-# --------------------------------------------------------
+# ----------------------------------------------------
 # GALERIE
-# --------------------------------------------------------
+# ----------------------------------------------------
 @app.route("/<lang>/galerie")
 def galerie(lang):
     if lang not in LANGS:
         lang = "fr"
 
-    # lister images
-    images = [
-        f for f in os.listdir(UPLOAD_FOLDER)
-        if f.lower().split(".")[-1] in ALLOWED_EXTENSIONS
-    ]
+    images = []
+    for filename in os.listdir(UPLOAD_FOLDER):
+        if filename.lower().split(".")[-1] in ALLOWED_EXTENSIONS:
+            images.append(filename)
 
     return render_template("galerie.html", lang=lang, images=images)
 
-# --------------------------------------------------------
-# LÉGENDES + PAGINATION
-# --------------------------------------------------------
+# ----------------------------------------------------
+# LÉGENDES
+# ----------------------------------------------------
 @app.route("/<lang>/legendes")
 def legendes(lang):
     if lang not in LANGS:
@@ -151,25 +155,23 @@ def legendes(lang):
     total = len(legends)
 
     page = int(request.args.get("page", 1))
-
     if total == 0:
-        return render_template("legendes.html", lang=lang, legend=None, page=1, pages=1)
+        return render_template("legendes.html",
+                               lang=lang,
+                               legend=None,
+                               page=1,
+                               pages=1)
 
-    if page < 1:
-        page = 1
-    if page > total:
-        page = total
-
-    legend = legends[page - 1]
+    page = max(1, min(page, total))
 
     return render_template("legendes.html",
                            lang=lang,
-                           legend=legend,
+                           legend=legends[page-1],
                            page=page,
                            pages=total)
 
-# --------------------------------------------------------
-# RUN LOCAL
-# --------------------------------------------------------
+# ----------------------------------------------------
+# RUN
+# ----------------------------------------------------
 if __name__ == "__main__":
     app.run(debug=True)
