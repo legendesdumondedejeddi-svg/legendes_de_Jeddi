@@ -23,17 +23,40 @@ LANGS = ["fr", "en", "es", "de", "it"]
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# ================================
-# CHARGER LÉGENDES
-# ================================
-def load_legends(lang):
+#def load_legends(lang):
     path = f"legendes_data/legendes_{lang}.txt"
     if not os.path.exists(path):
         return []
 
     legends = []
     with open(path, "r", encoding="utf-8") as f:
-        blocks = f.read().split("\n---\n")
+
+        blocks = f.read().strip().split("---")   # <-- LIGNE MAGIQUE
+
+        for block in blocks:
+            b = block.strip()
+            if not b:
+                continue
+
+            lines = b.split("\n")
+            title = lines[0].strip()
+            image = None
+            content_lines = []
+
+            for line in lines[1:]:
+                if line.startswith("==image:") and line.endswith("=="):
+                    image = line.replace("==image:", "").replace("==", "").strip()
+                else:
+                    content_lines.append(line)
+
+            legends.append({
+                "title": title,
+                "content": "\n".join(content_lines).strip(),
+                "image": image
+            })
+
+    return legends
+
         for block in blocks:
             block = block.strip()
             if not block:
