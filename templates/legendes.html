@@ -1,27 +1,49 @@
 {% extends "layout.html" %}
-{% block title %}Légende{% endblock %}
+{% block title %}Légendes{% endblock %}
 
 {% block content %}
 
 <h2>{{ legend.title }}</h2>
 
-<!-- Bouton pour écouter la légende -->
-<button id="lireLegende" class="btn-lecture">🎤 Écouter cette légende</button>
+{% if legend.image %}
+<img src="{{ url_for('static', filename='uploads/' ~ legend.image) }}" 
+     class="legende-image"
+     alt="Illustration de la légende">
+{% endif %}
 
-<!-- Contenu de la légende -->
-<div class="legende-contenu" id="texteLegende">
-    {{ legend.text | safe }}
+<div class="legende-contenu">
+    {{ legend.content | safe }}
 </div>
 
-<!-- Pagination simple -->
 <div class="pagination">
     {% if page > 1 %}
-        <a href="/{{ lang }}/legendes?page={{ page - 1 }}">&larr; Page précédente</a>
+        <a href="/{{ lang }}/legendes?page={{ page - 1 }}">← Précédente</a>
     {% endif %}
 
     {% if page < pages %}
-        <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Page suivante &rarr;</a>
+        <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Suivante →</a>
     {% endif %}
 </div>
+
+<style>
+.legende-image {
+    display: block;
+    max-width: 60%;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+.pagination {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+}
+.pagination a {
+    text-decoration: none;
+    color: #5b2d00;
+    font-weight: bold;
+}
+</style>
 
 {% endblock %}
