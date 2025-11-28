@@ -1,18 +1,15 @@
+/* ------------------------------------------------ */
+/*  FOND PARCHEMIN                                   */
+/* ------------------------------------------------ */
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Georgia", serif;
-	font-size: 22px;
+    font-size: 22px;
     color: #2a1a0a;
-    background: #f4efe6;
-	h1, h2, h3 {
-    font-size: 32px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-}
-
-/* Fond parchemin */
 .background {
     background-image: url("../static/images/parchment_texture.jpg");
     background-size: cover;
@@ -26,7 +23,20 @@ body {
     z-index: -1;
 }
 
-/* Menu */
+/* ------------------------------------------------ */
+/*  TITRES                                           */
+/* ------------------------------------------------ */
+
+h1, h2 {
+    font-size: 30px;
+    font-family: "Georgia", serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
+/* ------------------------------------------------ */
+/*  MENU                                             */
+/* ------------------------------------------------ */
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -53,7 +63,10 @@ nav a {
     display: block;
 }
 
-/* LICORNE ANIMÉE */
+/* ------------------------------------------------ */
+/*  LICORNE ANIMÉE                                   */
+/* ------------------------------------------------ */
+
 .footer-licorne {
     position: fixed;
     bottom: 10px;
@@ -66,49 +79,20 @@ nav a {
     0%   { left: -200px; }
     100% { left: 110%; }
 }
+
 /* ------------------------------------------------ */
-/*   TYPOGRAPHIE MAGIQUE MAIS LISIBLE               */
+/*  LETTRINE ET LÉGENDES                             */
 /* ------------------------------------------------ */
-
-body {
-    font-size: 22px;              /* Texte normal */
-    line-height: 1.7;
-    font-family: "Georgia", serif;
-    color: #2b1c0f;
-}
-
-/* Titres généraux */
-h1, h2 {
-    font-size: 30px;
-    font-family: "Trajan Pro", "Georgia", serif;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-}
-
-/* Pour être encore plus joli */
-h1 {
-    margin-bottom: 20px;
-}
-h2 {
-    margin-bottom: 16px;
-}
-
-/* ------------------------------------------- */
-/*   STYLE SPÉCIAL POUR LES LÉGENDES           */
-/* ------------------------------------------- */
 
 .legende-contenu {
-    font-size: 24px;              /* Texte des légendes */
+    font-size: 24px;
     line-height: 1.8;
-    white-space: pre-line;        /* Respecte chaque retour à la ligne */
-    margin-top: 20px;
+    white-space: pre-line;
     padding: 20px;
     background: rgba(255, 248, 230, 0.8);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.25);
 }
-/* ---------------------------------------------------------------- */
-/* LETTRINE AUTOMATIQUE EN MODE GRIMOIRE ANCIEN                     */
-/* ---------------------------------------------------------------- */
 
 .legende-contenu p:first-child::first-letter {
     font-size: 58px;
@@ -118,9 +102,12 @@ h2 {
     padding-right: 12px;
     padding-top: 4px;
     color: #5b2d00;
-    font-family: "Cormorant Garamond", "Georgia", serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
+
+/* ------------------------------------------------ */
+/*  BOUTON LECTURE                                   */
+/* ------------------------------------------------ */
+
 .btn-lecture {
     background: linear-gradient(135deg, #b8860b, #d4a017);
     border: none;
@@ -134,15 +121,8 @@ h2 {
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     transition: 0.3s;
 }
+
 .btn-lecture:hover {
     transform: scale(1.06);
     box-shadow: 0 0 18px rgba(0,0,0,0.5);
-}
-.legende-contenu p:first-child::first-letter {
-    font-size: 58px;
-    float: left;
-    padding-right: 10px;
-    font-weight: bold;
-    line-height: 0.8;
-    color: #5b2d00;
 }
