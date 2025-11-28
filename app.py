@@ -22,16 +22,15 @@ LANGS = ["fr", "en", "es", "de", "it"]
 # ================================
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
-
-#def load_legends(lang):
+def load_legends(lang):
     path = f"legendes_data/legendes_{lang}.txt"
     if not os.path.exists(path):
         return []
 
     legends = []
-    with open(path, "r", encoding="utf-8") as f:
 
-        blocks = f.read().strip().split("---")   # <-- LIGNE MAGIQUE
+    with open(path, "r", encoding="utf-8") as f:
+        blocks = f.read().strip().split("---")
 
         for block in blocks:
             b = block.strip()
@@ -57,26 +56,6 @@ def allowed_file(filename):
 
     return legends
 
-        for block in blocks:
-            block = block.strip()
-            if not block:
-                continue
-
-            lines = block.split("\n")
-            title = lines[0]
-            image = None
-            content_lines = []
-
-            for line in lines[1:]:
-                if line.startswith("==image:"):
-                    image = line.replace("==image:", "").replace("==", "").strip()
-                else:
-                    content_lines.append(line)
-
-            content = "\n".join(content_lines).strip()
-            legends.append({"title": title, "content": content, "image": image})
-
-    return legends
 
 # ================================
 # SAUVEGARDER LÉGENDE FR
