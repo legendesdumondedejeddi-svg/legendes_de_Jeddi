@@ -4,18 +4,21 @@
 {% block content %}
 <h2>✨ Administration des Légendes</h2>
 
-<p>Bienvenue, gardien des récits. Ici, tu peux écrire, modifier et enchanter les légendes.</p>
+<p>Bienvenue, gardien des récits. Ici tu peux écrire et enchanter les légendes.</p>
 
 <form method="POST" enctype="multipart/form-data" class="admin-form">
 
     <label>Titre de la légende :</label>
-    <input type="text" name="title" required>
+    <input type="text" name="titre" required>
 
     <label>Texte de la légende :</label>
-    <textarea name="content" rows="10" required></textarea>
+    <textarea name="texte" rows="10" required></textarea>
 
     <label>Image liée (optionnel) :</label>
     <input type="file" name="image">
+
+    <label>Mot de passe :</label>
+    <input type="password" name="password" required>
 
     <button type="submit">✨ Enregistrer la légende</button>
 </form>
@@ -33,7 +36,7 @@
     padding: 10px;
     border: 2px solid #cfa96a;
     background: #fff7e6;
-    font-family: "Book Antiqua";
+    font-family: "Georgia", serif;
 }
 
 .admin-form button {
