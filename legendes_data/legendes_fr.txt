@@ -1,7 +1,14 @@
-Titre de la légende 1
-Texte texte texte...
+La Licorne de Cristal
+==image:licorne.png==
+Voici une légende de test.
+Elle devrait enfin s’afficher correctement.
 
 ---
 
-Titre 2
-Suite...
+Le Chant du Grimoire
+==image:grimoire.png==
+Une autre légende pour vérifier que tout marche.
+
+---
+
+
