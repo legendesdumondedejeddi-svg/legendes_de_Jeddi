@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block title %}Légendes — {{ lang|upper }}{% endblock %}
+
+{% block content %}
+<section class="legende-wrapper">
+    {% if legend %}
+        <h2 class="legende-title">{{ legend.title }}</h2>
+
+        {% if legend.image %}
+            <img class="legende-image" src="{{ url_for('static', filename='uploads/' + legend.image) }}" alt="Illustration">
+        {% endif %}
+
+        <div class="legende-contenu">
+            <!-- preserve line breaks -->
+            {{ legend.content | e | replace('\n','<br>') | safe }}
+        </div>
+
+        <div class="pagination">
+            {% if page > 1 %}
+                <a class="page-link" href="/{{ lang }}/legendes?page={{ page - 1 }}">← Légende précédente</a>
+            {% else %}
+                <span></span>
+            {% endif %}
+            <span class="page-info">Page {{ page }} / {{ pages }}</span>
+            {% if page < pages %}
+                <a class="page-link" href="/{{ lang }}/legendes?page={{ page + 1 }}">Légende suivante →</a>
+            {% else %}
+                <span></span>
+            {% endif %}
+        </div>
+
+        <div class="tts-actions">
+            <button id="read-btn" class="btn-lecture">🔊 Lire la légende</button>
+        </div>
+
+    {% else %}
+        <h2>Aucune légende</h2>
+        <p>Le grimoire attend tes mots. Va dans l'administration pour en ajouter une.</p>
+    {% endif %}
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    const btn = document.getElementById("read-btn");
+    if(btn){
+        btn.addEventListener("click", function(){
+            const title = "{{ legend.title | replace('"', '\\"') if legend else '' }}";
+            const text = ` ${"{{ legend.content | e | replace('\n',' ') | replace('"','\\\"') }}"}`;
+            const utter = new SpeechSynthesisUtterance(title + ". " + text);
+            utter.rate = 0.95;
+            utter.pitch = 1;
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utter);
+        });
+    }
+});
+</script>
+
+<style>
+.legende-wrapper{max-width:900px;margin:20px auto;padding:18px;background:rgba(255,249,230,.9);border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.legende-title{font-size:30px;margin-bottom:12px}
+.legende-image{display:block;margin:16px auto;max-width:80%;border:4px solid #d6b06e;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.legende-contenu{font-size:22px;line-height:1.7;margin-top:12px;white-space:pre-wrap}
+.pagination{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.page-link{background:#e6c288;padding:8px 14px;border-radius:8px;color:#2b170b;text-decoration:none}
+.page-info{font-weight:bold}
+.btn-lecture{background:linear-gradient(135deg,#b8860b,#d4a017);padding:10px 14px;border-radius:8px;color:#fff;border:none;cursor:pointer}
+</style>
+{% endblock %}
