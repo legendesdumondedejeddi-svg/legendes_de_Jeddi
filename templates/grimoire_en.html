@@ -1,28 +1,6 @@
 {% extends "layout.html" %}
-{% block title %}Grimoire — EN{% endblock %}
-
+{% block title %}Grimoire{% endblock %}
 {% block content %}
-
-<h2>Prologue to the Grimoire of Legends</h2>
-
-<p>
-Prologue to the Grimoire of Legends
-At the threshold of the world, where dawn still hesitates to take its first breath, a book opens whose pages whisper of their own accord. This grimoire is not made of ordinary ink. Each word shines like a firefly caught in a dream, each sentence breathes an ancient magic that still hovers above forgotten lands.
-Approach without fear, traveler. Touch the cover and feel the heart of myths beat beneath your hand, eager to be reborn. Here sleep the heroes whose hair has been disheveled by the centuries, the creatures whose light transforms the night into promise, the kingdoms that exist only when someone begins to believe in them.
-Open the first page, and the wind will greet you. Open the second, and the mountains will raise their heads. On the third, the stars will whisper your name. Nothing is fixed, everything breathes. Legends slip between the lines like mischievous spirits, ready to lead you down paths where even time hesitates to tread.
-
-This grimoire is a door. Pass through it with the elegance of a dreamer and the courage of a child. For here, in these pages woven with light, begins the kingdom where stories that refuse to die are born.</p>
-
-<section class="grimoire-area">
-  <div class="parchment-corner">
-    <div class="legend-text">
-      {{ legend_text|default("(No legend yet)")|safe }}
-    </div>
-  </div>
-
-  <div class="pagination">
-    <a href="/{{ lang }}/legendes?page=prev">← Prev</a>
-    <a href="/{{ lang }}/legendes?page=next">Next →</a>
-  </div>
-</section>
+<h2>Grimoire</h2>
+<p>A living book whose pages whisper like butterfly wings.</p>
 {% endblock %}
