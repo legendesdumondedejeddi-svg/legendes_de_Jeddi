@@ -1,23 +1,24 @@
 {% extends "layout.html" %}
-{% block title %}Admin{% endblock %}
+{% block title %}Admin — Légendes{% endblock %}
 
 {% block content %}
-<h2>✨ Administration des Légendes</h2>
+<h2>✨ Administration des Légendes ({{ lang|upper }})</h2>
+
+<p>Écris une nouvelle légende, ajoute une image (optionnel) puis clique Enregistrer.</p>
 
 <form method="POST" enctype="multipart/form-data" class="admin-form">
-
     <label>Titre :</label>
     <input type="text" name="titre" required>
 
-    <label>Contenu :</label>
-    <textarea name="texte" rows="10" required></textarea>
+    <label>Texte :</label>
+    <textarea name="texte" rows="8" required></textarea>
 
-    <label>Image :</label>
-    <input type="file" name="image">
+    <label>Image (png/jpg/gif/webp) : </label>
+    <input type="file" name="image" accept="image/*">
 
-    <label>Mot de passe :</label>
+    <label>Mot de passe admin :</label>
     <input type="password" name="password" required>
 
-    <button type="submit">Enregistrer</button>
+    <button type="submit">✨ Enregistrer la légende</button>
 </form>
 {% endblock %}

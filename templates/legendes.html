@@ -1,33 +1,41 @@
 {% extends "layout.html" %}
-{% block title %}Légendes{% endblock %}
+{% block title %}Légendes — {{ lang|upper }}{% endblock %}
 
 {% block content %}
+<h2>Grimoire — Légende</h2>
 
-{% if legend %}
-
-<h2>{{ legend.title }}</h2>
-
-{% if legend.image %}
-    <img src="{{ url_for('static', filename='uploads/' + legend.image) }}"
-         alt="Illustration"
-         class="legende-image">
-{% endif %}
-
-<div class="legende-contenu">
-    {{ legend.content | replace('\n', '<br>') | safe }}
-</div>
-
-<div class="pagination">
-    {% if page > 1 %}
-        <a href="/{{ lang }}/legendes?page={{ page - 1 }}">← Légende précédente</a>
-    {% endif %}
-    {% if page < pages %}
-        <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Légende suivante →</a>
-    {% endif %}
-</div>
-
+{% if not legend %}
+    <p>Le grimoire attend tes mots. Aucune légende pour le moment.</p>
 {% else %}
-<p>Aucune légende pour le moment.</p>
-{% endif %}
 
+<article class="legende-article">
+    <h3 class="legende-title">{{ legend.title }}</h3>
+
+    {% if legend.image %}
+        <div class="legende-image-wrap">
+            <img src="{{ url_for('uploaded_file', filename=legend.image) }}" alt="Illustration" class="legende-image">
+        </div>
+    {% endif %}
+
+    <div class="legende-contenu">
+        {{ legend.content | e | replace('\n', '<br>') | safe }}
+    </div>
+
+    <div class="legende-controls">
+        <button class="btn-lecture" onclick="ttsRead()">
+            ▶ Lecture (TTS)
+        </button>
+
+        <div class="pagination">
+            {% if page > 1 %}
+                <a class="btn-page" href="/{{ lang }}/legendes?page={{ page-1 }}">← Précédente</a>
+            {% endif %}
+            <span>Page {{ page }} / {{ pages }}</span>
+            {% if page < pages %}
+                <a class="btn-page" href="/{{ lang }}/legendes?page={{ page+1 }}">Suivante →</a>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endif %}
 {% endblock %}

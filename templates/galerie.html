@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
-{% block title %}Galerie{% endblock %}
+{% block title %}Galerie — {{ lang|upper }}{% endblock %}
 
 {% block content %}
-
-<h2>Galerie Magique</h2>
-
-<div class="galerie">
-{% for img in images %}
-    <img src="{{ url_for('static', filename='uploads/' + img) }}" class="galerie-img">
-{% endfor %}
-</div>
-
+<h2>Galerie</h2>
+{% if not images %}
+  <p>Aucune image dans la galerie.</p>
+{% else %}
+  <div class="gallery-grid">
+    {% for img in images %}
+      <figure class="gallery-item">
+        <img src="{{ url_for('uploaded_file', filename=img) }}" alt="{{ img }}">
+        <figcaption>{{ img }}</figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+{% endif %}
 {% endblock %}
