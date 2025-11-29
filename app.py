@@ -1,211 +1,160 @@
-# app.py
-import os
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
-from werkzeug.utils import secure_filename
-from math import ceil
+from flask import Flask, g, render_template, request, redirect, url_for, flash, session
+import sqlite3, os, hashlib
+from functools import wraps
+from datetime import datetime
 
-# ------------------------
 # Configuration
-# ------------------------
-SECRET_KEY = os.environ.get("JEDDI_SECRET_KEY", "DevSecretKeyChangeMe")
-ADMIN_PASSWORD = os.environ.get("JEDDI_ADMIN_PASSWORD", "1997.Monde-1958-Jeddi.1998")
-UPLOAD_FOLDER = os.environ.get("JEDDI_UPLOAD_FOLDER", "static/uploads")
-LEGENDS_FOLDER = os.environ.get("JEDDI_LEGENDS_FOLDER", "legendes_data")
-ALLOWED_EXT = {"png", "jpg", "jpeg", "gif", "webp"}
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+DB_PATH = os.path.join(DATA_DIR, "jeddi.db")
+SECRET_KEY = "change_this_secret"   # change this for production
 
-# safe creation of directories even if a file with same name exists
-def safe_makedirs(path):
-    if os.path.exists(path) and not os.path.isdir(path):
-        try:
-            os.remove(path)
-        except Exception:
-            pass
-    os.makedirs(path, exist_ok=True)
-
-safe_makedirs(UPLOAD_FOLDER)
-safe_makedirs(LEGENDS_FOLDER)
+LANGS = ["fr","en","es","de","it"]
+DEFAULT_LANG = "fr"
+PAGES = ["accueil","apropos","don","galerie","grimoire","jeddi","legendes","mise_en_page","ne_le_fais_pas","admin"]
 
 app = Flask(__name__)
-app.secret_key = SECRET_KEY
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app.config["SECRET_KEY"] = SECRET_KEY
 
-LANGS = ["fr", "en", "es", "de", "it"]
-BLOCK_SEP = "\n\n---\n\n"   # exact separator used in files
+# --- Database helpers ---
+def get_db():
+    if not os.path.isdir(DATA_DIR):
+        os.makedirs(DATA_DIR, exist_ok=True)
+    db = getattr(g, "_db", None)
+    if db is None:
+        db = g._db = sqlite3.connect(DB_PATH)
+        db.row_factory = sqlite3.Row
+    return db
 
-# ------------------------
-# Helpers
-# ------------------------
-def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXT
+def init_db():
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY,
+        username TEXT UNIQUE,
+        password_hash TEXT
+    )""")
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS legends (
+        id INTEGER PRIMARY KEY,
+        lang TEXT,
+        title TEXT,
+        content TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )""")
+    db.commit()
+    # default admin (username: admin, password: admin) - PLEASE CHANGE
+    cur.execute("SELECT * FROM users WHERE username = ?", ("admin",))
+    if not cur.fetchone():
+        h = hashlib.sha256("admin".encode()).hexdigest()
+        cur.execute("INSERT INTO users(username,password_hash) VALUES (?,?)", ("admin", h))
+        db.commit()
 
-def legend_file_path(lang):
-    return os.path.join(LEGENDS_FOLDER, f"legendes_{lang}.txt")
+@app.teardown_appcontext
+def close_db(e=None):
+    db = getattr(g, "_db", None)
+    if db is not None:
+        db.close()
 
-def load_legends(lang):
-    """Return list of {title, content, image} from legends file (preserve order)."""
-    path = legend_file_path(lang)
-    if not os.path.exists(path):
-        return []
-    with open(path, "r", encoding="utf-8") as f:
-        raw = f.read().strip()
-    if not raw:
-        return []
-    blocks = raw.split(BLOCK_SEP)
-    legends = []
-    for b in blocks:
-        b = b.strip()
-        if not b:
-            continue
-        # first line = title, then optional image marker line(s), then content
-        lines = b.splitlines()
-        title = lines[0].strip()
-        image = None
-        content_lines = []
-        for line in lines[1:]:
-            if line.startswith("==image:") and line.endswith("=="):
-                image = line.replace("==image:", "").replace("==", "").strip()
-            else:
-                content_lines.append(line)
-        content = "\n".join(content_lines).strip()
-        legends.append({"title": title, "content": content, "image": image})
-    return legends
+# --- Auth helpers ---
+def check_login(username, password):
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM users WHERE username = ?", (username,))
+    row = cur.fetchone()
+    if not row:
+        return False
+    return row["password_hash"] == hashlib.sha256(password.encode()).hexdigest()
 
-def save_legend(lang, title, content, image_filename=None):
-    """Append one legend to the legends file using BLOCK_SEP format."""
-    path = legend_file_path(lang)
-    # normalise newlines
-    title = title.strip()
-    content = content.strip()
-    with open(path, "a", encoding="utf-8") as f:
-        f.write(title + "\n")
-        if image_filename:
-            f.write(f"==image:{image_filename}==\n")
-        if content:
-            f.write(content + "\n")
-        f.write(BLOCK_SEP)
+def login_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not session.get("logged_in"):
+            flash("Vous devez être connecté pour accéder à cette page.", "error")
+            return redirect(url_for("page", lang=DEFAULT_LANG, page="admin"))
+        return f(*args, **kwargs)
+    return decorated
 
-# ------------------------
-# Routes: static helper
-# ------------------------
-@app.route("/uploads/<path:filename>")
-def uploaded_file(filename):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+# --- Context for templates ---
+@app.context_processor
+def inject_lang_and_page():
+    lang = request.view_args.get("lang") if request.view_args else DEFAULT_LANG
+    page = request.view_args.get("page") if request.view_args else "accueil"
+    if lang not in LANGS:
+        lang = DEFAULT_LANG
+    if page not in PAGES:
+        page = "accueil"
+    return dict(lang=lang, current_page=page, LANGS=LANGS)
 
-# ------------------------
-# Home redirect
-# ------------------------
+# --- Routes ---
 @app.route("/")
-def root():
-    return redirect("/fr/accueil")
+def index():
+    return redirect(url_for("page", lang=DEFAULT_LANG, page="accueil"))
 
-# ------------------------
-# Simple pages handler (accueil, apropos, jeddi, galerie, don)
-# expects templates like accueil_fr.html, apropos_fr.html etc.
-# ------------------------
-@app.route("/<lang>/<page>")
+@app.route("/<lang>/<page>", methods=["GET","POST"])
 def page(lang, page):
+    # normalize
     if lang not in LANGS:
-        lang = "fr"
-    tpl = f"{page}_{lang}.html"
-    try:
-        return render_template(tpl, lang=lang)
-    except Exception as e:
-        # helpful debug message in logs and a friendly 404 for the user
-        app.logger.exception("Template missing or template error for %s", tpl)
-        return ("Page introuvable ou erreur de template.", 404)
+        lang = DEFAULT_LANG
+    if page not in PAGES:
+        page = "accueil"
 
-# ------------------------
-# Admin: write legend + optional image upload
-# ------------------------
-@app.route("/admin/<lang>", methods=["GET", "POST"])
-def admin(lang):
-    if lang not in LANGS:
-        lang = "fr"
-
-    if request.method == "POST":
-        pwd = request.form.get("password", "")
-        if pwd != ADMIN_PASSWORD:
-            flash("Mot de passe incorrect.", "error")
-            return redirect(url_for("admin", lang=lang))
-
-        title = request.form.get("titre", "").strip()
-        content = request.form.get("texte", "").strip()
-        image_filename = None
-
-        # file upload
-        if "image" in request.files:
-            image = request.files["image"]
-            if image and image.filename and allowed_file(image.filename):
-                filename = secure_filename(image.filename)
-                save_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-                image.save(save_path)
-                image_filename = filename
-
-        # save legend
-        if title or content:
-            save_legend(lang, title or "(Titre manquant)", content, image_filename)
-            flash("Légende enregistrée.", "success")
+    # ADMIN login handling (admin page uses POST to login)
+    if page == "admin" and request.method == "POST":
+        username = request.form.get("username","").strip()
+        password = request.form.get("password","").strip()
+        if check_login(username, password):
+            session["logged_in"] = True
+            flash(f"Connecté en tant que {username}", "info")
+            return redirect(url_for("page", lang=lang, page="admin"))
         else:
-            flash("Titre ou texte manquant.", "error")
+            flash("Identifiants invalides", "error")
 
-        return redirect(url_for("admin", lang=lang))
+    # GRIMOIRE: submitting a legend
+    if page == "grimoire" and request.method == "POST":
+        title = request.form.get("title","").strip()
+        content = request.form.get("content","").strip()
+        if not title or not content:
+            flash("Titre et contenu requis.", "error")
+            return redirect(url_for("page", lang=lang, page="grimoire"))
+        db = get_db()
+        cur = db.cursor()
+        cur.execute("INSERT INTO legends(lang,title,content) VALUES (?,?,?)", (lang, title, content))
+        db.commit()
+        flash("Légende ajoutée.", "info")
+        return redirect(url_for("page", lang=lang, page="grimoire"))
 
-    # GET -> show admin (form)
-    return render_template("admin.html", lang=lang)
+    # Prepare legends display for grimoire
+    legends = []
+    if page == "grimoire":
+        db = get_db()
+        cur = db.cursor()
+        cur.execute("SELECT * FROM legends WHERE lang = ? ORDER BY created_at DESC", (lang,))
+        legends = cur.fetchall()
 
-# ------------------------
-# Gallery
-# ------------------------
-@app.route("/<lang>/galerie")
-def galerie(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    files = []
-    try:
-        for fn in sorted(os.listdir(app.config["UPLOAD_FOLDER"])):
-            if allowed_file(fn):
-                files.append(fn)
-    except FileNotFoundError:
-        files = []
-    return render_template("galerie.html", lang=lang, images=files)
+    # choose template: prefer page_lang.html, fallback to page_fr.html or generic
+    template_name = f"{page}_{lang}.html"
+    template_path = os.path.join(app.template_folder or "templates", template_name)
+    if not os.path.exists(template_path):
+        # try fallback to fr version or a generic file
+        alt = f"{page}_fr.html"
+        if os.path.exists(os.path.join(app.template_folder or "templates", alt)):
+            template_name = alt
+        elif os.path.exists(os.path.join(app.template_folder or "templates", f"{page}.html")):
+            template_name = f"{page}.html"
+        else:
+            template_name = "accueil_fr.html"
+    return render_template(template_name, legends=legends)
 
-# ------------------------
-# Legendes with pagination
-# ------------------------
-@app.route("/<lang>/legendes")
-def legendes(lang):
-    if lang not in LANGS:
-        lang = "fr"
+@app.route("/admin/logout")
+def logout():
+    session.pop("logged_in", None)
+    flash("Déconnecté.", "info")
+    return redirect(url_for("page", lang=DEFAULT_LANG, page="accueil"))
 
-    legends = load_legends(lang)
-    total = len(legends)
-    page = request.args.get("page", "1")
-    try:
-        page = int(page)
-    except:
-        page = 1
-
-    if total == 0:
-        # render a friendly empty page
-        return render_template("legendes.html", lang=lang,
-                               legend=None, page=1, pages=1)
-
-    pages = max(1, total)
-    if page < 1: page = 1
-    if page > pages: page = pages
-
-    legend = legends[page-1]
-    return render_template("legendes.html", lang=lang, legend=legend, page=page, pages=pages)
-
-# ------------------------
-# Health check
-# ------------------------
-@app.route("/sante")
-def sante():
-    return "ok", 200
-
-# ------------------------
-# Run
-# ------------------------
+# init DB on start
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
+    with app.app_context():
+        init_db()
+    app.run(debug=True)
