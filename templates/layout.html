@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
+    <div class="background"></div>
 
-<div class="background"></div>
+    <header class="site-header">
+        <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Bannière Licorne" class="banner-image">
+        <nav class="navbar">
+            <ul>
+                <li><a href="/{{ lang }}/accueil">Accueil</a></li>
+                <li><a href="/{{ lang }}/apropos">À propos</a></li>
+                <li class="dropdown">
+                    <a href="#">Pages ▾</a>
+                    <ul class="dropdown-list">
+                        <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
+                        <li><a href="/{{ lang }}/galerie">Galerie</a></li>
+                        <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
+                        <li><a href="/{{ lang }}/don">Don</a></li>
+                        <li><a href="/{{ lang }}/legendes">Légendes</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Langue ▾</a>
+                    <ul class="dropdown-list">
+                        <li><a href="/fr/accueil">FR</a></li>
+                        <li><a href="/en/accueil">EN</a></li>
+                        <li><a href="/es/accueil">ES</a></li>
+                        <li><a href="/de/accueil">DE</a></li>
+                        <li><a href="/it/accueil">IT</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image" alt="Licorne bannière">
-    <h1>Légendes du Monde de Jeddi</h1>
+    <main class="site-main">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-wrap">
+              {% for category, msg in messages %}
+                <div class="flash {{ category }}">{{ msg }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
 
-    <nav>
-        <ul>
-            <li><a href="/{{ lang }}/accueil">Accueil</a></li>
-            <li><a href="/{{ lang }}/apropos">À propos</a></li>
+        {% block content %}{% endblock %}
+    </main>
 
-            <li class="dropdown">
-                Pages ▼
-                <ul>
-                    <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
-                    <li><a href="/{{ lang }}/galerie">Galerie</a></li>
-                    <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
-                    <li><a href="/{{ lang }}/don">Don</a></li>
-                    <li><a href="/{{ lang }}/legendes">Légendes</a></li>
-                </ul>
-            </li>
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée" class="footer-licorne">
 
-            <li class="dropdown">
-                Langue ▼
-                <ul>
-                    <li><a href="/fr/accueil">FR</a></li>
-                    <li><a href="/en/accueil">EN</a></li>
-                    <li><a href="/es/accueil">ES</a></li>
-                    <li><a href="/de/accueil">DE</a></li>
-                    <li><a href="/it/accueil">IT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
+    <footer class="site-footer">
+        <p>© Légendes du Monde de Jeddi</p>
+    </footer>
 
-<main>
-    {% block content %}{% endblock %}
-</main>
-
-<footer>
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" 
-         class="footer-licorne" 
-         alt="Licorne animée">
-    <p>© Légendes du Monde de Jeddi</p>
-</footer>
-
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
