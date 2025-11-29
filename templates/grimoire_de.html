@@ -1,6 +1,36 @@
 {% extends "layout.html" %}
-{% block title %}Zauberbuch{% endblock %}
+{% block title %}Grimoire{% endblock %}
+
 {% block content %}
-<h2>Zauberbuch</h2>
-<p>Ein lebendes Buch, dessen Seiten wie Schmetterlingsflügel flüstern.</p>
+
+<div class="grimoire-box">
+
+    <h2>📜 Das Große Grimoire von Jeddi</h2>
+
+    <img src="{{ url_for('static', filename='images/licorne.png') }}"
+         class="grimoire-banner"
+         alt="Grimoire Banner">
+
+    <p>
+        Manche sagen, dieses Grimoire atme.
+        Andere behaupten, es summe in der Nacht,
+        wenn die Sterne sich in Schweigen kleiden.
+    </p>
+
+    <p>
+        Es enthält die ersten Worte der Welt,
+        die Wurzeln der Legenden
+        und die Erinnerung an Wesen, die niemals ganz vergehen.
+    </p>
+
+    <p>
+        Jede Seite öffnet eine Tür,
+        jede Tür öffnet eine Erinnerung,
+        jede Erinnerung entzündet ein Licht.
+    </p>
+
+</div>
+
+<style>/* même CSS que FR */</style>
+
 {% endblock %}

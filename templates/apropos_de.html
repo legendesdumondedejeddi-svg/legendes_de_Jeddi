@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block title %}Über uns{% endblock %}
 {% block content %}
-<h2>Über uns</h2>
-<p>Diese Welt bewahrt alte Geschichten, gewebt aus Sternenstaub und Erinnerung.</p>
+<div class="page-box">
+    <img src="{{ url_for('static', filename='images/grimoire.png') }}">
+    <h2>Über uns</h2>
+    <p>
+        Diese Welt bewahrt lebendige Geschichten, aus Sternenlicht und Erinnerung gewebt.
+    </p>
+</div>
+<style>/* same magical style */</style>
 {% endblock %}

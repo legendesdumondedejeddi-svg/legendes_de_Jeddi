@@ -1,6 +1,36 @@
 {% extends "layout.html" %}
 {% block title %}Grimoire{% endblock %}
+
 {% block content %}
-<h2>Grimoire</h2>
-<p>A living book whose pages whisper like butterfly wings.</p>
+
+<div class="grimoire-box">
+
+    <h2>📜 The Great Grimoire of Jeddi</h2>
+
+    <img src="{{ url_for('static', filename='images/licorne.png') }}"
+         class="grimoire-banner"
+         alt="Grimoire Banner">
+
+    <p>
+        Some say this grimoire breathes.
+        Others swear it hums softly at night,
+        when the stars dress themselves in silence.
+    </p>
+
+    <p>
+        It contains the first words of the world,
+        the roots of all legends,
+        and the memory of beings who never truly fade.
+    </p>
+
+    <p>
+        Each page opens a door,
+        each door opens a memory,
+        each memory lights a spark.
+    </p>
+
+</div>
+
+<style>/* même CSS que FR */</style>
+
 {% endblock %}

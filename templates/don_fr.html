@@ -1,10 +1,71 @@
 {% extends "layout.html" %}
 {% block title %}Don{% endblock %}
+
 {% block content %}
-<h2>Don</h2>
-<p>Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
+
+<div class="don-box">
+
+    <h2>💛 Soutenir le Monde de Jeddi</h2>
+
+    <img src="{{ url_for('static', filename='images/licorne.png') }}"
+         class="don-banner"
+         alt="Licorne don">
+
+    <p>
+        Un monde enchanté se nourrit de lumière,  
+        et parfois aussi d’un petit geste venu du cœur.
+    </p>
+
+    <p>
+        Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
 
 Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées — nécessitent des frais réguliers. À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
 Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés, indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
-</p>
+
+    </p>
+
+    <div class="don-buttons">
+        <a class="don-button" href="#">✨ Envoyer un don</a>
+    </div>
+
+</div>
+
+<style>
+.don-box {
+    background: rgba(255, 248, 230, 0.95);
+    padding: 32px;
+    margin: 30px auto;
+    max-width: 900px;
+    border-radius: 14px;
+    border: 3px solid #cfa96a;
+    box-shadow: 0 0 22px rgba(0,0,0,0.35);
+}
+.don-banner {
+    width: 100%;
+    max-width: 620px;
+    display: block;
+    margin: 20px auto 35px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.45);
+}
+.don-buttons {
+    text-align: center;
+    margin-top: 25px;
+}
+.don-button {
+    padding: 14px 22px;
+    background: #d6b06e;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    transition: 0.25s;
+}
+.don-button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 22px rgba(0,0,0,0.45);
+}
+</style>
+
 {% endblock %}

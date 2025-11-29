@@ -1,6 +1,30 @@
 {% extends "layout.html" %}
 {% block title %}Jeddi{% endblock %}
+
 {% block content %}
-<h2>Das Reich von Jeddi</h2>
-<p>Ein Land, in dem Legenden mit dem Morgenlicht entstehen.</p>
+<div class="jeddi-box">
+
+    <h2>✨ Die Welt von Jeddi</h2>
+
+    <img src="{{ url_for('static', filename='images/licorne.png') }}" class="jeddi-banner" alt="Jeddi Banner">
+
+    <p>
+        Jeddi ist mehr als eine Welt; es ist ein uralter Atem, ein Reich,
+        das zwischen den Spuren der Vergangenheit und den Flüstern des Unsichtbaren schwebt.
+        Seine Legenden wandern wie Glühwürmchen und erhellen die Wege jener,
+        die noch Magie im Staub des Lebens suchen.
+    </p>
+
+    <p>
+        Jeddi yella yeqqar-iyi-d timucuha-ya s yimi s umeẓẓuɣ
+Ein Großvater erzählte mir diese Legenden, die mündlich überliefert wurden. Ihre Geschichte durchquert vergessene Zivilisationen, Parallelwelten und das Flüstern des Zauberbuchs.Kristalleinhörner, flüsternde Grimoire, Wälder mit lebender Rinde
+        und Steine, die sich an die Schritte der Alten erinnern, leben hier.
+        Geschichte ist niemals erstarrt.  
+        Sie atmet. Sie erhebt sich. Sie erzählt sich selbst.
+    </p>
+
+</div>
+
+<style>/* same CSS as FR */</style>
+
 {% endblock %}

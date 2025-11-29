@@ -1,6 +1,36 @@
 {% extends "layout.html" %}
 {% block title %}Grimorio{% endblock %}
+
 {% block content %}
-<h2>Grimorio</h2>
-<p>Un libro vivente le cui pagine sussurrano come ali di farfalla.</p>
+
+<div class="grimoire-box">
+
+    <h2>📜 Il Grande Grimorio di Jeddi</h2>
+
+    <img src="{{ url_for('static', filename='images/licorne.png') }}"
+         class="grimoire-banner"
+         alt="Banner del Grimorio">
+
+    <p>
+        Alcuni dicono che questo grimorio respiri.
+        Altri giurano che canti piano durante la notte,
+        quando le stelle si vestono di silenzio.
+    </p>
+
+    <p>
+        Contiene le prime parole del mondo,
+        le radici delle leggende
+        e la memoria di esseri che non svaniscono mai del tutto.
+    </p>
+
+    <p>
+        Ogni pagina apre una porta,
+        ogni porta apre un ricordo,
+        ogni ricordo accende una luce.
+    </p>
+
+</div>
+
+<style>/* même CSS que FR */</style>
+
 {% endblock %}

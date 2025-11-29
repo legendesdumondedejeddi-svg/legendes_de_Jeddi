@@ -1,6 +1,13 @@
 {% extends "layout.html" %}
 {% block title %}Acerca de{% endblock %}
 {% block content %}
-<h2>Acerca de</h2>
-<p>Este mundo guarda historias antiguas tejidas con polvo de estrellas y recuerdos.</p>
+<div class="page-box">
+    <img src="{{ url_for('static', filename='images/grimoire.png') }}">
+    <h2>Acerca de</h2>
+    <p>
+        Este mundo respira historias antiguas, tejidas con memoria y luz.
+        Todo espera a quien aún sabe escuchar la magia.
+    </p>
+</div>
+<style>/* same magical style */</style>
 {% endblock %}
