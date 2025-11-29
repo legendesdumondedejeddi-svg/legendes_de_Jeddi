@@ -10,17 +10,15 @@
 
 <div class="background"></div>
 
-<header>
-    <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image" alt="Licorne bannière">
-    <h1>Légendes du Monde de Jeddi</h1>
-
-    <nav>
+<<header class="header-magique">
+    <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image" alt="Bannière licorne">
+    <nav class="menu-magique">
         <ul>
             <li><a href="/{{ lang }}/accueil">Accueil</a></li>
             <li><a href="/{{ lang }}/apropos">À propos</a></li>
 
             <li class="dropdown">
-                Pages ▼
+                Pages ▾
                 <ul>
                     <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
                     <li><a href="/{{ lang }}/galerie">Galerie</a></li>
@@ -31,7 +29,7 @@
             </li>
 
             <li class="dropdown">
-                Langue ▼
+                Langue ▾
                 <ul>
                     <li><a href="/fr/accueil">FR</a></li>
                     <li><a href="/en/accueil">EN</a></li>
@@ -43,6 +41,7 @@
         </ul>
     </nav>
 </header>
+
 
 <main>
     {% block content %}{% endblock %}
