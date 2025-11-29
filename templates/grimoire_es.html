@@ -1,36 +1,24 @@
 {% extends "layout.html" %}
-{% block title %}Grimorio{% endblock %}
-
 {% block content %}
+  <h1>Grimorio (ES)</h1>
+  <div class="article">Añade o lee leyendas en español.</div>
 
-<div class="grimoire-box">
+  <form id="grimoire-form" method="post">
+    <div class="form-row"><input name="title" placeholder="Título"></div>
+    <div class="form-row"><textarea name="content" placeholder="Texto de la leyenda"></textarea></div>
+    <div class="form-row"><button class="btn">Añadir</button></div>
+  </form>
 
-    <h2>📜 El Gran Grimorio de Jeddi</h2>
-
-    <img src="{{ url_for('static', filename='images/licorne.png') }}"
-         class="grimoire-banner"
-         alt="Banner del Grimorio">
-
-    <p>
-        Algunos dicen que este grimorio respira.
-        Otros aseguran que canta en voz baja por la noche,
-        cuando las estrellas se visten de silencio.
-    </p>
-
-    <p>
-        Contiene las primeras palabras del mundo,
-        las raíces de las leyendas
-        y la memoria de los seres que nunca desaparecen del todo.
-    </p>
-
-    <p>
-        Cada página abre una puerta,
-        cada puerta abre un recuerdo,
-        cada recuerdo enciende una luz.
-    </p>
-
-</div>
-
-<style>/* même CSS que FR */</style>
-
+  <hr>
+  {% if legends %}
+    {% for row in legends %}
+      <div class="legend">
+        <h3>{{ row['title'] }}</h3>
+        <div>{{ row['content']|safe }}</div>
+        <small>Añadida el {{ row['created_at'] }}</small>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="article">No hay leyendas para esta lengua aún.</p>
+  {% endif %}
 {% endblock %}

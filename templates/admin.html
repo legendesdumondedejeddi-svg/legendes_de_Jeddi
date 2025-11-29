@@ -1,24 +1,15 @@
 {% extends "layout.html" %}
-{% block title %}Admin — Légendes{% endblock %}
-
 {% block content %}
-<h2>✨ Administration des Légendes ({{ lang|upper }})</h2>
-
-<p>Écris une nouvelle légende, ajoute une image (optionnel) puis clique Enregistrer.</p>
-
-<form method="POST" enctype="multipart/form-data" class="admin-form">
-    <label>Titre :</label>
-    <input type="text" name="titre" required>
-
-    <label>Texte :</label>
-    <textarea name="texte" rows="8" required></textarea>
-
-    <label>Image (png/jpg/gif/webp) : </label>
-    <input type="file" name="image" accept="image/*">
-
-    <label>Mot de passe admin :</label>
-    <input type="password" name="password" required>
-
-    <button type="submit">✨ Enregistrer la légende</button>
-</form>
+  <h1>Admin</h1>
+  {% if not session.get('logged_in') %}
+    <form method="post" action="{{ url_for('page', lang=lang, page='admin') }}">
+      <div class="form-row"><input name="username" placeholder="Nom d'utilisateur"></div>
+      <div class="form-row"><input name="password" type="password" placeholder="Mot de passe"></div>
+      <div class="form-row"><button class="btn">Connexion</button></div>
+    </form>
+    <p class="article">Login par défaut: <strong>admin</strong> / <strong>admin</strong> (changez le mot de passe après).</p>
+  {% else %}
+    <p class="article">Vous êtes connecté en tant qu'admin.</p>
+    <p><a class="btn" href="{{ url_for('logout') }}">Se déconnecter</a></p>
+  {% endif %}
 {% endblock %}

@@ -1,41 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Légendes — {{ lang|upper }}{% endblock %}
-
 {% block content %}
-<h2>Grimoire — Légende</h2>
-
-{% if not legend %}
-    <p>Le grimoire attend tes mots. Aucune légende pour le moment.</p>
-{% else %}
-
-<article class="legende-article">
-    <h3 class="legende-title">{{ legend.title }}</h3>
-
-    {% if legend.image %}
-        <div class="legende-image-wrap">
-            <img src="{{ url_for('uploaded_file', filename=legend.image) }}" alt="Illustration" class="legende-image">
-        </div>
-    {% endif %}
-
-    <div class="legende-contenu">
-        {{ legend.content | e | replace('\n', '<br>') | safe }}
-    </div>
-
-    <div class="legende-controls">
-        <button class="btn-lecture" onclick="ttsRead()">
-            ▶ Lecture (TTS)
-        </button>
-
-        <div class="pagination">
-            {% if page > 1 %}
-                <a class="btn-page" href="/{{ lang }}/legendes?page={{ page-1 }}">← Précédente</a>
-            {% endif %}
-            <span>Page {{ page }} / {{ pages }}</span>
-            {% if page < pages %}
-                <a class="btn-page" href="/{{ lang }}/legendes?page={{ page+1 }}">Suivante →</a>
-            {% endif %}
-        </div>
-    </div>
-</article>
-{% endif %}
+  <h1>Légendes (fallback)</h1>
+  <div class="article">Ceci est une page de secours pour Légendes.</div>
 {% endblock %}

@@ -1,62 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ lang }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ current_page|capitalize }} — Légendes de Jeddi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="page-wrapper">
-        <header class="site-header">
-            <div class="banner">
-                <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image" alt="Bannière Licorne">
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/{{ lang }}/accueil">Accueil</a></li>
-                    <li><a href="/{{ lang }}/apropos">À propos</a></li>
-                    <li class="drop">Pages ▾
-                        <ul class="submenu">
-                            <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
-                            <li><a href="/{{ lang }}/galerie">Galerie</a></li>
-                            <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
-                            <li><a href="/{{ lang }}/don">Don</a></li>
-                            <li><a href="/{{ lang }}/legendes">Légendes</a></li>
-                        </ul>
-                    </li>
-                    <li class="drop">Langue ▾
-                        <ul class="submenu">
-                            <li><a href="/fr{{ request.path|replace('/'+lang+'/','/fr/') }}">FR</a></li>
-                            <li><a href="/en{{ request.path|replace('/'+lang+'/','/en/') }}">EN</a></li>
-                            <li><a href="/es{{ request.path|replace('/'+lang+'/','/es/') }}">ES</a></li>
-                            <li><a href="/de{{ request.path|replace('/'+lang+'/','/de/') }}">DE</a></li>
-                            <li><a href="/it{{ request.path|replace('/'+lang+'/','/it/') }}">IT</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+<header>
+  <div class="brand">
+    <a href="{{ url_for('page', lang=lang, page='accueil') }}">Légendes de Jeddi</a>
+  </div>
+  <nav id="main-nav">
+    <ul>
+      <li><a href="{{ url_for('page', lang=lang, page='accueil') }}">Accueil</a></li>
+      <li><a href="{{ url_for('page', lang=lang, page='galerie') }}">Galerie</a></li>
+      <li><a href="{{ url_for('page', lang=lang, page='grimoire') }}">Grimoire</a></li>
+      <li class="drop"><a href="#">Langue ▾</a>
+        <ul class="submenu">
+          {% for L in LANGS %}
+            <li><a href="{{ url_for('page', lang=L, page=current_page) }}">{{ L.upper() }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{{ url_for('page', lang=lang, page='admin') }}">Admin</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <main class="content">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                <div class="flash-area">
-                  {% for cat, msg in messages %}
-                    <div class="flash {{ cat }}">{{ msg }}</div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endwith %}
+<main id="main">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="article">
+        {% for cat, msg in messages %}
+          <div class="{{ 'admin-locked' if cat=='error' else '' }}">{{ msg }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
 
-            {% block content %}{% endblock %}
-        </main>
+  {% block content %}{% endblock %}
 
-        <footer class="site-footer">
-            <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-licorne" alt="Licorne animée">
-            <p>© Légendes du Monde de Jeddi</p>
-        </footer>
-    </div>
+  <div class="footer">© Légendes de Jeddi — langue: {{ lang }}</div>
+</main>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

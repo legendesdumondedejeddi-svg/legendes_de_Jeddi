@@ -1,17 +1,7 @@
 {% extends "layout.html" %}
-{% block title %}Galería — ES{% endblock %}
-
 {% block content %}
-<h2>✨ Galería de imágenes</h2>
-
-<div class="gallery-grid">
-    {% for image in images %}
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/galerie/' ~ image) }}" alt="">
-        </div>
-    {% else %}
-        <p>No hay imágenes todavía.</p>
-    {% endfor %}
-</div>
-
+  <h1>Galería (ES)</h1>
+  <div class="article">
+    <p>Coloca tus imágenes o dibujos aquí.</p>
+  </div>
 {% endblock %}
