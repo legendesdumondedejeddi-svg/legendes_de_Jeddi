@@ -1,26 +1,39 @@
-// script.js
-console.log("Script loaded.");
+// script.js - comportements simples et robustes pour débutant
+document.addEventListener("DOMContentLoaded", function() {
+  // Toggle mobile/compact menu (si tu ajoutes un bouton #menu-toggle)
+  var btn = document.getElementById("menu-toggle");
+  if (btn) {
+    btn.addEventListener("click", function(e){
+      var nav = document.getElementById("main-nav");
+      if (nav) nav.classList.toggle("open");
+    });
+  }
 
-// Simple TTS using Web Speech API (client side)
-function ttsRead() {
-    try {
-        const article = document.querySelector('.legende-contenu');
-        if (!article) return alert("Aucune légende à lire.");
-        // get text content without HTML tags
-        const text = article.innerText || article.textContent;
-        if (!window.speechSynthesis) return alert("TTS non supporté par ce navigateur.");
-        const utter = new SpeechSynthesisUtterance(text);
-        // prefer a french voice if available
-        const voices = window.speechSynthesis.getVoices();
-        if (voices && voices.length) {
-            const fr = voices.find(v => v.lang && v.lang.startsWith('fr'));
-            if (fr) utter.voice = fr;
-        }
-        utter.rate = 0.95;
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(utter);
-    } catch (e) {
-        console.error(e);
-        alert("Impossible de lancer la lecture vocale.");
-    }
-}
+  // dropdown accessible : ouvre/ferme au clic, ferme si clic en dehors
+  document.querySelectorAll(".drop > a").forEach(function(link){
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      var parent = link.parentElement;
+      parent.classList.toggle("open");
+    });
+  });
+
+  document.addEventListener("click", function(e){
+    document.querySelectorAll(".drop").forEach(function(d){
+      if (!d.contains(e.target)) d.classList.remove("open");
+    });
+  });
+
+  // simple client-side form validation for grimoire
+  var grimoireForm = document.querySelector("form#grimoire-form");
+  if (grimoireForm){
+    grimoireForm.addEventListener("submit", function(e){
+      var t = grimoireForm.querySelector("[name='title']");
+      var c = grimoireForm.querySelector("[name='content']");
+      if (!t.value.trim() || !c.value.trim()){
+        e.preventDefault();
+        alert("Veuillez remplir le titre et le contenu.");
+      }
+    });
+  }
+});
