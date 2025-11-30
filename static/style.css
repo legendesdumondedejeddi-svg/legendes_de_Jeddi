@@ -1,59 +1,108 @@
-/* ===================== */
-/* MENU PRINCIPAL FIXÉ   */
-/* ===================== */
+/* =============================== */
+/*     BANDEAU LICORNE ÉPIQUE      */
+/* =============================== */
 
-.main-nav ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
+.site-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.main-nav ul li {
+.banner {
     position: relative;
-    white-space: nowrap; /* empêche le menu de s'étirer */
-    cursor: pointer;
+    width: 100%;
+    padding: 12px 0;
+    background: rgba(255, 248, 230, 0.75);
+    border-bottom: 3px solid #cfa96a;
 }
 
-.main-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
+.banner-image {
+    width: 140px;
+    height: auto;
+    animation: licorne-breath 6s ease-in-out infinite;
+}
+
+@keyframes licorne-breath {
+    0% { transform: scale(0.96); }
+    50% { transform: scale(1); }
+    100% { transform: scale(0.96); }
+}
+
+.banner-title h1 {
+    margin: 8px 0 0 0;
+    font-size: 36px;
+    color: #3a250f;
+    font-family: "Trajan Pro", "Georgia", serif;
+    text-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+/* =============================== */
+/*           PAGE CONTENT          */
+/* =============================== */
+
+.page-content {
+    padding: 20px;
+    margin: auto;
+    max-width: 780px;
+    background: rgba(255, 248, 230, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.25);
+}
+
+/* =============================== */
+/*            FOOTER MAGIE         */
+/* =============================== */
+
+.site-footer {
+    margin-top: 40px;
+    text-align: center;
+    padding-bottom: 40px;
+    font-size: 18px;
     color: #3a250f;
 }
 
-/* ===================== */
-/* SOUS-MENU ENCHANTÉ    */
-/* ===================== */
+.footer-licorne {
+    position: fixed;
+    bottom: 12px;
+    left: -200px;
+    width: 140px;
+    animation: licorne-run 14s linear infinite;
+}
 
-.drop .submenu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%; /* juste sous le bouton */
+@keyframes licorne-run {
+    0%   { left: -200px; }
+    100% { left: 110%; }
+}
+
+/* =============================== */
+/*        FOND PARCHEMIN           */
+/* =============================== */
+
+.background {
+    background-image: url("images/parchment_texture.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.22;
+    position: fixed;
+    top: 0;
     left: 0;
-    background: #f4efe6;
-    border: 2px solid #cfa96a;
-    padding: 8px 0;
-    margin: 0;
-    min-width: 190px; /* largeur fixe, pas étirée */
-    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
-.drop .submenu li {
-    padding: 6px 14px;
+/* =============================== */
+/*           FLASH MESSAGES        */
+/* =============================== */
+
+.flash {
+    background: #fff3d4;
+    border-left: 5px solid #cfa96a;
+    padding: 12px;
+    margin-bottom: 18px;
 }
 
-.drop .submenu li a {
-    color: #3a250f;
-}
-
-.drop:hover .submenu {
-    display: flex;
-}
-
-/* Évite que le menu entier forme une longue barre verticale */
-.main-nav ul > li {
-    display: block;
+.flash-item {
+    margin-bottom: 6px;
 }
