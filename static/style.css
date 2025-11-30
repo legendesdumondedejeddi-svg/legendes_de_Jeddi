@@ -1,5 +1,5 @@
 /* =============================== */
-/*          FOND PARCHEMIN         */
+/*         BASE / FOND             */
 /* =============================== */
 
 body {
@@ -61,7 +61,7 @@ body {
     margin: 0;
     padding: 0;
 
-    display: flex;               /* MENU HORIZONTAL */
+    display: flex;
     justify-content: center;
     gap: 50px;
 }
@@ -78,22 +78,28 @@ body {
 }
 
 /* =============================== */
-/*      SOUS-MENU (DROPDOWN)       */
+/*       SOUS-MENU CORRIGÉ        */
 /* =============================== */
+
+.drop {
+    position: relative;
+}
 
 .submenu {
     display: none;
+
     position: absolute;
-    top: 100%;     /* Sous l'élément parent */
+    top: 100%;
     left: 0;
 
     background: #fff8e6;
     padding: 8px 0;
     border: 2px solid #cfa96a;
+
     width: 220px;
 
     box-shadow: 0 0 14px rgba(0,0,0,0.3);
-    z-index: 9999;
+    z-index: 999;
 }
 
 .drop:hover .submenu {
@@ -103,7 +109,6 @@ body {
 .submenu li {
     padding: 10px 14px;
     white-space: nowrap;
-    text-align: left;
 }
 
 .submenu li a {
@@ -128,28 +133,29 @@ body {
 }
 
 /* =============================== */
-/*         CONTENU DES PAGES       */
+/*       CONTENU / TITRES          */
 /* =============================== */
 
 .page-content {
     padding: 25px;
 }
 
+h1, h2 {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
 /* =============================== */
-/*       STYLE DES LÉGENDES        */
+/*         STYLE LÉGENDES          */
 /* =============================== */
 
 .legende-contenu {
     font-size: 24px;
     line-height: 1.8;
-    white-space: pre-line;
     background: rgba(255, 248, 230, 0.9);
     border-radius: 10px;
     padding: 25px;
     box-shadow: 0 0 15px rgba(0,0,0,0.25);
 }
-
-/* LETTRINE */
 
 .legende-contenu p:first-child::first-letter {
     font-size: 58px;
@@ -158,11 +164,9 @@ body {
     padding-right: 12px;
     line-height: 0.85;
     color: #5b2d00;
-    font-family: "Georgia", serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* IMAGE DES LÉGENDES */
+/* IMAGES DES LEGENDES */
 
 .legende-image {
     width: 60%;
@@ -192,9 +196,7 @@ body {
     border-left: 6px solid #cfa96a;
 }
 
-/* =============================== */
-/*            FOOTER               */
-/* =============================== */
+/* FOOTER */
 
 .site-footer {
     text-align: center;
