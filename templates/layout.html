@@ -62,5 +62,30 @@
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+	<script>
+function traduirePage(lang) {
+    if (!window.translation) window.translation = {};
+
+    if (!window.translation[lang]) {
+        fetch(`/static/traductions/${lang}.json`)
+        .then(r => r.json())
+        .then(d => {
+            window.translation[lang] = d;
+            appliquerTraduction(lang);
+        });
+    } else {
+        appliquerTraduction(lang);
+    }
+}
+
+function appliquerTraduction(lang) {
+    document.querySelectorAll("[data-trad]").forEach(el => {
+        const key = el.getAttribute("data-trad");
+        if (window.translation[lang][key])
+            el.innerText = window.translation[lang][key];
+    });
+}
+</script>
+
 </body>
 </html>
