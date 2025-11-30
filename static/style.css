@@ -1,46 +1,83 @@
-/* style.css - thème "grimoire/parchemin" simple */
-* { box-sizing: border-box; font-family: "Georgia", serif; }
-body {
-  margin: 0;
-  padding: 18px;
-  background: radial-gradient(circle at 10% 10%, #fbf6ea 0%, #efe1c9 40%, #d9c6a3 100%);
-  color: #222;
+/* style.css - version enchantée */
+:root{
+  --bg-cream:#f4efe6;
+  --brown:#2b1c0f;
+  --accent:#cfa96a;
+  --panel:#fff7e6;
 }
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
+
+/* Reset minimal */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", serif;
+  color:var(--brown);
+  background:var(--bg-cream);
+  font-size:22px;
+  line-height:1.6;
 }
-.brand a { text-decoration:none; color:#2b2b2b; font-weight:700; font-size:1.3rem; }
-nav ul { list-style:none; margin:0; padding:0; display:flex; gap:10px; align-items:center; }
-nav a { text-decoration:none; padding:6px 10px; border-radius:6px; color:#2b2b2b; }
-nav a:hover { background: rgba(0,0,0,0.04); }
-.drop { position:relative; }
-.drop .submenu {
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  background: rgba(255,255,255,0.95);
-  padding:8px;
-  border-radius:6px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
-  min-width:120px;
+
+/* Background parchment */
+.background{
+  position:fixed; inset:0;
+  background-image: url("{{ url_for('static', filename='images/parchment_texture.jpg') }}");
+  background-size:cover;
+  opacity:0.22;
+  z-index:-1;
 }
-.drop.open .submenu { display:block; }
-#main { max-width:1000px; margin: 0 auto; background: linear-gradient(#fffdf7,#fff7e6); padding:18px; border-radius:12px; box-shadow:0 6px 30px rgba(0,0,0,0.06); }
-.article { padding:10px 14px; margin-bottom:12px; border-radius:8px; }
-.legend { border-left:4px solid #b37a2b; padding:10px; background:rgba(255,250,240,0.85); margin-bottom:10px; border-radius:6px; }
-.footer { margin-top:18px; font-size:0.9rem; color:#444; }
-.btn { display:inline-block; padding:8px 12px; background:#8b5e2f; color:white; border-radius:6px; text-decoration:none; }
-input[type="text"], textarea, input[type="password"] {
-  width:100%; padding:8px; border:1px solid #c9b899; border-radius:6px; background:rgba(255,255,255,0.9);
+
+/* Banner */
+.banner{
+  display:flex; align-items:center; gap:16px;
+  padding:14px 18px; background:linear-gradient(180deg,#fffaf0,rgba(255,250,240,0.6));
+  border-bottom:2px solid rgba(0,0,0,0.06);
 }
-textarea { min-height:140px; }
-.form-row { margin-bottom:10px; }
-.admin-locked { background:#fff0f0; border:1px solid #f2c0c0; padding:10px; border-radius:6px; }
-@media (max-width:720px){
-  nav ul { flex-wrap:wrap; gap:8px; }
-  #main { padding:14px; }
+.banner-image{ height:110px; object-fit:contain; display:block; }
+.banner-title h1{ margin:0; font-size:28px; text-shadow:1px 1px 2px rgba(0,0,0,0.12); }
+
+/* Nav horizontal under banner */
+.main-nav{ background:rgba(255,250,240,0.95); border-top:1px solid rgba(0,0,0,0.03); }
+.main-nav ul{ list-style:none; margin:0; padding:8px 16px; display:flex; gap:18px; align-items:center; }
+.main-nav a{ text-decoration:none; color:var(--brown); font-weight:700; }
+.main-nav .drop{ position:relative; cursor:default; padding:6px 8px; }
+.submenu{ position:absolute; left:0; top:100%; display:none; background:var(--panel); padding:8px; border:1px solid rgba(0,0,0,0.08); box-shadow:0 8px 20px rgba(0,0,0,0.12); z-index:10; min-width:140px; }
+.drop:hover .submenu{ display:block; }
+.submenu li{ padding:6px 8px; }
+
+/* page content */
+.page-content{ padding:22px; max-width:1100px; margin:0 auto; }
+
+/* flash messages */
+.flash{ max-width:1100px; margin:10px auto; }
+.flash-item{ background:var(--panel); padding:10px 12px; border-left:4px solid var(--accent); margin-bottom:6px; }
+
+/* légende style */
+.legende-article{ background:rgba(255,250,240,0.9); padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.legende-image{ display:block; margin:14px auto; max-width:70%; border-radius:8px; border:3px solid var(--accent); box-shadow:0 10px 30px rgba(0,0,0,0.18); }
+.legende-contenu{ font-size:24px; white-space:pre-line; margin-top:12px; }
+
+/* lettrine */
+.legende-contenu::first-letter{
+  font-size:56px; float:left; line-height:0.7; padding-right:10px; font-family:"Cormorant Garamond", Georgia, serif; color:#6a3511; text-shadow:1px 1px 3px rgba(0,0,0,0.2)
+}
+
+/* buttons */
+.btn-lecture{ background:linear-gradient(135deg,#b8860b,#d4a017); color:white; border:0; padding:12px 18px; border-radius:8px; cursor:pointer; font-weight:700; }
+.controls{ margin-top:12px }
+
+/* pagination */
+.pagination{ display:flex; justify-content:space-between; align-items:center; margin-top:18px; }
+
+/* gallery */
+.gallery{ display:flex; flex-wrap:wrap; gap:18px; justify-content:center; }
+
+/* footer licorne animated */
+.footer-licorne{ position:fixed; bottom:8px; left:-240px; width:170px; animation:licorne-run 16s linear infinite; z-index:5; opacity:0.95; }
+@keyframes licorne-run{ 0%{ left:-300px } 50%{ left:60% } 100%{ left:110% } }
+
+/* responsive */
+@media(max-width:800px){
+  .banner-image{ display:none; } .banner-title h1{ font-size:22px }
+  .legende-image{ max-width:95% }
+  .main-nav ul{ flex-wrap:wrap; gap:10px }
 }
