@@ -1,133 +1,118 @@
+# app.py
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, abort
+import errno
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
 from werkzeug.utils import secure_filename
 
-# ========== CONFIG ==========
-# Ne pas laisser le mot de passe en clair en production : utilisez la variable d'environnement
-ADMIN_PASSWORD = os.environ.get("JEDDI_ADMIN_PASSWORD", "ChangeMoiEnProd123!")
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join(BASE_DIR, "static", "uploads")
-LEGENDES_FOLDER = os.path.join(BASE_DIR, "legendes_data")
-ALLOWED_EXT = {"png", "jpg", "jpeg", "gif"}
+# -------------------------
+# CONFIGURATION
+# -------------------------
+ADMIN_PASSWORD = os.environ.get("JEDDI_ADMIN_PASSWORD", "ChangeMoiEnProd2025")
+UPLOAD_FOLDER = "static/uploads"
+LEGENDES_FOLDER = "legendes_data"
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 
-# Create folders safely
-def safe_mkdir(path):
+# Créer dossiers si manquants (tolérant si existent déjà)
+for d in (UPLOAD_FOLDER, LEGENDES_FOLDER, "static/images"):
     try:
-        os.makedirs(path, exist_ok=True)
-    except FileExistsError:
-        # parfois bizarrement raises; ignore
-        pass
-    except OSError:
-        # ignore other mkdir races on some hosts
-        if not os.path.isdir(path):
+        os.makedirs(d, exist_ok=True)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
             raise
 
-safe_mkdir(UPLOAD_FOLDER)
-safe_mkdir(LEGENDES_FOLDER)
-
 app = Flask(__name__)
+app.secret_key = os.environ.get("JEDDI_SECRET_KEY", "DevSecretKeyChangeMe")
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-app.secret_key = os.environ.get("JEDDI_SECRET_KEY", "dev-secret-key")
 
 LANGS = ["fr", "en", "es", "de", "it"]
-PAGES_SIMPLE = ["accueil", "apropos", "jeddi", "galerie", "grimoire", "don"]
 
-# ========== HELPERS ==========
+# -------------------------
+# Helpers
+# -------------------------
 def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXT
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def legend_file(lang):
     return os.path.join(LEGENDES_FOLDER, f"legendes_{lang}.txt")
 
-def parse_legendes_text(text):
-    """
-    Parse a legends file content into list of dicts:
-    Marker for image: line like ==image:filename==
-    Blocks separated by a blank-line + --- + blank-line (we write this way)
-    """
-    blocks = [b.strip() for b in text.split("\n\n---\n\n") if b.strip()]
+def normalize_blocks(text):
+    # Normalise les séparateurs pour permettre variantes
+    return text.replace("\r\n", "\n").replace("\r", "\n").strip()
+
+# -------------------------
+# Charger légendes (robuste)
+# Format attendu dans le fichier:
+# Title line
+# (==image:filename==) optional on separate line
+# content lines...
+#
+# (séparateur)
+# (séparateur exact: une ligne vide + --- + une ligne vide ou simplement ---)
+# -------------------------
+def load_legends(lang):
+    path = legend_file(lang)
+    if not os.path.exists(path):
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        raw = normalize_blocks(f.read())
+    # Split on a block separator that is either "\n\n---\n\n" or "\n---\n"
+    blocks = [b.strip() for b in raw.split("\n\n---\n\n") if b.strip()]
+    if len(blocks) == 0:
+        # fallback: try splitting on single-line ---
+        blocks = [b.strip() for b in raw.split("\n---\n") if b.strip()]
     legends = []
-    for b in blocks:
-        lines = b.splitlines()
+    for blk in blocks:
+        lines = blk.split("\n")
         title = lines[0].strip() if lines else "(Sans titre)"
         image = None
         content_lines = []
         for ln in lines[1:]:
-            ln = ln.rstrip("\r")
+            ln = ln.strip()
             if ln.startswith("==image:") and ln.endswith("=="):
                 image = ln.replace("==image:", "").replace("==", "").strip()
             else:
                 content_lines.append(ln)
         content = "\n".join(content_lines).strip()
         legends.append({"title": title, "content": content, "image": image})
+    # Trier A->Z par titre
+    legends.sort(key=lambda x: x["title"].lower())
     return legends
 
-def load_legends(lang):
+def save_legend(lang, title, content, image_filename=None):
     path = legend_file(lang)
-    if not os.path.exists(path):
-        return []
-    with open(path, "r", encoding="utf-8") as f:
-        text = f.read()
-    return parse_legendes_text(text)
-
-def append_legend_to_file(lang, title, content, image_filename=None):
-    path = legend_file(lang)
+    # On écrit en utilisant la séparation recommandée: double newline + --- + double newline
     with open(path, "a", encoding="utf-8") as f:
-        f.write(title + "\n")
+        f.write(title.strip() + "\n")
         if image_filename:
             f.write(f"==image:{image_filename}==\n")
-        f.write(content + "\n\n---\n\n")
+        f.write(content.strip() + "\n\n---\n\n")
 
-# ========== ROUTES ==========
+# -------------------------
+# ROUTES
+# -------------------------
 @app.route("/")
 def root():
-    # redirect to french accueil by default
     return redirect("/fr/accueil")
 
-# dynamic simple pages (accueil, apropos, jeddi, grimoire, don, galerie)
+@app.route("/<lang>/accueil")
+def accueil(lang):
+    if lang not in LANGS:
+        lang = "fr"
+    return render_template(f"accueil_{lang}.html", lang=lang)
+
 @app.route("/<lang>/<page>")
-def page_route(lang, page):
+def pages(lang, page):
     if lang not in LANGS:
         lang = "fr"
-    # protect against path traversal
-    if page not in PAGES_SIMPLE and page != "legendes":
-        abort(404)
+    # attention: les templates doivent exister
     tpl = f"{page}_{lang}.html"
-    return render_template(tpl, lang=lang)
-
-# galerie
-@app.route("/<lang>/galerie")
-def galerie(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    # images from uploads + static/images
-    uploads = []
     try:
-        for fname in sorted(os.listdir(app.config["UPLOAD_FOLDER"])):
-            if allowed_file(fname):
-                uploads.append(fname)
-    except FileNotFoundError:
-        uploads = []
-    return render_template("galerie.html", lang=lang, images=uploads)
+        return render_template(tpl, lang=lang)
+    except Exception as e:
+        # page introuvable -> 404 friendly
+        return render_template("missing_page.html", lang=lang, page=page), 404
 
-# legendes with pagination
-@app.route("/<lang>/legendes")
-def legendes(lang):
-    if lang not in LANGS:
-        lang = "fr"
-    legends = load_legends(lang)
-    page = request.args.get("page", "1")
-    try:
-        page = int(page)
-    except:
-        page = 1
-    total = len(legends)
-    if total == 0:
-        return render_template("legendes.html", lang=lang, legend=None, page=1, pages=1)
-    page = max(1, min(page, total))
-    return render_template("legendes.html", lang=lang, legend=legends[page-1], page=page, pages=total)
-
-# admin GET shows form, POST saves legend + optional image
+# Admin (GET: formulaire, POST: sauvegarde)
 @app.route("/admin/<lang>", methods=["GET", "POST"])
 def admin(lang):
     if lang not in LANGS:
@@ -135,47 +120,69 @@ def admin(lang):
     if request.method == "POST":
         pwd = request.form.get("password", "")
         if pwd != ADMIN_PASSWORD:
-            # Do not leak password in response. Simple forbidden.
-            return "Accès refusé", 403
-
-        title = request.form.get("titre", "").strip()
-        content = request.form.get("texte", "").strip()
+            flash("Mot de passe incorrect.")
+            return redirect(url_for("admin", lang=lang))
+        titre = request.form.get("titre", "").strip()
+        texte = request.form.get("texte", "").strip()
         image_filename = None
-
-        # handle upload
         if "image" in request.files:
             image = request.files["image"]
             if image and image.filename and allowed_file(image.filename):
                 filename = secure_filename(image.filename)
-                target = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-                image.save(target)
+                # sauvegarde
+                image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
                 image_filename = filename
-
-        append_legend_to_file(lang, title or "(Sans titre)", content or "", image_filename)
+        save_legend(lang, titre, texte, image_filename)
         flash("Légende enregistrée.")
-        return redirect(url_for("admin", lang=lang))
+        return redirect(url_for("legendes", lang=lang))
+    return render_template("admin.html", lang=lang)
 
-    # GET
-    existing = load_legends(lang)
-    # prepare raw content to show in textarea if wanted (admin could have different UI)
-    raw = ""
-    for e in existing:
-        raw += e["title"] + "\n"
-        if e.get("image"):
-            raw += f"==image:{e['image']}==\n"
-        raw += e["content"] + "\n\n---\n\n"
-    return render_template("admin.html", lang=lang, raw=raw)
+# Galerie automatique
+@app.route("/<lang>/galerie")
+def galerie(lang):
+    if lang not in LANGS:
+        lang = "fr"
+    files = []
+    try:
+        for fname in sorted(os.listdir(app.config["UPLOAD_FOLDER"])):
+            if allowed_file(fname):
+                files.append(fname)
+    except FileNotFoundError:
+        files = []
+    return render_template("galerie.html", lang=lang, images=files)
 
-# serve uploaded files explicitly (flask static usually handles this, but keep safe)
-@app.route("/uploads/<path:filename>")
+# Légendes - pagination par index (1 item par page)
+@app.route("/<lang>/legendes")
+def legendes(lang):
+    if lang not in LANGS:
+        lang = "fr"
+    legends = load_legends(lang)
+    if not legends:
+        # Cas sans légendes
+        return render_template("legendes.html", lang=lang, legend=None, page=1, pages=1)
+    page = request.args.get("page", "1")
+    try:
+        page = int(page)
+    except ValueError:
+        page = 1
+    total = len(legends)
+    if page < 1: page = 1
+    if page > total: page = total
+    legend = legends[page-1]
+    return render_template("legendes.html", lang=lang, legend=legend, page=page, pages=total)
+
+# route pour servir les uploads (si besoin)
+@app.route("/uploads/<filename>")
 def uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
-# health
+# Health check
 @app.route("/sante")
 def sante():
     return "ok", 200
 
+# -------------------------
+# LANCEMENT
+# -------------------------
 if __name__ == "__main__":
-    # debug True for local dev; on Render Gunicorn is used
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
