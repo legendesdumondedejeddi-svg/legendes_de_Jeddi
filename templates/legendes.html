@@ -1,5 +1,43 @@
 {% extends "layout.html" %}
+{% block title %}Légendes{% endblock %}
 {% block content %}
-  <h1>Légendes (fallback)</h1>
-  <div class="article">Ceci est une page de secours pour Légendes.</div>
+{% if legend %}
+  <article class="legende-article">
+    <h2>{{ legend.title }}</h2>
+
+    {% if legend.image %}
+      <img src="{{ url_for('static', filename='uploads/' + legend.image) }}" alt="Illustration" class="legende-image">
+    {% endif %}
+
+    <div class="legende-contenu">{{ legend.content | replace('\n','<br>') | safe }}</div>
+
+    <div class="controls">
+      <button id="ttsBtn" class="btn-lecture">🔊 Lecture</button>
+    </div>
+
+    <div class="pagination">
+      {% if page > 1 %}<a href="/{{ lang }}/legendes?page={{ page-1 }}">← précédente</a>{% else %}<span></span>{% endif %}
+      <span>Page {{ page }} / {{ pages }}</span>
+      {% if page < pages %}<a href="/{{ lang }}/legendes?page={{ page+1 }}">suivante →</a>{% endif %}
+    </div>
+  </article>
+
+  <script>
+    // TTS simple — utilise l'API Web Speech (côté client)
+    document.getElementById("ttsBtn").addEventListener("click", function(){
+      const text = `{{ legend.title | e }}. ` + `{{ legend.content | e }}`;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.95;
+        window.speechSynthesis.speak(u);
+      } else {
+        alert("Lecture vocale non supportée par ce navigateur.");
+      }
+    });
+  </script>
+
+{% else %}
+  <p>Aucune légende pour l'instant.</p>
+{% endif %}
 {% endblock %}

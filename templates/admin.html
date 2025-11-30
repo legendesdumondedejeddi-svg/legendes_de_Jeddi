@@ -1,15 +1,29 @@
 {% extends "layout.html" %}
+{% block title %}Admin enchanté{% endblock %}
+
 {% block content %}
-  <h1>Admin</h1>
-  {% if not session.get('logged_in') %}
-    <form method="post" action="{{ url_for('page', lang=lang, page='admin') }}">
-      <div class="form-row"><input name="username" placeholder="Nom d'utilisateur"></div>
-      <div class="form-row"><input name="password" type="password" placeholder="Mot de passe"></div>
-      <div class="form-row"><button class="btn">Connexion</button></div>
-    </form>
-    <p class="article">Login par défaut: <strong>admin</strong> / <strong>admin</strong> (changez le mot de passe après).</p>
-  {% else %}
-    <p class="article">Vous êtes connecté en tant qu'admin.</p>
-    <p><a class="btn" href="{{ url_for('logout') }}">Se déconnecter</a></p>
-  {% endif %}
+<h2>✨ Administration des Légendes</h2>
+<p>Bienvenue, gardien des récits — protège bien le mot de passe.</p>
+
+<form method="POST" enctype="multipart/form-data" class="admin-form">
+    <label>Titre de la légende :</label>
+    <input type="text" name="titre" required>
+
+    <label>Texte de la légende :</label>
+    <textarea name="texte" rows="8" required></textarea>
+
+    <label>Image liée (optionnel) :</label>
+    <input type="file" name="image" accept="image/*">
+
+    <label>Mot de passe admin :</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">✨ Enregistrer la légende</button>
+</form>
+
+<style>
+.admin-form { display:flex; flex-direction:column; gap:12px; max-width:900px; margin:18px auto; }
+.admin-form input, .admin-form textarea { padding:10px; border:1px solid #cfa96a; background:#fffaf0; font-family:Georgia,serif; }
+.admin-form button { background:#b5811b; color:white; padding:10px 14px; border-radius:6px; border:0; cursor:pointer; }
+</style>
 {% endblock %}

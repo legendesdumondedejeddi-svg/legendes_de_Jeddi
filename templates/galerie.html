@@ -1,18 +1,22 @@
 {% extends "layout.html" %}
-{% block title %}Galerie — {{ lang|upper }}{% endblock %}
-
+{% block title %}Galerie{% endblock %}
 {% block content %}
 <h2>Galerie</h2>
-{% if not images %}
-  <p>Aucune image dans la galerie.</p>
-{% else %}
-  <div class="gallery-grid">
-    {% for img in images %}
-      <figure class="gallery-item">
-        <img src="{{ url_for('uploaded_file', filename=img) }}" alt="{{ img }}">
-        <figcaption>{{ img }}</figcaption>
-      </figure>
-    {% endfor %}
-  </div>
-{% endif %}
+<div class="gallery">
+  {% for img in images %}
+    <figure class="thumb">
+      <img src="{{ url_for('static', filename='uploads/' + img) }}" alt="{{ img }}">
+      <figcaption>{{ img }}</figcaption>
+    </figure>
+  {% else %}
+    <p>Aucune image uploadée.</p>
+  {% endfor %}
+</div>
+
+<style>
+.gallery { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:16px; }
+.thumb img { max-width:240px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.25); transition:transform .3s; }
+.thumb img:hover { transform:scale(1.05); }
+.thumb figcaption { text-align:center; font-size:0.9rem; margin-top:6px; color:#53310b;}
+</style>
 {% endblock %}
