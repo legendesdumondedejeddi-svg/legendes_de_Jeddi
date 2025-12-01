@@ -89,7 +89,6 @@ body {
 .drop {
     cursor: default;
 }
-
 .submenu {
     display: none;
     position: absolute;
@@ -102,10 +101,9 @@ body {
     z-index: 500;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 
-    /* Corrections importantes */
-    max-height: 260px;     /* empêche l'effet accordéon infini */
-    overflow-y: auto;      /* ajoute une scrollbar si nécessaire */
-    white-space: nowrap;   /* évite le retour bizarre des lignes */
+    max-height: 260px;     /* essentiel */
+    overflow-y: auto;      /* essentiel */
+    white-space: nowrap;   /* optionnel */
 }
 
 .drop:hover .submenu {
