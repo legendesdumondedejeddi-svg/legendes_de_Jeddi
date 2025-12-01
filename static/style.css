@@ -1,13 +1,11 @@
-/* static/style.css - version stabilisée du grimoire */
+/* static/style.css - version complète, réparée et élégante */
 
 /* Reset léger */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: "Georgia", serif;
     font-size: 22px;
     color: #2a1a0a;
@@ -15,13 +13,10 @@ body {
     line-height: 1.6;
 }
 
-/* Fond parchemin */
+/* Fond parchemin (visible via <div class="background">) */
 .background {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
     background-image: url("images/parchment_texture.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -31,28 +26,29 @@ body {
 }
 
 /* Bannière */
-.site-header {
-    padding: 10px 0 0 0;
-    text-align: center;
-}
-
+.site-header { padding-top: 6px; }
 .banner {
     display: flex;
     align-items: center;
-    gap: 20px;          /* espace gracieux */
-    padding: 15px 20px; /* juste ce qu'il faut */
+    justify-content: center;
+    gap: 18px;
+    padding: 12px 18px;
 }
 
+/* Licorne : élégante */
 .banner-image {
-    width: 140px;      /* taille chic */
-    height: auto;      /* proportions intactes */
-    filter: drop-shadow(0 0 6px rgba(0,0,0,0.25)); /* petite aura subtile */
+    width: 140px;     /* taille élégante, augmente si besoin */
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.20));
 }
 
+/* Titre */
 .banner-title h1 {
+    font-size: 34px;
+    margin: 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
 }
-
 
 /* NAV principal */
 .main-nav {
@@ -62,199 +58,87 @@ body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-.main-nav ul {
+.main-menu {
     list-style: none;
-    margin: 0;
-    padding: 10px 20px;
     display: flex;
     justify-content: center;
     gap: 36px;
+    padding: 10px 16px;
+    flex-wrap: wrap;           /* empêche débordement horizontal */
+    direction: ltr;            /* force ltr si ton navigateur fait des siennes */
 }
 
-.main-nav li {
+.main-menu > li {
     position: relative;
     font-weight: bold;
 }
 
-.main-nav a {
+/* Liens */
+.main-menu a, .drop-toggle {
     color: #3a250f;
     text-decoration: none;
     font-size: 20px;
     padding: 6px 8px;
     display: inline-block;
-}
-
-/* Sous-menu */
-.drop {
-    cursor: default;
-}
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 220px;
-    background: #fff8e6;
-    border: 2px solid #cfa96a;
-    padding: 6px 0;
-    z-index: 500;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-    max-height: 260px;     /* essentiel */
-    overflow-y: auto;      /* essentiel */
-    white-space: nowrap;   /* optionnel */
-}
-
-.drop:hover .submenu {
-    display: block;
-}
-
-.submenu li {
-    padding: 8px 14px;
-}
-
-.submenu li a {
-    font-weight: normal;
-}
-
-/* Contenu principal */
-.page-content {
-    padding: 28px 18px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Légendes */
-h2 {
-    font-size: 28px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-}
-
-.legende-contenu {
-    font-size: 24px;
-    background: rgba(255,248,230,0.95);
-    padding: 22px;
-    border-radius: 10px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-    white-space: pre-wrap;
-}
-
-.legende-contenu p:first-child::first-letter {
-    font-size: 56px;
-    float: left;
-    padding-right: 12px;
-    line-height: 0.9;
-    color: #5b2d00;
-    font-weight: bold;
-}
-
-/* Image légende */
-.legende-image {
-    width: 60%;
-    max-width: 520px;
-    display: block;
-    margin: 18px auto;
-    border-radius: 8px;
-    border: 3px solid #cfa96a;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Pagination */
-.pagination {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-/* Galerie */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 18px;
-}
-
-.gallery-item img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-}
-
-/* Admin form */
-.admin-form {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.admin-form input[type="text"],
-.admin-form textarea,
-.admin-form input[type="password"] {
-    padding: 10px;
-    border: 2px solid #cfa96a;
-    background: #fff7e6;
-    font-size: 18px;
-    border-radius: 6px;
-}
-
-.admin-form button {
-    background: linear-gradient(135deg, #b8860b, #d4a017);
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    font-size: 18px;
-    border-radius: 8px;
     cursor: pointer;
 }
 
-/* Flash */
-.flash {
-    max-width: 900px;
-    margin: 10px auto;
-    padding: 12px;
+/* Sous-menu : caché par défaut */
+.submenu {
+    display: none;             /* caché par défaut */
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 220px;
+    max-width: 320px;
     background: #fff8e6;
-    border-left: 6px solid #cfa96a;
+    border: 2px solid #cfa96a;
+    padding: 6px 0;
+    z-index: 800;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    max-height: 260px;         /* empêche expansion verticale infinie */
+    overflow-y: auto;          /* scrollbar si trop grand */
+    white-space: nowrap;       /* empêche retours de ligne intempestifs */
 }
 
-/* Footer & licorne */
-.site-footer {
-    text-align: center;
-    padding: 18px 0;
-    margin-top: 40px;
-    font-size: 16px;
+/* Montrer submenu au hover ou focus-within (clavier accessible) */
+.drop:hover > .submenu,
+.drop:focus-within > .submenu {
+    display: block;
 }
 
-.footer-licorne {
-    position: fixed;
-    bottom: 10px;
-    left: -220px;
-    width: 140px;
-    animation: licorne-run 12s linear infinite;
-    z-index: 400;
+/* Petite correction pour que les sous-items restent lisibles */
+.submenu li {
+    padding: 8px 14px;
+    white-space: nowrap;
 }
 
-@keyframes licorne-run {
-    0% { left: -220px; }
-    100% { left: 110%; }
+/* Empêche le sous-menu d'aller en dehors de l'écran à droite */
+.submenu {
+    right: auto;
+    left: 0;
 }
 
-/* Responsive */
+/* Si l'espace est insuffisant à droite, on force l'alignement à droite */
+@media (max-width: 600px) {
+    .submenu { left: 0; right: 0; min-width: auto; width: 90vw; }
+}
+
+/* Contenu principal */
+.page-content { padding: 28px 18px; max-width: 1100px; margin: 0 auto; }
+
+/* Flash messages */
+.flash { max-width: 900px; margin: 10px auto; padding: 12px; background: #fff8e6; border-left: 6px solid #cfa96a; }
+
+/* Footer licorne animée */
+.footer-licorne { position: fixed; bottom: 10px; left: -220px; width: 140px; animation: licorne-run 12s linear infinite; z-index: 400; }
+@keyframes licorne-run { 0% { left: -220px } 100% { left: 110% } }
+
+/* Responsive adjustments */
 @media (max-width: 700px) {
-    .main-nav ul {
-        flex-direction: column;
-        gap: 6px;
-        align-items: center;
-    }
-
-    .banner {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .legende-image {
-        width: 95%;
-    }
+    .main-menu { flex-direction: column; gap: 6px; align-items: center; }
+    .banner { flex-direction: column; gap: 8px; padding: 10px; }
+    .banner-image { width: 120px; }
+    .submenu { position: static; width: auto; max-width: 95vw; box-shadow: none; }
 }
