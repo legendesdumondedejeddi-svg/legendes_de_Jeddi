@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %}Page manquante{% endblock %}
+{% block content %}
+<h2>Page introuvable</h2>
+<p>La page "{{ page }}" n'a pas été trouvée pour la langue {{ lang }}.</p>
+<p>Vérifie que le fichier template <code>{{ page }}_{{ lang }}.html</code> existe dans le dossier <code>templates/</code>.</p>
+{% endblock %}

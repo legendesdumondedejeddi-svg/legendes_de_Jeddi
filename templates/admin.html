@@ -1,29 +1,23 @@
 {% extends "layout.html" %}
-{% block title %}Admin enchanté{% endblock %}
-
+{% block title %}Admin — Légendes{% endblock %}
 {% block content %}
-<h2>✨ Administration des Légendes</h2>
-<p>Bienvenue, gardien des récits — protège bien le mot de passe.</p>
+<h2>✨ Administration des Légendes ({{ lang|upper }})</h2>
+
+<p>Bienvenue, gardien des récits. Ici tu peux écrire et enchanter les légendes.</p>
 
 <form method="POST" enctype="multipart/form-data" class="admin-form">
     <label>Titre de la légende :</label>
     <input type="text" name="titre" required>
 
     <label>Texte de la légende :</label>
-    <textarea name="texte" rows="8" required></textarea>
+    <textarea name="texte" rows="10" required></textarea>
 
     <label>Image liée (optionnel) :</label>
-    <input type="file" name="image" accept="image/*">
+    <input type="file" name="image">
 
-    <label>Mot de passe admin :</label>
+    <label>Mot de passe :</label>
     <input type="password" name="password" required>
 
     <button type="submit">✨ Enregistrer la légende</button>
 </form>
-
-<style>
-.admin-form { display:flex; flex-direction:column; gap:12px; max-width:900px; margin:18px auto; }
-.admin-form input, .admin-form textarea { padding:10px; border:1px solid #cfa96a; background:#fffaf0; font-family:Georgia,serif; }
-.admin-form button { background:#b5811b; color:white; padding:10px 14px; border-radius:6px; border:0; cursor:pointer; }
-</style>
 {% endblock %}

@@ -1,43 +1,34 @@
 {% extends "layout.html" %}
-{% block title %}Légendes{% endblock %}
+{% block title %}Légendes — {{ lang|upper }}{% endblock %}
 {% block content %}
 {% if legend %}
-  <article class="legende-article">
     <h2>{{ legend.title }}</h2>
 
     {% if legend.image %}
-      <img src="{{ url_for('static', filename='uploads/' + legend.image) }}" alt="Illustration" class="legende-image">
+        <img src="{{ url_for('static', filename='uploads/' + legend.image) }}" alt="Illustration" class="legende-image">
     {% endif %}
 
-    <div class="legende-contenu">{{ legend.content | replace('\n','<br>') | safe }}</div>
+    <div class="legende-contenu">
+        {{ legend.content }}
+    </div>
 
-    <div class="controls">
-      <button id="ttsBtn" class="btn-lecture">🔊 Lecture</button>
+    <div style="text-align:center; margin-top:12px;">
+        <button class="btn-lecture" title="Lire la légende">🔊 Lire</button>
     </div>
 
     <div class="pagination">
-      {% if page > 1 %}<a href="/{{ lang }}/legendes?page={{ page-1 }}">← précédente</a>{% else %}<span></span>{% endif %}
-      <span>Page {{ page }} / {{ pages }}</span>
-      {% if page < pages %}<a href="/{{ lang }}/legendes?page={{ page+1 }}">suivante →</a>{% endif %}
+        {% if page > 1 %}
+            <a href="/{{ lang }}/legendes?page={{ page - 1 }}">← Légende précédente</a>
+        {% else %}
+            <span></span>
+        {% endif %}
+        {% if page < pages %}
+            <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Légende suivante →</a>
+        {% else %}
+            <span></span>
+        {% endif %}
     </div>
-  </article>
-
-  <script>
-    // TTS simple — utilise l'API Web Speech (côté client)
-    document.getElementById("ttsBtn").addEventListener("click", function(){
-      const text = `{{ legend.title | e }}. ` + `{{ legend.content | e }}`;
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.rate = 0.95;
-        window.speechSynthesis.speak(u);
-      } else {
-        alert("Lecture vocale non supportée par ce navigateur.");
-      }
-    });
-  </script>
-
 {% else %}
-  <p>Aucune légende pour l'instant.</p>
+    <p>Aucune légende pour le moment. Va dans <a href="/{{ lang }}/admin">l'administration</a> pour en ajouter.</p>
 {% endif %}
 {% endblock %}
