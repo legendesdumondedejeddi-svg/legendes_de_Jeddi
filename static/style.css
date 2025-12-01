@@ -39,21 +39,20 @@ body {
 .banner {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding: 10px 12px;
+    gap: 20px;          /* espace gracieux */
+    padding: 15px 20px; /* juste ce qu'il faut */
 }
 
 .banner-image {
-    width: 160px;
-    height: auto;
+    width: 140px;      /* taille chic */
+    height: auto;      /* proportions intactes */
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.25)); /* petite aura subtile */
 }
 
 .banner-title h1 {
-    margin: 0;
-    font-size: 34px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
 }
+
 
 /* NAV principal */
 .main-nav {
