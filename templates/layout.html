@@ -3,23 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>
-        {% block title %}Légendes du Monde de Jeddi{% endblock %}
-    </title>
+    <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-
     <!-- Fond parchemin -->
-    <div class="background"></div>
+    <div class="background" aria-hidden="true"></div>
 
-    <!-- En-tête -->
-    <header class="site-header">
-
+    <header class="site-header" role="banner">
         <div class="banner">
             <img src="{{ url_for('static', filename='images/licorne.png') }}"
                  alt="Licorne"
@@ -31,67 +24,56 @@
         </div>
 
         <!-- Navigation principale -->
-        <nav class="main-nav">
-            <ul>
+        <nav class="main-nav" role="navigation" aria-label="Menu principal">
+            <ul class="main-menu" role="menubar">
+                <li role="none"><a role="menuitem" href="/{{ lang }}/accueil">Accueil</a></li>
+                <li role="none"><a role="menuitem" href="/{{ lang }}/apropos">À propos</a></li>
 
-                <li><a href="/{{ lang }}/accueil">Accueil</a></li>
-                <li><a href="/{{ lang }}/apropos">À propos</a></li>
-
-                <!-- Sous-menu Pages -->
-                <li class="drop">Pages ▾
-                    <ul class="submenu">
-                        <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
-                        <li><a href="/{{ lang }}/galerie">Galerie</a></li>
-                        <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
-                        <li><a href="/{{ lang }}/don">Don</a></li>
-                        <li><a href="/{{ lang }}/legendes">Légendes</a></li>
+                <!-- Pages (sous-menu) -->
+                <li class="drop" role="none" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                    <span class="drop-toggle">Pages ▾</span>
+                    <ul class="submenu" role="menu" aria-label="Pages">
+                        <li role="none"><a role="menuitem" href="/{{ lang }}/jeddi">Jeddi</a></li>
+                        <li role="none"><a role="menuitem" href="/{{ lang }}/galerie">Galerie</a></li>
+                        <li role="none"><a role="menuitem" href="/{{ lang }}/grimoire">Grimoire</a></li>
+                        <li role="none"><a role="menuitem" href="/{{ lang }}/don">Don</a></li>
+                        <li role="none"><a role="menuitem" href="/{{ lang }}/legendes">Légendes</a></li>
                     </ul>
                 </li>
 
-                <!-- Sous-menu Langues -->
-                <li class="drop">Langue ▾
-                    <ul class="submenu">
-                        <li><a href="/fr/accueil">FR</a></li>
-                        <li><a href="/en/accueil">EN</a></li>
-                        <li><a href="/es/accueil">ES</a></li>
-                        <li><a href="/de/accueil">DE</a></li>
-                        <li><a href="/it/accueil">IT</a></li>
+                <!-- Langue (sous-menu) -->
+                <li class="drop" role="none" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                    <span class="drop-toggle">Langue ▾</span>
+                    <ul class="submenu" role="menu" aria-label="Langues">
+                        <li role="none"><a role="menuitem" href="/fr/accueil">FR</a></li>
+                        <li role="none"><a role="menuitem" href="/en/accueil">EN</a></li>
+                        <li role="none"><a role="menuitem" href="/es/accueil">ES</a></li>
+                        <li role="none"><a role="menuitem" href="/de/accueil">DE</a></li>
+                        <li role="none"><a role="menuitem" href="/it/accueil">IT</a></li>
                     </ul>
                 </li>
-
             </ul>
         </nav>
     </header>
 
-    <!-- Contenu principal -->
-    <main class="page-content">
-
-        <!-- Messages flash -->
+    <main class="page-content" role="main">
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="flash">
-                    {% for m in messages %}
-                        <div class="flash-item">{{ m }}</div>
-                    {% endfor %}
-                </div>
-            {% endif %}
+          {% if messages %}
+            <div class="flash" role="status" aria-live="polite">
+              {% for m in messages %}<div class="flash-item">{{ m }}</div>{% endfor %}
+            </div>
+          {% endif %}
         {% endwith %}
 
-        <!-- Contenu dynamique -->
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Pied de page -->
-    <footer class="site-footer">
-
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}"
-             alt="Licorne animée"
-             class="footer-licorne">
-
+    <footer class="site-footer" role="contentinfo">
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée" class="footer-licorne">
         <p>© Légendes du Monde de Jeddi</p>
     </footer>
 
-    <!-- Script -->
+    <!-- Script : si tu suspectes script.js, commente la ligne suivante pour tester -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
