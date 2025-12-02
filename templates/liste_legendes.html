@@ -1,16 +1,15 @@
 {% extends "layout.html" %}
-{% block content %}
 
+{% block title %}Légendes{% endblock %}
+
+{% block content %}
 <h2>Liste des légendes</h2>
 
 <ul>
-    {% for leg in legendes %}
-        <li>
-            <a href="{{ url_for('legende_detail', id=leg.id) }}">
-                {{ leg.titre }}
-            </a>
-        </li>
+    {% for l in legendes %}
+    <li>
+        <a href="/{{ lang }}/legende/{{ l.id }}">{{ l.titre }}</a>
+    </li>
     {% endfor %}
 </ul>
-
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ legende.titre }}{% endblock %}
+
+{% block content %}
+<h2>{{ legende.titre }}</h2>
+
+<img src="{{ url_for('static', filename='images/' ~ legende.image) }}" class="legende-image">
+
+<div class="legende-contenu">
+    {{ legende.contenu }}
+</div>
+
+<a href="/{{ lang }}/legendes">Retour aux légendes</a>
+{% endblock %}

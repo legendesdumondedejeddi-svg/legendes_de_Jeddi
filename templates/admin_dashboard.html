@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Panneau d'administration</h2>
+
+<a href="/admin/add">Ajouter une légende</a>
+
+<ul>
+    {% for l in legendes %}
+    <li>{{ l.titre }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

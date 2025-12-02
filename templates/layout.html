@@ -1,37 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ lang }}">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ title if title else "Légendes de Jeddi" }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Monde de Jeddi{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-<header class="banniere">
-    <img src="{{ url_for('static', filename='images/licorne.png') }}"
-         class="logo-licorne"
-         alt="Licorne">
-    <h1>Légendes du Monde de Jeddi</h1>
+<div class="background"></div>
 
-    <nav>
-        <ul class="menu">
-            <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
-            <li><a href="{{ url_for('liste_legendes') }}">Légendes</a></li>
-            <li>Pages
+<header class="site-header">
+    <div class="banner">
+        <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image">
+        <h1>Légendes du Monde de Jeddi</h1>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/{{ lang }}/accueil">Accueil</a></li>
+            <li><a href="/{{ lang }}/legendes">Légendes</a></li>
+
+            <li class="drop">Langue ▾
                 <ul class="submenu">
-                    <li><a href="{{ url_for('liste_legendes') }}">Toutes les légendes</a></li>
+                    <li><a href="/fr/accueil">FR</a></li>
+                    <li><a href="/en/accueil">EN</a></li>
+                    <li><a href="/es/accueil">ES</a></li>
+                    <li><a href="/de/accueil">DE</a></li>
+                    <li><a href="/it/accueil">IT</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url_for('admin_index') }}">Admin</a></li>
         </ul>
     </nav>
 </header>
 
-<main>
-    {% block content %}
-    {% endblock %}
+<main class="page-content">
+    {% block content %}{% endblock %}
 </main>
+
+<footer class="site-footer">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-licorne">
+    <p>© Monde de Jeddi</p>
+</footer>
 
 </body>
 </html>
