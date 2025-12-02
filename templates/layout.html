@@ -1,79 +1,43 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
-
-    <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <!-- Fond parchemin -->
-    <div class="background" aria-hidden="true"></div>
 
-    <header class="site-header" role="banner">
+    <div class="background"></div>
+
+    <header class="site-header">
         <div class="banner">
-            <img src="{{ url_for('static', filename='images/licorne.png') }}"
-                 alt="Licorne"
-                 class="banner-image">
-
-            <div class="banner-title">
-                <h1>Légendes du Monde de Jeddi</h1>
-            </div>
+            <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image">
+            <div class="banner-title"><h1>Légendes du Monde de Jeddi</h1></div>
         </div>
 
-        <!-- Navigation principale -->
-        <nav class="main-nav" role="navigation" aria-label="Menu principal">
-            <ul class="main-menu" role="menubar">
-                <li role="none"><a role="menuitem" href="/{{ lang }}/accueil">Accueil</a></li>
-                <li role="none"><a role="menuitem" href="/{{ lang }}/apropos">À propos</a></li>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Accueil</a></li>
 
-                <!-- Pages (sous-menu) -->
-                <li class="drop" role="none" aria-haspopup="true" aria-expanded="false" tabindex="0">
-                    <span class="drop-toggle">Pages ▾</span>
-                    <ul class="submenu" role="menu" aria-label="Pages">
-                        <li role="none"><a role="menuitem" href="/{{ lang }}/jeddi">Jeddi</a></li>
-                        <li role="none"><a role="menuitem" href="/{{ lang }}/galerie">Galerie</a></li>
-                        <li role="none"><a role="menuitem" href="/{{ lang }}/grimoire">Grimoire</a></li>
-                        <li role="none"><a role="menuitem" href="/{{ lang }}/don">Don</a></li>
-                        <li role="none"><a role="menuitem" href="/{{ lang }}/legendes">Légendes</a></li>
-                    </ul>
-                </li>
-
-                <!-- Langue (sous-menu) -->
-                <li class="drop" role="none" aria-haspopup="true" aria-expanded="false" tabindex="0">
-                    <span class="drop-toggle">Langue ▾</span>
-                    <ul class="submenu" role="menu" aria-label="Langues">
-                        <li role="none"><a role="menuitem" href="/fr/accueil">FR</a></li>
-                        <li role="none"><a role="menuitem" href="/en/accueil">EN</a></li>
-                        <li role="none"><a role="menuitem" href="/es/accueil">ES</a></li>
-                        <li role="none"><a role="menuitem" href="/de/accueil">DE</a></li>
-                        <li role="none"><a role="menuitem" href="/it/accueil">IT</a></li>
+                <li class="drop">Pages ▾
+                    <ul class="submenu">
+                        <li><a href="/legendes">Liste des légendes</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main class="page-content" role="main">
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <div class="flash" role="status" aria-live="polite">
-              {% for m in messages %}<div class="flash-item">{{ m }}</div>{% endfor %}
-            </div>
-          {% endif %}
-        {% endwith %}
-
+    <main class="page-content">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne animée" class="footer-licorne">
+    <footer class="site-footer">
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-licorne">
         <p>© Légendes du Monde de Jeddi</p>
     </footer>
 
-    <!-- Script : si tu suspectes script.js, commente la ligne suivante pour tester -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

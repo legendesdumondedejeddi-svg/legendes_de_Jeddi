@@ -1,34 +1,13 @@
 {% extends "layout.html" %}
-{% block title %}Légendes — {{ lang|upper }}{% endblock %}
+
+{% block title %}{{ legende.titre }}{% endblock %}
+
 {% block content %}
-{% if legend %}
-    <h2>{{ legend.title }}</h2>
 
-    {% if legend.image %}
-        <img src="{{ url_for('static', filename='uploads/' + legend.image) }}" alt="Illustration" class="legende-image">
-    {% endif %}
+<h1>{{ legende.titre }}</h1>
 
-    <div class="legende-contenu">
-        {{ legend.content }}
-    </div>
+<p>{{ legende.contenu }}</p>
 
-    <div style="text-align:center; margin-top:12px;">
-        <button class="btn-lecture" title="Lire la légende">🔊 Lire</button>
-    </div>
+<p><a href="/legendes">Retour à la liste des légendes</a></p>
 
-    <div class="pagination">
-        {% if page > 1 %}
-            <a href="/{{ lang }}/legendes?page={{ page - 1 }}">← Légende précédente</a>
-        {% else %}
-            <span></span>
-        {% endif %}
-        {% if page < pages %}
-            <a href="/{{ lang }}/legendes?page={{ page + 1 }}">Légende suivante →</a>
-        {% else %}
-            <span></span>
-        {% endif %}
-    </div>
-{% else %}
-    <p>Aucune légende pour le moment. Va dans <a href="/{{ lang }}/admin">l'administration</a> pour en ajouter.</p>
-{% endif %}
 {% endblock %}
