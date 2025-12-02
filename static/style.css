@@ -1,144 +1,37 @@
-/* static/style.css - version complète, réparée et élégante */
-
-/* Reset léger */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body { height: 100%; }
-
 body {
-    font-family: "Georgia", serif;
-    font-size: 22px;
-    color: #2a1a0a;
-    background: #f4efe6;
-    line-height: 1.6;
+    background: url("../images/grimoire.png");
+    font-family: Arial;
 }
 
-/* Fond parchemin (visible via <div class="background">) */
-.background {
-    position: fixed;
-    inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
-    background-image: url("images/parchment_texture.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    opacity: 0.22;
-    z-index: -1;
+.banniere {
+    text-align: center;
+    padding: 20px;
 }
 
-/* Bannière */
-.site-header { padding-top: 6px; }
-.banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding: 12px 18px;
-}
-
-/* Licorne : élégante */
-.banner-image {
-    width: 140px;     /* taille élégante, augmente si besoin */
+.logo-licorne {
+    width: 180px;
     height: auto;
-    display: block;
-    filter: drop-shadow(0 0 6px rgba(0,0,0,0.20));
 }
 
-/* Titre */
-.banner-title h1 {
-    font-size: 34px;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
-}
-
-/* NAV principal */
-.main-nav {
-    background: rgba(255,248,230,0.96);
-    border-top: 3px solid rgba(207,169,106,0.9);
-    border-bottom: 3px solid rgba(207,169,106,0.9);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.main-menu {
+.menu {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-    padding: 10px 16px;
-    flex-wrap: wrap;           /* empêche débordement horizontal */
-    direction: ltr;            /* force ltr si ton navigateur fait des siennes */
+    padding: 0;
 }
 
-.main-menu > li {
-    position: relative;
-    font-weight: bold;
-}
-
-/* Liens */
-.main-menu a, .drop-toggle {
-    color: #3a250f;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 6px 8px;
+.menu > li {
     display: inline-block;
-    cursor: pointer;
+    margin: 0 10px;
+    position: relative;
 }
 
-/* Sous-menu : caché par défaut */
 .submenu {
-    display: none;             /* caché par défaut */
+    display: none;
     position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    min-width: 220px;
-    max-width: 320px;
-    background: #fff8e6;
-    border: 2px solid #cfa96a;
-    padding: 6px 0;
-    z-index: 800;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-    max-height: 260px;         /* empêche expansion verticale infinie */
-    overflow-y: auto;          /* scrollbar si trop grand */
-    white-space: nowrap;       /* empêche retours de ligne intempestifs */
+    background: #fff;
+    padding: 10px;
+    list-style: none;
 }
 
-/* Montrer submenu au hover ou focus-within (clavier accessible) */
-.drop:hover > .submenu,
-.drop:focus-within > .submenu {
+.menu > li:hover .submenu {
     display: block;
-}
-
-/* Petite correction pour que les sous-items restent lisibles */
-.submenu li {
-    padding: 8px 14px;
-    white-space: nowrap;
-}
-
-/* Empêche le sous-menu d'aller en dehors de l'écran à droite */
-.submenu {
-    right: auto;
-    left: 0;
-}
-
-/* Si l'espace est insuffisant à droite, on force l'alignement à droite */
-@media (max-width: 600px) {
-    .submenu { left: 0; right: 0; min-width: auto; width: 90vw; }
-}
-
-/* Contenu principal */
-.page-content { padding: 28px 18px; max-width: 1100px; margin: 0 auto; }
-
-/* Flash messages */
-.flash { max-width: 900px; margin: 10px auto; padding: 12px; background: #fff8e6; border-left: 6px solid #cfa96a; }
-
-/* Footer licorne animée */
-.footer-licorne { position: fixed; bottom: 10px; left: -220px; width: 140px; animation: licorne-run 12s linear infinite; z-index: 400; }
-@keyframes licorne-run { 0% { left: -220px } 100% { left: 110% } }
-
-/* Responsive adjustments */
-@media (max-width: 700px) {
-    .main-menu { flex-direction: column; gap: 6px; align-items: center; }
-    .banner { flex-direction: column; gap: 8px; padding: 10px; }
-    .banner-image { width: 120px; }
-    .submenu { position: static; width: auto; max-width: 95vw; box-shadow: none; }
 }
