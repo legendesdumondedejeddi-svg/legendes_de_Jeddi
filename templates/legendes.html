@@ -1,13 +1,16 @@
 {% extends "layout.html" %}
-
-{% block title %}{{ legende.titre }}{% endblock %}
-
 {% block content %}
 
-<h1>{{ legende.titre }}</h1>
+<h2>{{ leg.titre }}</h2>
 
-<p>{{ legende.contenu }}</p>
+{% if leg.image %}
+<img src="{{ url_for('static', filename='images/' + leg.image) }}"
+     alt="{{ leg.titre }}"
+     style="max-width:300px">
+{% endif %}
 
-<p><a href="/legendes">Retour à la liste des légendes</a></p>
+<p>{{ leg.contenu }}</p>
+
+<a href="{{ url_for('liste_legendes') }}">Retour</a>
 
 {% endblock %}

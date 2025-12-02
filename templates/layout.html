@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "Légendes de Jeddi" }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <div class="background"></div>
+<header class="banniere">
+    <img src="{{ url_for('static', filename='images/licorne.png') }}"
+         class="logo-licorne"
+         alt="Licorne">
+    <h1>Légendes du Monde de Jeddi</h1>
 
-    <header class="site-header">
-        <div class="banner">
-            <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image">
-            <div class="banner-title"><h1>Légendes du Monde de Jeddi</h1></div>
-        </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="{{ url_for('accueil') }}">Accueil</a></li>
+            <li><a href="{{ url_for('liste_legendes') }}">Légendes</a></li>
+            <li>Pages
+                <ul class="submenu">
+                    <li><a href="{{ url_for('liste_legendes') }}">Toutes les légendes</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ url_for('admin_index') }}">Admin</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <nav class="main-nav">
-            <ul>
-                <li><a href="/">Accueil</a></li>
-
-                <li class="drop">Pages ▾
-                    <ul class="submenu">
-                        <li><a href="/legendes">Liste des légendes</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="page-content">
-        {% block content %}{% endblock %}
-    </main>
-
-    <footer class="site-footer">
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-licorne">
-        <p>© Légendes du Monde de Jeddi</p>
-    </footer>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
 
 </body>
 </html>
