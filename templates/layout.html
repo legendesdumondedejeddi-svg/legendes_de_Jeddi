@@ -11,9 +11,14 @@
         <h1 class="titre-grimoire">Légendes de Jeddi</h1>
 
         <nav class="menu">
-            <a href="{{ url_for('accueil') }}">Accueil</a>
-            <a href="{{ url_for('list_legendes') }}">Légendes</a>
-            <a href="{{ url_for('admin') }}">Admin</a>
+            <a href="{{ url_for('accueil', lang=lang) }}">Accueil</a>
+            <a href="{{ url_for('list_legendes', lang=lang) }}">Légendes</a>
+            <a href="{{ url_for('admin', lang=lang) }}">Admin</a>
+
+            <!-- Nouveau bouton DON -->
+            <a href="https://www.paypal.com/donate" 
+               class="bouton-don" 
+               target="_blank">Don</a>
         </nav>
     </header>
 

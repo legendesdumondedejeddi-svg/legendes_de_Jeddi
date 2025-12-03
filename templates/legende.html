@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
+
 {% block content %}
+<h2>{{ legende.titre }}</h2>
 
-<article class="fiche-legende">
+{% if legende.image %}
+<img class="image-legende" src="{{ url_for('static', filename='images/' ~ legende.image) }}" alt="">
+{% endif %}
 
-    {% if legende.image %}
-    <img class="medaillon-grand" src="{{ url_for('static', filename='images/' + legende.image) }}" alt="{{ legende.titre }}">
-    {% endif %}
+<p class="texte-legende">{{ legende.texte }}</p>
 
-    <h2 class="titre-legende">{{ legende.titre }}</h2>
-    <p class="categorie">Catégorie : {{ legende.categorie }}</p>
-    <p class="texte-legende">{{ legende.texte }}</p>
-
-</article>
+<p class="categorie-legende">Catégorie : {{ legende.categorie }}</p>
 
 {% endblock %}

@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
+
 {% block content %}
+<h2>Ajouter une légende</h2>
 
-<h2>Administration</h2>
+<form method="post" enctype="multipart/form-data">
 
-<form method="POST" enctype="multipart/form-data" class="formulaire-admin">
     <label>Mot de passe admin :</label>
     <input type="password" name="password" required>
 
@@ -14,22 +15,12 @@
     <textarea name="texte" required></textarea>
 
     <label>Catégorie :</label>
-    <input type="text" name="categorie" placeholder="ex: mythes, dragons, forêt..." required>
+    <input type="text" name="categorie">
 
     <label>Image :</label>
     <input type="file" name="image">
 
-    <button type="submit">Ajouter</button>
+    <button type="submit">Publier</button>
 </form>
-
-<hr>
-
-<h3>Légendes existantes :</h3>
-
-<ul>
-{% for l in legendes %}
-    <li>{{ l.id }} – {{ l.titre }} ({{ l.categorie }})</li>
-{% endfor %}
-</ul>
 
 {% endblock %}
