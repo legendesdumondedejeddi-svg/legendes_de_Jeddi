@@ -3,13 +3,52 @@
 {% block title %}Légendes{% endblock %}
 
 {% block content %}
-<h2>Liste des légendes</h2>
+<h2>Toutes les légendes ({{ lang }})</h2>
 
-<ul>
+<!-- filtrer par catégorie -->
+<form method="get" action="">
+  <label>Catégorie:
+    <select name="cat" onchange="this.form.submit()">
+      <option value="">Toutes</option>
+      {% for c in categories %}
+        <option value="{{ c }}" {% if current_cat == c %}selected{% endif %}>{{ c }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  &nbsp;
+  <label>Par page:
+    <input type="number" name="per_page" value="{{ per_page }}" min="1" max="100">
+  </label>
+  <button type="submit">Appliquer</button>
+</form>
+
+{% if legendes %}
+  <ul class="liste">
     {% for l in legendes %}
-    <li>
+      <li>
         <a href="/{{ lang }}/legende/{{ l.id }}">{{ l.titre }}</a>
-    </li>
+        {% if session.get('admin') %}
+          <form method="post" action="/{{ lang }}/admin/delete/{{ l.id }}" style="display:inline">
+            <button type="submit">Suppr</button>
+          </form>
+        {% endif %}
+      </li>
     {% endfor %}
-</ul>
+  </ul>
+
+  <!-- pagination: calcul basique -->
+  {% set last_page = (total // per_page) + (1 if total % per_page > 0 else 0) %}
+  <div class="pagination">
+    {% if page > 1 %}
+      <a href="?page={{ page-1 }}&per_page={{ per_page }}{% if current_cat %}&cat={{ current_cat }}{% endif %}">Page précédente</a>
+    {% endif %}
+    <span>Page {{ page }} / {{ last_page }}</span>
+    {% if page < last_page %}
+      <a href="?page={{ page+1 }}&per_page={{ per_page }}{% if current_cat %}&cat={{ current_cat }}{% endif %}">Page suivante</a>
+    {% endif %}
+  </div>
+
+{% else %}
+  <p>Aucune légende disponible pour {{ lang }}.</p>
+{% endif %}
 {% endblock %}

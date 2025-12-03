@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Monde de Jeddi{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
+  <div class="background" aria-hidden="true"></div>
 
-<div class="background"></div>
-
-<header class="site-header">
+  <header class="site-header">
     <div class="banner">
-        <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banner-image">
-        <h1>Légendes du Monde de Jeddi</h1>
+      <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne" class="banner-image">
+      <div class="banner-title"><h1>Légendes du Monde de Jeddi</h1></div>
     </div>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="/{{ lang }}/accueil">Accueil</a></li>
-            <li><a href="/{{ lang }}/legendes">Légendes</a></li>
+    <nav class="main-nav" role="navigation">
+      <ul class="main-menu">
+        <li><a href="/{{ lang }}/accueil">Accueil</a></li>
+        <li><a href="/{{ lang }}/legendes">Légendes</a></li>
 
-            <li class="drop">Langue ▾
-                <ul class="submenu">
-                    <li><a href="/fr/accueil">FR</a></li>
-                    <li><a href="/en/accueil">EN</a></li>
-                    <li><a href="/es/accueil">ES</a></li>
-                    <li><a href="/de/accueil">DE</a></li>
-                    <li><a href="/it/accueil">IT</a></li>
-                </ul>
-            </li>
-        </ul>
+        <li class="drop">Pages ▾
+          <ul class="submenu">
+            <li><a href="/{{ lang }}/legendes">Toutes les légendes</a></li>
+          </ul>
+        </li>
+
+        <li class="drop">Langue ▾
+          <ul class="submenu">
+            <li><a href="/fr/accueil">FR</a></li>
+            <li><a href="/en/accueil">EN</a></li>
+            <li><a href="/es/accueil">ES</a></li>
+            <li><a href="/de/accueil">DE</a></li>
+            <li><a href="/it/accueil">IT</a></li>
+          </ul>
+        </li>
+
+        <li class="admin-link">
+          {% if session.get('admin') %}
+            <a href="/{{ lang }}/admin">Admin</a> |
+            <a href="/{{ lang }}/admin/logout">Logout</a>
+          {% else %}
+            <a href="/{{ lang }}/admin/login">Admin</a>
+          {% endif %}
+        </li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<main class="page-content">
+  <main class="page-content">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for m in messages %}
+            <div>{{ m }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
     {% block content %}{% endblock %}
-</main>
+  </main>
 
-<footer class="site-footer">
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-licorne">
-    <p>© Monde de Jeddi</p>
-</footer>
-
+  <footer class="site-footer">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="" class="footer-licorne">
+    <p>© Légendes du Monde de Jeddi</p>
+  </footer>
 </body>
 </html>

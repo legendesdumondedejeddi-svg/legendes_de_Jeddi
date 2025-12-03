@@ -1,14 +1,15 @@
 {% extends "layout.html" %}
 
-{% block content %}
-<h2>Panneau d'administration</h2>
+{% block title %}Admin{% endblock %}
 
-<a href="/admin/add">Ajouter une légende</a>
+{% block content %}
+<h2>Panneau Admin ({{ lang }})</h2>
+
+<p><a href="/{{ lang }}/admin/add">Ajouter une légende</a></p>
 
 <ul>
-    {% for l in legendes %}
-    <li>{{ l.titre }}</li>
-    {% endfor %}
+  {% for l in legendes %}
+    <li>{{ l.id }} — {{ l.titre }} {% if l.categorie %}({{ l.categorie }}){% endif %}</li>
+  {% endfor %}
 </ul>
-
 {% endblock %}

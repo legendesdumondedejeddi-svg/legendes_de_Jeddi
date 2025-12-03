@@ -3,13 +3,17 @@
 {% block title %}{{ legende.titre }}{% endblock %}
 
 {% block content %}
-<h2>{{ legende.titre }}</h2>
+<article>
+  <h2>{{ legende.titre }}</h2>
 
-<img src="{{ url_for('static', filename='images/' ~ legende.image) }}" class="legende-image">
+  {% if legende.image %}
+    <img src="{{ url_for('static', filename='images/' ~ legende.image) }}" alt="{{ legende.titre }}" class="legende-image">
+  {% endif %}
 
-<div class="legende-contenu">
-    {{ legende.contenu }}
-</div>
+  <div class="legende-contenu">
+    {{ legende.contenu | replace('\n','<br>') | safe }}
+  </div>
 
-<a href="/{{ lang }}/legendes">Retour aux légendes</a>
+  <p><a href="/{{ lang }}/legendes">Retour</a></p>
+</article>
 {% endblock %}
