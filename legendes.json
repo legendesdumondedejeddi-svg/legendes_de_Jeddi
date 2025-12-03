@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "lang": "fr",
+    "titre": "La Licorne du Bosquet",
+    "contenu": "Il était une fois une licorne...",
+    "image": "licorne.png",
+    "categorie": "creatures"
+  },
+  {
+    "id": 2,
+    "lang": "en",
+    "titre": "The Dragon of the Vale",
+    "contenu": "Once upon a time a dragon...",
+    "image": "",
+    "categorie": "creatures"
+  }
+]
