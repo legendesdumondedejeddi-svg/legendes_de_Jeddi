@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>{{ legende.titre }}</h2>
+
+{% if legende.image %}
+<img class="image-legende" src="{{ url_for('static', filename='images/' ~ legende.image) }}" alt="">
+{% endif %}
+
+<p class="texte-legende">{{ legende.texte }}</p>
+
+<p class="categorie-legende">Catégorie : {{ legende.categorie }}</p>
+
+{% endblock %}

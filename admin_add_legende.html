@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Ajouter une légende</h2>
+
+<form method="post">
+
+    <input type="text" name="titre" placeholder="Titre">
+    <input type="text" name="image" placeholder="Nom du fichier image">
+    <textarea name="contenu" placeholder="Contenu"></textarea>
+
+    <button>Ajouter</button>
+
+</form>
+
+{% endblock %}

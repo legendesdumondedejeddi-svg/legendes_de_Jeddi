@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Ajouter légende{% endblock %}
+
+{% block content %}
+<h2>Ajouter une légende ({{ lang }})</h2>
+
+<form method="post" enctype="multipart/form-data">
+  <label>Titre</label><br>
+  <input type="text" name="titre" required><br><br>
+
+  <label>Catégorie (ex: creatures, lieux, artefacts)</label><br>
+  <input type="text" name="categorie"><br><br>
+
+  <label>Image (fichier)</label><br>
+  <input type="file" name="image_file" accept="image/*"><br><br>
+
+  <label>Contenu</label><br>
+  <textarea name="contenu" rows="8" cols="60" required></textarea><br><br>
+
+  <button>Ajouter</button>
+</form>
+{% endblock %}

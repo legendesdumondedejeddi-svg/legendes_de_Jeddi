@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="titre-section">Toutes les légendes</h2>
+
+<div class="liste-legendes">
+    {% for l in legendes %}
+    <div class="carte-legende">
+        {% if l.image %}
+            <img class="medaillon" src="{{ url_for('static', filename='images/' + l.image) }}" alt="{{ l.titre }}">
+        {% endif %}
+
+        <h3>{{ l.titre }}</h3>
+        <p class="categorie">Catégorie : {{ l.categorie }}</p>
+        <a class="bouton" href="{{ url_for('legende', id_legende=l.id) }}">Lire</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
