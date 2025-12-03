@@ -1,71 +1,38 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "Légendes de Jeddi" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-  <div class="background" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="banner">
-      <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne" class="banner-image">
-      <div class="banner-title"><h1>Légendes du Monde de Jeddi</h1></div>
-    </div>
+<body class="parchemin">
+    <header class="header-grimoire">
+        <h1 class="titre-grimoire">Légendes de Jeddi</h1>
 
-    <nav class="main-nav" role="navigation">
-      <ul class="main-menu">
-        <li><a href="/{{ lang }}/accueil">Accueil</a></li>
-        <li><a href="/{{ lang }}/legendes">Légendes</a></li>
+        <nav class="menu">
+            <a href="{{ url_for('accueil') }}">Accueil</a>
+            <a href="{{ url_for('list_legendes') }}">Légendes</a>
+            <a href="{{ url_for('admin') }}">Admin</a>
+        </nav>
+    </header>
 
-        <li class="drop">Pages ▾
-          <ul class="submenu">
-            <li><a href="/{{ lang }}/legendes">Toutes les légendes</a></li>
-          </ul>
-        </li>
+    <main class="contenu">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-zone">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
 
-        <li class="drop">Langue ▾
-          <ul class="submenu">
-            <li><a href="/fr/accueil">FR</a></li>
-            <li><a href="/en/accueil">EN</a></li>
-            <li><a href="/es/accueil">ES</a></li>
-            <li><a href="/de/accueil">DE</a></li>
-            <li><a href="/it/accueil">IT</a></li>
-          </ul>
-        </li>
+        {% block content %}{% endblock %}
+    </main>
 
-        <li class="admin-link">
-          {% if session.get('admin') %}
-            <a href="/{{ lang }}/admin">Admin</a> |
-            <a href="/{{ lang }}/admin/logout">Logout</a>
-          {% else %}
-            <a href="/{{ lang }}/admin/login">Admin</a>
-          {% endif %}
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="page-content">
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <div class="flash">
-          {% for m in messages %}
-            <div>{{ m }}</div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
-
-    {% block content %}{% endblock %}
-  </main>
-
-  <footer class="site-footer">
-    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="" class="footer-licorne">
-    <p>© Légendes du Monde de Jeddi</p>
-  </footer>
+    <footer class="pied-grimoire">
+        © Légendes de Jeddi
+    </footer>
 </body>
 </html>

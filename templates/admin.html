@@ -1,23 +1,35 @@
 {% extends "layout.html" %}
-{% block title %}Admin — Légendes{% endblock %}
 {% block content %}
-<h2>✨ Administration des Légendes ({{ lang|upper }})</h2>
 
-<p>Bienvenue, gardien des récits. Ici tu peux écrire et enchanter les légendes.</p>
+<h2>Administration</h2>
 
-<form method="POST" enctype="multipart/form-data" class="admin-form">
-    <label>Titre de la légende :</label>
-    <input type="text" name="titre" required>
-
-    <label>Texte de la légende :</label>
-    <textarea name="texte" rows="10" required></textarea>
-
-    <label>Image liée (optionnel) :</label>
-    <input type="file" name="image">
-
-    <label>Mot de passe :</label>
+<form method="POST" enctype="multipart/form-data" class="formulaire-admin">
+    <label>Mot de passe admin :</label>
     <input type="password" name="password" required>
 
-    <button type="submit">✨ Enregistrer la légende</button>
+    <label>Titre :</label>
+    <input type="text" name="titre" required>
+
+    <label>Texte :</label>
+    <textarea name="texte" required></textarea>
+
+    <label>Catégorie :</label>
+    <input type="text" name="categorie" placeholder="ex: mythes, dragons, forêt..." required>
+
+    <label>Image :</label>
+    <input type="file" name="image">
+
+    <button type="submit">Ajouter</button>
 </form>
+
+<hr>
+
+<h3>Légendes existantes :</h3>
+
+<ul>
+{% for l in legendes %}
+    <li>{{ l.id }} – {{ l.titre }} ({{ l.categorie }})</li>
+{% endfor %}
+</ul>
+
 {% endblock %}
