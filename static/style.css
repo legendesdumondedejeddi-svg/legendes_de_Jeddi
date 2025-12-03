@@ -4,8 +4,7 @@
 
 /* Police parchemin */
 body.parchemin {
-    background: url('https://i.imgur.com/G3Ml0mS.jpg') repeat;
-    background-size: cover;
+    background: url('/static/images/parchment_texture.jpg') center/cover repeat;
     font-family: "Georgia", "Times New Roman", serif;
     color: #2b1b09;
     margin: 0;
