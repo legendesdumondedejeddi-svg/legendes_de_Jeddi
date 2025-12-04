@@ -1,44 +1,27 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
+
 {% block content %}
 
-<div class="don-container">
+<h1>Faire un Don</h1>
 
-    <h2 class="titre-don">Soutenir les Légendes de Jeddi</h2>
+<p>
+Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
+</p>
 
-    <p class="texte-don">
-        Ce site est un travail de préservation et de partage des récits du passé.
-        Votre aide permet de maintenir ces archives vivantes.
-    </p>
+<p>
+Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles nécessitent des frais réguliers : abonnements à des bibliothèques en ligne, accès aux archives, relecture par des spécialistes, etc.
+</p>
 
-    <p class="texte-don">
-        Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail.
-        Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement
-        par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées —
-        nécessitent des frais réguliers.
-    </p>
+<p>
+Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution renforce la pérennité de ce travail.
+</p>
 
-    <p class="texte-don">
-        À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des
-        spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies
-        françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
-    </p>
-
-    <p class="texte-don">
-        Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés,
-        indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien,
-        nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire
-        et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la
-        pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
-    </p>
-
-    <div class="don-bouton-centre">
-        <a class="paypal-bouton"
-           href="https://www.paypal.com/donate/?hosted_button_id=ABCDE12345XYZ"
-           target="_blank">
-            Faire un don sécurisé
-        </a>
-    </div>
-
-</div>
+<!-- Formulaire PayPal -->
+<form action="https://www.paypal.com/donate" method="post" target="_blank">
+    <input type="hidden" name="business" value="{{ paypal_email }}">
+    <input type="hidden" name="no_recurring" value="1">
+    <input type="hidden" name="currency_code" value="EUR">
+    <button type="submit" class="don-btn">Faire un don</button>
+</form>
 
 {% endblock %}

@@ -2,49 +2,43 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title if title else "Légendes de Jeddi" }}</title>
+    <title>Légendes du Monde de Jeddi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="parchemin">
+<body>
 
-    <!-- Bannière licorne en haut -->
-    <header class="header-grimoire">
-        <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banniere-licorne" alt="Licorne">
-        <h1 class="titre-grimoire">Légendes de Jeddi</h1>
+<!-- Bouton mode nuit -->
+<button id="darkModeToggle" class="dark-toggle">✨ Mode Nuit Magique</button>
 
-        <nav class="menu">
-            <a href="{{ url_for('accueil') }}">Accueil</a>
-            <a href="{{ url_for('list_legendes') }}">Légendes</a>
-            <a href="{{ url_for('don') }}">Don</a>
-            <a href="{{ url_for('admin', lang='fr') }}">Admin</a>
-        </nav>
-    </header>
+<!-- Bannière licorne -->
+<header class="banner">
+    <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Bannière Licorne">
+</header>
 
+<!-- Menu fixe -->
+<nav class="menu">
+    <a href="{{ url_for('index') }}">Accueil</a>
+    <a href="{{ url_for('don') }}">Don</a>
+    <a href="{{ url_for('apropos') }}">À propos de Jeddi</a>
+    <a href="{{ url_for('grimoire') }}">Grimoire</a>
+</nav>
 
-    <main class="contenu">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="flash-zone">
-                    {% for category, message in messages %}
-                        <div class="flash {{ category }}">{{ message }}</div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
+<main>
+    {% block content %}{% endblock %}
+</main>
 
-        {% block content %}{% endblock %}
-    </main>
+<!-- Licorne gif qui galope -->
+<div class="running-unicorn" onclick="this.classList.toggle('pause')">
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Unicorn Running">
+</div>
 
-    <footer class="pied-grimoire">
-        © Légendes de Jeddi
-
-        <!-- Licorne animée -->
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}" 
-             class="licorne-run" 
-             onclick="this.style.animationPlayState='paused';" 
-             alt="Licorne qui court">
-    </footer>
+<script>
+/* Mode nuit */
+document.getElementById("darkModeToggle").onclick = () => {
+    document.body.classList.toggle("dark-mode");
+};
+</script>
 
 </body>
 </html>
