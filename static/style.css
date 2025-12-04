@@ -1,103 +1,89 @@
-/* Fond général parchemin */
-body.parchemin {
-    background: url("../static/images/parchment_texture.jpg") repeat;
+/* Fond parchemin */
+body {
+    background: url("../images/parchment_texture.jpg") repeat;
     margin: 0;
+    padding: 0;
     font-family: "Georgia", serif;
-    color: #3b1f00;
+    color: #3a2400;
 }
 
-/* Bannière licorne */
-.banniere-licorne {
-    width: 150px;
+/* Mode nuit magique */
+body.dark-mode {
+    background: #0b0b0b url("../images/stars_dark.png") repeat;
+    color: #f3e9c2;
+}
+
+.dark-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 2000;
+    padding: 8px 12px;
+    background: gold;
+    border: 2px solid #6b4f00;
+    cursor: pointer;
+}
+
+/* Bannière */
+.banner img {
+    width: 100%;
     display: block;
-    margin: auto;
 }
 
-/* Titre grimoire */
-.header-grimoire {
+/* Menu fixe */
+.menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(92, 55, 0, 0.8);
+    padding: 10px;
     text-align: center;
-    padding: 20px;
+    z-index: 1500;
 }
 
-.titre-grimoire {
-    font-size: 3rem;
-    color: #4b2400;
-    text-shadow: 2px 2px 4px #00000050;
-}
-
-/* Menu */
 .menu a {
     margin: 0 15px;
-    color: #4b2400;
+    color: gold;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.3rem;
 }
 
-.menu a:hover {
-    color: #8b5a2b;
-}
-
-/* Contenu */
-.contenu {
-    width: 80%;
-    margin: auto;
+main {
+    margin-top: 140px;
     padding: 20px;
 }
 
-/* Flash messages */
-.flash-zone {
-    margin: 15px 0;
+/* Licorne qui galope */
+.running-unicorn {
+    position: fixed;
+    bottom: 10px;
+    width: 180px;
+    left: 0;
+    animation: gallop 12s linear infinite;
+    z-index: 2000;
+    cursor: pointer;
 }
 
-.flash {
-    padding: 10px;
-    border-radius: 5px;
+.running-unicorn.pause {
+    animation-play-state: paused;
 }
 
-.flash.error {
-    background: #ffb3b3;
+.running-unicorn img {
+    width: 100%;
 }
 
-.flash.success {
-    background: #b3ffb3;
-}
-
-/* Coffre médaillon */
-.coffre-don {
-    width: 200px;
-    display: block;
-    margin: auto;
-    filter: drop-shadow(0 0 10px gold);
+@keyframes gallop {
+    from { left: -200px; }
+    to { left: 100%; }
 }
 
 /* Bouton don */
-.btn-don {
-    display: inline-block;
-    padding: 12px 25px;
-    background: gold;
-    color: #3b1f00;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-don:hover {
-    background: #ffef96;
-    transform: scale(1.05);
-}
-
-/* Licorne animée */
-.licorne-run {
-    position: relative;
-    width: 160px;
-    animation: courir 8s linear infinite;
+.don-btn {
+    background: #cfa800;
+    padding: 12px 20px;
+    border: 2px solid #644800;
     cursor: pointer;
-    margin-top: 20px;
-}
-
-@keyframes courir {
-    from { transform: translateX(0); }
-    to { transform: translateX(100vw); }
+    font-size: 18px;
+    color: black;
 }
