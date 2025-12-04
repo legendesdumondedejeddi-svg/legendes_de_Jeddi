@@ -1,1 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="don-container">
+    <h2 class="titre-don">Soutenir les Légendes</h2>
+
+    <p class="texte-don">
+        Les scribes qui préservent les légendes vivent d’encre, de passion
+        et… parfois… d’un petit coup de pouce des âmes généreuses.
+    </p>
+
+    <img src="{{ url_for('static', filename='images/coffre_medaille.png') }}"
+         alt="Coffre de nécromancien"
+         class="coffre-don">
+
+    <p class="texte-don">
+        Votre contribution entretient le grimoire, rallume les chandelles
+        et garde la Licorne en pleine forme pour courir au bas de vos pages.
+    </p>
+
+    <a class="btn-don"
+       href="https://www.paypal.me/jeddi" target="_blank">
+       Faire un don
+    </a>
+</div>
+{% endblock %}
 
