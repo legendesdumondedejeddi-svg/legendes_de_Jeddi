@@ -1,1 +1,23 @@
+{
+  "site_title": "Légendes du Monde de Jeddi",
+  "nav_home": "Accueil",
+  "nav_legendes": "Légendes",
+  "nav_don": "Don",
+  "nav_apropos": "À propos",
+  "nav_grimoire": "Grimoire",
+  "nav_admin": "Admin",
+  "welcome_title": "Bienvenue, voyageur intrépide",
+  "welcome_text": "Explorez les légendes du Monde de Jeddi.",
+  "title_legendes": "Légendes",
+  "read": "Lire",
+  "back": "Retour",
+  "title_don": "Faire un don",
+  "don_button": "Faire un don sécurisé",
+  "title_about": "À propos",
+  "title_grimoire": "Grimoire",
+  "admin_login": "Connexion admin",
+  "admin_add": "Ajouter une légende",
+  "admin_added": "Légende ajoutée.",
+  "admin_deleted": "Légende supprimée."
+}
 
