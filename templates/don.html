@@ -1,29 +1,44 @@
 {% extends "layout.html" %}
-
 {% block content %}
+
 <div class="don-container">
-    <h2 class="titre-don">Soutenir les Légendes</h2>
+
+    <h2 class="titre-don">Soutenir les Légendes de Jeddi</h2>
 
     <p class="texte-don">
-        Les scribes qui préservent les légendes vivent d’encre, de passion
-        et… parfois… d’un petit coup de pouce des âmes généreuses.
+        Ce site est un travail de préservation et de partage des récits du passé.
+        Votre aide permet de maintenir ces archives vivantes.
     </p>
-
-    <img src="{{ url_for('static', filename='images/coffre_medaille.png') }}"
-         alt="Coffre de nécromancien"
-         class="coffre-don">
 
     <p class="texte-don">
-        Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
-
-Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées — nécessitent des frais réguliers. À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
-Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés, indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
-
+        Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail.
+        Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement
+        par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées —
+        nécessitent des frais réguliers.
     </p>
 
-    <a class="btn-don"
-       href="https://www.paypal.me/jeddi" target="_blank">
-       Faire un don
-    </a>
+    <p class="texte-don">
+        À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des
+        spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies
+        françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
+    </p>
+
+    <p class="texte-don">
+        Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés,
+        indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien,
+        nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire
+        et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la
+        pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
+    </p>
+
+    <div class="don-bouton-centre">
+        <a class="paypal-bouton"
+           href="https://www.paypal.com/donate/?hosted_button_id=ABCDE12345XYZ"
+           target="_blank">
+            Faire un don sécurisé
+        </a>
+    </div>
+
 </div>
+
 {% endblock %}

@@ -7,20 +7,20 @@
 </head>
 
 <body class="parchemin">
-    <!-- BANNIÈRE : licorne.png -->
+
+    <!-- Bannière licorne en haut -->
     <header class="header-grimoire">
-        <div class="banner-wrap">
-            <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne" class="banner-image">
-            <h1 class="titre-grimoire">Légendes de Jeddi</h1>
-        </div>
+        <img src="{{ url_for('static', filename='images/licorne.png') }}" class="banniere-licorne" alt="Licorne">
+        <h1 class="titre-grimoire">Légendes de Jeddi</h1>
 
         <nav class="menu">
             <a href="{{ url_for('accueil') }}">Accueil</a>
             <a href="{{ url_for('list_legendes') }}">Légendes</a>
-            <a href="{{ url_for('admin') }}">Admin</a>
-            <a href="https://www.paypal.com/donate" class="bouton-don" target="_blank">Don</a>
+            <a href="{{ url_for('don') }}">Don</a>
+            <a href="{{ url_for('admin', lang='fr') }}">Admin</a>
         </nav>
     </header>
+
 
     <main class="contenu">
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -36,21 +36,15 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="pied-grimoire" aria-hidden="true">
-        <p>© Légendes de Jeddi</p>
+    <footer class="pied-grimoire">
+        © Légendes de Jeddi
 
-        <!-- LICORNE ANIMÉE : licorne.gif (fixe en bas, visible sur toutes les pages) -->
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="" class="footer-licorne">
+        <!-- Licorne animée -->
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" 
+             class="licorne-run" 
+             onclick="this.style.animationPlayState='paused';" 
+             alt="Licorne qui court">
     </footer>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const licorne = document.querySelector(".footer-licorne");
-    if (licorne) {
-        licorne.addEventListener("click", () => {
-            licorne.classList.toggle("stop");
-        });
-    }
-});
-</script>
+
 </body>
 </html>
