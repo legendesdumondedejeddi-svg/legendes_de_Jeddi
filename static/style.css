@@ -140,4 +140,51 @@ Elle peut être "cliquée" pour l'arrêter.
     .banner-image { width: 110px; }
     .titre-grimoire { font-size: 24px; }
     .footer-licorne { width: 110px; bottom: 6px; }
+	/* Page Don */
+.don-container {
+    text-align: center;
+    padding: 40px;
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255, 245, 230, 0.8);
+    border: 3px solid #8b5a2b;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.titre-don {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #4b2400;
+}
+
+.texte-don {
+    font-size: 1.2rem;
+    margin: 12px 0;
+    color: #3b1f00;
+}
+
+.coffre-don {
+    width: 180px;
+    margin: 20px auto;
+    display: block;
+    filter: drop-shadow(0 0 10px gold);
+}
+
+.btn-don {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: gold;
+    color: #3b1f00;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.btn-don:hover {
+    background: #ffef96;
+    transform: scale(1.07);
 }
