@@ -87,6 +87,9 @@ def admin():
 @app.route("/")
 def index():
     return redirect("/fr/accueil")
+    @app.route("/don")
+def don():
+    return render_template("don.html", title="Faire un don")
 
 
 if __name__ == "__main__":
