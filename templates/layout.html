@@ -7,18 +7,18 @@
 </head>
 
 <body class="parchemin">
+    <!-- BANNIÈRE : licorne.png -->
     <header class="header-grimoire">
-        <h1 class="titre-grimoire">Légendes de Jeddi</h1>
+        <div class="banner-wrap">
+            <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Licorne" class="banner-image">
+            <h1 class="titre-grimoire">Légendes de Jeddi</h1>
+        </div>
 
         <nav class="menu">
-            <a href="{{ url_for('accueil', lang=lang) }}">Accueil</a>
-            <a href="{{ url_for('list_legendes', lang=lang) }}">Légendes</a>
-            <a href="{{ url_for('admin', lang=lang) }}">Admin</a>
-
-            <!-- Nouveau bouton DON -->
-            <a href="https://www.paypal.com/donate" 
-               class="bouton-don" 
-               target="_blank">Don</a>
+            <a href="{{ url_for('accueil') }}">Accueil</a>
+            <a href="{{ url_for('list_legendes') }}">Légendes</a>
+            <a href="{{ url_for('admin') }}">Admin</a>
+            <a href="https://www.paypal.com/donate" class="bouton-don" target="_blank">Don</a>
         </nav>
     </header>
 
@@ -36,8 +36,21 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="pied-grimoire">
-        © Légendes de Jeddi
+    <footer class="pied-grimoire" aria-hidden="true">
+        <p>© Légendes de Jeddi</p>
+
+        <!-- LICORNE ANIMÉE : licorne.gif (fixe en bas, visible sur toutes les pages) -->
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="" class="footer-licorne">
     </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const licorne = document.querySelector(".footer-licorne");
+    if (licorne) {
+        licorne.addEventListener("click", () => {
+            licorne.classList.toggle("stop");
+        });
+    }
+});
+</script>
 </body>
 </html>
