@@ -3,93 +3,77 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-app.secret_key = "jeddi_secret_key"
+app.secret_key = "une_clede_securite"
 
-# Dossier upload
+# Mot de passe admin via variable d’environnement
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", None)
+
+# Dossier images
 UPLOAD_FOLDER = "static/images"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Mot de passe admin
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin")
-
-# Données en mémoire (simple pour débutant)
-legendes = []
-# Structure :
-# légende = { "id": int, "titre": str, "texte": str, "categorie": str, "image": str }
+# Fake base de données (simple dictionnaire)
+LEGENDES = []
 
 
-###############################
-# ROUTES PUBLIQUES
-###############################
-
-@app.route("/fr/accueil")
-def accueil():
+# Accueil
+@app.route("/")
+@app.route("/<lang>/accueil")
+def accueil(lang="fr"):
     return render_template("accueil.html", title="Accueil")
 
-@app.route("/fr/legendes")
-def list_legendes():
-    return render_template("liste_legendes.html", legendes=legendes, title="Légendes")
 
-@app.route("/fr/legende/<int:leg_id>")
-def legende_detail(leg_id):
-    for leg in legendes:
-        if leg["id"] == leg_id:
-            return render_template("legende.html", legende=leg, title=leg["titre"])
-    return "Légende introuvable", 404
+# Liste des légendes
+@app.route("/<lang>/legendes")
+def list_legendes(lang="fr"):
+    return render_template("liste_legendes.html", legendes=LEGENDES, title="Légendes")
 
 
-###############################
-# ROUTE ADMIN
-###############################
+# Admin + ajout de légende
+@app.route("/admin/<lang>", methods=["GET", "POST"])
+def admin(lang="fr"):
+    if not ADMIN_PASSWORD:
+        flash("ADMIN_PASSWORD non défini sur Render", "error")
+        return render_template("admin.html", legendes=LEGENDES, title="Admin")
 
-@app.route("/fr/admin", methods=["GET", "POST"])
-def admin():
     if request.method == "POST":
-        pwd = request.form.get("password")
+        password = request.form.get("password")
 
-        if pwd != ADMIN_PASSWORD:
+        if password != ADMIN_PASSWORD:
             flash("Mot de passe incorrect", "error")
-            return redirect(url_for("admin"))
+            return redirect(url_for("admin", lang=lang))
 
-        # On récupère la légende
         titre = request.form.get("titre")
         texte = request.form.get("texte")
         categorie = request.form.get("categorie")
 
-        # Gestion image
-        image_file = request.files.get("image")
-        if image_file and image_file.filename != "":
-            filename = secure_filename(image_file.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-            image_file.save(path)
-        else:
-            filename = None
+        # Upload image
+        image = request.files.get("image")
+        filename = None
 
-        legende = {
-            "id": len(legendes) + 1,
+        if image:
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+
+        LEGENDES.append({
             "titre": titre,
             "texte": texte,
             "categorie": categorie,
             "image": filename
-        }
+        })
 
-        legendes.append(legende)
-        flash("Légende ajoutée avec succès", "success")
-        return redirect(url_for("list_legendes"))
+        flash("Légende ajoutée", "success")
+        return redirect(url_for("list_legendes", lang=lang))
 
-    return render_template("admin.html", title="Administration")
+    return render_template("admin.html", legendes=LEGENDES, title="Admin")
 
 
-###############################
-# REDIRECTION RACINE → ACCUEIL
-###############################
-@app.route("/")
-def index():
-    return redirect("/fr/accueil")
-    @app.route("/don")
-def don():
-    return render_template("don.html", title="Faire un don")
+# Page Don
+@app.route("/don")
+@app.route("/<lang>/don")
+def don(lang="fr"):
+    return render_template("don.html", title="Don")
 
 
 if __name__ == "__main__":
