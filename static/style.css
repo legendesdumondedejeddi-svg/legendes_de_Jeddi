@@ -1,190 +1,103 @@
-/* ---------------------------------------------------
-   STYLE GRIMOIRE MÉDIÉVAL COMPLET
-   Pour : Légendes de Jeddi
---------------------------------------------------- */
-
-/* ----------- Fond parchemin ----------- */
+/* Fond général parchemin */
 body.parchemin {
-    background: url('/static/images/parchment_texture.jpg') center/cover repeat;
+    background: url("../static/images/parchment_texture.jpg") repeat;
     margin: 0;
-    padding: 0;
     font-family: "Georgia", serif;
-    color: #3a250f;
+    color: #3b1f00;
 }
 
-/* ----------- Header / Bannière ----------- */
+/* Bannière licorne */
+.banniere-licorne {
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+
+/* Titre grimoire */
 .header-grimoire {
-    background: rgba(255, 248, 230, 0.75);
-    border-bottom: 4px solid #7b4a12;
-    padding: 10px 0 6px;
     text-align: center;
-    position: relative;
-    z-index: 50;
-}
-
-.banner-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-}
-
-.banner-image {
-    width: 160px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    padding: 20px;
 }
 
 .titre-grimoire {
-    font-size: 36px;
-    margin: 0;
-    color: #4b2d07;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+    font-size: 3rem;
+    color: #4b2400;
+    text-shadow: 2px 2px 4px #00000050;
 }
 
-/* ----------- Menu ----------- */
-.menu {
-    margin-top: 10px;
-}
-
+/* Menu */
 .menu a {
-    margin: 0 12px;
-    padding: 6px 12px;
+    margin: 0 15px;
+    color: #4b2400;
     text-decoration: none;
     font-weight: bold;
-    color: #5b330a;
-    background: rgba(255, 241, 209, 0.4);
-    border-radius: 6px;
-    transition: 0.2s;
+    font-size: 1.3rem;
 }
 
 .menu a:hover {
-    background: rgba(255, 241, 209, 0.75);
+    color: #8b5a2b;
 }
 
-/* Bouton Don (médaillon doré) */
-.bouton-don {
-    background: radial-gradient(circle at 30% 30%, #ffd86b, #c4952f 70%, #7a5b1a);
-    padding: 8px 14px;
-    color: white;
-    border-radius: 24px;
-    border: 2px ridge #e9c76b;
-}
-
-/* ----------- Contenu ----------- */
+/* Contenu */
 .contenu {
-    padding: 20px;
-    max-width: 900px;
+    width: 80%;
     margin: auto;
+    padding: 20px;
 }
 
 /* Flash messages */
 .flash-zone {
-    margin-bottom: 20px;
+    margin: 15px 0;
 }
 
 .flash {
     padding: 10px;
-    background: #fff3ca;
-    border: 1px solid #8b611e;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-/* ----------- Footer ----------- */
-.pied-grimoire {
-    text-align: center;
-    padding: 30px 10px;
-    color: #4b2d07;
-    position: relative;
-    z-index: 10;
-    margin-top: 40px;
+.flash.error {
+    background: #ffb3b3;
 }
 
-/* ----------- LICORNE GIF ANIMÉE ----------- */
-/*
-La licorne traverse l’écran de gauche à droite.
-Elle peut être "cliquée" pour l'arrêter.
-*/
-
-.footer-licorne {
-    position: fixed;
-    bottom: 12px;
-    left: -220px;
-    width: 160px;
-    height: auto;
-    z-index: 9999;
-    pointer-events: auto; /* nécessaire pour clic */
-    animation: licorne-run 14s linear infinite;
-    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35));
-    cursor: pointer;
+.flash.success {
+    background: #b3ffb3;
 }
 
-/* Animation */
-@keyframes licorne-run {
-    0%   { left: -220px; transform: scale(0.95); }
-    50%  { left: calc(50% - 80px); transform: scale(1.05); }
-    100% { left: 110%; transform: scale(0.95); }
-}
-
-/* Classe appliquée quand elle est cliquée */
-.footer-licorne.stop {
-    animation: none !important;
-    filter: drop-shadow(0 12px 14px rgba(0,0,0,0.5));
-    opacity: 0.95;
-}
-
-/* ----------- Responsive ----------- */
-@media (max-width: 700px) {
-    .banner-image { width: 110px; }
-    .titre-grimoire { font-size: 24px; }
-    .footer-licorne { width: 110px; bottom: 6px; }
-	/* Page Don */
-.don-container {
-    text-align: center;
-    padding: 40px;
-    max-width: 700px;
-    margin: auto;
-    background: rgba(255, 245, 230, 0.8);
-    border: 3px solid #8b5a2b;
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.4);
-}
-
-.titre-don {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #4b2400;
-}
-
-.texte-don {
-    font-size: 1.2rem;
-    margin: 12px 0;
-    color: #3b1f00;
-}
-
+/* Coffre médaillon */
 .coffre-don {
-    width: 180px;
-    margin: 20px auto;
+    width: 200px;
     display: block;
+    margin: auto;
     filter: drop-shadow(0 0 10px gold);
 }
 
+/* Bouton don */
 .btn-don {
     display: inline-block;
-    margin-top: 25px;
     padding: 12px 25px;
     background: gold;
     color: #3b1f00;
+    border-radius: 15px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 15px;
-    font-size: 1.3rem;
     transition: 0.3s;
 }
 
 .btn-don:hover {
     background: #ffef96;
-    transform: scale(1.07);
+    transform: scale(1.05);
+}
+
+/* Licorne animée */
+.licorne-run {
+    position: relative;
+    width: 160px;
+    animation: courir 8s linear infinite;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+@keyframes courir {
+    from { transform: translateX(0); }
+    to { transform: translateX(100vw); }
 }
