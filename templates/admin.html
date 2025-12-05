@@ -1,13 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Admin – Légendes</h1>
+  <h1>Administration (simple)</h1>
 
-<a class="don-btn" href="/admin/add">Ajouter une légende</a>
+  <p>
+    <a class="don-btn" href="{{ url_for('admin_add', lang=lang) }}">Ajouter / Mettre à jour une légende</a>
+  </p>
 
-<ul>
-{% for l in legends %}
-<li>{{ l.title }}</li>
-{% endfor %}
-</ul>
-
+  <h2>Légendes existantes</h2>
+  <ul>
+    {% for l in legendes %}
+      <li>
+        <strong>{{ l.slug }}</strong>
+        {% if l.categorie %} — {{ l.categorie }}{% endif %}
+        <form style="display:inline" method="post" action="{{ url_for('admin_delete', lang=lang, slug=l.slug) }}">
+          <input type="password" name="password" placeholder="Mot de passe admin">
+          <button type="submit">Supprimer</button>
+        </form>
+      </li>
+    {% else %}
+      <li>Aucune légende pour le moment.</li>
+    {% endfor %}
+  </ul>
 {% endblock %}

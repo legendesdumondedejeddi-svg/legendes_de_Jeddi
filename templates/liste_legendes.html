@@ -1,20 +1,53 @@
 {% extends "layout.html" %}
 {% block content %}
+  <h1> {{ "Légendes" if lang=='fr' else ("Legends" if lang=='en' else "") }} </h1>
 
-<h2 class="titre-section">Toutes les légendes</h2>
+  <form method="get" class="filter-form" style="margin-bottom:10px;">
+    <label>Catégorie:
+      <select name="cat" onchange="this.form.submit()">
+        <option value="">Toutes</option>
+        {% for c in categories %}
+          <option value="{{ c }}" {% if current_cat==c %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+      </select>
+    </label>
 
-<div class="liste-legendes">
-    {% for l in legendes %}
-    <div class="carte-legende">
-        {% if l.image %}
-            <img class="medaillon" src="{{ url_for('static', filename='images/' + l.image) }}" alt="{{ l.titre }}">
+    <label style="margin-left:12px;">Par page:
+      <input type="number" name="per_page" value="{{ per_page }}" min="1" max="50" style="width:70px;">
+    </label>
+  </form>
+
+  {% if legendes %}
+    <ul class="cards">
+      {% for l in legendes %}
+        {% set slice = l.get(lang) %}
+        <li class="card">
+          {% if l.image %}
+            <img class="card-img" src="{{ url_for('static', filename='images/' ~ l.image) }}" alt="">
+          {% endif %}
+          <h3>{{ slice.titre if slice else l.slug }}</h3>
+          {% if l.categorie %}<p class="tag">{{ l.categorie }}</p>{% endif %}
+          <p><a href="{{ url_for('legende_detail', lang=lang, slug=l.slug) }}">{{ "Lire" if lang=='fr' else "Read" }}</a></p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="pagination" style="margin-top:16px;">
+      {% set last = (total // per_page) + (1 if total % per_page > 0 else 0) %}
+      <div>
+        {% if page > 1 %}
+          <a href="{{ url_for('liste_legendes', lang=lang) }}?page={{ page-1 }}&per_page={{ per_page }}{% if current_cat %}&cat={{ current_cat }}{% endif %}">← Page précédente</a>
         {% endif %}
-
-        <h3>{{ l.titre }}</h3>
-        <p class="categorie">Catégorie : {{ l.categorie }}</p>
-        <a class="bouton" href="{{ url_for('legende', id_legende=l.id) }}">Lire</a>
+      </div>
+      <div>Page {{ page }} / {{ last }}</div>
+      <div>
+        {% if page < last %}
+          <a href="{{ url_for('liste_legendes', lang=lang) }}?page={{ page+1 }}&per_page={{ per_page }}{% if current_cat %}&cat={{ current_cat }}{% endif %}">Page suivante →</a>
+        {% endif %}
+      </div>
     </div>
-    {% endfor %}
-</div>
 
+  {% else %}
+    <p>Aucune légende trouvée.</p>
+  {% endif %}
 {% endblock %}
