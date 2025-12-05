@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
   <section class="hero">
-    <h2>{{ t.get('welcome_title','Bienvenue, voyageur intrépide') }}</h2>
-    <p>{{ t.get('welcome_text','Explorez les légendes du Monde de Jeddi.') }}</p>
+    <h2>{{ t.get('welcome_title') }}</h2>
+    <p>{{ t.get('welcome_text') }}</p>
+
     <p>
       {% for code in ['fr','en','es','de','it'] %}
         <a class="lang-chip" href="{{ url_for('accueil', lang=code) }}">{{ code.upper() }}</a>

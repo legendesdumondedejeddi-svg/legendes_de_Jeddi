@@ -1,16 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h2>🕯️ {{ t.get('about_title','À propos de Légendes du Monde de Jeddi') }}</h2>
+  <h2>{{ t.get('about_title') }}</h2>
 
   <div class="apropos-text">
-    <p>Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant, né de la passion, de la créativité et du désir de raconter ensemble.</p>
-
-    <p>Notre mission est de bâtir un espace où l’imaginaire devient un terrain de jeu commun. ...</p>
-
-    <h3>⚔️ {{ t.get('about_jeddi','Jeddi — le gardien des récits anciens') }}</h3>
-    <p>Dans le vaste univers ... (texte complet que tu m’as fourni).</p>
-
-    <h3>GRIMOIRE</h3>
-    <p>Prologue du Grimoire des Légendes ...</p>
+    <p>{{ t.get('about_intro') }}</p>
+    <p>{{ t.get('about_mission') }}</p>
+    <h3>{{ t.get('about_jeddi_title') }}</h3>
+    <p>{{ t.get('about_jeddi') }}</p>
+    <h3>{{ t.get('grimoire_title') }}</h3>
+    <p>{{ t.get('grimoire_prologue') }}</p>
   </div>
 {% endblock %}

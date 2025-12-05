@@ -1,26 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
+  {% set L = legende %}
+  {% set S = L.get(lang) %}
   <article class="legende-article">
-    {% set L = legende %}
-    {% set S = L.get(lang) %}
-    <h1>{{ S.titre if S else "Titre introuvable" }}</h1>
+    <h1>{{ S.titre if S else 'Titre introuvable' }}</h1>
 
     {% if L.image %}
       <img src="{{ url_for('static', filename='images/' ~ L.image) }}" alt="{{ S.titre if S else '' }}" class="legende-image">
     {% endif %}
 
-    {% if L.categorie %}
-      <p class="categorie"><strong>Catégorie :</strong> {{ L.categorie }}</p>
-    {% endif %}
+    {% if L.categorie %}<p class="categorie"><strong>{{ t.get('category') }}:</strong> {{ L.categorie }}</p>{% endif %}
 
     <div class="texte">
       {% if S %}
         {{ S.texte | safe }}
       {% else %}
-        <p>Cette légende n'est pas disponible dans la langue choisie.</p>
+        <p>{{ t.get('not_available') }}</p>
       {% endif %}
     </div>
 
-    <p><a href="{{ url_for('liste_legendes', lang=lang) }}">← Retour à la liste</a></p>
+    <p><a href="{{ url_for('liste_legendes', lang=lang) }}">← {{ t.get('back') }}</a></p>
   </article>
 {% endblock %}

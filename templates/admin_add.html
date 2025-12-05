@@ -1,35 +1,35 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h1>Ajouter / Mettre à jour une légende</h1>
+  <h2>{{ t.get('admin_add') }}</h2>
 
   <form method="post" enctype="multipart/form-data">
-    <label>Langue :</label>
+    <label>{{ t.get('field_lang') }}</label>
     <select name="lang">
-      <option value="fr" {% if lang=='fr' %}selected{% endif %}>FR</option>
-      <option value="en" {% if lang=='en' %}selected{% endif %}>EN</option>
-      <option value="es" {% if lang=='es' %}selected{% endif %}>ES</option>
-      <option value="de" {% if lang=='de' %}selected{% endif %}>DE</option>
-      <option value="it" {% if lang=='it' %}selected{% endif %}>IT</option>
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+      <option value="de">DE</option>
+      <option value="it">IT</option>
     </select>
 
-    <label>Slug (identifiant, sans espaces) :</label>
+    <label>{{ t.get('field_slug') }}</label>
     <input type="text" name="slug" required>
 
-    <label>Titre :</label>
+    <label>{{ t.get('field_title') }}</label>
     <input type="text" name="titre" required>
 
-    <label>Texte (HTML autorisé, safe) :</label>
+    <label>{{ t.get('field_text') }}</label>
     <textarea name="texte" rows="8" required></textarea>
 
-    <label>Catégorie :</label>
+    <label>{{ t.get('field_category') }}</label>
     <input type="text" name="categorie">
 
-    <label>Image (optionnelle) :</label>
+    <label>{{ t.get('field_image') }}</label>
     <input type="file" name="image" accept="image/*">
 
-    <label>Mot de passe admin :</label>
+    <label>{{ t.get('admin_password') }}</label>
     <input type="password" name="password" required>
 
-    <button type="submit">Publier / Mettre à jour</button>
+    <button type="submit">{{ t.get('publish') }}</button>
   </form>
 {% endblock %}

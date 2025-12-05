@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h2>{{ t.get('title_grimoire','Grimoire') }}</h2>
+  <h2>{{ t.get('title_grimoire') }}</h2>
   <div class="grimoire-text">
-    <p>Au seuil du monde, là où l’aube hésite encore à poser son premier souffle...</p>
+    <p>{{ t.get('grimoire_intro') }}</p>
+    <p><a class="don-btn" href="{{ url_for('liste_legendes', lang=lang) }}">{{ t.get('view_legends') }}</a></p>
   </div>
 {% endblock %}

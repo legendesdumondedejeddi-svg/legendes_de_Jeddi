@@ -1,20 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h2>{{ t.get('title_don','Faire un don') }}</h2>
+  <h2>{{ t.get('title_don') }}</h2>
 
   <div class="don-text">
-    <p>Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.</p>
-    <p>Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. ...</p>
-    <p>Chaque contribution, même modeste, renforce la pérennité de ce travail.</p>
+    <p>{{ t.get('don_paragraph_1') }}</p>
+    <p>{{ t.get('don_paragraph_2') }}</p>
+    <p>{{ t.get('don_paragraph_3') }}</p>
   </div>
 
-  <!-- PayPal : on recommande hosted_button_id or paypal.me. For simplicity, use hosted_button_id in t or env. -->
-  <div class="don-action">
-    <!-- if you created a hosted_button_id, put it in translations or env and use it here -->
+  <div class="don-action" style="margin-top:18px;">
     <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <!-- if translations provide hosted_button_id for this lang, t['paypal_button_id'] -->
-      <input type="hidden" name="hosted_button_id" value="{{ t.get('paypal_button_id','') }}">
-      <button class="don-button" type="submit">{{ t.get('don_button','Faire un don sécurisé') }}</button>
+      <input type="hidden" name="business" value="{{ paypal_business }}">
+      <input type="hidden" name="currency_code" value="{{ t.get('currency','EUR') }}">
+      <button class="don-btn" type="submit">{{ t.get('don_button') }}</button>
     </form>
   </div>
 {% endblock %}

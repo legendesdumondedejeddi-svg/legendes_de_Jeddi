@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h2>{{ t.get('missing_title','Page non trouvée') }}</h2>
-  <p>{{ t.get('missing_text','La page demandée est introuvable.') }}</p>
-  <p><a href="{{ url_for('accueil', lang=current_lang) }}">{{ t.get('back_home','Retour à l’accueil') }}</a></p>
+  <h2>{{ t.get('missing_title') }}</h2>
+  <p>{{ t.get('missing_text') }}</p>
+  <p><a href="{{ url_for('accueil', lang=lang) }}">{{ t.get('back_home') }}</a></p>
 {% endblock %}
