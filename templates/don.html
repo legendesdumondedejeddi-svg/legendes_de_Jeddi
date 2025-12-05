@@ -1,27 +1,20 @@
-{% extends "base.html" %}
-
+{% extends "layout.html" %}
 {% block content %}
+  <h2>{{ t.get('title_don','Faire un don') }}</h2>
 
-<h1>Faire un Don</h1>
+  <div class="don-text">
+    <p>Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.</p>
+    <p>Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. ...</p>
+    <p>Chaque contribution, même modeste, renforce la pérennité de ce travail.</p>
+  </div>
 
-<p>
-Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
-</p>
-
-<p>
-Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles nécessitent des frais réguliers : abonnements à des bibliothèques en ligne, accès aux archives, relecture par des spécialistes, etc.
-</p>
-
-<p>
-Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution renforce la pérennité de ce travail.
-</p>
-
-<!-- Formulaire PayPal -->
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-    <input type="hidden" name="business" value="{{ paypal_email }}">
-    <input type="hidden" name="no_recurring" value="1">
-    <input type="hidden" name="currency_code" value="EUR">
-    <button type="submit" class="don-btn">Faire un don</button>
-</form>
-
+  <!-- PayPal : on recommande hosted_button_id or paypal.me. For simplicity, use hosted_button_id in t or env. -->
+  <div class="don-action">
+    <!-- if you created a hosted_button_id, put it in translations or env and use it here -->
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <!-- if translations provide hosted_button_id for this lang, t['paypal_button_id'] -->
+      <input type="hidden" name="hosted_button_id" value="{{ t.get('paypal_button_id','') }}">
+      <button class="don-button" type="submit">{{ t.get('don_button','Faire un don sécurisé') }}</button>
+    </form>
+  </div>
 {% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>{{ t.get('admin_add','Ajouter une légende') }}</h2>
+  <form method="post" enctype="multipart/form-data" action="{{ url_for('admin_add', lang=lang) }}">
+    <label>{{ t.get('field_title','Titre') }}</label>
+    <input type="text" name="titre" required>
+
+    <label>{{ t.get('field_category','Catégorie') }}</label>
+    <input type="text" name="categorie">
+
+    <label>{{ t.get('field_image','Image (fichier)') }}</label>
+    <input type="file" name="image_file" accept="image/*">
+
+    <label>{{ t.get('field_content','Contenu') }}</label>
+    <textarea name="contenu" rows="8" required></textarea>
+
+    <button type="submit">{{ t.get('admin_add_btn','Ajouter') }}</button>
+  </form>
+{% endblock %}

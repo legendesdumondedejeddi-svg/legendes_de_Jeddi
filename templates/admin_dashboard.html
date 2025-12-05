@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>{{ t.get('admin_dashboard','Administration') }}</h2>
+  <p><a href="{{ url_for('admin_add', lang=lang) }}">{{ t.get('admin_add','Ajouter une légende') }}</a></p>
+
+  <ul>
+    {% for l in legendes %}
+      <li>{{ l.id }} — {{ l.titre }} ({{ l.categorie }}) 
+        <form method="post" action="{{ url_for('admin_delete', lang=lang, leg_id=l.id) }}" style="display:inline">
+          <button type="submit">{{ t.get('delete','Suppr') }}</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

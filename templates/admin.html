@@ -1,26 +1,13 @@
 {% extends "layout.html" %}
-
 {% block content %}
-<h2>Ajouter une légende</h2>
+<h1>Admin – Légendes</h1>
 
-<form method="post" enctype="multipart/form-data">
+<a class="don-btn" href="/admin/add">Ajouter une légende</a>
 
-    <label>Mot de passe admin :</label>
-    <input type="password" name="password" required>
-
-    <label>Titre :</label>
-    <input type="text" name="titre" required>
-
-    <label>Texte :</label>
-    <textarea name="texte" required></textarea>
-
-    <label>Catégorie :</label>
-    <input type="text" name="categorie">
-
-    <label>Image :</label>
-    <input type="file" name="image">
-
-    <button type="submit">Publier</button>
-</form>
+<ul>
+{% for l in legends %}
+<li>{{ l.title }}</li>
+{% endfor %}
+</ul>
 
 {% endblock %}

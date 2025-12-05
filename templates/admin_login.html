@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>{{ t.get('admin_login_title','Connexion admin') }}</h2>
+  <form method="post" action="{{ url_for('admin_login', lang=lang) }}">
+    <input type="password" name="password" placeholder="{{ t.get('admin_password','Mot de passe') }}">
+    <button type="submit">{{ t.get('admin_login_btn','Entrer') }}</button>
+  </form>
+{% endblock %}

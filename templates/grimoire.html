@@ -1,6 +1,7 @@
-{% extends "base.html" %}
-
+{% extends "layout.html" %}
 {% block content %}
-<h1>Le Grimoire des Légendes</h1>
-<p>Les pages bruissent… approche, voyageur.</p>
+  <h2>{{ t.get('title_grimoire','Grimoire') }}</h2>
+  <div class="grimoire-text">
+    <p>Au seuil du monde, là où l’aube hésite encore à poser son premier souffle...</p>
+  </div>
 {% endblock %}
