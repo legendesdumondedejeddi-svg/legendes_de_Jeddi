@@ -4,15 +4,27 @@
       "id": 1,
       "slug": "licorne-d-argent",
       "image": "licorne.png",
-      "categorie": "creatures",
+      "categorie": "créatures",
       "date": "1423",
       "fr": {
         "titre": "La Licorne d’Argent",
-        "texte": "On raconte qu’au cœur du bois de Verre, une licorne d’une blancheur surnaturelle apparut aux voyageurs perdus..."
+        "texte": "On raconte qu’au cœur du bois de Verre, une licorne d’une blancheur surnaturelle apparut aux voyageurs perdus. Nul ne sait si elle guidait les vivants ou si elle égarait les âmes pour les garder auprès d’elle."
       },
       "en": {
         "titre": "The Silver Unicorn",
-        "texte": "It is said that in the heart of the Glasswood, a unicorn of supernatural brightness appeared to lost travelers..."
+        "texte": "It is said that in the heart of the Glasswood a unicorn of supernatural whiteness appeared to lost travelers. No one knew whether it guided the living or kept souls near it."
+      },
+      "es": {
+        "titre": "El Unicornio de Plata",
+        "texte": "Se cuenta que en el corazón del Bosque de Cristal apareció un unicornio de una blancura sobrenatural a los viajeros perdidos..."
+      },
+      "de": {
+        "titre": "Das Silberne Einhorn",
+        "texte": "Man erzählt, dass im Herzen des Glaswaldes ein Einhorn von übernatürlicher Weiße den verlorenen Reisenden erschien..."
+      },
+      "it": {
+        "titre": "L'Unicorno d'Argento",
+        "texte": "Si dice che nel cuore del Bosco di Vetro apparve un unicorno di una bianchezza soprannaturale ai viaggiatori perduti..."
       }
     },
     {
@@ -23,7 +35,23 @@
       "date": "1289",
       "fr": {
         "titre": "Le Dragon des Abysses",
-        "texte": "Les pêcheurs craignaient ses écailles sombres comme la nuit..."
+        "texte": "Les pêcheurs craignaient ses écailles sombres comme la nuit et ses yeux brillants comme deux lunes noyées..."
+      },
+      "en": {
+        "titre": "The Abyss Dragon",
+        "texte": "Fishermen feared its night-dark scales and its eyes shining like two drowned moons..."
+      },
+      "es": {
+        "titre": "El Dragón de los Abismos",
+        "texte": "Los pescadores temían sus escamas oscuras como la noche y sus ojos brillantes..."
+      },
+      "de": {
+        "titre": "Der Drache der Tiefen",
+        "texte": "Die Fischer fürchteten seine schuppenartige Haut so dunkel wie die Nacht und seine Augen wie versunkene Monde..."
+      },
+      "it": {
+        "titre": "Il Drago degli Abissi",
+        "texte": "I pescatori temevano le sue scaglie scure come la notte e i suoi occhi brillanti come lune affogate..."
       }
     }
   ]
