@@ -1,95 +1,29 @@
 {
   "legendes": [
     {
+      "id": 1,
       "slug": "licorne-d-argent",
-      "image": "/static/images/licorne_argent.jpg",
+      "image": "licorne.png",
+      "categorie": "creatures",
       "date": "1423",
       "fr": {
         "titre": "La Licorne d’Argent",
-        "description": "Une licorne vagabonde parcourant les brumes du vieux royaume, portant dans ses yeux la mémoire des étoiles disparues.",
-        "texte": "On raconte qu’au cœur du bois de Verre, une licorne d’une blancheur surnaturelle apparut aux voyageurs perdus. Nul ne sait si elle guidait les vivants ou si elle égarait les âmes pour les garder auprès d’elle. Les écrits anciens la décrivent portant une crinière d’argent, et chacun de ses pas résonnait comme une clochette de cristal..."
+        "texte": "On raconte qu’au cœur du bois de Verre, une licorne d’une blancheur surnaturelle apparut aux voyageurs perdus..."
       },
       "en": {
         "titre": "The Silver Unicorn",
-        "description": "A wandering unicorn crossing the mists of the ancient kingdom, carrying the memory of vanished stars.",
-        "texte": "It is said that in the heart of the Glasswood, a unicorn of supernatural brightness appeared to lost travelers. No one knew whether it guided the living or trapped wandering souls..."
-      },
-      "es": {
-        "titre": "El Unicornio de Plata",
-        "description": "Una unicornio errante que cruza las brumas del viejo reino, portando en sus ojos la memoria de las estrellas perdidas.",
-        "texte": "Se cuenta que en el corazón del Bosque de Cristal apareció un unicornio de luz sobrenatural..."
-      },
-      "de": {
-        "titre": "Das Silberne Einhorn",
-        "description": "Ein wanderndes Einhorn, das die Nebel des alten Königreichs durchquert und die Erinnerung an verschwundene Sterne trägt.",
-        "texte": "Man erzählt, dass im Herzen des Glaswaldes ein Einhorn von übernatürlichem Glanz erschien..."
-      },
-      "it": {
-        "titre": "L’Unicorno d’Argento",
-        "description": "Un unicorno errante che attraversa le nebbie del vecchio regno, portando la memoria delle stelle scomparse.",
-        "texte": "Si dice che nel cuore del Bosco di Vetro apparve un unicorno di luminosità sovrannaturale..."
+        "texte": "It is said that in the heart of the Glasswood, a unicorn of supernatural brightness appeared to lost travelers..."
       }
     },
-
     {
+      "id": 2,
       "slug": "dragon-des-abysses",
-      "image": "/static/images/dragon_abysses.jpg",
+      "image": "dragon_abysses.jpg",
+      "categorie": "mythes",
       "date": "1289",
       "fr": {
         "titre": "Le Dragon des Abysses",
-        "description": "Gardien des eaux profondes, il dort depuis des siècles sous la surface.",
-        "texte": "Les pêcheurs craignaient ses écailles sombres comme la nuit et ses yeux brillants comme deux lunes noyées..."
-      },
-      "en": {
-        "titre": "The Abyss Dragon",
-        "description": "Guardian of the deep waters, sleeping for centuries beneath the surface.",
-        "texte": "Fishermen feared its night-black scales and its eyes shining like drowned moons..."
-      },
-      "es": {
-        "titre": "El Dragón de los Abismos",
-        "description": "Guardián de las aguas profundas, durmiendo durante siglos bajo la superficie.",
-        "texte": "Los pescadores temían sus escamas oscuras y sus ojos luminosos..."
-      },
-      "de": {
-        "titre": "Der Drache der Tiefen",
-        "description": "Wächter der Tiefwasser, seit Jahrhunderten schlafend.",
-        "texte": "Die Fischer fürchteten seine dunklen Schuppen..."
-      },
-      "it": {
-        "titre": "Il Drago degli Abissi",
-        "description": "Guardiano delle acque profonde, addormentato da secoli.",
-        "texte": "I pescatori temevano le sue scaglie scure..."
-      }
-    },
-
-    {
-      "slug": "fille-des-brumes",
-      "image": "/static/images/fille_brumes.jpg",
-      "date": "1502",
-      "fr": {
-        "titre": "La Fille des Brumes",
-        "description": "Une apparition insaisissable qui danse aux frontières du visible.",
-        "texte": "On prétendait qu’elle naissait de la rosée du matin. Les voyageurs affirmaient l’avoir vue glisser entre les arbres comme un rêve devenu souffle..."
-      },
-      "en": {
-        "titre": "The Mist Maiden",
-        "description": "An elusive apparition dancing at the edge of visibility.",
-        "texte": "They said she rose from morning dew, drifting like a dream breathing through the forest..."
-      },
-      "es": {
-        "titre": "La Doncella de la Niebla",
-        "description": "Una aparición escurridiza que danza en los límites de lo visible.",
-        "texte": "Se decía que nacía del rocío matinal..."
-      },
-      "de": {
-        "titre": "Das Nebelmädchen",
-        "description": "Eine schwer fassbare Erscheinung, die am Rand des Sichtbaren tanzt.",
-        "texte": "Man sagte, sie sei aus Morgentau geboren..."
-      },
-      "it": {
-        "titre": "La Fanciulla delle Nebbie",
-        "description": "Un'apparizione sfuggente che danza ai confini del visibile.",
-        "texte": "Si diceva che nascesse dalla rugiada del mattino..."
+        "texte": "Les pêcheurs craignaient ses écailles sombres comme la nuit..."
       }
     }
   ]
