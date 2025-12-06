@@ -1,82 +1,21 @@
-/* =========================
-   STYLE GRIMOIRE - COMPLETE
-   ========================= */
-
-:root{
-  --accent:#6a4a2b;
-  --paper:#fff8ec;
-  --gold:#cfa017;
+body {
+    background: #faf3ff;
+    color: #2c0048;
+    font-family: "Trebuchet MS", sans-serif;
+    transition: background 1s, color 1s;
 }
 
-/* Body / background */
-html,body{height:100%}
-body.parchemin, body{
-  margin:0;
-  font-family: "Georgia", serif;
-  color:#2a1a0f;
-  background: url('/static/images/parchment_texture.jpg') center/cover repeat;
-  -webkit-font-smoothing:antialiased;
+body.nuit {
+    background: #0d0017;
+    color: #f2d5ff;
 }
 
-/* Dark mode */
-body.dark-mode {
-  background: linear-gradient(180deg,#0b0b12,#11121a);
-  color:#e8dfbf;
+.banner {
+    width: 100%;
 }
 
-/* Header banner */
-.site-header{position:sticky; top:0; z-index:1000; background:rgba(255,248,230,0.92); border-bottom:3px solid var(--accent);}
-.banner{display:flex; align-items:center; justify-content:center; gap:18px; padding:12px 8px;}
-.banner-image{width:160px; height:auto; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.18);}
-.banner-title h1{margin:0; font-size:28px; color:var(--accent); text-shadow:1px 1px 2px rgba(0,0,0,0.15);}
-.banner-sub{margin:4px 0 0 0; font-size:14px; color:#6b4a2b;}
-
-/* Navigation */
-.main-nav ul{margin:0; padding:8px 12px; list-style:none; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; align-items:center;}
-.main-nav a{color:var(--accent); text-decoration:none; padding:8px 12px; border-radius:6px; font-weight:bold;}
-.main-nav a:hover{background: rgba(255,241,209,0.7);}
-
-/* Layout */
-.page-content{max-width:1100px; margin:26px auto; padding:22px; background: rgba(255,248,230,0.95); border-radius:12px; box-shadow:0 12px 28px rgba(0,0,0,0.12);}
-
-/* Cards list */
-.cards{display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px; padding:0; margin:0; list-style:none;}
-.card{background:var(--paper); padding:14px; border:2px solid #cfa96a; border-radius:10px; text-align:center;}
-.card-img{width:100%; height:160px; object-fit:cover; border-radius:8px;}
-
-/* Legende */
-.legende-image{display:block; margin:18px auto; max-width:720px; border:4px solid #cfa96a; border-radius:10px;}
-.texte{white-space:pre-wrap; line-height:1.7; font-size:18px;}
-
-/* Footer licorne animated */
-.footer-licorne{
-  position:fixed;
-  bottom:12px;
-  left:-220px;
-  width:160px;
-  z-index:99999;
-  pointer-events:auto;
-  cursor:pointer;
-  animation: licorne-run 14s linear infinite;
-  filter:drop-shadow(0 10px 12px rgba(0,0,0,0.35));
-}
-.footer-licorne.stop{animation:none !important; opacity:0.98; transform:translateY(-2px);}
-
-/* licorne animation */
-@keyframes licorne-run{
-  0%{left:-220px; transform:scale(0.96) rotate(0deg);}
-  40%{left:calc(50% - 120px); transform:scale(1.05) rotate(-2deg);}
-  70%{left:calc(80%); transform:scale(1.02) rotate(2deg);}
-  100%{left:110%; transform:scale(0.95) rotate(0deg);}
-}
-
-/* buttons */
-button, .don-btn, .link-button{background:linear-gradient(135deg,var(--gold),#b8860b); color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer;}
-
-/* responsive */
-@media (max-width:800px){
-  .banner{flex-direction:column; gap:10px; padding:10px;}
-  .banner-image{width:120px;}
-  .page-content{margin:12px; padding:14px;}
-  .footer-licorne{width:110px; bottom:8px;}
+.licorne {
+    width: 150px;
+    display: block;
+    margin: auto;
 }
