@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script defer src="{{ url_for('static', filename='js/nightmode.js') }}"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>{{ t('title_home') }}</title>
 </head>
-<body class="jour">
-
+<body>
 <header>
-    <img src="{{ url_for('static', filename='img/banniere-licorne.png') }}" class="banner" alt="Bannière magique">
+    <img src="/static/bannière_licorne.png" class="banner">
     <nav>
-        <a href="/">Accueil</a>
-        <a href="/about">À propos</a>
-        <button id="night-toggle">Mode Nuit</button>
+        <a href="/{{ lang }}/accueil">{{ t('menu_home') }}</a>
+        <a href="/{{ lang }}/legendes">{{ t('menu_legends') }}</a>
+        <a href="/admin/{{ lang }}">Admin</a>
     </nav>
 </header>
 
@@ -22,8 +20,7 @@
 </main>
 
 <footer>
-    <p>© Légendes du Monde de Jeddi</p>
+    <img src="/static/licorne.gif" class="licorne">
 </footer>
-
 </body>
 </html>

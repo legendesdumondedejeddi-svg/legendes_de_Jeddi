@@ -1,49 +1,6 @@
 {% extends "layout.html" %}
+
 {% block content %}
-  <h2>{{ t.get('title_legendes','Légendes') }} - {{ lang|upper }}</h2>
-
-  <form method="get" class="filter-form">
-    <label>{{ t.get('filter_categorie','Catégorie') }}:
-      <select name="cat" onchange="this.form.submit()">
-        <option value="">{{ t.get('filter_all','Toutes') }}</option>
-        {% for c in categories %}
-          <option value="{{ c }}" {% if current_cat==c %}selected{% endif %}>{{ c }}</option>
-        {% endfor %}
-      </select>
-    </label>
-    <label>{{ t.get('per_page','Par page') }}:
-      <input type="number" name="per_page" value="{{ per_page }}" min="1" max="100">
-    </label>
-    <button type="submit">{{ t.get('apply','Appliquer') }}</button>
-  </form>
-
-  {% if legendes %}
-    <ul class="cards">
-      {% for l in legendes %}
-        <li class="card">
-          {% if l.image %}
-            <img src="{{ url_for('static', filename='images/' ~ l.image) }}" alt="" class="card-img">
-          {% endif %}
-          <h3>{{ l.titre }}</h3>
-          {% if l.categorie %}<p class="tag">{{ l.categorie }}</p>{% endif %}
-          <p><a href="{{ url_for('afficher_legende', lang=lang, leg_id=l.id) }}">{{ t.get('read','Lire') }}</a></p>
-        </li>
-      {% endfor %}
-    </ul>
-
-    <!-- pagination -->
-    {% set last = (total // per_page) + (1 if total % per_page>0 else 0) %}
-    <div class="pagination">
-      {% if page>1 %}
-        <a href="?page={{ page-1 }}&per_page={{ per_page }}{% if current_cat %}&cat={{ current_cat }}{% endif %}">{{ t.get('prev','Page précédente') }}</a>
-      {% endif %}
-      <span>{{ t.get('page','Page') }} {{ page }} / {{ last }}</span>
-      {% if page<last %}
-        <a href="?page={{ page+1 }}&per_page={{ per_page }}{% if current_cat %}&cat={{ current_cat }}{% endif %}">{{ t.get('next','Page suivante') }}</a>
-      {% endif %}
-    </div>
-
-  {% else %}
-    <p>{{ t.get('no_legendes','Aucune légende disponible.') }}</p>
-  {% endif %}
+<h1>{{ t('menu_legends') }}</h1>
+<p>Les légendes apparaîtront ici.</p>
 {% endblock %}

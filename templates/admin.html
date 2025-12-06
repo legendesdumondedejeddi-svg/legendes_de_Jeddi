@@ -1,20 +1,6 @@
 {% extends "layout.html" %}
+
 {% block content %}
-  <h2>{{ t.get('admin_title') }}</h2>
-
-  <p><a class="don-btn" href="{{ url_for('admin_add', lang=lang) }}">{{ t.get('admin_add') }}</a></p>
-
-  <h3>{{ t.get('existing_legends') }}</h3>
-  <ul>
-    {% for l in legendes %}
-      <li><strong>{{ l.slug }}</strong> {% if l.categorie %}- {{ l.categorie }}{% endif %}
-        <form style="display:inline" method="post" action="{{ url_for('admin_delete', lang=lang, slug=l.slug) }}">
-          <input type="password" name="password" placeholder="{{ t.get('admin_password') }}">
-          <button type="submit">{{ t.get('delete') }}</button>
-        </form>
-      </li>
-    {% else %}
-      <li>{{ t.get('no_legends') }}</li>
-    {% endfor %}
-  </ul>
+<h1>Administration</h1>
+<p>Ajoute une légende ici.</p>
 {% endblock %}
