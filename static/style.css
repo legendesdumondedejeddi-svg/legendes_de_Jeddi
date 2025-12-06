@@ -1,21 +1,81 @@
+/* Fond parchemin */
 body {
-    background: #faf3ff;
-    color: #2c0048;
-    font-family: "Trebuchet MS", sans-serif;
-    transition: background 1s, color 1s;
+    margin: 0;
+    background-image: url('../img/parchment_texture.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Georgia", serif;
 }
 
-body.nuit {
-    background: #0d0017;
-    color: #f2d5ff;
+/* Mode nuit */
+.dark-mode {
+    filter: invert(1) hue-rotate(180deg);
 }
 
-.banner {
+/* Bannière licorne */
+.banner img {
     width: 100%;
+    display: block;
 }
 
-.licorne {
-    width: 150px;
-    display: block;
-    margin: auto;
+/* Menu fixe */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(6px);
+    background: rgba(110, 80, 40, 0.7);
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+.menu a {
+    margin: 0 20px;
+    color: #fdf2d3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Bouton mode nuit */
+.night-toggle {
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    z-index: 2000;
+    padding: 6px 12px;
+    background: darkgoldenrod;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Licorne qui galope */
+.galloping-licorne img {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    height: 100px;
+    animation: run 12s linear infinite;
+    cursor: pointer;
+}
+@keyframes run {
+    from { left: -150px; }
+    to { left: 110%; }
+}
+
+/* Corps des pages */
+.content {
+    margin-top: 160px;
+    padding: 20px;
+    background: rgba(255, 245, 225, 0.7);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(110, 80, 40, 0.75);
+    color: #fff;
 }
