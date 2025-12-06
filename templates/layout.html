@@ -1,81 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ lang if lang is defined else 'fr' }}">
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ title if title else (t.get('site_title') if t is defined else 'Légendes du Monde de Jeddi') }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/nightmode.js') }}"></script>
 </head>
-<body class="parchemin">
+<body class="jour">
 
-<header class="site-header">
-  <div class="banner">
-    <img src="{{ url_for('static', filename='images/licorne.png') }}" alt="Bannière Licorne" class="banner-image">
-    <div class="banner-title">
-      <h1>{{ t.get('site_title','Légendes du Monde de Jeddi') }}</h1>
-      <p class="banner-sub">{{ t.get('site_subtitle','Contes et récits préservés') }}</p>
-    </div>
-  </div>
-
-  <nav class="main-nav" role="navigation" aria-label="Navigation principale">
-    <ul>
-      <li><a href="{{ url_for('accueil', lang=lang) }}">{{ t.get('nav_home','Accueil') }}</a></li>
-      <li><a href="{{ url_for('liste_legendes', lang=lang) }}">{{ t.get('nav_legendes','Légendes') }}</a></li>
-      <li><a href="{{ url_for('don', lang=lang) }}">{{ t.get('nav_don','Don') }}</a></li>
-      <li><a href="{{ url_for('apropos', lang=lang) }}">{{ t.get('nav_apropos','À propos') }}</a></li>
-      <li><a href="{{ url_for('grimoire', lang=lang) }}">{{ t.get('nav_grimoire','Grimoire') }}</a></li>
-      <li class="right"><a href="{{ url_for('admin_dashboard', lang=lang) }}">{{ t.get('nav_admin','Admin') }}</a></li>
-    </ul>
-  </nav>
+<header>
+    <img src="{{ url_for('static', filename='img/banniere-licorne.png') }}" class="banner" alt="Bannière magique">
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/about">À propos</a>
+        <button id="night-toggle">Mode Nuit</button>
+    </nav>
 </header>
 
-<main class="page-content" role="main">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <div class="flash-zone">
-        {% for cat, msg in messages %}
-          <div class="flash {{ cat }}">{{ msg }}</div>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
-  {% block content %}{% endblock %}
+<main>
+    {% block content %}{% endblock %}
 </main>
 
-<footer class="site-footer">
-  <p>© Légendes du Monde de Jeddi</p>
-  <p>Nous contacter : <a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
+<footer>
+    <p>© Légendes du Monde de Jeddi</p>
 </footer>
-
-<img src="{{ url_for('static', filename='images/licorne.gif') }}" class="footer-licorne" id="footerLicorne" alt="" aria-hidden="true">
-
-<script>
-  // small JS: dark mode toggle and licorne stop on click
-  (function(){
-    const body = document.body;
-    const stored = localStorage.getItem('jeddi_dark');
-    if(stored === '1') body.classList.add('dark-mode');
-
-    // create floating toggle
-    const btn = document.createElement('button');
-    btn.id = 'darkToggle';
-    btn.title = 'Mode nuit';
-    btn.textContent = '🌙';
-    Object.assign(btn.style, {position:'fixed', right:'12px', bottom:'12px', zIndex:99999, padding:'8px', borderRadius:'8px', border:'none', cursor:'pointer'});
-    document.body.appendChild(btn);
-    btn.addEventListener('click', ()=> {
-      body.classList.toggle('dark-mode');
-      localStorage.setItem('jeddi_dark', body.classList.contains('dark-mode') ? '1' : '0');
-    });
-
-    // licorne pause
-    document.addEventListener('DOMContentLoaded', function(){
-      const lic = document.getElementById('footerLicorne');
-      if(!lic) return;
-      lic.addEventListener('click', ()=> lic.classList.toggle('stop'));
-    });
-  })();
-</script>
 
 </body>
 </html>

@@ -1,1 +1,13 @@
+{% extends "layout.html" %}
 
+{% block content %}
+<section class="hero">
+    <h1>Bienvenue, voyageur intrépide</h1>
+    <p>
+        sur Légende du Monde de Jeddi.  
+        Entre donc, sans frapper, les portes grincent exprès pour t’impressionner.  
+        Ici, l’imaginaire mène la danse et chaque souffle peut réveiller une légende assoupie.
+    </p>
+    <img src="{{ url_for('static', filename='img/licorne.gif') }}" class="gif" alt="Licorne galopante">
+</section>
+{% endblock %}
