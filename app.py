@@ -1,45 +1,53 @@
-from flask import Flask, render_template, request, session, url_for, redirect
+from flask import Flask, render_template, send_from_directory, abort
 import json
+import os
 
 app = Flask(__name__)
-app.secret_key = "jeddi"
 
-# Charger les traductions
-with open("translations.json", "r", encoding="utf8") as f:
+# Chargement des traductions
+TRANSLATION_FILE = "translations.json"
+
+if not os.path.exists(TRANSLATION_FILE):
+    raise FileNotFoundError("Le fichier translations.json est introuvable à la racine du projet.")
+
+with open(TRANSLATION_FILE, "r", encoding="utf-8") as f:
     translations = json.load(f)
 
-def get_lang():
-    return request.args.get("lang", "fr")
+# Fonction pour récupérer une traduction
+def t(lang, key):
+    if lang not in translations:
+        lang = "fr"
+    return translations[lang].get(key, key)
 
-def T(lang):
-    return translations.get(lang, translations["fr"])
+# -------------------------
+# ROUTES
+# -------------------------
 
-@app.route("/")
-def home():
-    lang = get_lang()
-    return render_template("home.html", t=T(lang), lang=lang, title=T(lang)["title_home"])
+# Accueil
+@app.route("/<lang>/accueil")
+def accueil(lang):
+    return render_template("home.html", t=lambda k: t(lang, k), lang=lang)
 
-@app.route("/about")
-def about():
-    lang = get_lang()
-    return render_template("about.html", t=T(lang), lang=lang, title=T(lang)["title_about"])
+# Légendes
+@app.route("/<lang>/legendes")
+def legendes(lang):
+    return render_template("legendes.html", t=lambda k: t(lang, k), lang=lang)
 
-@app.route("/don")
-def don():
-    lang = get_lang()
-    return render_template("don.html", t=T(lang), lang=lang, title=T(lang)["title_don"])
+# Admin
+@app.route("/admin/<lang>")
+def admin(lang):
+    return render_template("admin.html", t=lambda k: t(lang, k), lang=lang)
 
-@app.route("/grimoire")
-def grimoire():
-    lang = get_lang()
-    return render_template("grimoire.html", t=T(lang), lang=lang, title=T(lang)["title_grimoire"])
+# Fichiers statiques (images, css…)
+@app.route("/static/<path:path>")
+def static_files(path):
+    return send_from_directory("static", path)
 
-@app.route("/legendes")
-def liste_legendes():
-    lang = get_lang()
-    return render_template("liste_legendes.html", t=T(lang), lang=lang, title=T(lang)["title_legendes"])
+# Page 404
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html"), 404
 
-@app.route("/legende/<slug>")
-def legende(slug):
-    lang = get_lang()
-    return render_template("legende.html", slug=slug, t=T(lang), lang=lang, title=T(lang)["title_legendes"])
+# Lancement local
+if __name__ == "__main__":
+    app.run(debug=True)

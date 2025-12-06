@@ -1,66 +1,41 @@
 {
   "fr": {
-    "title_home": "Accueil",
-    "title_about": "À propos",
-    "title_don": "Soutenir",
-    "title_grimoire": "Grimoire",
-    "title_legendes": "Légendes",
-
-    "home_text": "Bienvenue, voyageur intrépide, sur le Monde de Jeddi ! Entre donc, sans frapper — ici les portes s’ouvrent comme par enchantement...",
-    "about_text": "Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant...",
-    "don_text": "Ce site est un travail de préservation et de partage des récits du passé...",
-    "grimoire_text": "Au seuil du monde, là où l’aube hésite encore à poser son premier souffle..."
+    "title_home": "Bienvenue dans le Monde de Jeddi",
+    "intro_home": "Bienvenue, voyageur intrépide, sur Légende du Monde de Jeddi !",
+    "menu_home": "Accueil",
+    "menu_legends": "Légendes",
+    "menu_about": "À propos"
   },
 
   "en": {
-    "title_home": "Home",
-    "title_about": "About",
-    "title_don": "Support",
-    "title_grimoire": "Grimoire",
-    "title_legendes": "Legends",
-
-    "home_text": "Welcome, brave traveler, to the World of Jeddi!",
-    "about_text": "Legends of the World of Jeddi is more than an imaginary realm...",
-    "don_text": "This site preserves ancient tales and stories...",
-    "grimoire_text": "At the threshold of the world, where dawn hesitates to breathe..."
+    "title_home": "Welcome to Jeddi's World",
+    "intro_home": "Welcome, brave traveler, to the Legend of Jeddi's World!",
+    "menu_home": "Home",
+    "menu_legends": "Legends",
+    "menu_about": "About"
   },
 
   "es": {
-    "title_home": "Inicio",
-    "title_about": "Acerca de",
-    "title_don": "Donación",
-    "title_grimoire": "Grimorio",
-    "title_legendes": "Leyendas",
-
-    "home_text": "Bienvenido, viajero intrépido, al Mundo de Jeddi!",
-    "about_text": "Las Leyendas del Mundo de Jeddi son mucho más que un universo imaginario...",
-    "don_text": "Este sitio preserva y comparte historias antiguas...",
-    "grimoire_text": "En el umbral del mundo, donde el alba duda en nacer..."
+    "title_home": "Bienvenido al Mundo de Jeddi",
+    "intro_home": "¡Bienvenido, viajero intrépido, al Mundo de Jeddi!",
+    "menu_home": "Inicio",
+    "menu_legends": "Leyendas",
+    "menu_about": "Acerca de"
   },
 
   "de": {
-    "title_home": "Startseite",
-    "title_about": "Über uns",
-    "title_don": "Spenden",
-    "title_grimoire": "Grimoire",
-    "title_legendes": "Legenden",
-
-    "home_text": "Willkommen, tapferer Wanderer, in der Welt von Jeddi!",
-    "about_text": "Legenden der Welt von Jeddi sind weit mehr als eine imaginäre Welt...",
-    "don_text": "Diese Seite dient der Bewahrung alter Erzählungen...",
-    "grimoire_text": "An der Schwelle der Welt, wo die Morgendämmerung zögert..."
+    "title_home": "Willkommen in Jeddís Welt",
+    "intro_home": "Willkommen, tapferer Reisender, in der Legende von Jeddis Welt!",
+    "menu_home": "Startseite",
+    "menu_legends": "Legenden",
+    "menu_about": "Über"
   },
 
   "it": {
-    "title_home": "Home",
-    "title_about": "Informazioni",
-    "title_don": "Donazioni",
-    "title_grimoire": "Grimorio",
-    "title_legendes": "Leggende",
-
-    "home_text": "Benvenuto, viaggiatore impavido, nel Mondo di Jeddi!",
-    "about_text": "Le Leggende del Mondo di Jeddi sono molto più di un universo immaginario...",
-    "don_text": "Questo sito preserva e condivide antichi racconti...",
-    "grimoire_text": "Alla soglia del mondo, dove l’alba esita a nascere..."
+    "title_home": "Benvenuto nel Mondo di Jeddi",
+    "intro_home": "Benvenuto, viaggiatore impavido, nel Mondo di Jeddi!",
+    "menu_home": "Home",
+    "menu_legends": "Leggende",
+    "menu_about": "Informazioni"
   }
 }
