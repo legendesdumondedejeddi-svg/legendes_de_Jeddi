@@ -1,10 +1,11 @@
 {
-    "title": "Légendes de Jeddi",
-    "welcome": "Welcome to Jeddi's World",
-    "intro": "Découvrez les légendes anciennes et magiques.",
-    "legendes": "Toutes les Légendes",
-    "apropos": "À propos",
-    "about_text": "Ce site présente les légendes du monde de Jeddi.",
-    "don": "Faire un don",
-    "don_text": "Si vous souhaitez soutenir le projet, cliquez ici."
+  "title": "Legends of Jeddi",
+  "subtitle": "Journey through the enchanted world of forgotten tales",
+  "menu": {
+    "home": "Home",
+    "legends": "Legends",
+    "about": "About",
+    "donate": "Donate"
+  },
+  "footer": "All rights reserved — Legends of Jeddi"
 }
