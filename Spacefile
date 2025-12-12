@@ -1,5 +1,0 @@
-app = "legendes-jeddi"
-
-[[routes]]
-path = "/"
-cmd = "python3 main.py"
