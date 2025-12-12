@@ -2,37 +2,47 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Légendes</title>
+    <title data-i18n="menu_legendes">Légendes</title>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 <body>
+
 <header class="header">
     <nav class="menu">
-        <a href="index.html" data-i18n="menu.home"></a>
-        <a href="legendes.html" data-i18n="menu.legends"></a>
-        <a href="apropos.html" data-i18n="menu.about"></a>
-        <a href="don.html" class="don" data-i18n="menu.donate"></a>
+        <a href="index.html" data-i18n="menu_home">Accueil</a>
+        <a href="legendes.html" data-i18n="menu_legendes">Légendes</a>
+        <a href="apropos.html" data-i18n="menu_apropos">À propos</a>
+        <a class="don-btn" href="don.html" data-i18n="menu_don">Faire un don</a>
+
         <div class="lang-switch">
-            <button>🌐</button>
+            <button id="lang-btn">🌍</button>
             <div class="dropdown">
-                <a onclick="setLanguage('fr')">FR</a>
-                <a onclick="setLanguage('en')">EN</a>
-                <a onclick="setLanguage('es')">ES</a>
-                <a onclick="setLanguage('de')">DE</a>
-                <a onclick="setLanguage('it')">IT</a>
+                <a href="#" onclick="changeLang('fr')">Français</a>
+                <a href="#" onclick="changeLang('en')">English</a>
+                <a href="#" onclick="changeLang('de')">Deutsch</a>
+                <a href="#" onclick="changeLang('es')">Español</a>
+                <a href="#" onclick="changeLang('it')">Italiano</a>
             </div>
         </div>
     </nav>
 </header>
 
 <div class="content">
-    <h1 data-i18n="menu.legends"></h1>
-    <p>Ici, tu mettras ta liste de légendes.</p>
+    <h1 data-i18n="menu_legendes">Légendes</h1>
+
+    <p>
+        Voici quelques récits magiques issus du monde de Jeddi.  
+        Ils parlent de licornes, de grimoires poussiéreux, de forêts anciennes  
+        et parfois de gens qui voulaient juste être tranquilles.
+    </p>
+
+    <img src="images/licorne.png" alt="Licorne" class="banner">
 </div>
 
 <footer class="footer">
-    <p data-i18n="footer"></p>
+    <p>© 2025 Légendes de Jeddi</p>
 </footer>
+
 </body>
 </html>
