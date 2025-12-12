@@ -1,12 +1,9 @@
-
 {
-  "title": "Legenden von Jeddi",
-  "subtitle": "Reise durch die verzauberte Welt vergessener Geschichten",
-  "menu": {
-    "home": "Startseite",
-    "legends": "Legenden",
-    "about": "Über uns",
-    "donate": "Spenden"
-  },
-  "footer": "Alle Rechte vorbehalten — Legenden von Jeddi"
+    "menu_home": "Startseite",
+    "menu_legendes": "Legenden",
+    "menu_apropos": "Über uns",
+    "menu_don": "Spenden",
+
+    "home_title": "Willkommen in der Welt von Jeddi",
+    "home_text": "Entdecken Sie zauberhafte Legenden und zeitlose Geschichten."
 }
