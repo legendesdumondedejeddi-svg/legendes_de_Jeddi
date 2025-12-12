@@ -1,83 +1,96 @@
 body {
     margin: 0;
-    font-family: "Georgia", serif;
-    background: url("img/parchment_texture.jpg") center/cover no-repeat fixed;
+    background: url("../images/parchment_texture.jpg") center/cover repeat;
+    font-family: Georgia, serif;
 }
 
-/* Header */
+/* HEADER & MENU */
 .header {
-    background: rgba(0, 0, 0, 0.75);
-    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
 }
 
 .menu {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 25px;
 }
 
 .menu a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .menu a:hover {
-    background: rgba(255, 215, 0, 0.3);
+    color: #ffd700;
+}
+
+/* BOUTON DON */
+.don-btn {
+    background: #ffd700;
+    color: black !important;
+    padding: 8px 15px;
     border-radius: 6px;
 }
 
-.don {
-    border: 1px solid gold;
-    border-radius: 6px;
-}
-
+/* LANG SWITCHER */
 .lang-switch {
     margin-left: auto;
     position: relative;
 }
 
 .lang-switch button {
+    padding: 8px 12px;
     background: #444;
-    border: none;
     color: white;
-    padding: 8px 15px;
+    border: none;
     cursor: pointer;
 }
 
-.lang-switch .dropdown {
+.dropdown {
     display: none;
-    background: #000;
     position: absolute;
-    top: 40px;
+    background: #000;
     right: 0;
+    top: 40px;
+    border: 1px solid #444;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background: rgba(255, 215, 0, 0.4);
 }
 
 .lang-switch:hover .dropdown {
     display: block;
 }
 
-.dropdown a {
-    display: block;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-}
-
+/* CONTENT BOX */
 .content {
     width: 80%;
-    margin: 40px auto;
-    background: rgba(255, 255, 255, 0.7);
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.75);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.banner {
+    max-width: 300px;
+    margin-top: 20px;
 }
 
 .footer {
-    margin-top: 60px;
     text-align: center;
+    margin-top: 40px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.85);
     color: white;
 }
-
