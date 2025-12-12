@@ -1,0 +1,34 @@
+body {
+  background: url("../img/parchment_texture.jpg");
+  font-family: serif;
+  color: #2a1a0a;
+}
+
+.banner-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.main-nav {
+  text-align: center;
+  padding: 10px;
+}
+
+.main-nav a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.legende-image,
+.legende-banner {
+  display: block;
+  margin: 20px auto;
+  max-width: 80%;
+}
+
+.footer-licorne {
+  display: block;
+  margin: 30px auto;
+  width: 180px;
+}

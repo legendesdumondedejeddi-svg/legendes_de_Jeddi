@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="page-title">Traduction : {{ langue | upper }}</h1>
+
+<div class="texte-container">
+    <pre>{{ contenu }}</pre>
+</div>
+
+{% endblock %}

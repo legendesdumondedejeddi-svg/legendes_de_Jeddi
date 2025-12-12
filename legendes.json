@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "titre": "La Forêt des Murmures",
+    "pays": "France",
+    "resume": "Une forêt magique où les arbres parlent aux voyageurs.",
+    "contenu": "Texte complet de la légende ici."
+  },
+  {
+    "id": 2,
+    "titre": "Le Dragon de Jade",
+    "pays": "Chine",
+    "resume": "Un dragon protecteur aux écailles de jade.",
+    "contenu": "Texte complet de la légende ici."
+  },
+  {
+    "id": 3,
+    "titre": "La Source des Échos",
+    "pays": "Islande",
+    "resume": "Une source qui répète les vérités cachées.",
+    "contenu": "Texte complet de la légende ici."
+  }
+]

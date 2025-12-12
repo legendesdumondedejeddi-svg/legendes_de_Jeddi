@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ trans('site_title') }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="banner">
+    <img src="{{ url_for('static', filename='img/licorne.png') }}" class="banner-image">
+  </div>
+
+  <nav class="main-nav">
+    <a href="{{ url_for('accueil', lang=lang) }}">{{ trans('menu_home') }}</a>
+    <a href="{{ url_for('liste_legendes', lang=lang) }}">{{ trans('menu_legendes') }}</a>
+    <a href="{{ url_for('grimoire', lang=lang) }}">{{ trans('menu_grimoire') }}</a>
+    <a href="{{ url_for('don', lang=lang) }}">{{ trans('menu_don') }}</a>
+    <a href="{{ url_for('apropos', lang=lang) }}">{{ trans('menu_apropos') }}</a>
+    <a href="/admin">Admin</a>
+  </nav>
+
+</header>
+
+<main class="page-content">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <p>© Légendes du Monde de Jeddi</p>
+</footer>
+
+<img src="{{ url_for('static', filename='img/licorne.gif') }}" class="footer-licorne">
+
+</body>
+</html>
