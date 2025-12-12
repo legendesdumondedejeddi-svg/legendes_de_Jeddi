@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Légendes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/app.js"></script>
+</head>
+
+<body>
+<header class="header">
+  <div class="banner">
+    <img src="images/licorne.png" alt="Licorne" class="licorne-banner">
+  </div>
+
+  <nav class="menu">
+    <a href="index.html" data-i18n="menu_home">Accueil</a>
+    <a href="legendes.html" data-i18n="menu_legends">Légendes</a>
+    <a href="apropos.html" data-i18n="menu_about">À propos</a>
+
+    <select id="langSelector">
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+      <option value="de">DE</option>
+      <option value="it">IT</option>
+    </select>
+
+    <a class="don-btn" href="/.netlify/functions/donate">❤️ Soutenir</a>
+  </nav>
+</header>
+
+<main class="content">
+  <h1 data-i18n="legends_title">Les Légendes</h1>
+
+  <div class="legend-card">
+    <h2 data-i18n="legend1_title">La Licorne des Brumes</h2>
+    <p data-i18n="legend1_text">
+      On raconte qu'au lever du soleil, une licorne faite de brume traverse les montagnes...
+    </p>
+  </div>
+
+  <div class="legend-card">
+    <h2 data-i18n="legend2_title">L’Ombre du Lac Rouge</h2>
+    <p data-i18n="legend2_text">
+      Quelques témoins jurent avoir vu une silhouette se dresser lorsque la lune touche l’eau...
+    </p>
+  </div>
+</main>
+
+<footer class="footer">
+  © Légendes de Jeddi
+</footer>
+</body>
+</html>
