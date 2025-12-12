@@ -1,10 +1,11 @@
 {
-    "title": "Légendes de Jeddi",
-    "welcome": "Bienvenido al Mundo de Jeddi",
-    "intro": "Découvrez les légendes anciennes et magiques.",
-    "legendes": "Toutes les Légendes",
-    "apropos": "À propos",
-    "about_text": "Ce site présente les légendes du monde de Jeddi.",
-    "don": "Faire un don",
-    "don_text": "Si vous souhaitez soutenir le projet, cliquez ici."
+  "title": "Leyendas de Jeddi",
+  "subtitle": "Viaje al mundo encantado de los cuentos olvidados",
+  "menu": {
+    "home": "Inicio",
+    "legends": "Leyendas",
+    "about": "Acerca de",
+    "donate": "Donación"
+  },
+  "footer": "Todos los derechos reservados — Leyendas de Jeddi"
 }
