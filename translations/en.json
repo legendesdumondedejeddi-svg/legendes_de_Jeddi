@@ -1,11 +1,9 @@
 {
-  "title": "Legends of Jeddi",
-  "subtitle": "Journey through the enchanted world of forgotten tales",
-  "menu": {
-    "home": "Home",
-    "legends": "Legends",
-    "about": "About",
-    "donate": "Donate"
-  },
-  "footer": "All rights reserved — Legends of Jeddi"
+    "menu_home": "Home",
+    "menu_legendes": "Legends",
+    "menu_apropos": "About",
+    "menu_don": "Donate",
+
+    "home_title": "Welcome to the World of Jeddi",
+    "home_text": "Explore enchanted tales, magical creatures, and timeless stories."
 }
