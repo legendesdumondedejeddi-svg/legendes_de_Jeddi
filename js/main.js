@@ -1,23 +1,20 @@
-let currentLang = "fr";
-let translations = {};
+let currentLang = localStorage.getItem("lang") || "fr";
 
-async function setLanguage(lang) {
+function changeLang(lang) {
     currentLang = lang;
-
-    const response = await fetch(`translations/${lang}.json`);
-    translations = await response.json();
-
-    translatePage();
+    localStorage.setItem("lang", lang);
+    loadTranslations();
 }
 
-function translatePage() {
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[key]) {
-            el.textContent = translations[key];
-        }
-    });
+function loadTranslations() {
+    fetch(`translations/${currentLang}.json`)
+        .then(r => r.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                let key = el.getAttribute("data-i18n");
+                if (data[key]) el.innerHTML = data[key];
+            });
+        });
 }
 
-setLanguage("fr");
-
+loadTranslations();
