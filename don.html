@@ -1,13 +1,30 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Don</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="menu">
+        <a href="index.html" data-i18n="menu.home"></a>
+        <a href="legendes.html" data-i18n="menu.legends"></a>
+        <a href="apropos.html" data-i18n="menu.about"></a>
+        <a href="don.html" class="don" data-i18n="menu.donate"></a>
+    </nav>
+</header>
 
-{% block content %}
-<h1>{{ trans("don_title") }}</h1>
+<div class="content">
+    <h1 data-i18n="menu.donate"></h1>
+    <p>Merci de soutenir le projet.</p>
 
-<p>{{ trans("don_text") }}</p>
+    <button class="don-btn">Faire un don</button>
+</div>
 
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-  <input type="hidden" name="business" value="{{ contact_email }}">
-  <input type="hidden" name="currency_code" value="EUR">
-  <button class="don-btn">{{ trans("don_button") }}</button>
-</form>
-{% endblock %}
+<footer class="footer">
+    <p data-i18n="footer"></p>
+</footer>
+</body>
+</html>
