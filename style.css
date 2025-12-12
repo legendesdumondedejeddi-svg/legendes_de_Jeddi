@@ -1,34 +1,21 @@
 body {
-  background: url("../img/parchment_texture.jpg");
-  font-family: serif;
-  color: #2a1a0a;
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: url("/static/images/parchment_texture.jpg") center/cover no-repeat fixed;
 }
 
-.banner-image {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-}
+.header { background: rgba(0,0,0,0.75); padding:10px 20px; }
+.menu { display:flex; gap:20px; align-items:center; }
+.menu a { color:white; text-decoration:none; padding:10px 15px; font-size:1.2rem; }
+.menu a:hover { background:rgba(255,215,0,0.3); border-radius:6px; }
 
-.main-nav {
-  text-align: center;
-  padding: 10px;
-}
+.lang-switch { margin-left:auto; position:relative; }
+.lang-switch button { background:#444; border:none; color:white; padding:8px 15px; cursor:pointer; }
+.lang-switch .dropdown { display:none; position:absolute; top:40px; right:0; background:#000; }
+.lang-switch:hover .dropdown { display:block; }
+.dropdown a { display:block; color:white; padding:10px 15px; text-decoration:none; }
+.dropdown a:hover { background:rgba(255,215,0,0.4); }
 
-.main-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-.legende-image,
-.legende-banner {
-  display: block;
-  margin: 20px auto;
-  max-width: 80%;
-}
-
-.footer-licorne {
-  display: block;
-  margin: 30px auto;
-  width: 180px;
-}
+.content { width:80%; margin:40px auto; background:rgba(255,255,255,0.7); padding:30px; border-radius:10px; }
+.footer { margin-top:60px; text-align:center; padding:20px; background:rgba(0,0,0,0.75); color:white; }
+.licorne-banner { width:200px; margin-top:15px; }
