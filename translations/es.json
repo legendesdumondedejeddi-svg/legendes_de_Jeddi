@@ -1,11 +1,9 @@
 {
-  "title": "Leyendas de Jeddi",
-  "subtitle": "Viaje al mundo encantado de los cuentos olvidados",
-  "menu": {
-    "home": "Inicio",
-    "legends": "Leyendas",
-    "about": "Acerca de",
-    "donate": "Donación"
-  },
-  "footer": "Todos los derechos reservados — Leyendas de Jeddi"
+    "menu_home": "Inicio",
+    "menu_legendes": "Leyendas",
+    "menu_apropos": "Acerca de",
+    "menu_don": "Donar",
+
+    "home_title": "Bienvenido al Mundo de Jeddi",
+    "home_text": "Descubre leyendas mágicas y criaturas maravillosas."
 }
