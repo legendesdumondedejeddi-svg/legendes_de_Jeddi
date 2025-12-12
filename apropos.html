@@ -1,7 +1,38 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>A propos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="menu">
+        <a href="index.html" data-i18n="menu.home"></a>
+        <a href="legendes.html" data-i18n="menu.legends"></a>
+        <a href="apropos.html" data-i18n="menu.about"></a>
+        <a href="don.html" class="don" data-i18n="menu.donate"></a>
+        <div class="lang-switch">
+            <button>🌐</button>
+            <div class="dropdown">
+                <a onclick="setLanguage('fr')">FR</a>
+                <a onclick="setLanguage('en')">EN</a>
+                <a onclick="setLanguage('es')">ES</a>
+                <a onclick="setLanguage('de')">DE</a>
+                <a onclick="setLanguage('it')">IT</a>
+            </div>
+        </div>
+    </nav>
+</header>
 
-{% block content %}
-<h2>{{ trans('about_title') }}</h2>
+<div class="content">
+    <h1 data-i18n="menu.about"></h1>
+    <p>Présentation du site, de l’univers et du projet.</p>
+</div>
 
-<p>{{ trans('about_text')|safe }}</p>
-{% endblock %}
+<footer class="footer">
+    <p data-i18n="footer"></p>
+</footer>
+</body>
+</html>
