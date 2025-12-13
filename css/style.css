@@ -4,37 +4,41 @@ body {
     background: url("../images/parchment_texture.jpg") center/cover fixed;
 }
 
+/* BANNIÈRE */
+.banner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* MENU */
 .top-menu {
     background: rgba(0,0,0,0.85);
-    padding: 10px 20px;
 }
 
 .menu {
+    list-style: none;
     display: flex;
     align-items: center;
-    gap: 20px;
+    margin: 0;
+    padding: 10px 20px;
 }
 
-.menu a {
+.menu li {
+    margin-right: 20px;
+    position: relative;
+}
+
+.menu a, .lang-switch span {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    cursor: pointer;
+    font-size: 1.1em;
 }
 
-.don-btn {
-    color: gold;
-    font-weight: bold;
-}
-
+/* LANGUES */
 .lang-switch {
     margin-left: auto;
-    list-style: none;
-    position: relative;
-    color: white;
-}
-
-.lang-switch span {
-    cursor: pointer;
 }
 
 .submenu {
@@ -50,54 +54,60 @@ body {
     display: block;
 }
 
-.submenu a {
-    color: white;
+.submenu li a {
     display: block;
-    padding: 10px;
-}
-
-.banner {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    background: black;
-}
-
-.content {
-    margin: 40px auto;
-    padding: 30px;
-    width: 80%;
-    background: rgba(255,255,255,0.75);
-    border-radius: 10px;
-}
-
-.legend-country {
-    margin-bottom: 30px;
-}
-
-.legend-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.85);
+    padding: 10px 15px;
     color: white;
+}
+
+/* CONTENU */
+.content {
+    margin-top: 40px;
+    padding: 40px;
+    background: rgba(255,255,255,0.75);
+    border-radius: 12px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grimoire h1 {
+    text-align: center;
+}
+
+/* LÉGENDES */
+.legend {
+    margin-bottom: 40px;
+}
+
+.audio-btn {
+    margin-top: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 /* LICORNE QUI GALOPE */
-.licorne-gif {
+.licorne-run {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     left: -200px;
-    width: 160px;
-    animation: gallop 12s linear infinite;
-    pointer-events: none;
+    animation: run 15s linear infinite;
 }
 
-@keyframes gallop {
+@keyframes run {
     from { left: -200px; }
     to { left: 100%; }
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 60px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
