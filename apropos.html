@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>À propos</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>À propos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
+    <header class="top-menu">
+        <nav class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="legendes.html">Légendes</a>
+            <a href="apropos.html">À propos</a>
+            <a href="don.html" class="don-btn">Don</a>
+            <li class="lang-switch">
+                <span>Langue ▾</span>
+                <ul class="submenu">
+                    <li><a href="#" data-lang="fr">FR</a></li>
+                    <li><a href="#" data-lang="en">EN</a></li>
+                    <li><a href="#" data-lang="de">DE</a></li>
+                    <li><a href="#" data-lang="es">ES</a></li>
+                    <li><a href="#" data-lang="it">IT</a></li>
+                </ul>
+            </li>
+        </nav>
+    </header>
 
-<header>
-<nav class="top-menu">
-<ul class="menu">
-<li><a href="index.html" data-key="menu.accueil"></a></li>
-<li><a href="legendes.html" data-key="menu.legendes"></a></li>
-<li><a href="apropos.html" data-key="menu.apropos"></a></li>
-<li><a href="don.html" data-key="menu.don"></a></li>
-<li class="lang-switch">
-<span data-key="menu.langue"></span>
-<ul class="submenu">
-<li><a href="#" data-lang="fr">FR</a></li>
-<li><a href="#" data-lang="en">EN</a></li>
-<li><a href="#" data-lang="de">DE</a></li>
-<li><a href="#" data-lang="es">ES</a></li>
-<li><a href="#" data-lang="it">IT</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</header>
-
-<main class="content">
-<h1 data-key="menu.apropos"></h1>
-<p id="À propos de Légendes du Monde de Jeddi
+    <section class="content">
+        <h1 id="apropos-title">À propos du site</h1>
+        <p id="apropos-text">
+            À propos de Légendes du Monde de Jeddi
 Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant, né de la passion, de la créativité et du désir de raconter ensemble.
 Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.
 Légendes du Monde Jeddi est un monde en constante évolution, façonné par ceux qui y participent : écrivains, rêveurs, explorateurs, créateurs d’univers.
@@ -43,19 +42,12 @@ Ici, les frontières entre la réalité et le mythe s’effacent un peu…
 Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.
 🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.
 Les légendes rassemblées ici proviennent d’œuvres anciennes, de bibliothèques fascinantes ou de manuscrits oubliés. Nous les restaurons et les rendons accessibles, dans plusieurs langues, pour offrir un espace où l’imaginaire relie chacun.
-" data-key="apropos.texte"></p>
-<button onclick="lire(document.getElementById('apropos-texte'))">🔊 Écouter</button>
-</main>
+        </p>
+    </section>
 
-<footer>
-<img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
-<p>© 2025 — Les Légendes de Jeddi</p>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-loadTranslation('fr');
-</script>
-
+    <footer class="footer">
+        <p>&copy; 2025 Le Monde de Jeddi - Contact: legendes.du.monde.de.jeddi@gmail.com</p>
+        <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
+    </footer>
 </body>
 </html>
