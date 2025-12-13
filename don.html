@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title data-i18n="menu_don">Faire un don</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<title>Don</title>
+<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
-<header class="header">
-    <nav class="menu">
-        <a href="index.html" data-i18n="menu_home">Accueil</a>
-        <a href="legendes.html" data-i18n="menu_legendes">Légendes</a>
-        <a href="apropos.html" data-i18n="menu_apropos">À propos</a>
-        <a class="don-btn" href="don.html" data-i18n="menu_don">Faire un don</a>
-
-        <div class="lang-switch">
-            <button id="lang-btn">🌍</button>
-            <div class="dropdown">
-                <a href="#" onclick="changeLang('fr')">Français</a>
-                <a href="#" onclick="changeLang('en')">English</a>
-                <a href="#" onclick="changeLang('de')">Deutsch</a>
-                <a href="#" onclick="changeLang('es')">Español</a>
-                <a href="#" onclick="changeLang('it')">Italiano</a>
-            </div>
-        </div>
-    </nav>
+<header class="banner">
+<img src="static/images/licorne_banner.png">
+<nav class="menu">
+<a href="index.html">Accueil</a>
+<a href="legendes.html">Légendes</a>
+<a href="apropos.html">À propos</a>
+<a href="don.html">Don</a>
+</nav>
 </header>
 
-<div class="content">
-    <h1 data-i18n="menu_don">Faire un don</h1>
-    <img src="images/licorne.png" alt="Licorne" class="banner">
-    <p>
-        Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
+<main class="content">
+<h1>Soutenir le projet</h1>
+<p>Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
 
 Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées — nécessitent des frais réguliers. À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
 Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés, indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
-    </p>
+ Merci de soutenir la magie ✨</p>
+<button class="don-btn">Faire un don</button>
+</main>
+
+<div class="running-unicorn">
+<img src="static/images/licorne.gif">
 </div>
 
-<img src="images/licorne.gif" alt="Licorne qui galope" class="licorne-gif">
-
-<footer class="footer">
-    <p>© 2025 Légendes de Jeddi</p>
-</footer>
+<footer class="footer">© Légendes du Monde de Jeddi</footer>
 
 </body>
 </html>
