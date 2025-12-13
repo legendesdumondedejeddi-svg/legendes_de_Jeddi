@@ -1,146 +1,161 @@
+/* ===============================
+   RESET & BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Georgia, serif;
-    background: url("../images/parchment_texture.jpg") center/cover fixed;
+    font-family: "Georgia", serif;
+    background: url("../images/parchment_texture.jpg") repeat;
+    color: #2b1d0e;
+    line-height: 1.6;
 }
 
-/* MENU */
-.top-menu {
+/* ===============================
+   BANNIÈRE LICORNE
+================================ */
+.banner {
     width: 100%;
-    background: rgba(0,0,0,0.85);
+    background: #000;
 }
 
-.menu-line {
-    display: flex;
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===============================
+   MENU PRINCIPAL
+================================ */
+.top-menu {
+    background: #2b1d0e;
+    width: 100%;
+}
+
+.top-menu ul {
     list-style: none;
-    margin: 0;
-    padding: 0 40px;
-    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
-.menu-line li {
+.top-menu li {
     position: relative;
 }
 
-.menu-line a,
-.lang-switch span {
+.top-menu a,
+.top-menu span {
     display: block;
-    padding: 15px 20px;
-    color: white;
+    padding: 15px 22px;
+    color: #f5e6c8;
     text-decoration: none;
-    cursor: pointer;
+    font-weight: bold;
 }
 
-.menu-line a:hover,
-.lang-switch span:hover {
-    background: rgba(255,215,0,0.3);
+.top-menu a:hover,
+.top-menu span:hover {
+    background: #4a3218;
 }
 
-/* MENU LANGUES */
-.lang-switch .submenu {
+/* ===============================
+   SOUS-MENU TRADUCTIONS
+================================ */
+.submenu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background: black;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    background: #3a2612;
     min-width: 120px;
-    z-index: 1000;
+    z-index: 10;
+}
+
+.submenu li a {
+    padding: 10px;
+    text-align: center;
 }
 
 .lang-switch:hover .submenu {
     display: block;
 }
 
-.submenu li a {
-    padding: 12px 15px;
-}
-
-/* ===== BANNIÈRE ===== */
-.banner {
-    background: #000;
-    text-align: center;
-    padding: 20px 0 30px 0;
-}
-
-.banner-img {
-    width: 420px;          /* taille maîtrisée */
-    max-width: 90%;
-    display: block;
-    margin: 0 auto;
-}
-
-.banner-title {
-    color: #f5e6b3;
-    font-family: "Georgia", serif;
-    font-size: 2.4rem;
-    margin-top: 15px;
-}
-
-
-/* CONTENU */
+/* ===============================
+   CONTENU PRINCIPAL
+================================ */
 .content {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 40px auto 160px auto; /* retrait sous bannière + place licorne */
     padding: 30px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 10px;
+    background: rgba(255, 248, 230, 0.9);
+    border: 2px solid #c4a76a;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
-/* .grimoire {
-    background: url("grimoire.png");
-} */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top right;
+h1, h2 {
+    font-family: "Palatino Linotype", serif;
+    color: #4a3218;
+    margin-bottom: 15px;
 }
 
-/* LICORNE QUI GALOPPE */
-.licorne-run {
-    position: fixed;
-    bottom: 10px;
-    left: -200px;
-    animation: run 12s linear infinite;
+p {
+    margin-bottom: 20px;
 }
 
-.licorne-run img {
-    width: 150px;
+/* ===============================
+   PAGE LÉGENDES STYLE GRIMOIRE
+================================ */
+.grimoire {
+    background: rgba(255, 244, 220, 0.95);
+    border: 3px double #8b6b3f;
+    padding: 35px;
 }
 
-@keyframes run {
-    from { left: -200px; }
-    to { left: 100%; }
+.grimoire h2 {
+    border-bottom: 1px solid #8b6b3f;
+    padding-bottom: 5px;
 }
 
-/* FOOTER */
-.footer {
+/* ===============================
+   BOUTON DON
+================================ */
+.don-box {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.don-box a {
+    background: #ffc439;
+    color: #111;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.don-box a:hover {
+    background: #ffb347;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+    position: relative;
+    background: #2b1d0e;
+    color: #f5e6c8;
     text-align: center;
     padding: 20px;
-    background: rgba(0,0,0,0.85);
-    color: white;
-    margin-top: 50px;
+    font-size: 14px;
 }
 
-/* DON */
-.paypal-button {
-    display: inline-block;
-    padding: 15px 25px;
-    background: gold;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-}
-.top-menu {
-    margin-top: 0;
-}
-
-.content {
-    margin-top: 40px;   /* ← RETRAIT IMPORTANT */
-}
-/* LICORNE QUI GALOPE EN BAS DE PAGE */
+/* ===============================
+   LICORNE QUI GALOPE
+================================ */
 .running-unicorn {
     position: fixed;
     bottom: 0;
@@ -159,7 +174,6 @@ body {
     animation: unicorn-run 8s linear infinite;
 }
 
-/* ANIMATION */
 @keyframes unicorn-run {
     from {
         transform: translateX(-200px);
