@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Don</title>
-<link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <title>Faire un Don — Le Monde de Jeddi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header class="banner">
-<img src="static/images/licorne_banner.png">
-<nav class="menu">
-<a href="index.html">Accueil</a>
-<a href="legendes.html">Légendes</a>
-<a href="apropos.html">À propos</a>
-<a class="don-btn"
-   href="https://www.paypal.com/donate/?business=patrick.letoffet@gmail.com&currency_code=EUR"
-   target="_blank">
-   💜 DON
-</a>
+<!-- MENU -->
+<nav class="top-menu">
+    <ul class="menu-line">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="legendes.html">Légendes</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="don.html">Don</a></li>
 
+        <li class="lang-switch">
+            <span>Langue ▾</span>
+            <ul class="submenu">
+                <li><a href="#">FR</a></li>
+                <li><a href="#">EN</a></li>
+                <li><a href="#">DE</a></li>
+                <li><a href="#">ES</a></li>
+                <li><a href="#">IT</a></li>
+            </ul>
+        </li>
+    </ul>
 </nav>
-</header>
 
-<main class="content">
-<h1>Soutenir le projet</h1>
-<p>Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
+<!-- CONTENU -->
+<main class="content grimoire">
+    <h1>Soutenir Le Monde de Jeddi</h1>
+
+    <p>
+        Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
 
 Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées — nécessitent des frais réguliers. À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
 Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés, indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
- Merci de soutenir la magie ✨</p>
-<button class="don-btn">Faire un don</button>
+    </p>
+
+    <div class="don-zone">
+        <a class="paypal-button"
+           href="https://www.paypal.com/donate/?hosted_button_id=patrick.letoffet@gmail.com"
+           target="_blank">
+            🌙 Faire un Don via PayPal
+        </a>
+    </div>
 </main>
 
-<div class="running-unicorn">
-<img src="static/images/licorne.gif">
+<!-- LICORNE QUI GALOPE -->
+<div class="licorne-run">
+    <img src="images/licorne.gif" alt="Licorne qui galope">
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
-    © 2025 — Légendes de Jeddi  
+    © 2025 — Le Monde de Jeddi  
     <br>
-    Contact : legendes.du.monde.de.jeddi@gmail.com
+    Les légendes vivent grâce à ceux qui y croient.
 </footer>
-
 
 </body>
 </html>
