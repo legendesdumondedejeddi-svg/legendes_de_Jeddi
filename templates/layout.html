@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="{{ lang if lang is defined else 'fr' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Légendes de Jeddi{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="parchemin">
+
+  <!-- Bannière + menu -->
+  <header class="site-header">
+    <div class="banner">
+      <!-- si licorne.svg existe dans static/images, on l'utilise, sinon on affiche un fallback inline -->
+      {% set licorne_path = 'images/licorne.svg' %}
+      {% if ('' != '') %}
+      {% endif %}
+      <img class="banner-image" src="{{ url_for('static', filename=licorne_path) }}" alt="Bannière Licorne"
+           onerror="this.style.display='none'">
+      <div class="banner-fallback" aria-hidden="true">
+        <!-- Si l'image manque, on affiche un joli titre sur parchemin -->
+        <h1 class="titre-grimoire">Légendes du Monde de Jeddi</h1>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="{{ url_for('accueil', lang=lang if lang is defined else 'fr') }}">{{ trans('menu_home') }}</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">{{ trans('menu_legendes') }}</button>
+        <div class="dropdown-content">
+          <a href="{{ url_for('liste_legendes', lang=lang if lang is defined else 'fr') }}">{{ trans('menu_all') }}</a>
+          <a href="{{ url_for('liste_legendes', lang=lang if lang is defined else 'fr') }}?sort=alpha">{{ trans('menu_alpha') }}</a>
+          <a href="{{ url_for('liste_legendes', lang=lang if lang is defined else 'fr') }}?group=country">{{ trans('menu_by_country') }}</a>
+        </div>
+      </div>
+
+      <a href="{{ url_for('grimoire', lang=lang if lang is defined else 'fr') }}">{{ trans('menu_grimoire') }}</a>
+      <a href="{{ url_for('don', lang=lang if lang is defined else 'fr') }}" class="don-link">{{ trans('menu_don') }}</a>
+      <a href="{{ url_for('apropos', lang=lang if lang is defined else 'fr') }}">{{ trans('menu_apropos') }}</a>
+
+      <div class="lang-switch">
+        <!-- Boutons langue : on redirige vers même endpoint en changeant lang -->
+        {% for code in ['fr','en','es','de','it'] %}
+          <a href="{{ url_for(request.endpoint or 'accueil', **(request.view_args or {}), lang=code) }}"
+             class="lang-btn">{{ code|upper }}</a>
+        {% endfor %}
+      </div>
+
+      {% if admin_visible %}
+        <a class="admin-link" href="{{ url_for('admin_dashboard', lang=lang if lang is defined else 'fr') }}">Admin</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="page-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-zone">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Licorne qui galope en bas (CSS animé) : utilisable même sans gif -->
+  <div class="running-unicorn" aria-hidden="true">
+    <!-- si licorne.gif est présente, navigateur la charge. Sinon on utilise l'émoji animé (CSS). -->
+    <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="" onerror="this.style.display='none'">
+    <div class="unicorn-fallback">🦄</div>
+  </div>
+
+  <!-- Footer compact — contact + copyright -->
+  <footer class="site-footer">
+    <p class="copyright">© Légendes du Monde de Jeddi — Contact : <a href="mailto:legendes.du.monde.de.jeddi@gmail.com">legendes.du.monde.de.jeddi@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // petit helper : si la route actuelle n'accepte pas "lang", url_for lancerait une erreur côté serveur.
+    // Ce JS n'est que secours visuel. Rien de critique côté serveur.
+    (function(){
+      // stop unicorn animation on click (souhait demandé)
+      document.querySelectorAll('.running-unicorn, .unicorn-fallback').forEach(el=>{
+        el.addEventListener('click', ()=> el.classList.toggle('stopped'));
+      });
+    })();
+  </script>
+</body>
+</html>
 
