@@ -5,14 +5,20 @@
     <title>Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
+    <!-- 
+        JS chargé avec defer pour que la page s'affiche avant que le script s'exécute
+        Utile pour les traductions et audio.
+    -->
 </head>
 <body>
+    <!-- Menu principal -->
     <header class="top-menu">
         <nav class="menu">
             <a href="index.html">Accueil</a>
             <a href="legendes.html">Légendes</a>
             <a href="apropos.html">À propos</a>
             <a href="don.html" class="don-btn">Don</a>
+            <!-- Menu déroulant pour les langues -->
             <li class="lang-switch">
                 <span>Langue ▾</span>
                 <ul class="submenu">
@@ -26,21 +32,23 @@
         </nav>
     </header>
 
+    <!-- Section principale -->
     <section class="content">
         <h1 id="title-welcome">Bienvenue dans le Monde de Jeddi</h1>
         <p id="intro-text">
-            Bienvenue, voyageur intrépide, sur Légende du Monde de Jeddi !
-Entre donc, sans frapper — ici les portes s’ouvrent comme par enchantement, avec ce petit grincement complice qui promet des aventures. Tu viens de mettre le pied dans un univers où l’imaginaire mène la danse, où les histoires grondent comme des orages lointains et où chaque pas peut réveiller une légende assoupie.
-Prends ton souffle, ton sourire et, si tu en as une, ta bonne vieille curiosité. Ici, je t’emmène explorer des contrées qui n’obéissent qu’à la magie, la poésie, et un soupçon d’audace. On y croise des héros un peu cabossés, des créatures qui ont un avis sur tout, et des mystères qui n’attendent que toi pour se dévoiler.
-Installe-toi, promène-toi, ouvre grand les yeux : le Monde de Jeddi t’accueille comme un ami de longue date.
-Que l’aventure commence.
+            Explorez des légendes fascinantes, découvrez les mystères des créatures et des sorciers.
         </p>
+        <!-- Bannière licorne -->
         <img src="images/licorne.png" class="licorne-banner" alt="Licorne">
+        <!-- Idée : ajouter un petit effet fade-in sur cette image avec CSS -->
     </section>
 
+    <!-- Pied de page -->
     <footer class="footer">
         <p>&copy; 2025 Le Monde de Jeddi - Contact: legendes.du.monde.de.jeddi@gmail.com</p>
+        <!-- Licorne qui galope -->
         <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
+        <!-- Idée : tu peux changer la position avec CSS pour faire courir la licorne à gauche/droite -->
     </footer>
 </body>
 </html>
