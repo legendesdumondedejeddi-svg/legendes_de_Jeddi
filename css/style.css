@@ -114,9 +114,11 @@ body {
 
 /* FOOTER */
 .footer {
-    margin-top: 60px;
-    background: rgba(0,0,0,0.85);
-    color: white;
+    margin-top: 100px;      /* DESCEND LE FOOTER */
+    padding: 30px 0;
     text-align: center;
-    padding: 20px;
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.75);
+    color: white;
 }
+
