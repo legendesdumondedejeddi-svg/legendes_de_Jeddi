@@ -29,12 +29,15 @@ body {
     position: relative;
 }
 
-.menu a, .lang-switch span {
+.menu a {
+    padding: 12px 22px;     /* PLUS D’AIR AUTOUR DES BOUTONS */
+    margin-right: 12px;     /* ESPACE ENTRE CHAQUE BOUTON */
+    display: inline-block;
     color: white;
     text-decoration: none;
-    cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2rem;
 }
+
 
 /* LANGUES */
 .lang-switch {
