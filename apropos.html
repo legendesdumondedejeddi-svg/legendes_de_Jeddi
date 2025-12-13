@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title data-i18n="menu_apropos">À propos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<title>À propos</title>
+<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
-<header class="header">
-    <nav class="menu">
-        <a href="index.html" data-i18n="menu_home">Accueil</a>
-        <a href="legendes.html" data-i18n="menu_legendes">Légendes</a>
-        <a href="apropos.html" data-i18n="menu_apropos">À propos</a>
-        <a class="don-btn" href="don.html" data-i18n="menu_don">Faire un don</a>
-
-        <div class="lang-switch">
-            <button id="lang-btn">🌍</button>
-            <div class="dropdown">
-                <a href="#" onclick="changeLang('fr')">Français</a>
-                <a href="#" onclick="changeLang('en')">English</a>
-                <a href="#" onclick="changeLang('de')">Deutsch</a>
-                <a href="#" onclick="changeLang('es')">Español</a>
-                <a href="#" onclick="changeLang('it')">Italiano</a>
-            </div>
-        </div>
-    </nav>
+<header class="banner">
+<img src="static/images/licorne_banner.png">
+<nav class="menu">
+<a href="index.html">Accueil</a>
+<a href="legendes.html">Légendes</a>
+<a href="apropos.html">À propos</a>
+<a href="don.html">Don</a>
+</nav>
 </header>
 
-<div class="content">
-    <h1 data-i18n="menu_apropos">À propos</h1>
-
-    <p>
-        À propos de Légendes du Monde de Jeddi
+<main class="content">
+<h1>À propos</h1>
+<p>À propos de Légendes du Monde de Jeddi
 Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant, né de la passion, de la créativité et du désir de raconter ensemble.
 Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.
 Légendes du Monde Jeddi est un monde en constante évolution, façonné par ceux qui y participent : écrivains, rêveurs, explorateurs, créateurs d’univers.
@@ -44,14 +31,16 @@ Que tu viennes pour lire, pour écrire, pour jouer ou simplement pour rêver, Je
 Ici, les frontières entre la réalité et le mythe s’effacent un peu…
 Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.
 🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.
-    </p>
 
-    <img src="images/grimoire.png" alt="Grimoire ancien" class="banner">
+Les légendes rassemblées ici proviennent d’œuvres anciennes, de bibliothèques fascinantes ou de manuscrits oubliés. Nous les restaurons et les rendons accessibles, dans plusieurs langues, pour offrir un espace où l’imaginaire relie chacun.
+</p>
+</main>
+
+<div class="running-unicorn">
+<img src="static/images/licorne.gif">
 </div>
 
-<footer class="footer">
-    <p>© 2025 Légendes de Jeddi</p>
-</footer>
+<footer class="footer">© Légendes du Monde de Jeddi</footer>
 
 </body>
 </html>
