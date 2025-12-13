@@ -1,46 +1,28 @@
-/* Corps de page */
-body {
-    margin: 0;
-    font-family: "Georgia", serif;
-    background: url("../images/parchment_texture.jpg") center/cover no-repeat fixed;
-}
-
-/* Menu principal */
-.top-menu {
-    background: rgba(0,0,0,0.75);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-}
-
-.menu a:hover, .don-btn:hover {
-    background: rgba(255,215,0,0.3);
-    border-radius: 6px;
-}
-
-/* Menu déroulant langues */
+/* =========================
+   MENU LANGUE À DROITE
+   ========================= */
 .lang-switch {
     margin-left: auto;
-    position: relative;
     list-style: none;
+    position: relative;
+    color: white;
+}
+
+.lang-switch span {
+    cursor: pointer;
+    color: white;
+    font-size: 1.1rem;
 }
 
 .lang-switch .submenu {
     display: none;
     position: absolute;
-    top: 30px;
     right: 0;
-    background: #000;
+    top: 35px;
+    background: rgba(0, 0, 0, 0.9);
+    list-style: none;
     padding: 0;
-    margin: 0;
+    min-width: 140px;
 }
 
 .lang-switch:hover .submenu {
@@ -49,65 +31,11 @@ body {
 
 .submenu li a {
     display: block;
-    padding: 8px 15px;
+    padding: 10px;
     color: white;
     text-decoration: none;
 }
 
 .submenu li a:hover {
-    background: rgba(255,215,0,0.4);
+    background: rgba(255, 215, 0, 0.4);
 }
-
-/* Section de contenu */
-.content {
-    width: 80%;
-    margin: 40px auto;
-    background: rgba(255,255,255,0.8);
-    padding: 30px;
-    border-radius: 10px;
-}
-
-/* Pied de page */
-.footer {
-    margin-top: 60px;
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.75);
-    color: white;
-    position: relative;
-}
-
-/* Bannière licorne */
-.licorne-banner {
-    width: 300px; /* idée : tu peux augmenter/diminuer */
-    margin-top: 15px;
-}
-
-/* =========================
-   LICORNE QUI GALOPE EN BAS
-   ========================= */
-.licorne-gif {
-    position: fixed;
-    bottom: 0;
-    left: -200px;
-    width: 160px;
-    z-index: 9999;
-    animation: gallop 12s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes gallop {
-    from {
-        left: -200px;
-    }
-    to {
-        left: 100%;
-    }
-}
-
-
-/* Idées de style futur : 
-   - Ajouter animations CSS pour les légendes qui apparaissent
-   - Mode nuit (background sombre)
-   - Tooltip sur les boutons audio pour indiquer la langue
-*/
