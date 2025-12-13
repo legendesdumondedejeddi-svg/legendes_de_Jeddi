@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Légendes</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Légendes de Jeddi</title>
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
+    <!-- MENU -->
+    <header class="top-menu">
+        <nav class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="apropos.html">À propos</a>
+            <a href="don.html">Don</a>
 
-<header>
-<nav class="top-menu">
-<ul class="menu">
-<li><a href="index.html" data-key="menu.accueil"></a></li>
-<li><a href="legendes.html" data-key="menu.legendes"></a></li>
-<li><a href="apropos.html" data-key="menu.apropos"></a></li>
-<li><a href="don.html" data-key="menu.don"></a></li>
-<li class="lang-switch">
-    <span data-key="menu.langue"></span>
-    <ul class="submenu">
-        <li><a href="#" data-lang="fr">FR</a></li>
-        <li><a href="#" data-lang="en">EN</a></li>
-        <li><a href="#" data-lang="de">DE</a></li>
-        <li><a href="#" data-lang="es">ES</a></li>
-        <li><a href="#" data-lang="it">IT</a></li>
-    </ul>
-</li>
-</ul>
-</nav>
-</header>
+            <!-- Menu déroulant langues/pays -->
+            <div class="lang-switch">
+                <span>Langue ▾</span>
+                <ul class="submenu">
+                    <li><a href="#" data-lang="fr">FR</a></li>
+                    <li><a href="#" data-lang="en">EN</a></li>
+                    <li><a href="#" data-lang="de">DE</a></li>
+                    <li><a href="#" data-lang="es">ES</a></li>
+                    <li><a href="#" data-lang="it">IT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-<main class="content grimoire">
+    <!-- CONTENU PRINCIPAL -->
+    <div class="content">
+        <h1>Légendes du Monde de Jeddi</h1>
 
-<h1>Légendes</h1>
+        <!-- Légendes par ordre alphabétique -->
+        <div class="legend" id="legend-licorne">
+            <h2 class="legend-title">La Licorne d’Aubépine</h2>
+            <p class="legend-text">
+                Dans les forêts anciennes, lorsque la brume épouse les racines,
+                une licorne blanche veille sur les âmes perdues...
+            </p>
+            <audio controls>
+                <source src="static/audio/licorne_fr.mp3" type="audio/mpeg">
+            </audio>
+        </div>
 
-<h2 id="legendes-france"></h2>
-<article id="apprenti-sorcier">
-<p class="legend-text" data-key="legendes.apprenti_sorcier"></p>
-<button onclick="lire(this)">🔊 Lecture audio</button>
-</article>
+        <div class="legend" id="legend-apprenti">
+            <h2 class="legend-title">L’Apprenti Sorcier</h2>
+            <p class="legend-text">
+                Il n’avait que seize hivers lorsque le grimoire l’appela,
+                et son destin bascula entre ombre et lumière.
+            </p>
+            <audio controls>
+                <source src="static/audio/apprenti_fr.mp3" type="audio/mpeg">
+            </audio>
+        </div>
 
-<article id="licorne-aubepine">
-<p class="legend-text" data-key="legendes.licorne_aubepine"></p>
-<button onclick="lire(this)">🔊 Lecture audio</button>
-</article>
+        <!-- Ajoute ici tes nouvelles légendes -->
+    </div>
 
-<h2 id="legendes-allemagne"></h2>
-<article id="foret-noire">
-<p class="legend-text" data-key="legendes.foret_noire"></p>
-<button onclick="lire(this)">🔊 Lecture audio</button>
-</article>
+    <!-- LICORNE ANIMÉE EN BAS -->
+    <div class="licorne-gif">
+        <img src="static/images/licorne.gif" alt="Licorne qui galope">
+    </div>
 
-</main>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 Le Monde de Jeddi</p>
+    </footer>
 
-<footer>
-<img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
-<p>© 2025 — Les Légendes de Jeddi</p>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-loadTranslation('fr');  // langue par défaut
-</script>
-
+    <!-- SCRIPT -->
+    <script src="js/main.js"></script>
 </body>
 </html>
