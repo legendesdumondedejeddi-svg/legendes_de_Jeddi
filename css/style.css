@@ -89,8 +89,9 @@ body {
     border-radius: 10px;
 }
 
-.grimoire {
-    background-image: url("../images/grimoire.png");
+/* .grimoire {
+    background: url("grimoire.png");
+} */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
