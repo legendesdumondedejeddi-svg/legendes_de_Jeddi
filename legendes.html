@@ -4,41 +4,55 @@
     <meta charset="UTF-8">
     <title>Légendes</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
 </head>
 <body>
-    <header class="top-menu">
-        <nav class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="legendes.html">Légendes</a>
-            <a href="apropos.html">À propos</a>
-            <a href="don.html" class="don-btn">Don</a>
-            <li class="lang-switch">
+
+<header class="top-menu">
+    <nav class="menu">
+        <a href="index.html">Accueil</a>
+        <a href="legendes.html">Légendes</a>
+        <a href="apropos.html">À propos</a>
+        <a href="don.html" class="don-btn">DON</a>
+
+        <ul class="lang-switch">
+            <li>
                 <span>Langue ▾</span>
                 <ul class="submenu">
-                    <li><a href="#" data-lang="fr">FR</a></li>
-                    <li><a href="#" data-lang="en">EN</a></li>
-                    <li><a href="#" data-lang="de">DE</a></li>
-                    <li><a href="#" data-lang="es">ES</a></li>
-                    <li><a href="#" data-lang="it">IT</a></li>
+                    <li><a href="#">FR</a></li>
+                    <li><a href="#">EN</a></li>
+                    <li><a href="#">DE</a></li>
+                    <li><a href="#">ES</a></li>
+                    <li><a href="#">IT</a></li>
                 </ul>
             </li>
-        </nav>
-    </header>
+        </ul>
+    </nav>
+</header>
 
-    <section class="content">
-        <h1 id="legendes-title">Nos Légendes</h1>
-        <div id="legendes-list">
-            <!-- Les légendes seront injectées ici via main.js -->
-        </div>
-        <audio id="audio-player" controls></audio>
+<main class="content">
+    <h1>Légendes par pays</h1>
+
+    <section class="legend-country">
+        <h2>🇫🇷 France</h2>
+        <ul class="legend-list">
+            <li>La Licorne d’Aubépine</li>
+            <li>L’Apprenti Sorcier</li>
+        </ul>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Le Monde de Jeddi - Contact: legendes.du.monde.de.jeddi@gmail.com</p>
-        <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
-    </footer>
-    <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
+    <section class="legend-country">
+        <h2>🇩🇪 Allemagne</h2>
+        <ul class="legend-list">
+            <li>Der Schwarze Wald</li>
+        </ul>
+    </section>
+</main>
+
+<footer class="footer">
+    © 2025 — legendes.du.monde.de.jeddi@gmail.com
+</footer>
+
+<img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
+
 </body>
 </html>
-
