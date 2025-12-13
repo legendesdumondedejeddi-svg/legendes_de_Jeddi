@@ -29,10 +29,10 @@ body {
 }
 
 /* ===============================
-   MENU PRINCIPAL
+   MENU PRINCIPAL (PLUS AÉRÉ)
 ================================ */
 .top-menu {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     width: 100%;
 }
 
@@ -41,29 +41,31 @@ body {
     align-items: center;
     list-style: none;
     margin: 0;
-    padding: 10px 20px;
+    padding: 14px 30px; /* + hauteur */
 }
 
+/* ESPACEMENT ENTRE LES BOUTONS */
 .menu-line li {
     position: relative;
+    margin-right: 32px; /* <<< GROS ÉCART */
 }
 
-/* BOUTONS MENU */
+/* BOUTONS */
 .menu-line > li > a,
 .menu-line > li > span {
     display: inline-block;
-    padding: 14px 26px;      /* ESPACEMENT */
-    margin-right: 16px;     /* ESPACE ENTRE BOUTONS */
-    color: white;
+    padding: 16px 34px; /* <<< PLUS LARGE */
+    color: #ffffff;     /* BLANC PUR */
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .menu-line > li > a:hover,
 .menu-line > li > span:hover {
     background: rgba(255, 215, 0, 0.35);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 /* ===============================
@@ -73,15 +75,19 @@ body {
     margin-left: auto;
 }
 
+.lang-switch > span {
+    color: white;
+}
+
 .lang-switch .submenu {
     display: none;
     position: absolute;
-    top: 55px;
+    top: 65px;
     right: 0;
     background: rgba(0, 0, 0, 0.95);
     list-style: none;
     padding: 0;
-    min-width: 120px;
+    min-width: 160px;
     z-index: 1000;
 }
 
@@ -91,10 +97,10 @@ body {
 
 .submenu li a {
     display: block;
-    padding: 12px 18px;
+    padding: 14px 22px;
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 .submenu li a:hover {
@@ -102,46 +108,45 @@ body {
 }
 
 /* ===============================
-   CONTENU PRINCIPAL (GRIMOIRE)
+   CONTENU (GRIMOIRE)
 ================================ */
 .content {
     width: 85%;
-    margin: 60px auto 120px auto; /* RETRAIT BANNIÈRE + FOOTER */
+    margin: 70px auto 140px auto;
     background: rgba(255, 255, 255, 0.78);
-    padding: 40px;
-    border-radius: 14px;
+    padding: 45px;
+    border-radius: 16px;
     border: 6px solid rgba(0, 0, 0, 0.25);
 }
 
 .content h1,
 .content h2 {
     text-align: center;
-    font-family: "Georgia", serif;
 }
 
 .content p {
     font-size: 1.1rem;
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 /* ===============================
-   BOUTON DON PAYPAL
+   BOUTON DON
 ================================ */
 .don-wrapper {
     text-align: center;
-    margin: 40px 0;
+    margin: 50px 0;
 }
 
 .don-btn {
-    padding: 16px 36px;
+    padding: 18px 40px;
     font-size: 1.4rem;
     background: #7a00aa;
     color: white;
     border: none;
-    border-radius: 18px;
+    border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(160, 0, 255, 0.7);
+    box-shadow: 0 0 18px rgba(160, 0, 255, 0.8);
 }
 
 .don-btn:hover {
@@ -149,27 +154,27 @@ body {
 }
 
 /* ===============================
-   LICORNE QUI GALOPE (ENFIN)
+   LICORNE QUI GALOPE
 ================================ */
 .licorne-run {
     position: fixed;
     bottom: 0;
-    left: -200px;
+    left: -220px;
     z-index: 9999;
     pointer-events: none;
 }
 
 .licorne-run img {
-    width: 160px;
-    animation: licorne-galope 10s linear infinite;
+    width: 170px;
+    animation: licorne-galope 9s linear infinite;
 }
 
 @keyframes licorne-galope {
     from {
-        transform: translateX(-200px);
+        transform: translateX(-220px);
     }
     to {
-        transform: translateX(110vw);
+        transform: translateX(120vw);
     }
 }
 
@@ -177,10 +182,10 @@ body {
    FOOTER
 ================================ */
 .footer {
-    margin-top: 120px;
+    margin-top: 150px;
     padding: 30px 0;
     text-align: center;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     color: white;
     font-size: 0.95rem;
 }
