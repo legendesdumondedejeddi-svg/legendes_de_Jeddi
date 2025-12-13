@@ -1,51 +1,88 @@
+/* ===============================
+   BASE GÉNÉRALE
+================================ */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Georgia, serif;
-    background: url("../images/parchment_texture.jpg") center/cover fixed;
+    padding: 0;
+    font-family: "Georgia", serif;
+    background: url("images/parchment_texture.jpg") center/cover no-repeat fixed;
+    color: #2b1d0e;
 }
 
-/* BANNIÈRE */
+/* ===============================
+   BANNIÈRE LICORNE
+================================ */
+.banner {
+    width: 100%;
+    background: black;
+}
+
 .banner img {
     width: 100%;
-    max-height: 300px;
+    max-height: 320px;
     object-fit: cover;
+    display: block;
 }
 
-/* MENU */
+/* ===============================
+   MENU PRINCIPAL
+================================ */
 .top-menu {
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
+    width: 100%;
 }
 
-.menu {
-    list-style: none;
+.menu-line {
     display: flex;
     align-items: center;
+    list-style: none;
     margin: 0;
     padding: 10px 20px;
 }
 
-.menu li {
-    margin-right: 20px;
+.menu-line li {
     position: relative;
 }
 
-.menu a {
-    padding: 12px 22px;     /* PLUS D’AIR AUTOUR DES BOUTONS */
-    margin-right: 12px;     /* ESPACE ENTRE CHAQUE BOUTON */
+/* BOUTONS MENU */
+.menu-line > li > a,
+.menu-line > li > span {
     display: inline-block;
+    padding: 14px 26px;      /* ESPACEMENT */
+    margin-right: 16px;     /* ESPACE ENTRE BOUTONS */
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
+.menu-line > li > a:hover,
+.menu-line > li > span:hover {
+    background: rgba(255, 215, 0, 0.35);
+    border-radius: 8px;
+}
 
-/* LANGUES */
+/* ===============================
+   MENU LANGUES (DROPDOWN)
+================================ */
 .lang-switch {
     margin-left: auto;
 }
 
-.submenu li {
-    margin: 6px 0;   /* ESPACE ENTRE LES LANGUES */
+.lang-switch .submenu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    list-style: none;
+    padding: 0;
+    min-width: 120px;
+    z-index: 1000;
 }
 
 .lang-switch:hover .submenu {
@@ -54,71 +91,96 @@ body {
 
 .submenu li a {
     display: block;
-    padding: 10px 15px;
+    padding: 12px 18px;
     color: white;
+    text-decoration: none;
+    font-size: 1rem;
 }
 
-/* CONTENU */
+.submenu li a:hover {
+    background: rgba(255, 215, 0, 0.4);
+}
+
+/* ===============================
+   CONTENU PRINCIPAL (GRIMOIRE)
+================================ */
 .content {
-    margin-top: 40px;
+    width: 85%;
+    margin: 60px auto 120px auto; /* RETRAIT BANNIÈRE + FOOTER */
+    background: rgba(255, 255, 255, 0.78);
     padding: 40px;
-    background: rgba(255,255,255,0.75);
-    border-radius: 12px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 14px;
+    border: 6px solid rgba(0, 0, 0, 0.25);
 }
 
-.grimoire h1 {
+.content h1,
+.content h2 {
     text-align: center;
+    font-family: "Georgia", serif;
 }
 
-/* LÉGENDES */
-.legend {
-    margin-bottom: 40px;
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
-.audio-btn {
-    margin-top: 10px;
-    background: #333;
+/* ===============================
+   BOUTON DON PAYPAL
+================================ */
+.don-wrapper {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.don-btn {
+    padding: 16px 36px;
+    font-size: 1.4rem;
+    background: #7a00aa;
     color: white;
     border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
+    border-radius: 18px;
     cursor: pointer;
+    box-shadow: 0 0 15px rgba(160, 0, 255, 0.7);
 }
 
-/* LICORNE QUI GALOPE */
+.don-btn:hover {
+    background: #bb00ff;
+}
+
+/* ===============================
+   LICORNE QUI GALOPE (ENFIN)
+================================ */
 .licorne-run {
     position: fixed;
-    bottom: 10px;
-    left: -250px;
+    bottom: 0;
+    left: -200px;
     z-index: 9999;
     pointer-events: none;
 }
 
 .licorne-run img {
-    width: 180px;          /* TAILLE MAÎTRISÉE */
-    animation: gallop 12s linear infinite;
+    width: 160px;
+    animation: licorne-galope 10s linear infinite;
 }
 
-@keyframes gallop {
-    0% {
-        transform: translateX(-250px);
+@keyframes licorne-galope {
+    from {
+        transform: translateX(-200px);
     }
-    100% {
-        transform: translateX(calc(100vw + 250px));
+    to {
+        transform: translateX(110vw);
     }
 }
 
-
-/* FOOTER */
+/* ===============================
+   FOOTER
+================================ */
 .footer {
-    margin-top: 100px;      /* DESCEND LE FOOTER */
+    margin-top: 120px;
     padding: 30px 0;
     text-align: center;
-    font-size: 0.9rem;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.85);
     color: white;
+    font-size: 0.95rem;
 }
-
