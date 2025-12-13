@@ -1,26 +1,12 @@
 {
-  "menu": {
-    "accueil": "Home",
-    "legendes": "Leggende",
-    "apropos": "Informazioni",
-    "don": "Dona",
-    "langue": "Lingua ▾"
-  },
-  "accueil": {
-    "titre": "Benvenuto nel Grimorio",
-    "texte": "Qui vivono le leggende antiche, sussurrate dalle foreste, trascritte nei grimori e trasmesse a voce."
-  },
-  "legendes": {
-    "france": "Francia",
-    "apprenti_sorcier": "Aveva solo sedici inverni quando il grimorio lo chiamò.",
-    "licorne_aubepine": "Nelle foreste antiche, un unicorno veglia sulle anime perdute.",
-    "allemagne": "Germania",
-    "foret_noire": "Gli alberi sussurrano ancora i giuramenti antichi."
-  },
-  "apropos": {
-    "texte": "Questo sito è un grimorio moderno dedicato alle leggende antiche, raccontate attraverso parole, immagini e voce."
-  },
-  "don": {
-    "texte": "Sostieni il grimorio facendo una donazione."
-  }
+  "menu_home": "Home",
+  "menu_legends": "Leggende",
+  "menu_about": "Chi siamo",
+  "menu_donate": "Dona",
+  "legends_title": "Leggende",
+  "listen": "Ascolta",
+  "legend_licorne_title": "L’Unicorno del Biancospino",
+  "legend_licorne_text": "Nelle foreste antiche, quando la nebbia abbraccia le radici, un unicorno bianco veglia sulle anime perdute...",
+  "legend_apprenti_title": "L’Apprendista Stregone",
+  "legend_apprenti_text": "Aveva solo sedici inverni quando il grimorio lo chiamò."
 }
