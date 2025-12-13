@@ -1,47 +1,56 @@
-let currentLang = 'fr';
-let translations = {};
+// main.js
 
-function loadTranslation(lang) {
-    currentLang = lang;
-    fetch(`translations/${lang}.json`)
-    .then(resp => resp.json())
-    .then(data => {
-        translations = data;
-        updateTexts();
+// Liste des langues disponibles
+const LANGUAGES = ["fr", "en", "de", "es", "it"];
+let currentLang = "fr"; // langue par défaut
+
+// Fonction pour charger un fichier JSON de traductions
+async function loadTranslations(lang) {
+    try {
+        const response = await fetch(`translations/${lang}.json`);
+        if (!response.ok) throw new Error("Fichier de traduction introuvable");
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.error("Erreur de chargement des traductions :", err);
+        return {};
+    }
+}
+
+// Fonction pour mettre à jour toutes les légendes
+async function updateLegends(lang) {
+    const translations = await loadTranslations(lang);
+    const legendElements = document.querySelectorAll(".legend");
+    legendElements.forEach((el) => {
+        const id = el.id; // identifiant de la légende
+        if (translations[id]) {
+            el.querySelector(".legend-title").textContent = translations[id].title;
+            el.querySelector(".legend-text").textContent = translations[id].text;
+
+            // Mettre à jour la source audio
+            const audioEl = el.querySelector("audio source");
+            if (audioEl) {
+                audioEl.src = `static/audio/${id}_${lang}.mp3`;
+                audioEl.parentElement.load(); // recharge l'audio
+            }
+        }
     });
 }
 
-function updateTexts() {
-    document.querySelectorAll('[data-key]').forEach(el => {
-        const keys = el.dataset.key.split('.');
-        let text = translations;
-        keys.forEach(k => {
-            if(text) text = text[k];
-        });
-        if(text) el.innerText = text;
-    });
-}
-
-// changer de langue via menu
-document.querySelectorAll('.submenu a[data-lang]').forEach(a => {
-    a.addEventListener('click', e => {
+// Gestion du menu déroulant langues
+const langLinks = document.querySelectorAll(".lang-switch a");
+langLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
         e.preventDefault();
-        loadTranslation(a.dataset.lang);
+        const selectedLang = link.getAttribute("data-lang");
+        if (LANGUAGES.includes(selectedLang)) {
+            currentLang = selectedLang;
+            updateLegends(currentLang);
+        }
     });
 });
 
-// audio multilingue
-function lire(bouton) {
-    const texte = bouton.previousElementSibling.innerText;
-    const voix = new SpeechSynthesisUtterance(texte);
-    switch(currentLang) {
-        case 'fr': voix.lang = 'fr-FR'; break;
-        case 'en': voix.lang = 'en-US'; break;
-        case 'de': voix.lang = 'de-DE'; break;
-        case 'es': voix.lang = 'es-ES'; break;
-        case 'it': voix.lang = 'it-IT'; break;
-        default: voix.lang = 'fr-FR';
-    }
-    speechSynthesis.cancel();
-    speechSynthesis.speak(voix);
-}
+// Initialisation au chargement
+document.addEventListener("DOMContentLoaded", () => {
+    updateLegends(currentLang);
+});
