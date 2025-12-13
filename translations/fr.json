@@ -1,9 +1,26 @@
 {
-    "menu_home": "Accueil",
-    "menu_legendes": "Légendes",
-    "menu_apropos": "À propos",
-    "menu_don": "Faire un don",
-
-    "home_title": "Bienvenue dans le Monde de Jeddi",
-    "home_text": "Découvrez des légendes enchantées, des créatures merveilleuses et des histoires intemporelles."
+  "menu": {
+    "accueil": "Accueil",
+    "legendes": "Légendes",
+    "apropos": "À propos",
+    "don": "Don",
+    "langue": "Langue ▾"
+  },
+  "accueil": {
+    "titre": "Bienvenue dans le Grimoire",
+    "texte": "Ici vivent les légendes anciennes, murmurées par les forêts, gravées dans les grimoires et transmises par la voix."
+  },
+  "legendes": {
+    "france": "France",
+    "apprenti_sorcier": "Il n’avait que seize hivers lorsque le grimoire l’appela.",
+    "licorne_aubepine": "Dans les forêts anciennes, une licorne veille sur les âmes perdues.",
+    "allemagne": "Allemagne",
+    "foret_noire": "Les arbres murmurent encore les serments anciens."
+  },
+  "apropos": {
+    "texte": "Ce site est un grimoire moderne dédié aux légendes anciennes, racontées par les mots, les images et la voix."
+  },
+  "don": {
+    "texte": "Soutenez le grimoire en faisant un don."
+  }
 }
