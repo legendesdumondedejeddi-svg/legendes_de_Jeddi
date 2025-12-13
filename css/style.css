@@ -1,87 +1,85 @@
 body {
     margin: 0;
-    font-family: Georgia, serif;
-    background: url("../images/parchment_texture.jpg") center/cover fixed;
-}
-
-.banner {
-    width: 100%;
-    display: block;
+    font-family: "Georgia", serif;
+    background: url("../images/parchment_texture.jpg") center/cover no-repeat fixed;
 }
 
 .top-menu {
-    background: rgba(0,0,0,0.8);
-}
-
-.menu {
+    background: rgba(0,0,0,0.75);
+    padding: 10px 20px;
     display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
-.menu li {
-    position: relative;
-    margin-right: 20px;
-    color: white;
-}
-
-.menu a, .menu span {
+.menu a {
     color: white;
     text-decoration: none;
-    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 1.2rem;
 }
 
-.submenu {
+.menu a:hover, .don-btn:hover {
+    background: rgba(255,215,0,0.3);
+    border-radius: 6px;
+}
+
+.lang-switch {
+    margin-left: auto;
+    position: relative;
+    list-style: none;
+}
+
+.lang-switch .submenu {
     display: none;
     position: absolute;
-    background: black;
-    list-style: none;
-    padding: 10px;
-    top: 100%;
-    left: 0;
+    top: 30px;
+    right: 0;
+    background: #000;
+    padding: 0;
+    margin: 0;
 }
 
-.menu li:hover > .submenu {
+.lang-switch:hover .submenu {
     display: block;
 }
 
-.submenu li {
-    width: 180px;
+.submenu li a {
+    display: block;
+    padding: 8px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background: rgba(255,215,0,0.4);
 }
 
 .content {
-    margin: 40px auto;
     width: 80%;
-    background: rgba(255,255,255,0.85);
+    margin: 40px auto;
+    background: rgba(255,255,255,0.8);
     padding: 30px;
     border-radius: 10px;
 }
 
-.grimoire h3 {
-    font-family: "Palatino Linotype", serif;
-}
-
-button {
-    background: #3b2f1c;
-    color: #f5e6c8;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-footer {
-    background: rgba(0,0,0,0.8);
-    color: white;
+.footer {
+    margin-top: 60px;
     text-align: center;
     padding: 20px;
+    background: rgba(0,0,0,0.75);
+    color: white;
     position: relative;
 }
 
+.licorne-banner {
+    width: 300px;
+    margin-top: 15px;
+}
+
 .licorne-gif {
-    width: 120px;
-    position: absolute;
+    width: 200px;
+    position: fixed;
     bottom: 10px;
-    right: 20px;
+    right: 10px;
 }
