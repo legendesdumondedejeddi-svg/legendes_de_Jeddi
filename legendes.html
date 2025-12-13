@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Légendes – Jeddi</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Légendes</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header class="banner">
-    <img src="/static/img/grimoire.png" alt="Grimoire">
-    <h1 class="banner-title">Le Grimoire</h1>
+<header>
+    <nav class="top-menu">
+        <ul class="menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="don.html">Don</a></li>
+        </ul>
+    </nav>
 </header>
 
-<nav class="top-menu">
-    <ul class="menu-line">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="legendes.html">Légendes</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li><a href="don.html">Don</a></li>
-
-        <li class="lang-switch">
-            <span>Langue ▾</span>
-            <ul class="submenu">
-                <li><a href="#">FR</a></li>
-                <li><a href="#">EN</a></li>
-                <li><a href="#">DE</a></li>
-                <li><a href="#">ES</a></li>
-                <li><a href="#">IT</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-
 <main class="content grimoire">
-    <h2>La Licorne d’Aubépine</h2>
-    <p>
-        Dans les forêts anciennes, lorsque la brume épouse les racines,
-        une licorne blanche veille sur les âmes perdues.
-    </p>
 
-    <h2>L’Apprenti Sorcier</h2>
-    <p>
-        Il n’avait que seize hivers lorsque le grimoire l’appela.
-        Les pages se tournaient seules, avides de sa destinée.
-    </p>
+<h1>Les Légendes</h1>
+
+<h2>🇫🇷 France</h2>
+
+<article id="apprenti-sorcier">
+<h3>L’Apprenti Sorcier</h3>
+<p class="legend-text">
+Il n’avait que seize hivers lorsque le grimoire l’appela.
+</p>
+<button onclick="lire(this)">🔊 Lecture audio</button>
+</article>
+
+<article id="licorne-aubepine">
+<h3>La Licorne d’Aubépine</h3>
+<p class="legend-text">
+Dans les forêts anciennes, une licorne veille sur les âmes perdues.
+</p>
+<button onclick="lire(this)">🔊 Lecture audio</button>
+</article>
+
+<h2>🇩🇪 Allemagne</h2>
+
+<article id="foret-noire">
+<h3>La Forêt Noire</h3>
+<p class="legend-text">
+Les arbres murmurent encore les serments anciens.
+</p>
+<button onclick="lire(this)">🔊 Lecture audio</button>
+</article>
+
 </main>
 
-<div class="running-unicorn">
-    <img src="images/licorne.gif" alt="Licorne qui galope">
-</div>
-
-<footer class="footer">
-    © 2025 – Légendes de Jeddi – Contact : legendes.du.monde.de.jeddi@gmail.com
+<footer>
+    <img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
+    <p>© 2025 — Les Légendes de Jeddi</p>
 </footer>
 
+<script src="js/main.js"></script>
 </body>
 </html>
-
-
