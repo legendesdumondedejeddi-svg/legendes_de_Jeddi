@@ -12,48 +12,38 @@
 
     <nav class="top-menu">
         <ul class="menu">
-            <li><a href="index.html">Accueil</a></li>
-
-            <li>
-                <span>Légendes ▾</span>
+            <li><a href="index.html" data-key="menu.accueil"></a></li>
+            <li><a href="legendes.html" data-key="menu.legendes"></a></li>
+            <li><a href="apropos.html" data-key="menu.apropos"></a></li>
+            <li><a href="don.html" data-key="menu.don"></a></li>
+            <li class="lang-switch">
+                <span data-key="menu.langue"></span>
                 <ul class="submenu">
-                    <li>
-                        <span>🇫🇷 France ▸</span>
-                        <ul class="submenu">
-                            <li><a href="legendes.html#apprenti-sorcier">Apprenti Sorcier</a></li>
-                            <li><a href="legendes.html#licorne-aubepine">Licorne d’Aubépine</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span>🇩🇪 Allemagne ▸</span>
-                        <ul class="submenu">
-                            <li><a href="legendes.html#foret-noire">Forêt Noire</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#" data-lang="fr">FR</a></li>
+                    <li><a href="#" data-lang="en">EN</a></li>
+                    <li><a href="#" data-lang="de">DE</a></li>
+                    <li><a href="#" data-lang="es">ES</a></li>
+                    <li><a href="#" data-lang="it">IT</a></li>
                 </ul>
             </li>
-
-            <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">Don</a></li>
         </ul>
     </nav>
 </header>
 
 <main class="content">
-    <h1>Bienvenue dans le Grimoire</h1>
-    <p>
-     Prologue du Grimoire des Légendes
-Au seuil du monde, là où l’aube hésite encore à poser son premier souffle, s’ouvre un livre dont les pages murmurent toutes seules. Ce grimoire n’est pas fait d’encre ordinaire. Chaque mot y brille comme une luciole prise dans un rêve, chaque phrase respire une ancienne magie qui flotte encore au-dessus des terres oubliées.
-Approche sans crainte, voyageur. Effleure la couverture et sens battre sous ta main le cœur des mythes, impatient de renaître. Ici dorment les héros que les siècles ont décoiffés, les créatures dont la lumière change la nuit en promesse, les royaumes qui n’existent plus que lorsque quelqu’un se met à y croire.
-Ouvre la première page, et le vent te saluera. Ouvre la seconde, et les montagnes relèveront la tête. À la troisième, les étoiles chuchoteront ton nom. Rien n’est figé, tout respire. Les légendes glissent entre les lignes comme des esprits farceurs, prêtes à t’emmener dans des chemins où même le temps hésite à marcher.
-Ce grimoire est une porte. Passe-la avec l’élégance d’un rêveur et le courage d’un enfant. Car ici, dans ces pages tissées de lumière, commence le royaume où naissent les histoires qui refusent de mourir.
-    </p>
+    <h1 id="accueil-titre"></h1>
+    <p id="accueil-texte"></p>
 </main>
 
 <footer>
     <img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
     <p>© 2025 — Les Légendes de Jeddi</p>
 </footer>
+
+<script src="js/main.js"></script>
+<script>
+loadTranslation('fr');  // langue par défaut
+</script>
 
 </body>
 </html>
