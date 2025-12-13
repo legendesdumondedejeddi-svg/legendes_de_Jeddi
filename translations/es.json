@@ -1,9 +1,26 @@
 {
-    "menu_home": "Inicio",
-    "menu_legendes": "Leyendas",
-    "menu_apropos": "Acerca de",
-    "menu_don": "Donar",
-
-    "home_title": "Bienvenido al Mundo de Jeddi",
-    "home_text": "Descubre leyendas mágicas y criaturas maravillosas."
+  "menu": {
+    "accueil": "Inicio",
+    "legendes": "Leyendas",
+    "apropos": "Acerca de",
+    "don": "Donar",
+    "langue": "Idioma ▾"
+  },
+  "accueil": {
+    "titre": "Bienvenido al Grimorio",
+    "texte": "Aquí viven las leyendas antiguas, susurradas por los bosques, escritas en grimorios y transmitidas de voz en voz."
+  },
+  "legendes": {
+    "france": "Francia",
+    "apprenti_sorcier": "Tenía solo dieciséis inviernos cuando el grimorio lo llamó.",
+    "licorne_aubepine": "En los bosques antiguos, un unicornio vela por las almas perdidas.",
+    "allemagne": "Alemania",
+    "foret_noire": "Los árboles aún susurran los antiguos juramentos."
+  },
+  "apropos": {
+    "texte": "Este sitio es un grimorio moderno dedicado a las leyendas antiguas, contadas a través de palabras, imágenes y voz."
+  },
+  "don": {
+    "texte": "Apoya el grimorio haciendo una donación."
+  }
 }
