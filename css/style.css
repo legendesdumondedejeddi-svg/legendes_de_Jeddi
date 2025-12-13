@@ -41,13 +41,8 @@ body {
     margin-left: auto;
 }
 
-.submenu {
-    display: none;
-    position: absolute;
-    right: 0;
-    background: black;
-    list-style: none;
-    padding: 0;
+.submenu li {
+    margin: 6px 0;   /* ESPACE ENTRE LES LANGUES */
 }
 
 .lang-switch:hover .submenu {
