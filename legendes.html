@@ -8,54 +8,58 @@
 <body>
 
 <header>
-    <nav class="top-menu">
-        <ul class="menu">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">Don</a></li>
-        </ul>
-    </nav>
+<nav class="top-menu">
+<ul class="menu">
+<li><a href="index.html" data-key="menu.accueil"></a></li>
+<li><a href="legendes.html" data-key="menu.legendes"></a></li>
+<li><a href="apropos.html" data-key="menu.apropos"></a></li>
+<li><a href="don.html" data-key="menu.don"></a></li>
+<li class="lang-switch">
+    <span data-key="menu.langue"></span>
+    <ul class="submenu">
+        <li><a href="#" data-lang="fr">FR</a></li>
+        <li><a href="#" data-lang="en">EN</a></li>
+        <li><a href="#" data-lang="de">DE</a></li>
+        <li><a href="#" data-lang="es">ES</a></li>
+        <li><a href="#" data-lang="it">IT</a></li>
+    </ul>
+</li>
+</ul>
+</nav>
 </header>
 
 <main class="content grimoire">
 
-<h1>Les Légendes</h1>
+<h1>Légendes</h1>
 
-<h2>🇫🇷 France</h2>
-
+<h2 id="legendes-france"></h2>
 <article id="apprenti-sorcier">
-<h3>L’Apprenti Sorcier</h3>
-<p class="legend-text">
-Il n’avait que seize hivers lorsque le grimoire l’appela.
-</p>
+<p class="legend-text" data-key="legendes.apprenti_sorcier"></p>
 <button onclick="lire(this)">🔊 Lecture audio</button>
 </article>
 
 <article id="licorne-aubepine">
-<h3>La Licorne d’Aubépine</h3>
-<p class="legend-text">
-Dans les forêts anciennes, une licorne veille sur les âmes perdues.
-</p>
+<p class="legend-text" data-key="legendes.licorne_aubepine"></p>
 <button onclick="lire(this)">🔊 Lecture audio</button>
 </article>
 
-<h2>🇩🇪 Allemagne</h2>
-
+<h2 id="legendes-allemagne"></h2>
 <article id="foret-noire">
-<h3>La Forêt Noire</h3>
-<p class="legend-text">
-Les arbres murmurent encore les serments anciens.
-</p>
+<p class="legend-text" data-key="legendes.foret_noire"></p>
 <button onclick="lire(this)">🔊 Lecture audio</button>
 </article>
 
 </main>
 
 <footer>
-    <img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
-    <p>© 2025 — Les Légendes de Jeddi</p>
+<img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
+<p>© 2025 — Les Légendes de Jeddi</p>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+loadTranslation('fr');  // langue par défaut
+</script>
+
 </body>
 </html>
