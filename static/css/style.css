@@ -4,10 +4,10 @@ font-family:Georgia, serif;
 background:url("../images/parchment_texture.jpg") center/cover fixed;
 }
 
-.banner img {
-width:100%;
-max-height:220px;
-object-fit:cover;
+.licorne-banner {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
 }
 
 .menu {
