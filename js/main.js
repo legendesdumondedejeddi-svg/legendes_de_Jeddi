@@ -1,14 +1,24 @@
-function readLegend(button) {
-    const text = button
-        .parentElement
-        .querySelector(".legend-text")
-        .innerText;
+async function loadLanguage(lang) {
+    const response = await fetch(`translations/${lang}.json`);
+    const translations = await response.json();
 
-    const lang = document.documentElement.lang || "fr-FR";
+    document.documentElement.lang = lang;
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-
-    speechSynthesis.cancel(); // stop si déjà en cours
-    speechSynthesis.speak(utterance);
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[key]) {
+            el.innerText = translations[key];
+        }
+    });
 }
+
+document.querySelectorAll(".submenu a").forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        const lang = link.innerText.toLowerCase();
+        loadLanguage(lang);
+    });
+});
+
+// langue par défaut
+loadLanguage("fr");
