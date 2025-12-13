@@ -1,26 +1,12 @@
 {
-  "menu": {
-    "accueil": "Home",
-    "legendes": "Legends",
-    "apropos": "About",
-    "don": "Donate",
-    "langue": "Language ▾"
-  },
-  "accueil": {
-    "titre": "Welcome to the Grimoire",
-    "texte": "Here live the ancient legends, whispered by forests, inscribed in grimoires, and passed down by voice."
-  },
-  "legendes": {
-    "france": "France",
-    "apprenti_sorcier": "He was only sixteen winters old when the grimoire called him.",
-    "licorne_aubepine": "In the ancient forests, a unicorn watches over lost souls.",
-    "allemagne": "Germany",
-    "foret_noire": "The trees still whisper the old oaths."
-  },
-  "apropos": {
-    "texte": "This site is a modern grimoire dedicated to ancient legends, told through words, images, and voice."
-  },
-  "don": {
-    "texte": "Support the grimoire by making a donation."
-  }
+  "menu_home": "Home",
+  "menu_legends": "Legends",
+  "menu_about": "About",
+  "menu_donate": "Donate",
+  "legends_title": "Legends",
+  "listen": "Listen",
+  "legend_licorne_title": "The Hawthorn Unicorn",
+  "legend_licorne_text": "In ancient forests, when mist embraces the roots, a white unicorn watches over lost souls...",
+  "legend_apprenti_title": "The Apprentice Sorcerer",
+  "legend_apprenti_text": "He was only sixteen winters old when the grimoire called him."
 }
