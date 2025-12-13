@@ -1,9 +1,26 @@
 {
-    "menu_home": "Startseite",
-    "menu_legendes": "Legenden",
-    "menu_apropos": "Über uns",
-    "menu_don": "Spenden",
-
-    "home_title": "Willkommen in der Welt von Jeddi",
-    "home_text": "Entdecken Sie zauberhafte Legenden und zeitlose Geschichten."
+  "menu": {
+    "accueil": "Startseite",
+    "legendes": "Legenden",
+    "apropos": "Über uns",
+    "don": "Spenden",
+    "langue": "Sprache ▾"
+  },
+  "accueil": {
+    "titre": "Willkommen im Grimoire",
+    "texte": "Hier leben die alten Legenden, geflüstert von den Wäldern, in Grimoires eingeschrieben und mündlich überliefert."
+  },
+  "legendes": {
+    "france": "Frankreich",
+    "apprenti_sorcier": "Er war erst sechzehn Winter alt, als das Grimoire ihn rief.",
+    "licorne_aubepine": "In den alten Wäldern wacht ein Einhorn über verlorene Seelen.",
+    "allemagne": "Deutschland",
+    "foret_noire": "Die Bäume flüstern noch die alten Schwüre."
+  },
+  "apropos": {
+    "texte": "Diese Seite ist ein modernes Grimoire, gewidmet alten Legenden, erzählt durch Worte, Bilder und Stimme."
+  },
+  "don": {
+    "texte": "Unterstütze das Grimoire durch eine Spende."
+  }
 }
