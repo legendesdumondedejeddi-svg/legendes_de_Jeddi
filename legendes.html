@@ -1,38 +1,135 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Légendes</title>
-<link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <title>Les Légendes — Le Monde de Jeddi</title>
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Style grimoire local si jamais le CSS global manque */
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background: url("images/parchment_texture.jpg") center/cover fixed no-repeat;
+            color: #2b1b0e;
+        }
+
+        /* MENU */
+        nav.menu {
+            display: flex;
+            gap: 25px;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        nav.menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        nav.menu a:hover {
+            color: gold;
+        }
+
+        /* CONTENU GRIMOIRE */
+        .grimoire {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 248, 220, 0.88);
+            border: 8px solid rgba(90, 60, 30, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.4);
+        }
+
+        .grimoire h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .grimoire h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            padding-bottom: 5px;
+        }
+
+        .grimoire p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* LICORNE QUI GALOPPE */
+        .licorne-run {
+            position: fixed;
+            bottom: 0;
+            left: -200px;
+            width: 180px;
+            animation: run 12s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes run {
+            from { left: -200px; }
+            to   { left: 110%; }
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
-<header class="banner">
-  <img src="static/images/licorne_banner.png">
-  <nav class="menu">
+<!-- MENU -->
+<nav class="menu">
     <a href="index.html">Accueil</a>
     <a href="legendes.html">Légendes</a>
     <a href="apropos.html">À propos</a>
     <a href="don.html">Don</a>
-  </nav>
-</header>
+</nav>
 
-<main class="content">
-<h1>Les Légendes</h1>
-<p>Prologue du Grimoire des Légendes
-Au seuil du monde, là où l’aube hésite encore à poser son premier souffle, s’ouvre un livre dont les pages murmurent toutes seules. Ce grimoire n’est pas fait d’encre ordinaire. Chaque mot y brille comme une luciole prise dans un rêve, chaque phrase respire une ancienne magie qui flotte encore au-dessus des terres oubliées.
-Approche sans crainte, voyageur. Effleure la couverture et sens battre sous ta main le cœur des mythes, impatient de renaître. Ici dorment les héros que les siècles ont décoiffés, les créatures dont la lumière change la nuit en promesse, les royaumes qui n’existent plus que lorsque quelqu’un se met à y croire.
-Ouvre la première page, et le vent te saluera. Ouvre la seconde, et les montagnes relèveront la tête. À la troisième, les étoiles chuchoteront ton nom. Rien n’est figé, tout respire. Les légendes glissent entre les lignes comme des esprits farceurs, prêtes à t’emmener dans des chemins où même le temps hésite à marcher.
-Ce grimoire est une porte. Passe-la avec l’élégance d’un rêveur et le courage d’un enfant. Car ici, dans ces pages tissées de lumière, commence le royaume où naissent les histoires qui refusent de mourir.
-</p>
+<!-- CONTENU -->
+<main class="grimoire">
+    <h1>Le Grimoire des Légendes</h1>
+
+    <h2>La Licorne d’Aubépine</h2>
+    <p>
+        Dans les forêts anciennes, lorsque la brume épouse les racines
+        et que les arbres murmurent des noms oubliés,  
+        une licorne blanche veille sur les âmes perdues.
+        Son passage ne laisse qu’un parfum de mousse et de lumière.
+    </p>
+
+    <h2>L’Apprenti Sorcier</h2>
+    <p>
+        Il n’avait que seize hivers lorsque le grimoire l’appela.
+        Les pages tournèrent seules, l’encre saigna,
+        et le monde ne fut plus jamais silencieux.
+    </p>
+
+    <!-- Tu peux continuer à écrire ici autant de légendes que tu veux -->
 </main>
 
-<div class="running-unicorn">
-  <img src="static/images/licorne.gif">
-</div>
+<!-- LICORNE -->
+<img src="images/licorne.gif" alt="Licorne galopante" class="licorne-run">
 
-<footer class="footer">© Légendes du Monde de Jeddi</footer>
+<!-- FOOTER -->
+<footer>
+    © 2025 — Légendes de Jeddi  
+    <br>
+    Contact : legendes.du.monde.de.jeddi@gmail.com
+</footer>
 
 </body>
 </html>
-
