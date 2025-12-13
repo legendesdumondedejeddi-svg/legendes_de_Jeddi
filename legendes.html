@@ -2,19 +2,18 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Légendes de Jeddi</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <title>Légendes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
-    <!-- MENU -->
     <header class="top-menu">
         <nav class="menu">
             <a href="index.html">Accueil</a>
+            <a href="legendes.html">Légendes</a>
             <a href="apropos.html">À propos</a>
-            <a href="don.html">Don</a>
-
-            <!-- Menu déroulant langues/pays -->
-            <div class="lang-switch">
+            <a href="don.html" class="don-btn">Don</a>
+            <li class="lang-switch">
                 <span>Langue ▾</span>
                 <ul class="submenu">
                     <li><a href="#" data-lang="fr">FR</a></li>
@@ -23,51 +22,21 @@
                     <li><a href="#" data-lang="es">ES</a></li>
                     <li><a href="#" data-lang="it">IT</a></li>
                 </ul>
-            </div>
+            </li>
         </nav>
     </header>
 
-    <!-- CONTENU PRINCIPAL -->
-    <div class="content">
-        <h1>Légendes du Monde de Jeddi</h1>
-
-        <!-- Légendes par ordre alphabétique -->
-        <div class="legend" id="legend-licorne">
-            <h2 class="legend-title">La Licorne d’Aubépine</h2>
-            <p class="legend-text">
-                Dans les forêts anciennes, lorsque la brume épouse les racines,
-                une licorne blanche veille sur les âmes perdues...
-            </p>
-            <audio controls>
-                <source src="static/audio/licorne_fr.mp3" type="audio/mpeg">
-            </audio>
+    <section class="content">
+        <h1 id="legendes-title">Nos Légendes</h1>
+        <div id="legendes-list">
+            <!-- Les légendes seront injectées ici via main.js -->
         </div>
+        <audio id="audio-player" controls></audio>
+    </section>
 
-        <div class="legend" id="legend-apprenti">
-            <h2 class="legend-title">L’Apprenti Sorcier</h2>
-            <p class="legend-text">
-                Il n’avait que seize hivers lorsque le grimoire l’appela,
-                et son destin bascula entre ombre et lumière.
-            </p>
-            <audio controls>
-                <source src="static/audio/apprenti_fr.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-
-        <!-- Ajoute ici tes nouvelles légendes -->
-    </div>
-
-    <!-- LICORNE ANIMÉE EN BAS -->
-    <div class="licorne-gif">
-        <img src="static/images/licorne.gif" alt="Licorne qui galope">
-    </div>
-
-    <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2025 Le Monde de Jeddi</p>
+        <p>&copy; 2025 Le Monde de Jeddi - Contact: legendes.du.monde.de.jeddi@gmail.com</p>
+        <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
     </footer>
-
-    <!-- SCRIPT -->
-    <script src="js/main.js"></script>
 </body>
 </html>
