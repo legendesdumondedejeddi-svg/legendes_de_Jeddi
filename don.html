@@ -1,57 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Don</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Don</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header class="top-menu">
+        <nav class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="legendes.html">Légendes</a>
+            <a href="apropos.html">À propos</a>
+            <a href="don.html" class="don-btn">Don</a>
+            <li class="lang-switch">
+                <span>Langue ▾</span>
+                <ul class="submenu">
+                    <li><a href="#" data-lang="fr">FR</a></li>
+                    <li><a href="#" data-lang="en">EN</a></li>
+                    <li><a href="#" data-lang="de">DE</a></li>
+                    <li><a href="#" data-lang="es">ES</a></li>
+                    <li><a href="#" data-lang="it">IT</a></li>
+                </ul>
+            </li>
+        </nav>
+    </header>
 
-<header>
-<nav class="top-menu">
-<ul class="menu">
-<li><a href="index.html" data-key="menu.accueil"></a></li>
-<li><a href="legendes.html" data-key="menu.legendes"></a></li>
-<li><a href="apropos.html" data-key="menu.apropos"></a></li>
-<li><a href="don.html" data-key="menu.don"></a></li>
-<li class="lang-switch">
-<span data-key="menu.langue"></span>
-<ul class="submenu">
-<li><a href="#" data-lang="fr">FR</a></li>
-<li><a href="#" data-lang="en">EN</a></li>
-<li><a href="#" data-lang="de">DE</a></li>
-<li><a href="#" data-lang="es">ES</a></li>
-<li><a href="#" data-lang="it">IT</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</header>
-
-<main class="content">
-<h1 data-key="menu.don"></h1>
-<p id="Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
+    <section class="content">
+        <h1 id="don-title">Soutenez-nous</h1>
+        <p id="don-text">
+            Ce site est un travail de préservation et de partage des récits du passé. Votre aide permet de maintenir ces archives vivantes.
 Les dons sont indispensables pour garantir la poursuite et la qualité de notre travail. Beaucoup de ressources essentielles — notamment certains textes accessibles uniquement par abonnement à la BnF, l'accès à des bases de données en ligne ou à des archives numérisées — nécessitent des frais réguliers. À cela s’ajoutent les coûts liés au travail de relecture et de traduction, réalisées par des spécialistes du vieux français ou encore des variétés linguistiques issues des anciennes colonies françaises, dont la maîtrise est essentielle pour restituer fidèlement les documents d’époque.
 Les dons permettent également l’achat ou la location d’ouvrages parfois rares ou épuisés, indispensables pour mener des recherches complètes et rigoureuses. Grâce à votre soutien, nous pouvons continuer à préserver, étudier et rendre accessible un patrimoine littéraire et historique souvent difficile d’accès. Chaque contribution, même modeste, renforce la pérennité de ce travail et contribue directement à la diffusion de connaissances précieuses.
-" data-key="don.texte"></p>
-<button onclick="lire(document.getElementById('don-texte'))">🔊 Écouter</button>
+        </p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value="TON_ID_PAYPAL">
+            <input type="submit" value="Faire un don" class="don-btn">
+        </form>
+    </section>
 
-<!-- Bouton PayPal -->
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-<input type="hidden" name="hosted_button_id" value="TON_ID_PAYPAL">
-<input type="submit" value="Faire un don via PayPal" class="don-button">
-</form>
-</main>
-
-<footer>
-<img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
-<p>© 2025 — Les Légendes de Jeddi</p>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-loadTranslation('fr');
-</script>
-
+    <footer class="footer">
+        <p>&copy; 2025 Le Monde de Jeddi - Contact: legendes.du.monde.de.jeddi@gmail.com</p>
+        <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
+    </footer>
 </body>
 </html>
