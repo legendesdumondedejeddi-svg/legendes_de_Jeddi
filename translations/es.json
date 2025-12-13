@@ -1,26 +1,12 @@
 {
-  "menu": {
-    "accueil": "Inicio",
-    "legendes": "Leyendas",
-    "apropos": "Acerca de",
-    "don": "Donar",
-    "langue": "Idioma ▾"
-  },
-  "accueil": {
-    "titre": "Bienvenido al Grimorio",
-    "texte": "Aquí viven las leyendas antiguas, susurradas por los bosques, escritas en grimorios y transmitidas de voz en voz."
-  },
-  "legendes": {
-    "france": "Francia",
-    "apprenti_sorcier": "Tenía solo dieciséis inviernos cuando el grimorio lo llamó.",
-    "licorne_aubepine": "En los bosques antiguos, un unicornio vela por las almas perdidas.",
-    "allemagne": "Alemania",
-    "foret_noire": "Los árboles aún susurran los antiguos juramentos."
-  },
-  "apropos": {
-    "texte": "Este sitio es un grimorio moderno dedicado a las leyendas antiguas, contadas a través de palabras, imágenes y voz."
-  },
-  "don": {
-    "texte": "Apoya el grimorio haciendo una donación."
-  }
+  "menu_home": "Inicio",
+  "menu_legends": "Leyendas",
+  "menu_about": "Acerca de",
+  "menu_donate": "Donar",
+  "legends_title": "Leyendas",
+  "listen": "Escuchar",
+  "legend_licorne_title": "La Unicornio del Espino",
+  "legend_licorne_text": "En bosques antiguos, cuando la niebla abraza las raíces, una unicornio blanca protege a las almas perdidas...",
+  "legend_apprenti_title": "El Aprendiz de Hechicero",
+  "legend_apprenti_text": "Tenía solo dieciséis inviernos cuando el grimorio lo llamó."
 }
