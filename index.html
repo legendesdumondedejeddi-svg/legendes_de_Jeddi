@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Légendes de Jeddi</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Le Monde de Jeddi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
-
-<header>
-    <img src="images/licorne.png" class="banner" alt="Bannière Licorne">
-
-    <nav class="top-menu">
-        <ul class="menu">
-            <li><a href="index.html" data-key="menu.accueil"></a></li>
-            <li><a href="legendes.html" data-key="menu.legendes"></a></li>
-            <li><a href="apropos.html" data-key="menu.apropos"></a></li>
-            <li><a href="don.html" data-key="menu.don"></a></li>
+    <header class="top-menu">
+        <nav class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="legendes.html">Légendes</a>
+            <a href="apropos.html">À propos</a>
+            <a href="don.html" class="don-btn">Don</a>
             <li class="lang-switch">
-                <span data-key="menu.langue"></span>
+                <span>Langue ▾</span>
                 <ul class="submenu">
                     <li><a href="#" data-lang="fr">FR</a></li>
                     <li><a href="#" data-lang="en">EN</a></li>
@@ -26,30 +23,24 @@
                     <li><a href="#" data-lang="it">IT</a></li>
                 </ul>
             </li>
-        </ul>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-<main class="content">
-    <h1 id="accueil-titre"></h1>
-    <p id="Bienvenue, voyageur intrépide, sur Légende du Monde de Jeddi !
+    <section class="content">
+        <h1 id="title-welcome">Bienvenue dans le Monde de Jeddi</h1>
+        <p id="intro-text">
+            Bienvenue, voyageur intrépide, sur Légende du Monde de Jeddi !
 Entre donc, sans frapper — ici les portes s’ouvrent comme par enchantement, avec ce petit grincement complice qui promet des aventures. Tu viens de mettre le pied dans un univers où l’imaginaire mène la danse, où les histoires grondent comme des orages lointains et où chaque pas peut réveiller une légende assoupie.
 Prends ton souffle, ton sourire et, si tu en as une, ta bonne vieille curiosité. Ici, je t’emmène explorer des contrées qui n’obéissent qu’à la magie, la poésie, et un soupçon d’audace. On y croise des héros un peu cabossés, des créatures qui ont un avis sur tout, et des mystères qui n’attendent que toi pour se dévoiler.
-Installe-toi, promène-toi, ouvre grand les yeux :
-le Monde de Jeddi t’accueille comme un ami de longue date.
-Que l’aventure commence."></p>
-</main>
+Installe-toi, promène-toi, ouvre grand les yeux : le Monde de Jeddi t’accueille comme un ami de longue date.
+Que l’aventure commence.
+        </p>
+        <img src="images/licorne.png" class="licorne-banner" alt="Licorne">
+    </section>
 
-<footer>
-    <img src="images/licorne.gif" class="licorne-gif" alt="Licorne galopante">
-    <p>© 2025 — Les Légendes de Jeddi</p>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-loadTranslation('fr');  // langue par défaut
-</script>
-
+    <footer class="footer">
+        <p>&copy; 2025 Le Monde de Jeddi - Contact: legendes.du.monde.de.jeddi@gmail.com</p>
+        <img src="images/licorne.gif" class="licorne-gif" alt="Licorne qui galope">
+    </footer>
 </body>
 </html>
-
