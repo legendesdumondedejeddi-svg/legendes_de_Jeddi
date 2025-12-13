@@ -89,14 +89,25 @@ body {
 .licorne-run {
     position: fixed;
     bottom: 10px;
-    left: -200px;
-    animation: run 15s linear infinite;
+    left: -250px;
+    z-index: 9999;
+    pointer-events: none;
 }
 
-@keyframes run {
-    from { left: -200px; }
-    to { left: 100%; }
+.licorne-run img {
+    width: 180px;          /* TAILLE MAÎTRISÉE */
+    animation: gallop 12s linear infinite;
 }
+
+@keyframes gallop {
+    0% {
+        transform: translateX(-250px);
+    }
+    100% {
+        transform: translateX(calc(100vw + 250px));
+    }
+}
+
 
 /* FOOTER */
 .footer {
