@@ -1,89 +1,119 @@
 body {
-margin:0;
-font-family:Georgia, serif;
-background:url("../images/parchment_texture.jpg") center/cover fixed;
+    margin: 0;
+    font-family: Georgia, serif;
+    background: url("../images/parchment_texture.jpg") center/cover fixed;
 }
 
-.licorne-banner {
+/* MENU */
+.top-menu {
     width: 100%;
-    max-height: 320px;
-    object-fit: contain;
+    background: rgba(0,0,0,0.85);
 }
 
-.menu {
-display:flex;
-gap:20px;
-padding:15px;
-background:rgba(0,0,0,0.8);
+.menu-line {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 40px;
+    align-items: center;
 }
 
-.menu a {
-color:white;
-text-decoration:none;
-font-size:1.2rem;
+.menu-line li {
+    position: relative;
 }
 
-.menu a:hover {
-background:rgba(255,215,0,0.3);
-padding:8px;
-border-radius:6px;
+.menu-line a,
+.lang-switch span {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+.menu-line a:hover,
+.lang-switch span:hover {
+    background: rgba(255,215,0,0.3);
+}
+
+/* MENU LANGUES */
+.lang-switch .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: black;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 120px;
+    z-index: 1000;
+}
+
+.lang-switch:hover .submenu {
+    display: block;
+}
+
+.submenu li a {
+    padding: 12px 15px;
+}
+
+/* BANNIÈRE */
+.banner img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+/* CONTENU */
 .content {
-background:rgba(255,255,255,0.8);
-margin:40px auto;
-padding:30px;
-width:80%;
-border-radius:10px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
 }
 
-.running-unicorn {
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-text-align:center;
-pointer-events:none;
+.grimoire {
+    background-image: url("../images/grimoire.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
 }
 
-.running-unicorn img {
-width:180px;
-animation:run 6s linear infinite;
+/* LICORNE QUI GALOPPE */
+.licorne-run {
+    position: fixed;
+    bottom: 10px;
+    left: -200px;
+    animation: run 12s linear infinite;
+}
+
+.licorne-run img {
+    width: 150px;
 }
 
 @keyframes run {
-from { transform:translateX(-200px); }
-to { transform:translateX(100vw); }
+    from { left: -200px; }
+    to { left: 100%; }
 }
 
+/* FOOTER */
 .footer {
-    margin-top: 80px;
+    text-align: center;
     padding: 20px;
     background: rgba(0,0,0,0.85);
     color: white;
-    text-align: center;
+    margin-top: 50px;
 }
 
-/* PAGE DON */
-.don-zone {
-    text-align: center;
-    margin: 40px 0;
-}
-
+/* DON */
 .paypal-button {
     display: inline-block;
-    padding: 18px 35px;
-    background: linear-gradient(135deg, #f5c542, #d4a017);
-    color: #2b1a0e;
-    font-size: 1.3rem;
-    font-weight: bold;
+    padding: 15px 25px;
+    background: gold;
+    color: black;
     text-decoration: none;
-    border-radius: 12px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.paypal-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+    font-weight: bold;
+    border-radius: 8px;
 }
