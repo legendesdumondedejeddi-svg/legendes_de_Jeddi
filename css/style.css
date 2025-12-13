@@ -132,3 +132,10 @@ body {
     font-weight: bold;
     border-radius: 8px;
 }
+.top-menu {
+    margin-top: 0;
+}
+
+.content {
+    margin-top: 40px;   /* ← RETRAIT IMPORTANT */
+}
