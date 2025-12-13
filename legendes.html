@@ -2,136 +2,42 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Les Légendes — Le Monde de Jeddi</title>
-
-    <!-- STYLE -->
+    <title>Légendes — Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* Style grimoire local si jamais le CSS global manque */
-        body {
-            margin: 0;
-            font-family: "Georgia", serif;
-            background: url("images/parchment_texture.jpg") center/cover fixed no-repeat;
-            color: #2b1b0e;
-        }
-
-        /* MENU */
-        nav.menu {
-            display: flex;
-            gap: 25px;
-            padding: 15px 30px;
-            background: rgba(0, 0, 0, 0.75);
-        }
-
-        nav.menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        nav.menu a:hover {
-            color: gold;
-        }
-
-        /* CONTENU GRIMOIRE */
-        .grimoire {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
-            background: rgba(255, 248, 220, 0.88);
-            border: 8px solid rgba(90, 60, 30, 0.6);
-            border-radius: 12px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.4);
-        }
-
-        .grimoire h1 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 40px;
-        }
-
-        .grimoire h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            border-bottom: 2px solid rgba(0,0,0,0.3);
-            padding-bottom: 5px;
-        }
-
-        .grimoire p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            margin-top: 15px;
-        }
-
-        /* LICORNE QUI GALOPPE */
-        .licorne-run {
-            position: fixed;
-            bottom: 0;
-            left: -200px;
-            width: 180px;
-            animation: run 12s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes run {
-            from { left: -200px; }
-            to   { left: 110%; }
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 80px;
-            padding: 20px;
-            text-align: center;
-            background: rgba(0,0,0,0.8);
-            color: #fff;
-        }
-    </style>
 </head>
 <body>
 
-<!-- MENU -->
-<nav class="menu">
-    <a href="index.html">Accueil</a>
-    <a href="legendes.html">Légendes</a>
-    <a href="apropos.html">À propos</a>
-    <a href="don.html">Don</a>
+<nav class="top-menu">
+    <ul class="menu-line">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="legendes.html">Légendes</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="don.html">Don</a></li>
+    </ul>
 </nav>
 
-<!-- CONTENU -->
-<main class="grimoire">
+<main class="content grimoire">
     <h1>Le Grimoire des Légendes</h1>
 
     <h2>La Licorne d’Aubépine</h2>
     <p>
-        Dans les forêts anciennes, lorsque la brume épouse les racines
-        et que les arbres murmurent des noms oubliés,  
-        une licorne blanche veille sur les âmes perdues.
-        Son passage ne laisse qu’un parfum de mousse et de lumière.
+        Dans les forêts anciennes, lorsque la brume épouse les racines,
+        une licorne blanche veille sur les âmes perdues...
     </p>
 
     <h2>L’Apprenti Sorcier</h2>
     <p>
         Il n’avait que seize hivers lorsque le grimoire l’appela.
-        Les pages tournèrent seules, l’encre saigna,
-        et le monde ne fut plus jamais silencieux.
     </p>
-
-    <!-- Tu peux continuer à écrire ici autant de légendes que tu veux -->
 </main>
 
-<!-- LICORNE -->
-<img src="images/licorne.gif" alt="Licorne galopante" class="licorne-run">
+<div class="licorne-run">
+    <img src="images/licorne.gif" alt="Licorne qui galope">
+</div>
 
-<!-- FOOTER -->
 <footer class="footer">
-    © 2025 — Légendes de Jeddi  
-    <br>
-    Contact : legendes.du.monde.de.jeddi@gmail.com
+    © 2025 — Le Monde de Jeddi
 </footer>
-
 
 </body>
 </html>
-
