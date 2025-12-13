@@ -64,12 +64,26 @@ to { transform:translateX(100vw); }
     text-align: center;
 }
 
-.don-btn {
-padding:15px 30px;
-font-size:1.3rem;
-background:#7a00aa;
-color:white;
-border:none;
-border-radius:12px;
-cursor:pointer;
+/* PAGE DON */
+.don-zone {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.paypal-button {
+    display: inline-block;
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #f5c542, #d4a017);
+    color: #2b1a0e;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paypal-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.6);
 }
