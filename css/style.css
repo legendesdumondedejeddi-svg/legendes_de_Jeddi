@@ -1,9 +1,11 @@
+/* Corps de page */
 body {
     margin: 0;
     font-family: "Georgia", serif;
     background: url("../images/parchment_texture.jpg") center/cover no-repeat fixed;
 }
 
+/* Menu principal */
 .top-menu {
     background: rgba(0,0,0,0.75);
     padding: 10px 20px;
@@ -24,6 +26,7 @@ body {
     border-radius: 6px;
 }
 
+/* Menu déroulant langues */
 .lang-switch {
     margin-left: auto;
     position: relative;
@@ -55,6 +58,7 @@ body {
     background: rgba(255,215,0,0.4);
 }
 
+/* Section de contenu */
 .content {
     width: 80%;
     margin: 40px auto;
@@ -63,6 +67,7 @@ body {
     border-radius: 10px;
 }
 
+/* Pied de page */
 .footer {
     margin-top: 60px;
     text-align: center;
@@ -72,14 +77,22 @@ body {
     position: relative;
 }
 
+/* Bannière licorne */
 .licorne-banner {
-    width: 300px;
+    width: 300px; /* idée : tu peux augmenter/diminuer */
     margin-top: 15px;
 }
 
+/* Licorne qui galope en bas à droite */
 .licorne-gif {
     width: 200px;
     position: fixed;
     bottom: 10px;
     right: 10px;
 }
+
+/* Idées de style futur : 
+   - Ajouter animations CSS pour les légendes qui apparaissent
+   - Mode nuit (background sombre)
+   - Tooltip sur les boutons audio pour indiquer la langue
+*/
