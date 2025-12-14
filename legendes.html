@@ -2,82 +2,104 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Légendes • Le Monde de Jeddi</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
-</head>
+    <title>Légendes — Le Monde de Jeddi</title>
 
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
 
-<!-- BANNIÈRE -->
-<header class="banner">
-    <img src="images/licorne.png" alt="Bannière Licorne">
-</header>
-
-<!-- MENU -->
+<!-- ================= MENU ================= -->
 <nav class="top-menu">
-    <ul class="menu">
-        <li><a href="index.html" data-i18n="menu_home"></a></li>
-        <li><a href="legendes.html" data-i18n="menu_legends"></a></li>
-        <li><a href="apropos.html" data-i18n="menu_about"></a></li>
-        <li><a href="don.html" data-i18n="menu_donate"></a></li>
+    <ul class="menu-line">
+
+        <li><a href="index.html">Accueil</a></li>
+
+        <!-- MENU LÉGENDES DÉROULANT -->
+        <li class="submenu-parent">
+            <span>Légendes ▾</span>
+            <ul class="submenu">
+                <li><a href="#alphabet">Par ordre alphabétique</a></li>
+                <li><a href="#pays">Par pays</a></li>
+                <li><a href="#audio">Audio des légendes</a></li>
+            </ul>
+        </li>
+
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="don.html">DON</a></li>
 
         <!-- LANGUES -->
         <li class="lang-switch">
             <span>Langue ▾</span>
             <ul class="submenu">
-                <li><a href="#" data-lang="fr">FR</a></li>
-                <li><a href="#" data-lang="en">EN</a></li>
-                <li><a href="#" data-lang="de">DE</a></li>
-                <li><a href="#" data-lang="es">ES</a></li>
-                <li><a href="#" data-lang="it">IT</a></li>
+                <li><a href="#">FR</a></li>
+                <li><a href="#">EN</a></li>
+                <li><a href="#">DE</a></li>
+                <li><a href="#">ES</a></li>
+                <li><a href="#">IT</a></li>
             </ul>
         </li>
+
     </ul>
 </nav>
 
-<!-- CONTENU -->
-<main class="content grimoire">
+<!-- ================= CONTENU ================= -->
+<div class="content">
 
-    <h1 data-i18n="legends_title"></h1>
+    <h1>Les Légendes</h1>
 
-    <!-- LÉGENDE 1 -->
-    <section class="legend" data-country="France">
-        <h2 data-i18n="legend_licorne_title"></h2>
+    <!-- ===== PAR ORDRE ALPHABÉTIQUE ===== -->
+    <h2 id="alphabet">🔤 Par ordre alphabétique</h2>
 
-        <p class="legend-text" data-i18n="legend_licorne_text"></p>
+    <h3>La Licorne d’Aubépine</h3>
+    <p>
+        Dans les forêts anciennes, lorsque la brume épouse les racines,
+        une licorne blanche veille sur les âmes perdues.
+    </p>
 
-        <button class="audio-btn" onclick="readLegend(this)">
-            🔊 <span data-i18n="listen"></span>
-        </button>
-    </section>
+    <h3>L’Apprenti Sorcier</h3>
+    <p>
+        Il n’avait que seize hivers lorsque le grimoire l’appela.
+        Ce jour-là, la magie choisit son camp.
+    </p>
 
-    <!-- LÉGENDE 2 -->
-    <section class="legend" data-country="France">
-        <h2 data-i18n="legend_apprenti_title"></h2>
+    <!-- ===== PAR PAYS ===== -->
+    <h2 id="pays">🌍 Par pays</h2>
 
-        <p class="legend-text" data-i18n="legend_apprenti_text"></p>
+    <h3>France</h3>
+    <p>La Licorne d’Aubépine</p>
 
-        <button class="audio-btn" onclick="readLegend(this)">
-            🔊 <span data-i18n="listen"></span>
-        </button>
-    </section>
+    <h3>Allemagne</h3>
+    <p>L’Apprenti Sorcier</p>
 
-</main>
+    <!-- ===== AUDIO ===== -->
+    <h2 id="audio">🔊 Audio des légendes</h2>
 
-<!-- LICORNE QUI GALOPE -->
-<div class="licorne-run">
+    <p>Écoute les légendes racontées à voix haute.</p>
+
+    <h3>La Licorne d’Aubépine</h3>
+    <audio controls>
+        <source src="audio/aubepine_fr.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas l’audio.
+    </audio>
+
+    <h3>L’Apprenti Sorcier</h3>
+    <audio controls>
+        <source src="audio/apprenti_fr.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas l’audio.
+    </audio>
+
+</div>
+
+<!-- ================= LICORNE QUI GALOPE ================= -->
+<div class="running-unicorn">
     <img src="images/licorne.gif" alt="Licorne qui galope">
 </div>
 
-<!-- FOOTER -->
-
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
     © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
 </body>
 </html>
-
-
-
