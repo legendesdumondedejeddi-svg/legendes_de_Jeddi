@@ -3,10 +3,18 @@
   "menu_legends": "Legends",
   "menu_about": "About",
   "menu_donate": "Donate",
-  "legends_title": "Legends",
-  "listen": "Listen",
-  "legend_licorne_title": "The Hawthorn Unicorn",
-  "legend_licorne_text": "In ancient forests, when mist embraces the roots, a white unicorn watches over lost souls...",
-  "legend_apprenti_title": "The Apprentice Sorcerer",
-  "legend_apprenti_text": "He was only sixteen winters old when the grimoire called him."
+  "menu_language": "Language ▾",
+
+  "welcome_title": "Welcome, brave traveler",
+  "welcome_text": "Step inside without knocking — magic opens the doors.",
+
+  "legends_title": "Book of Legends",
+  "legend_1_title": "The Hawthorn Unicorn",
+  "legend_1_text": "In ancient forests, a white unicorn watches over lost souls.",
+
+  "about_title": "About",
+  "about_text": "This site is a collection of legends written with passion.",
+
+  "donate_title": "Support the project",
+  "donate_text": "If these legends move you, you can support their creation."
 }
