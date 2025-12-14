@@ -3,10 +3,18 @@
   "menu_legends": "Leyendas",
   "menu_about": "Acerca de",
   "menu_donate": "Donar",
-  "legends_title": "Leyendas",
-  "listen": "Escuchar",
-  "legend_licorne_title": "La Unicornio del Espino",
-  "legend_licorne_text": "En bosques antiguos, cuando la niebla abraza las raíces, una unicornio blanca protege a las almas perdidas...",
-  "legend_apprenti_title": "El Aprendiz de Hechicero",
-  "legend_apprenti_text": "Tenía solo dieciséis inviernos cuando el grimorio lo llamó."
+  "menu_language": "Idioma ▾",
+
+  "welcome_title": "Bienvenido, viajero intrépido",
+  "welcome_text": "Entra sin llamar — aquí las puertas se abren por arte de magia.",
+
+  "legends_title": "Grimorio de Leyendas",
+  "legend_1_title": "El Unicornio del Espino",
+  "legend_1_text": "En los bosques antiguos, un unicornio blanco vela por las almas perdidas.",
+
+  "about_title": "Sobre el proyecto",
+  "about_text": "Este sitio es una recopilación de leyendas escritas con pasión y poesía.",
+
+  "donate_title": "Apoyar el proyecto",
+  "donate_text": "Si estas leyendas te conmueven, puedes apoyar su creación."
 }
