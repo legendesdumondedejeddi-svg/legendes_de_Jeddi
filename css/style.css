@@ -197,4 +197,79 @@ body {
 .submenu-parent:hover .submenu {
     display: block;
 }
+/* =========================
+   MENU — COULEUR & ESPACEMENT
+   ========================= */
+
+.top-menu {
+    display: flex;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* Boutons principaux */
+.top-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* ← PLUS D’ESPACE ENTRE LES BOUTONS */
+    margin: 0;
+    padding: 0;
+}
+
+.top-menu a,
+.top-menu span {
+    color: white;              /* ← BLANC */
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Hover doux */
+.top-menu a:hover,
+.top-menu span:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   MENU DÉROULANT
+   ========================= */
+
+.top-menu li {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+    min-width: 160px;
+}
+
+.submenu li {
+    padding: 8px 20px;
+}
+
+.submenu li a {
+    color: white;              /* ← BLANC DANS LE DÉROULANT */
+}
+
+.top-menu li:hover .submenu {
+    display: block;
+}
+
+/* =========================
+   BOUTON LANGUE À DROITE
+   ========================= */
+
+.lang-switch {
+    margin-left: auto;         /* ← POUSSE À DROITE */
+}
+
+.lang-switch span {
+    color: white;              /* ← BLANC */
+}
 
