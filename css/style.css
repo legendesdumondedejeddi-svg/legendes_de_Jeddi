@@ -45,9 +45,14 @@ body {
 }
 
 /* ESPACEMENT ENTRE LES BOUTONS */
-.menu-line li {
-    position: relative;
-    margin-right: 42px; /* <<< GROS ÉCART */
+.menu-line {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* AJOUTE ÇA */
+    gap: 30px;   /* ← PLUS LE NOMBRE EST GRAND, PLUS LES BOUTONS S’ÉCARTENT */
 }
 
 /* BOUTONS */
