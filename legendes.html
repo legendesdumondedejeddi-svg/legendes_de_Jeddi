@@ -4,44 +4,40 @@
     <meta charset="UTF-8">
     <title>Légendes</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
 </head>
+
 <body>
 
-<header>
 <nav class="top-menu">
     <ul class="menu-line">
-        <li><a href="index.html" data-i18n="menu_home"></a></li>
-        <li><a href="legendes.html" data-i18n="menu_legends"></a></li>
-        <li><a href="apropos.html" data-i18n="menu_about"></a></li>
-        <li><a href="don.html" data-i18n="menu_donate"></a></li>
-
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="legendes.html">Légendes</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="don.html">DON</a></li>
         <li class="lang-switch">
-            <span data-i18n="menu_language"></span>
+            <span>Langue ▾</span>
             <ul class="submenu">
-                <li><a href="#" data-lang="fr">FR</a></li>
-                <li><a href="#" data-lang="en">EN</a></li>
-                <li><a href="#" data-lang="de">DE</a></li>
-                <li><a href="#" data-lang="es">ES</a></li>
-                <li><a href="#" data-lang="it">IT</a></li>
+                <li><a href="#">FR</a></li>
+                <li><a href="#">EN</a></li>
+                <li><a href="#">DE</a></li>
+                <li><a href="#">ES</a></li>
+                <li><a href="#">IT</a></li>
             </ul>
         </li>
     </ul>
 </nav>
-</header>
 
-<main class="content grimoire">
+<main class="content">
 
-<!-- ===================== -->
-<!-- DÉBUT LÉGENDE AUBÉPIN -->
-<!-- ===================== -->
+<h1>Les Légendes</h1>
 
-<section class="legende" data-pays="Kabylie" data-alpha="Aubépin">
+<!-- ===== UNE LÉGENDE ===== -->
+<section class="legende" id="kabylie">
 
-    <h3>Aubépin – La fille-femme</h3>
-    <p class="origine">(Kabylie)</p>
+<h2>Aubépin – La fille-femme</h2>
+<h3>Kabylie</h3>
 
-    <p>
+<p>
 Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.
 Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.
 Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.
@@ -135,26 +131,24 @@ On se reconnait.
 On se retrouve.
 On se relève.
 Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.
-    </p>
+</p>
 
-    <!-- AUDIO DE LA LÉGENDE -->
-<button class="play-audio" data-audio="audio/aubepin_fr.mp3">
-    ▶ Écouter la légende
+<!-- AUDIO -->
+<button class="play-audio" onclick="document.getElementById('audio-aubepin').play()">
+▶ Écouter la légende
 </button>
 
-<audio class="audio-player">
+<audio id="audio-aubepin" class="audio-player">
     <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
 </audio>
 
 </section>
+<!-- ===== FIN LÉGENDE ===== -->
 
-<!-- =================== -->
-<!-- FIN LÉGENDE AUBÉPIN -->
-<!-- =================== -->
-
+</main>
 
 <footer class="footer">
-    © 2025 — legendes.du.monde.de.jeddi@gmail.com
+© 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
 <div class="licorne-run">
@@ -163,6 +157,3 @@ Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vé
 
 </body>
 </html>
-
-
-
