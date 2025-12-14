@@ -92,7 +92,7 @@ body {
 .banner {
     display: block;
     width: 100%;
-    max-height: 520px;      /* hauteur contrôlée */
+    max-height: 650px;      /* hauteur contrôlée */
     object-fit: cover;     /* coupe proprement */
 }
 
