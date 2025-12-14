@@ -127,9 +127,11 @@ h3 {
    ========================= */
 
 .legende {
-    margin-bottom: 60px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #c8b9a6;
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
 /* =========================
