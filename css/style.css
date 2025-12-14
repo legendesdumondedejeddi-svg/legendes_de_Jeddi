@@ -189,3 +189,12 @@ body {
     color: white;
     font-size: 0.95rem;
 }
+/* Sous-menu Légendes */
+.submenu-parent {
+    position: relative;
+}
+
+.submenu-parent:hover .submenu {
+    display: block;
+}
+
