@@ -2,11 +2,19 @@
   "menu_home": "Accueil",
   "menu_legends": "Légendes",
   "menu_about": "À propos",
-  "menu_donate": "Don",
-  "legends_title": "Les Légendes",
-  "listen": "Écouter",
-  "legend_licorne_title": "La Licorne d’Aubépine",
-  "legend_licorne_text": "Dans les forêts anciennes, lorsque la brume épouse les racines, une licorne blanche veille sur les âmes perdues...",
-  "legend_apprenti_title": "L’Apprenti Sorcier",
-  "legend_apprenti_text": "Il n’avait que seize hivers lorsque le grimoire l’appela."
+  "menu_donate": "DON",
+  "menu_language": "Langue ▾",
+
+  "welcome_title": "Bienvenue, voyageur intrépide",
+  "welcome_text": "Entre donc, sans frapper — ici les portes s’ouvrent comme par enchantement.",
+
+  "legends_title": "Grimoire des Légendes",
+  "legend_1_title": "La Licorne d’Aubépine",
+  "legend_1_text": "Dans les forêts anciennes, une licorne blanche veille sur les âmes perdues.",
+
+  "about_title": "À propos",
+  "about_text": "Ce site est un recueil de légendes, écrit avec passion et poésie.",
+
+  "donate_title": "Soutenir le projet",
+  "donate_text": "Si ces légendes te touchent, tu peux soutenir leur écriture."
 }
