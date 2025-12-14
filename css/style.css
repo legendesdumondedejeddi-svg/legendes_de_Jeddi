@@ -47,7 +47,7 @@ body {
 /* ESPACEMENT ENTRE LES BOUTONS */
 .menu-line li {
     position: relative;
-    margin-right: 32px; /* <<< GROS ÉCART */
+    margin-right: 42px; /* <<< GROS ÉCART */
 }
 
 /* BOUTONS */
