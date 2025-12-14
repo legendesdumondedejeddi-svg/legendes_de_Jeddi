@@ -2,43 +2,41 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Légendes</title>
+    <title>Légendes - Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<nav class="top-menu">
-    <ul class="menu-line">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="legendes.html">Légendes</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li><a href="don.html">DON</a></li>
-        <li class="lang-switch">
-            <span>Langue ▾</span>
-            <ul class="submenu">
-                <li><a href="#">FR</a></li>
-                <li><a href="#">EN</a></li>
-                <li><a href="#">DE</a></li>
-                <li><a href="#">ES</a></li>
-                <li><a href="#">IT</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+<header>
+    <nav class="top-menu">
+        <ul class="menu-line">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="legendes.html">Légendes</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="don.html">DON</a></li>
+            <li class="lang-switch">
+                <span>Langue ▾</span>
+                <ul class="submenu">
+                    <li><a href="#">FR</a></li>
+                    <li><a href="#">EN</a></li>
+                    <li><a href="#">DE</a></li>
+                    <li><a href="#">ES</a></li>
+                    <li><a href="#">IT</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
 
 <main class="content">
+    <img src="images/grimoire.png" class="center-img" alt="Grimoire">
 
-<h1>Les Légendes</h1>
-
-<!-- ===== UNE LÉGENDE ===== -->
-<section class="legende" id="kabylie">
-
-<h2>Aubépin – La fille-femme</h2>
-<h3>Kabylie</h3>
-
-<p>
-Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.
+    <!-- EXEMPLE DE LÉGENDE -->
+    <section class="legende" id="aubepin">
+        <h2>Aubépin – La fille-femme</h2>
+        <h3>Kabylie</h3>
+        <p>
+          Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.
 Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.
 Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.
 Un jour, il ramène à la maison un perdreau encore vivant. L’oiseau tremblait, mais ses yeux étincelaient comme deux perles.
@@ -130,25 +128,20 @@ Le mari de la sœur arrive.
 On se reconnait.
 On se retrouve.
 On se relève.
-Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.
-</p>
+Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.</p>
 
-<!-- AUDIO -->
-<button class="play-audio" onclick="document.getElementById('audio-aubepin').play()">
-▶ Écouter la légende
-</button>
-
-<audio id="audio-aubepin" class="audio-player">
-    <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
-</audio>
-
-</section>
-<!-- ===== FIN LÉGENDE ===== -->
+        <button class="play-audio" onclick="document.getElementById('audio-aubepin').play()">
+            ▶ Écouter la légende
+        </button>
+        <audio id="audio-aubepin">
+            <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
+        </audio>
+    </section>
 
 </main>
 
 <footer class="footer">
-© 2025 — legendes.du.monde.de.jeddi@gmail.com
+    © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
 <div class="licorne-run">
