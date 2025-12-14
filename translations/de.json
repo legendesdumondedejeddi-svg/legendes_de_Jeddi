@@ -3,10 +3,18 @@
   "menu_legends": "Legenden",
   "menu_about": "Über",
   "menu_donate": "Spenden",
-  "legends_title": "Legenden",
-  "listen": "Anhören",
-  "legend_licorne_title": "Das Weißdorn-Einhorn",
-  "legend_licorne_text": "In uralten Wäldern, wenn der Nebel die Wurzeln umarmt, wacht ein weißes Einhorn über verlorene Seelen...",
-  "legend_apprenti_title": "Der Zauberlehrling",
-  "legend_apprenti_text": "Er war erst sechzehn Winter alt, als das Grimoire ihn rief."
+  "menu_language": "Sprache ▾",
+
+  "welcome_title": "Willkommen, mutiger Reisender",
+  "welcome_text": "Tritt ein, ohne anzuklopfen — hier öffnen sich die Türen wie von Zauberhand.",
+
+  "legends_title": "Grimoire der Legenden",
+  "legend_1_title": "Das Weißdorn-Einhorn",
+  "legend_1_text": "In uralten Wäldern wacht ein weißes Einhorn über verlorene Seelen.",
+
+  "about_title": "Über dieses Projekt",
+  "about_text": "Diese Seite ist eine Sammlung von Legenden, geschrieben mit Leidenschaft und Poesie.",
+
+  "donate_title": "Das Projekt unterstützen",
+  "donate_text": "Wenn dich diese Legenden berühren, kannst du ihre Entstehung unterstützen."
 }
