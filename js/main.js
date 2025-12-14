@@ -1,22 +1,20 @@
-async function loadLanguage(lang) {
-    const response = await fetch(`translations/${lang}.json`);
-    const translations = await response.json();
-
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[key]) {
-            el.innerText = translations[key];
-        }
-    });
+function loadLanguage(lang) {
+    fetch(`translations/${lang}.json`)
+        .then(res => res.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (data[key]) {
+                    el.textContent = data[key];
+                }
+            });
+        });
 }
 
 document.querySelectorAll(".submenu a").forEach(link => {
     link.addEventListener("click", e => {
         e.preventDefault();
-        const lang = link.innerText.toLowerCase();
-        loadLanguage(lang);
+        loadLanguage(link.textContent.toLowerCase());
     });
 });
 
