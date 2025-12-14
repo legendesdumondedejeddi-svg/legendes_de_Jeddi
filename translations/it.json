@@ -1,12 +1,20 @@
 {
   "menu_home": "Home",
   "menu_legends": "Leggende",
-  "menu_about": "Chi siamo",
+  "menu_about": "Informazioni",
   "menu_donate": "Dona",
-  "legends_title": "Leggende",
-  "listen": "Ascolta",
-  "legend_licorne_title": "L’Unicorno del Biancospino",
-  "legend_licorne_text": "Nelle foreste antiche, quando la nebbia abbraccia le radici, un unicorno bianco veglia sulle anime perdute...",
-  "legend_apprenti_title": "L’Apprendista Stregone",
-  "legend_apprenti_text": "Aveva solo sedici inverni quando il grimorio lo chiamò."
+  "menu_language": "Lingua ▾",
+
+  "welcome_title": "Benvenuto, viaggiatore intrepido",
+  "welcome_text": "Entra senza bussare — qui le porte si aprono per magia.",
+
+  "legends_title": "Grimorio delle Leggende",
+  "legend_1_title": "L’Unicorno del Biancospino",
+  "legend_1_text": "Nelle foreste antiche, un unicorno bianco veglia sulle anime perdute.",
+
+  "about_title": "Informazioni sul progetto",
+  "about_text": "Questo sito è una raccolta di leggende scritte con passione e poesia.",
+
+  "donate_title": "Sostieni il progetto",
+  "donate_text": "Se queste leggende ti emozionano, puoi sostenerne la creazione."
 }
