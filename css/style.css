@@ -1,195 +1,121 @@
-/* =========================
-   BASE GÉNÉRALE DU SITE
-   ========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* ================= BASE ================= */
 body {
-    font-family: "Georgia", serif;
-    background: #f4efe9;
-    color: #2b1d12;
-    line-height: 1.6;
+    margin: 0;
+    font-family: Georgia, serif;
+    background: url("../images/parchment_texture.jpg") center/cover fixed;
+    color: #2e1e12;
 }
 
-/* =========================
-   MENU PRINCIPAL (EN HAUT)
-   ========================= */
-
+/* ================= MENU ================= */
 .top-menu {
-    background: #2b1d12;
-    padding: 15px 30px;
+    background: rgba(0,0,0,0.85);
 }
 
 .menu-line {
-    list-style: none;
     display: flex;
     align-items: center;
-    gap: 40px;              /* ← ESPACE ENTRE BOUTONS */
-}
-
-.menu-line li {
-    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 15px 40px;
+    gap: 35px;
 }
 
 .menu-line a,
 .lang-switch span {
-    color: white;           /* ← TEXTE BLANC */
+    color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+.lang-switch {
+    margin-left: auto;
+    position: relative;
     cursor: pointer;
 }
-
-/* POUSSER LE BOUTON LANGUE À DROITE */
-.lang-switch {
-    margin-left: auto;      /* ← MAGIE SIMPLE ET PROPRE */
-}
-
-/* =========================
-   MENU DÉROULANT
-   ========================= */
 
 .submenu {
     display: none;
     position: absolute;
-    top: 35px;
-    left: 0;
-    background: #3b2a1a;
+    background: black;
     list-style: none;
-    padding: 10px 0;
-    min-width: 200px;
-    border-radius: 6px;
-    z-index: 100;
+    padding: 10px;
+    right: 0;
+}
+
+.lang-switch:hover .submenu {
+    display: block;
 }
 
 .submenu li {
-    padding: 10px 20px;     /* ← ESPACE ENTRE BOUTONS */
+    margin: 8px 0;
 }
 
-.submenu li a {
+.submenu a {
     color: white;
-    text-decoration: none;
-    display: block;
 }
 
-.submenu li a:hover {
-    background: #5a3f28;
-}
-
-/* AFFICHAGE AU SURVOL */
-.lang-switch:hover .submenu,
-.submenu-parent:hover .submenu {
-    display: block;
-}
-
-/* =========================
-   BANNIÈRE LICORNE
-   ========================= */
-
-.banner {
-    display: block;
-    width: 100%;
-    max-height: 650px;      /* hauteur contrôlée */
-    object-fit: cover;     /* coupe proprement */
-}
-
-/* =========================
-   CONTENU PRINCIPAL
-   ========================= */
-
+/* ================= CONTENU ================= */
 .content {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
+    width: 80%;
+    margin: 50px auto;
 }
 
-/* TITRES */
-h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+/* ================= GRIMOIRE ================= */
+.grimoire {
+    background: url("../images/grimoire.png") no-repeat center top;
+    background-size: contain;
+    padding: 80px 70px 120px;
+    line-height: 1.7;
 }
 
-h2 {
-    margin-top: 40px;
-    font-size: 1.6rem;
+.grimoire h2 {
+    text-align: center;
+    margin-top: 0;
 }
 
-h3 {
+.grimoire h3 {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.grimoire p {
+    margin-bottom: 15px;
+}
+
+.dialogue {
+    margin-left: 40px;
+    font-style: italic;
+}
+
+.fin {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ================= AUDIO ================= */
+.audio-box {
     margin-top: 30px;
-    font-size: 1.3rem;
+    text-align: center;
 }
 
-/* =========================
-   LÉGENDES
-   ========================= */
-
-.legende {
-    background: rgba(255,255,255,0.85);
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 40px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-}
-
-/* =========================
-   BOUTON AUDIO
-   ========================= */
-
-.play-audio {
-    margin: 20px 0;
-    padding: 12px 24px;
-    background: #3b2a1a;
+/* ================= FOOTER ================= */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.85);
     color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
-.play-audio:hover {
-    background: #5a3f28;
-}
-
-/* CACHE LE PLAYER NATIF */
-.audio-player {
-    display: none;
-}
-
-/* =========================
-   LICORNE QUI GALOPE
-   ========================= */
-
+/* ================= LICORNE ================= */
 .licorne-run {
     position: fixed;
     bottom: 10px;
     left: -200px;
-    animation: gallop 12s linear infinite;
+    animation: run 12s linear infinite;
 }
 
-.licorne-run img {
-    width: 150px;
-}
-
-@keyframes gallop {
-    from {
-        left: -200px;
-    }
-    to {
-        left: 110%;
-    }
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-
-.footer {
-    margin-top: 80px;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #4a3a2a;
+@keyframes run {
+    from { left: -200px; }
+    to { left: 100%; }
 }
