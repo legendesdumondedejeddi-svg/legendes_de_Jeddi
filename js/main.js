@@ -3,7 +3,7 @@ let translations = {};
 
 // Charger un fichier de langue
 function loadLanguage(lang) {
-    fetch("lang/" + lang + ".json")
+    fetch("translations/" + lang + ".json")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Fichier langue introuvable");
