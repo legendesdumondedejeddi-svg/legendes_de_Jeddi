@@ -124,3 +124,46 @@ body {
     from { left: -200px; }
     to { left: 100%; }
 }
+/* ============================= */
+/* LÉGENDES – FOND PARCHMENT     */
+/* ============================= */
+
+.parchment {
+    background: url("../images/parchment_texture.jpg") center/cover no-repeat;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+/* ============================= */
+/* AUDIO                         */
+/* ============================= */
+
+.audio-box {
+    text-align: center;
+    margin: 25px 0 35px 0;
+}
+
+.audio-box audio {
+    width: 85%;
+    max-width: 520px;
+}
+
+/* ============================= */
+/* LICORNE QUI GALOPE             */
+/* ============================= */
+
+.licorne-run {
+    position: fixed;
+    bottom: 0;
+    left: -200px;
+    animation: gallop 18s linear infinite;
+}
+
+.licorne-run img {
+    height: 90px;
+}
+
+@keyframes gallop {
+    from { left: -200px; }
+    to { left: 100%; }
+}
