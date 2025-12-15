@@ -1,8 +1,17 @@
 {
-  "title_aubepin": "Aubépin – Die Tochter-Frau",
-  "country_aubepin": "Kabylei",
-
-  "aubepin_1": "Es war einmal – ja, wir beginnen mit den Klassikern, das bringt Glück – ein Land, in dem der Wald so laut flüsterte, dass man manchmal glaubte, er spreche.",
-  "aubepin_2": "In diesem Land lebte ein rauer Mann, stark wie ein Eichenstamm, und leidenschaftlich nur einer Sache ergeben: der Jagd."
+  "menu": {
+    "accueil": "Startseite",
+    "legendes": "Legenden",
+    "apropos": "Über uns",
+    "don": "SPENDE",
+    "langue": "Sprache"
+  },
+  "apropos": {
+    "title": "Über uns",
+    "texte": "Willkommen bei Legende der Welt von Jeddi! Hier bewahren und teilen wir alte Geschichten."
+  },
+  "don": {
+    "title": "SPENDE",
+    "texte": "Ihre Unterstützung hält diese Archive lebendig..."
+  }
 }
-
