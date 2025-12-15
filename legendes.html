@@ -1,180 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Légendes – Le Monde de Jeddi</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Légendes – Le Monde de Jeddi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header>
-<nav class="top-menu">
-<ul class="menu-line">
-<li><a href="index.html">Accueil</a></li>
-<li><a href="legendes.html">Légendes</a></li>
-<li><a href="apropos.html">À propos</a></li>
-<li><a href="don.html">Don</a></li>
+    <nav class="top-menu">
+        <ul class="menu-line">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="legendes.html">Légendes</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="don.html">DON</a></li>
 
-<li class="lang-switch">
-<span>Langue ▾</span>
-<ul class="submenu">
-<li><a href="#" onclick="setLanguage('fr')">FR</a></li>
-<li><a href="#" onclick="setLanguage('en')">EN</a></li>
-<li><a href="#" onclick="setLanguage('de')">DE</a></li>
-<li><a href="#" onclick="setLanguage('es')">ES</a></li>
-<li><a href="#" onclick="setLanguage('it')">IT</a></li>
-</ul>
-</li>
-
-<li class="lang-switch">
-<span>Pays ▾</span>
-<ul class="submenu">
-<li><a href="#" onclick="filterCountry('all')">Tous</a></li>
-<li><a href="#" onclick="filterCountry('kabylie')">Kabylie</a></li>
-</ul>
-</li>
-
-</ul>
-</nav>
+            <!-- MENU LANGUE À DROITE -->
+            <li class="lang-switch">
+                <span>Langue ▾</span>
+                <ul class="submenu">
+                    <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
+                    <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
+                    <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
+                    <li><a href="#" onclick="changeLanguage('es')">ES</a></li>
+                    <li><a href="#" onclick="changeLanguage('it')">IT</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </header>
 
 <main class="content">
 
-<!-- LÉGENDE AUBÉPIN -->
-<section class="legende" data-country="kabylie">
-<div class="grimoire">
+    <section class="legende">
+        <div class="parchment">
 
-<h2 id="lang-title">Aubépin – La fille-femme</h2>
-<h3 id="lang-subtitle">(Kabylie)</h3>
+            <!-- TITRE DE LA LÉGENDE -->
+            <h2 id="lang-title"></h2>
+            <h3 id="lang-subtitle"></h3>
 
-<div id="lang-text">
+            <!-- TEXTE DE LA LÉGENDE (injecté par JS) -->
+            <div id="lang-text"></div>
 
-<p>Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.</p>
+            <!-- AUDIO MULTILINGUE -->
+            <div class="audio-box">
+                <audio id="audio-player" controls>
+                    <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
+                    Ton navigateur ne supporte pas l’audio.
+                </audio>
+            </div>
 
-<p>Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.</p>
-
-<p>Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.</p>
-
-<p>Un jour, il ramène à la maison un perdreau encore vivant. L’oiseau tremblait, mais ses yeux étincelaient comme deux perles.</p>
-
-<p>Il tend l’animal à sa femme et lui ordonne :</p>
-
-<p class="dialogue">— Garde-le bien. Au printemps, j’en aurai besoin pour attirer les perdrix. Si tu le perds… gare à toi.</p>
-
-<p>La femme, douce et fragile comme un fil de lumière, accepte sans discuter.</p>
-
-<p>Ils avaient une fille unique — une petite flamme au regard curieux, toujours prête à attendrir les cœurs.</p>
-
-<p class="dialogue">— Maman, laisse-moi jouer avec l’oiseau… juste un peu…</p>
-
-<p>La mère hésite — mais comment résister à un enfant qui regarde comme ça ?</p>
-
-<p class="dialogue">— Surtout, ne le laisse pas s’envoler. Surtout, ferme la porte. Surtout, tiens la ficelle. Surtout…</p>
-
-<p>Tu connais la suite.</p>
-
-<p>Il suffit d’un instant — d’une seconde d’inattention — la ficelle glisse, l’oiseau bat des ailes, et hop !
-Envolé.
-Disparu dans la lumière du jour.
-Le soir, le chasseur découvre la catastrophe.
-Son visage se durcit — sa colère claque comme un fouet.
-Il met à la porte sa femme et sa fille, sans remords, sans un regard en arrière.
-Elles n’ont plus qu’un choix : aller chercher l’oiseau, même dans la nuit noire.
-Elles avancent, trébuchent, appellent.
-L’air devient étrange — la forêt semble se resserrer autour d’elles.
-Elles finissent par s’enfoncer dans un fourré où une hase, occupée à arranger son nid, les regarde d’un air surpris.
-Et la hase leur dit :
-— Fuyez ! Vous êtes dans le repaire des fauves ! Mais il est trop tard… Cachez-vous dans cet arbre !
-Elles grimpent — la peur au ventre.
-La nuit tombe — et avec elle reviennent les fauves : le lion, les tigres, les panthères.
-Ils rugissent — flairent — grognent — cherchant ce qui tremble au-dessus de leurs têtes.
-Une larme tombe de la joue de la petite fille — une seule — mais c’est assez.
-Le lion sent l’odeur.
-Il renifle.
-Il grogne.
-Le tronc se met à trembler.
-Et soudain — un serpent ! Glissant, sournois, rapide, il mord la mère qui hurle avant de perdre l’équilibre.
-Elle tombe.
-Les bêtes se jettent sur elle.
-Et il ne reste plus… rien.
-La hase, bouleversée, monte sauver l’enfant.
-Elle trouve aussi un bébé — le nouveau-né que la mère portait encore.
-Elle dit à la petite fille :
-— Prends-le. Nourris-le. Protège-le. Voici la moelle de ta mère. Ça vous sauvera. Pars vite avant que le jour ne morde la nuit.
-La petite fille, tremblante, mais courageuse, s’enfuit avec le bébé dans les bras.
-Elle l’appelle Aubépin, parce qu’il est né dans les aubépines et qu’il pique autant qu’il protège.
-Les années passent.
-La fille devient femme — belle comme un matin sans nuages, mais avec un regard qui en sait long sur la douleur.
-Aubépin, lui, grandit grâce à elle — fort, droit, reconnaissant.
-Un jour, il se marie.
-Mais sa femme, en voyant la beauté et le courage de celle qui l’a élevé, sent germer une jalousie noire — une jalousie qui mord comme une bête invisible.
-Elle imagine un plan terrible :
-Elle glisse des œufs de serpent dans la nourriture de la sœur — et accuse la jeune femme d’avoir un monstre dans le ventre.
-Aubépin, trop confiant, trop aveuglé, croit cette affreuse histoire.
-La sœur est emmenée dans la forêt — et abandonnée.
-Seule, encore une fois.
-Mais la forêt, cette fois, lui envoie un cavalier.
-Un homme juste — un homme qui écoute.
-Il la sauve, la soigne, la délivre du poison des serpents.
-Il l’épouse.
-Et ensemble, ils ont un enfant lumineux comme une pièce d’argent :
-L’Argenté.
-La vie semble enfin douce — mais tu connais les histoires : le passé adore se glisser par une fente dans la porte.
-Un jour, L’Argenté dit :
-— Maman, je veux voir mes oncles.
-Le cœur de la mère se serre — mais elle acquiesce.
-Ils partent ensemble — déguisés, comme des voyageurs pauvres.
-Ils arrivent chez Aubépin.
-La belle-sœur les rejette.
-Aubépin les accueille.
-Sans savoir… sans reconnaitre.
-Le soir, L’Argenté demande :
-— Raconte-moi une histoire, maman.
-Alors, elle raconte.
-Elle raconte tout — du début jusqu’à maintenant.
-Elle raconte les fauves, la chute, la jalousie, la trahison.
-Elle raconte la vérité — sans accuser, sans crier — juste en posant les mots comme on allume des lanternes dans la nuit.
-Et la terre, entendant cela, commence à frémir.
-Elle saisit les deux coupables — la jalouse et celui qui n’a pas su protéger — et les tire vers le bas.
-Aubépin crie, demande pardon, se débat.
-Sa femme, elle, ne dit rien — ses yeux brulent de rage.
-La terre les avale jusqu’aux genoux — puis jusqu’à la taille — puis jusqu’aux épaules.
-La sœur s’avance.
-Elle prend la tête de son frère.
-Elle tire — fort — très fort.
-Et Aubépin revient à la vie — lavé de son erreur.
-La terre referme son ventre sur la jalouse — pour toujours.
-Aubépin s’effondre, tremblant.
-Sa sœur le relève — et lui pardonne.
-Parce que pardonner, parfois, c’est la victoire la plus éclatante.
-Le mari de la sœur arrive.
-On se reconnait.
-On se retrouve.
-On se relève.
-</p>
-
-<p class="fin">Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.</p>
-
-</div>
-
-<div class="audio-box">
-<audio id="audio-player" controls>
-<source src="audio/aubepin_fr.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-</div>
-</section>
+        </div>
+    </section>
 
 </main>
 
 <footer class="footer">
-© 2025 — legendes.du.monde.de.jeddi@gmail.com
+    © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
+<!-- LICORNE QUI GALOPE -->
 <div class="licorne-run">
-<img src="images/licorne.png" alt="Licorne qui galope">
+    <img src="images/licorne.gif" alt="Licorne qui galope">
 </div>
 
 <script src="js/main.js"></script>
