@@ -1,20 +1,7 @@
 {
-  "menu_home": "Home",
-  "menu_legends": "Legends",
-  "menu_about": "About",
-  "menu_donate": "Donate",
-  "menu_language": "Language ▾",
+  "title_aubepin": "Aubepine – The Woman-Daughter",
+  "country_aubepin": "Kabylia",
 
-  "welcome_title": "Welcome, brave traveler",
-  "welcome_text": "Step inside without knocking — magic opens the doors.",
-
-  "legends_title": "Book of Legends",
-  "legend_1_title": "The Hawthorn Unicorn",
-  "legend_1_text": "In ancient forests, a white unicorn watches over lost souls.",
-
-  "about_title": "About",
-  "about_text": "This site is a collection of legends written with passion.",
-
-  "donate_title": "Support the project",
-  "donate_text": "If these legends move you, you can support their creation."
+  "aubepin_1": "Once upon a time — yes, we start with the classics, they bring luck — there was a land where the forest murmured so loudly it seemed to speak.",
+  "aubepin_2": "In that land lived a rough man, strong as an oak trunk, devoted to a single thing: hunting."
 }
