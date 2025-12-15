@@ -32,13 +32,15 @@
     <img src="images/grimoire.png" class="center-img" alt="Grimoire">
 
     <!-- EXEMPLE DE LÉGENDE -->
-    <section class="legende" id="aubepin">
+  <section class="legende" id="aubepin">
+    <!-- Fond grimoire pour le texte -->
+    <div class="grimoire-bg">
         <h2>Aubépin – La fille-femme</h2>
-        <h3>Kabylie</h3>
-        <p>
-          Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.
-Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.
-Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.
+        <h3>(Kabylie)</h3>
+
+        <p>Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.</p>
+        <p>Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.</p>
+        <p>Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.
 Un jour, il ramène à la maison un perdreau encore vivant. L’oiseau tremblait, mais ses yeux étincelaient comme deux perles.
 Il tend l’animal à sa femme et lui ordonne :
 — Garde-le bien. Au printemps, j’en aurai besoin pour attirer les perdrix. Si tu le perds… gare à toi.
@@ -128,15 +130,20 @@ Le mari de la sœur arrive.
 On se reconnait.
 On se retrouve.
 On se relève.
-Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.</p>
+Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.
+</p>
 
+
+        <!-- Audio de la légende -->
         <button class="play-audio" onclick="document.getElementById('audio-aubepin').play()">
             ▶ Écouter la légende
         </button>
         <audio id="audio-aubepin">
             <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
         </audio>
-    </section>
+    </div>
+</section>
+
 
 </main>
 
@@ -150,3 +157,4 @@ Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vé
 
 </body>
 </html>
+
