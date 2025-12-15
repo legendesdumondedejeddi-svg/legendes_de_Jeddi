@@ -1,20 +1,7 @@
 {
-  "menu_home": "Home",
-  "menu_legends": "Leggende",
-  "menu_about": "Informazioni",
-  "menu_donate": "Dona",
-  "menu_language": "Lingua ▾",
+  "title_aubepin": "Aubépin – La figlia-donna",
+  "country_aubepin": "Cabilia",
 
-  "welcome_title": "Benvenuto, viaggiatore intrepido",
-  "welcome_text": "Entra senza bussare — qui le porte si aprono per magia.",
-
-  "legends_title": "Grimorio delle Leggende",
-  "legend_1_title": "L’Unicorno del Biancospino",
-  "legend_1_text": "Nelle foreste antiche, un unicorno bianco veglia sulle anime perdute.",
-
-  "about_title": "Informazioni sul progetto",
-  "about_text": "Questo sito è una raccolta di leggende scritte con passione e poesia.",
-
-  "donate_title": "Sostieni il progetto",
-  "donate_text": "Se queste leggende ti emozionano, puoi sostenerne la creazione."
+  "aubepin_1": "C'era una volta — sì, iniziamo dai classici, portano fortuna — un paese in cui la foresta mormorava così forte da sembrare parlare.",
+  "aubepin_2": "In quel paese viveva un uomo rude, forte come il tronco di una quercia, appassionato di una sola cosa: la caccia."
 }
