@@ -1,20 +1,7 @@
 {
-  "menu_home": "Inicio",
-  "menu_legends": "Leyendas",
-  "menu_about": "Acerca de",
-  "menu_donate": "Donar",
-  "menu_language": "Idioma ▾",
+  "title_aubepin": "Aubépin – La hija-mujer",
+  "country_aubepin": "Cabilia",
 
-  "welcome_title": "Bienvenido, viajero intrépido",
-  "welcome_text": "Entra sin llamar — aquí las puertas se abren por arte de magia.",
-
-  "legends_title": "Grimorio de Leyendas",
-  "legend_1_title": "El Unicornio del Espino",
-  "legend_1_text": "En los bosques antiguos, un unicornio blanco vela por las almas perdidas.",
-
-  "about_title": "Sobre el proyecto",
-  "about_text": "Este sitio es una recopilación de leyendas escritas con pasión y poesía.",
-
-  "donate_title": "Apoyar el proyecto",
-  "donate_text": "Si estas leyendas te conmueven, puedes apoyar su creación."
+  "aubepin_1": "Había una vez — sí, empezamos por los clásicos, traen buena suerte — un país donde el bosque murmuraba tan fuerte que parecía hablar.",
+  "aubepin_2": "En ese país vivía un hombre rudo, fuerte como un tronco de roble, apasionado por una sola cosa: la caza."
 }
