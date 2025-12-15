@@ -2,10 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos – Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
-
 <body>
 
 <header>
@@ -14,7 +15,7 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="legendes.html">Légendes</a></li>
             <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">Don</a></li>
+            <li><a href="don.html">DON</a></li>
 
             <li class="lang-switch">
                 <span>Langue ▾</span>
@@ -31,26 +32,22 @@
 </header>
 
 <main class="content">
+    <section class="apropos">
+        <div class="grimoire">
 
-<section class="apropos">
-<div class="grimoire">
+            <h2 id="title">À propos du site</h2>
 
-<h2 data-i18n="apropos_title"></h2>
+            <p id="intro">Bienvenue sur notre site. Ce projet est dédié à la préservation et à la diffusion des récits et légendes du passé, pour vous permettre de découvrir des histoires fascinantes et parfois oubliées.</p>
 
-<p data-i18n="apropos_p1"></p>
-<p data-i18n="apropos_p2"></p>
-<p data-i18n="apropos_p3"></p>
+            <div class="audio-box">
+                <audio id="audio-player" controls>
+                    <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l’audio.
+                </audio>
+            </div>
 
-<div class="audio-box">
-    <audio id="audio-player" controls>
-        <source src="audio/apropos_fr.mp3" type="audio/mpeg">
-        Ton navigateur ne supporte pas l’audio.
-    </audio>
-</div>
-
-</div>
-</section>
-
+        </div>
+    </section>
 </main>
 
 <footer class="footer">
@@ -58,10 +55,8 @@
 </footer>
 
 <div class="licorne-run">
-    <img src="images/licorne.png" alt="Licorne">
+    <img src="images/licorne.gif" alt="Licorne qui galope">
 </div>
-
-<script src="js/main.js"></script>
 
 </body>
 </html>
