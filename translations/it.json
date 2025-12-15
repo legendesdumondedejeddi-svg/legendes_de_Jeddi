@@ -1,7 +1,18 @@
 {
-  "title_aubepin": "Aubépin – La figlia-donna",
-  "country_aubepin": "Cabilia",
-
-  "aubepin_1": "C'era una volta — sì, iniziamo dai classici, portano fortuna — un paese in cui la foresta mormorava così forte da sembrare parlare.",
-  "aubepin_2": "In quel paese viveva un uomo rude, forte come il tronco di una quercia, appassionato di una sola cosa: la caccia."
+  "menu": {
+    "accueil": "Home",
+    "legendes": "Leggende",
+    "apropos": "Chi siamo",
+    "don": "DONARE",
+    "langue": "Lingua"
+  },
+  "apropos": {
+    "title": "Chi siamo",
+    "texte": "Benvenuti in Leggenda del Mondo di Jeddi! Qui preserviamo e condividiamo storie antiche."
+  },
+  "don": {
+    "title": "DONARE",
+    "texte": "Il tuo aiuto mantiene questi archivi vivi..."
+  }
 }
+
