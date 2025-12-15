@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Légendes – Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
 
@@ -18,11 +19,11 @@
             <li class="lang-switch">
                 <span>Langue ▾</span>
                 <ul class="submenu">
-                    <li><a href="#">FR</a></li>
-                    <li><a href="#">EN</a></li>
-                    <li><a href="#">DE</a></li>
-                    <li><a href="#">ES</a></li>
-                    <li><a href="#">IT</a></li>
+                    <li><a href="#" onclick="changeAudio('fr'); changeLanguage('fr')">FR</a></li>
+                    <li><a href="#" onclick="changeAudio('en'); changeLanguage('en')">EN</a></li>
+                    <li><a href="#" onclick="changeAudio('de'); changeLanguage('de')">DE</a></li>
+                    <li><a href="#" onclick="changeAudio('es'); changeLanguage('es')">ES</a></li>
+                    <li><a href="#" onclick="changeAudio('it'); changeLanguage('it')">IT</a></li>
                 </ul>
             </li>
         </ul>
@@ -30,208 +31,114 @@
 </header>
 
 <main class="content">
-
-<section class="legende">
-<div class="grimoire">
-
-<h2>Aubépin – La fille-femme</h2>
-<h3>(Kabylie)</h3>
-
-<p>Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.</p>
-
-<p>Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.</p>
-
-<p>Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.</p>
-
-<p>Un jour, il ramène à la maison un perdreau encore vivant. L’oiseau tremblait, mais ses yeux étincelaient comme deux perles.</p>
-
-<p>Il tend l’animal à sa femme et lui ordonne :</p>
-
-<p class="dialogue">— Garde-le bien. Au printemps, j’en aurai besoin pour attirer les perdrix. Si tu le perds… gare à toi.</p>
-
-<p>La femme, douce et fragile comme un fil de lumière, accepte sans discuter.</p>
-
-<p>Ils avaient une fille unique — une petite flamme au regard curieux, toujours prête à attendrir les cœurs.</p>
-
-<p>Et évidemment, la petite supplie sa mère :</p>
-
-<p class="dialogue">— Maman, laisse-moi jouer avec l’oiseau… juste un peu…</p>
-
-<p>La mère hésite — mais comment résister à un enfant qui regarde comme ça ?</p>
-
-<p>Alors elle accepte, mais avec mille recommandations :</p>
-
-<p class="dialogue">— Surtout, ne le laisse pas s’envoler. Surtout, ferme la porte. Surtout, tiens la ficelle. Surtout…</p>
-
-<p>Tu connais la suite.</p>
-
-<p>Il suffit d’un instant — d’une seconde d’inattention — la ficelle glisse, l’oiseau bat des ailes, et hop !</p>
-
-<p>Envolé.</p>
-
-<p>Disparu dans la lumière du jour.</p>
-
-<p>Le soir, le chasseur découvre la catastrophe.</p>
-
-<p>Son visage se durcit — sa colère claque comme un fouet.</p>
-
-<p>Il met à la porte sa femme et sa fille, sans remords, sans un regard en arrière.</p>
-
-<p>Elles n’ont plus qu’un choix : aller chercher l’oiseau, même dans la nuit noire.</p>
-
-<p>Elles avancent, trébuchent, appellent.</p>
-
-<p>L’air devient étrange — la forêt semble se resserrer autour d’elles.</p>
-
-<p>Elles finissent par s’enfoncer dans un fourré où une hase, occupée à arranger son nid, les regarde d’un air surpris.</p>
-
-<p>Et la hase leur dit :</p>
-
-<p class="dialogue">— Fuyez ! Vous êtes dans le repaire des fauves ! Mais il est trop tard… Cachez-vous dans cet arbre !</p>
-
-<p>Elles grimpent — la peur au ventre.</p>
-
-<p>La nuit tombe — et avec elle reviennent les fauves : le lion, les tigres, les panthères.</p>
-
-<p>Ils rugissent — flairent — grognent — cherchant ce qui tremble au-dessus de leurs têtes.</p>
-
-<p>Une larme tombe de la joue de la petite fille — une seule — mais c’est assez.</p>
-
-<p>Le lion sent l’odeur.</p>
-
-<p>Il renifle.</p>
-
-<p>Il grogne.</p>
-
-<p>Le tronc se met à trembler.</p>
-
-<p>Et soudain — un serpent ! Glissant, sournois, rapide, il mord la mère qui hurle avant de perdre l’équilibre.</p>
-
-<p>Elle tombe.</p>
-
-<p>Les bêtes se jettent sur elle.</p>
-
-<p>Et il ne reste plus… rien.</p>
-
-<p>La hase, bouleversée, monte sauver l’enfant.</p>
-
-<p>Elle trouve aussi un bébé — le nouveau-né que la mère portait encore.</p>
-
-<p class="dialogue">— Prends-le. Nourris-le. Protège-le. Voici la moelle de ta mère. Ça vous sauvera. Pars vite avant que le jour ne morde la nuit.</p>
-
-<p>La petite fille, tremblante, mais courageuse, s’enfuit avec le bébé dans les bras.</p>
-
-<p>Elle l’appelle Aubépin, parce qu’il est né dans les aubépines et qu’il pique autant qu’il protège.</p>
-
-<p>Les années passent.</p>
-
-<p>La fille devient femme — belle comme un matin sans nuages, mais avec un regard qui en sait long sur la douleur.</p>
-
-<p>Aubépin, lui, grandit grâce à elle — fort, droit, reconnaissant.</p>
-
-<p>Un jour, il se marie.</p>
-
-<p>Mais sa femme, en voyant la beauté et le courage de celle qui l’a élevé, sent germer une jalousie noire — une jalousie qui mord comme une bête invisible.</p>
-
-<p>Elle imagine un plan terrible :</p>
-
-<p>Elle glisse des œufs de serpent dans la nourriture de la sœur — et accuse la jeune femme d’avoir un monstre dans le ventre.</p>
-
-<p>Aubépin, trop confiant, trop aveuglé, croit cette affreuse histoire.</p>
-
-<p>La sœur est emmenée dans la forêt — et abandonnée.</p>
-
-<p>Seule, encore une fois.</p>
-
-<p>Mais la forêt, cette fois, lui envoie un cavalier.</p>
-
-<p>Un homme juste — un homme qui écoute.</p>
-
-<p>Il la sauve, la soigne, la délivre du poison des serpents.</p>
-
-<p>Il l’épouse.</p>
-
-<p>Et ensemble, ils ont un enfant lumineux comme une pièce d’argent :</p>
-
-<p><strong>L’Argenté.</strong></p>
-
-<p>La vie semble enfin douce — mais tu connais les histoires : le passé adore se glisser par une fente dans la porte.</p>
-
-<p>Un jour, L’Argenté dit :</p>
-
-<p class="dialogue">— Maman, je veux voir mes oncles.</p>
-
-<p>Le cœur de la mère se serre — mais elle acquiesce.</p>
-
-<p>Ils partent ensemble — déguisés, comme des voyageurs pauvres.</p>
-
-<p>Ils arrivent chez Aubépin.</p>
-
-<p>La belle-sœur les rejette.</p>
-
-<p>Aubépin les accueille.</p>
-
-<p>Sans savoir… sans reconnaitre.</p>
-
-<p>Le soir, L’Argenté demande :</p>
-
-<p class="dialogue">— Raconte-moi une histoire, maman.</p>
-
-<p>Alors, elle raconte.</p>
-
-<p>Elle raconte tout — du début jusqu’à maintenant.</p>
-
-<p>Elle raconte les fauves, la chute, la jalousie, la trahison.</p>
-
-<p>Elle raconte la vérité — sans accuser, sans crier — juste en posant les mots comme on allume des lanternes dans la nuit.</p>
-
-<p>Et la terre, entendant cela, commence à frémir.</p>
-
-<p>Elle saisit les deux coupables — la jalouse et celui qui n’a pas su protéger — et les tire vers le bas.</p>
-
-<p>Aubépin crie, demande pardon, se débat.</p>
-
-<p>Sa femme, elle, ne dit rien — ses yeux brulent de rage.</p>
-
-<p>La terre les avale jusqu’aux genoux — puis jusqu’à la taille — puis jusqu’aux épaules.</p>
-
-<p>La sœur s’avance.</p>
-
-<p>Elle prend la tête de son frère.</p>
-
-<p>Elle tire — fort — très fort.</p>
-
-<p>Et Aubépin revient à la vie — lavé de son erreur.</p>
-
-<p>La terre referme son ventre sur la jalouse — pour toujours.</p>
-
-<p>Aubépin s’effondre, tremblant.</p>
-
-<p>Sa sœur le relève — et lui pardonne.</p>
-
-<p>Parce que pardonner, parfois, c’est la victoire la plus éclatante.</p>
-
-<p>Le mari de la sœur arrive.</p>
-
-<p>On se reconnait.</p>
-
-<p>On se retrouve.</p>
-
-<p>On se relève.</p>
-
-<p class="fin">Et cette fois — vraiment — ils vécurent.</p>
-
-<div class="audio-box">
-    <audio controls>
-    <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
-    Ton navigateur ne supporte pas l’audio.
-</audio>
-
-</div>
-
-</div>
-</section>
-
+    <section class="legende">
+        <div class="parchment">
+
+            <h2>Aubépin – La fille-femme</h2>
+            <h3>(Kabylie)</h3>
+
+            <p>Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.</p>
+            <p>Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.</p>
+            <p>Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.</p>
+            <p>Un jour, il ramène à la maison un perdreau encore vivant. L’oiseau tremblait, mais ses yeux étincelaient comme deux perles.</p>
+            <p>Il tend l’animal à sa femme et lui ordonne :</p>
+            <p class="dialogue">— Garde-le bien. Au printemps, j’en aurai besoin pour attirer les perdrix. Si tu le perds… gare à toi.</p>
+            <p>La femme, douce et fragile comme un fil de lumière, accepte sans discuter.</p>
+            <p>Ils avaient une fille unique — une petite flamme au regard curieux, toujours prête à attendrir les cœurs.</p>
+            <p>Et évidemment, la petite supplie sa mère :</p>
+            <p class="dialogue">— Maman, laisse-moi jouer avec l’oiseau… juste un peu…</p>
+            <p>La mère hésite — mais comment résister à un enfant qui regarde comme ça ?</p>
+            <p>Alors elle accepte, mais avec mille recommandations :</p>
+            <p class="dialogue">— Surtout, ne le laisse pas s’envoler. Surtout, ferme la porte. Surtout, tiens la ficelle. Surtout…</p>
+            <p>Tu connais la suite.</p>
+            <p>Il suffit d’un instant — d’une seconde d’inattention — la ficelle glisse, l’oiseau bat des ailes, et hop !</p>
+            <p>Envolé.</p>
+            <p>Disparu dans la lumière du jour.</p>
+            <p>Le soir, le chasseur découvre la catastrophe.</p>
+            <p>Son visage se durcit — sa colère claque comme un fouet.</p>
+            <p>Il met à la porte sa femme et sa fille, sans remords, sans un regard en arrière.</p>
+            <p>Elles n’ont plus qu’un choix : aller chercher l’oiseau, même dans la nuit noire.</p>
+            <p>Elles avancent, trébuchent, appellent.</p>
+            <p>L’air devient étrange — la forêt semble se resserrer autour d’elles.</p>
+            <p>Elles finissent par s’enfoncer dans un fourré où une hase, occupée à arranger son nid, les regarde d’un air surpris.</p>
+            <p>Et la hase leur dit :</p>
+            <p class="dialogue">— Fuyez ! Vous êtes dans le repaire des fauves ! Mais il est trop tard… Cachez-vous dans cet arbre !</p>
+            <p>Elles grimpent — la peur au ventre.</p>
+            <p>La nuit tombe — et avec elle reviennent les fauves : le lion, les tigres, les panthères.</p>
+            <p>Ils rugissent — flairent — grognent — cherchant ce qui tremble au-dessus de leurs têtes.</p>
+            <p>Une larme tombe de la joue de la petite fille — une seule — mais c’est assez.</p>
+            <p>Le lion sent l’odeur.</p>
+            <p>Il renifle.</p>
+            <p>Il grogne.</p>
+            <p>Le tronc se met à trembler.</p>
+            <p>Et soudain — un serpent ! Glissant, sournois, rapide, il mord la mère qui hurle avant de perdre l’équilibre.</p>
+            <p>Elle tombe.</p>
+            <p>Les bêtes se jettent sur elle.</p>
+            <p>Et il ne reste plus… rien.</p>
+            <p>La hase, bouleversée, monte sauver l’enfant.</p>
+            <p>Elle trouve aussi un bébé — le nouveau-né que la mère portait encore.</p>
+            <p class="dialogue">— Prends-le. Nourris-le. Protège-le. Voici la moelle de ta mère. Ça vous sauvera. Pars vite avant que le jour ne morde la nuit.</p>
+            <p>La petite fille, tremblante, mais courageuse, s’enfuit avec le bébé dans les bras.</p>
+            <p>Elle l’appelle Aubépin, parce qu’il est né dans les aubépines et qu’il pique autant qu’il protège.</p>
+            <p>Les années passent.</p>
+            <p>La fille devient femme — belle comme un matin sans nuages, mais avec un regard qui en sait long sur la douleur.</p>
+            <p>Aubépin, lui, grandit grâce à elle — fort, droit, reconnaissant.</p>
+            <p>Un jour, il se marie.</p>
+            <p>Mais sa femme, en voyant la beauté et le courage de celle qui l’a élevé, sent germer une jalousie noire — une jalousie qui mord comme une bête invisible.</p>
+            <p>Elle imagine un plan terrible :</p>
+            <p>Elle glisse des œufs de serpent dans la nourriture de la sœur — et accuse la jeune femme d’avoir un monstre dans le ventre.</p>
+            <p>Aubépin, trop confiant, trop aveuglé, croit cette affreuse histoire.</p>
+            <p>La sœur est emmenée dans la forêt — et abandonnée.</p>
+            <p>Seule, encore une fois.</p>
+            <p>Mais la forêt, cette fois, lui envoie un cavalier.</p>
+            <p>Un homme juste — un homme qui écoute.</p>
+            <p>Il la sauve, la soigne, la délivre du poison des serpents.</p>
+            <p>Il l’épouse.</p>
+            <p>Et ensemble, ils ont un enfant lumineux comme une pièce d’argent :</p>
+            <p><strong>L’Argenté.</strong></p>
+            <p>La vie semble enfin douce — mais tu connais les histoires : le passé adore se glisser par une fente dans la porte.</p>
+            <p>Un jour, L’Argenté dit :</p>
+            <p class="dialogue">— Maman, je veux voir mes oncles.</p>
+            <p>Le cœur de la mère se serre — mais elle acquiesce.</p>
+            <p>Ils partent ensemble — déguisés, comme des voyageurs pauvres.</p>
+            <p>Ils arrivent chez Aubépin.</p>
+            <p>La belle-sœur les rejette.</p>
+            <p>Aubépin les accueille.</p>
+            <p>Sans savoir… sans reconnaitre.</p>
+            <p>Le soir, L’Argenté demande :</p>
+            <p class="dialogue">— Raconte-moi une histoire, maman.</p>
+            <p>Alors, elle raconte.</p>
+            <p>Elle raconte tout — du début jusqu’à maintenant.</p>
+            <p>Elle raconte les fauves, la chute, la jalousie, la trahison.</p>
+            <p>Elle raconte la vérité — sans accuser, sans crier — juste en posant les mots comme on allume des lanternes dans la nuit.</p>
+            <p>Et la terre, entendant cela, commence à frémir.</p>
+            <p>Elle saisit les deux coupables — la jalouse et celui qui n’a pas su protéger — et les tire vers le bas.</p>
+            <p>Aubépin crie, demande pardon, se débat.</p>
+            <p>Sa femme, elle, ne dit rien — ses yeux brûlent de rage.</p>
+            <p>La terre les avale jusqu’aux genoux — puis jusqu’à la taille — puis jusqu’aux épaules.</p>
+            <p>La sœur s’avance.</p>
+            <p>Elle prend la tête de son frère.</p>
+            <p>Elle tire — fort — très fort.</p>
+            <p>Et Aubépin revient à la vie — lavé de son erreur.</p>
+            <p>La terre referme son ventre sur la jalouse — pour toujours.</p>
+            <p>Aubépin s’effondre, tremblant.</p>
+            <p>Sa sœur le relève — et lui pardonne.</p>
+            <p>Parce que pardonner, parfois, c’est la victoire la plus éclatante.</p>
+            <p>Le mari de la sœur arrive.</p>
+            <p>On se reconnait.</p>
+            <p>On se retrouve.</p>
+            <p>On se relève.</p>
+            <p class="fin">Et cette fois — vraiment — ils vécurent justes.</p>
+
+            <div class="audio-box">
+                <audio id="audio-player" controls>
+                    <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
+                    Ton navigateur ne supporte pas l’audio.
+                </audio>
+            </div>
+
+        </div>
+    </section>
 </main>
 
 <footer class="footer">
@@ -244,6 +151,3 @@
 
 </body>
 </html>
-
-
-
