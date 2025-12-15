@@ -1,7 +1,17 @@
 {
-  "title_aubepin": "Aubépin – La hija-mujer",
-  "country_aubepin": "Cabilia",
-
-  "aubepin_1": "Había una vez — sí, empezamos por los clásicos, traen buena suerte — un país donde el bosque murmuraba tan fuerte que parecía hablar.",
-  "aubepin_2": "En ese país vivía un hombre rudo, fuerte como un tronco de roble, apasionado por una sola cosa: la caza."
+  "menu": {
+    "accueil": "Inicio",
+    "legendes": "Leyendas",
+    "apropos": "Acerca de",
+    "don": "DONAR",
+    "langue": "Idioma"
+  },
+  "apropos": {
+    "title": "Acerca de",
+    "texte": "¡Bienvenido a la Leyenda del Mundo de Jeddi! Aquí preservamos y compartimos historias antiguas."
+  },
+  "don": {
+    "title": "DONAR",
+    "texte": "Su ayuda mantiene estos archivos vivos..."
+  }
 }
