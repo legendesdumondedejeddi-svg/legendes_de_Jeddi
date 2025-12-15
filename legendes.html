@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Légendes – Le Monde de Jeddi</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Légendes – Le Monde de Jeddi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header>
-<nav class="top-menu">
-<ul class="menu-line">
-<li><a href="index.html">Accueil</a></li>
-<li><a href="legendes.html">Légendes</a></li>
-<li><a href="apropos.html">À propos</a></li>
-<li><a href="don.html">Don</a></li>
+    <nav class="top-menu">
+        <ul class="menu-line">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="legendes.html">Légendes</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="don.html">DON</a></li>
 
-<!-- MENU LANGUE -->
-<li class="lang-switch">
-<span>Langue ▾</span>
-<ul class="submenu">
-<li><a href="#" onclick="setLanguage('fr')">FR</a></li>
-<li><a href="#" onclick="setLanguage('en')">EN</a></li>
-<li><a href="#" onclick="setLanguage('de')">DE</a></li>
-<li><a href="#" onclick="setLanguage('es')">ES</a></li>
-<li><a href="#" onclick="setLanguage('it')">IT</a></li>
-</ul>
-</li>
+            <!-- Menu Langue -->
+            <li class="lang-switch">
+                <span>Langue ▾</span>
+                <ul class="submenu">
+                    <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
+                    <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
+                    <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
+                    <li><a href="#" onclick="changeLanguage('es')">ES</a></li>
+                    <li><a href="#" onclick="changeLanguage('it')">IT</a></li>
+                </ul>
+            </li>
 
-<!-- MENU PAYS -->
-<li class="lang-switch">
-<span>Pays ▾</span>
-<ul class="submenu">
-<li><a href="#" onclick="filterCountry('all')">Tous</a></li>
-<li><a href="#" onclick="filterCountry('kabylie')">Kabylie</a></li>
-<li><a href="#" onclick="filterCountry('italie')">Italie</a></li>
-<li><a href="#" onclick="filterCountry('allemagne')">Allemagne</a></li>
-</ul>
-</li>
-
-</ul>
-</nav>
+            <!-- Menu Pays -->
+            <li class="country-switch">
+                <span>Pays ▾</span>
+                <ul class="submenu">
+                    <li><a href="#" onclick="filterCountry('kabylie')">Kabylie</a></li>
+                    <li><a href="#" onclick="filterCountry('autre')">Autre</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </header>
 
 <main class="content">
 
-<!-- ZONE D’AFFICHAGE DE LA LÉGENDE -->
-<section class="legende" id="legend-container">
-<div class="grimoire">
-
-<h2 id="legend-title"></h2>
-<h3 id="legend-subtitle"></h3>
-
-<div id="legend-text"></div>
-
-<div class="audio-box">
-<audio id="audio-player" controls></audio>
-</div>
-
-</div>
-</section>
+    <!-- Section légende dynamique -->
+    <section class="legende" data-country="kabylie">
+        <div class="grimoire parchment">
+            <h2 id="lang-title"></h2>
+            <h3 id="lang-subtitle"></h3>
+            <div id="lang-text"></div>
+            <div class="audio-box">
+                <audio id="audio-player" controls></audio>
+            </div>
+        </div>
+    </section>
 
 </main>
 
 <footer class="footer">
-© 2025 — legendes.du.monde.de.jeddi@gmail.com
+    © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
 <div class="licorne-run">
-<img src="images/licorne.png" alt="Licorne qui galope">
+    <img src="images/licorne.png" alt="Licorne qui galope">
 </div>
 
 <script src="js/main.js"></script>
