@@ -9,25 +9,40 @@
 
 <header>
     <nav class="top-menu">
-        <ul class="menu-line">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="legendes.html">Légendes</a></li>
-            <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">DON</a></li>
+  <ul class="menu-line">
 
-            <!-- MENU LANGUE À DROITE -->
-            <li class="lang-switch">
-                <span>Langue ▾</span>
-                <ul class="submenu">
-                    <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
-                    <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
-                    <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
-                    <li><a href="#" onclick="changeLanguage('es')">ES</a></li>
-                    <li><a href="#" onclick="changeLanguage('it')">IT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="legendes.html">Légendes</a></li>
+    <li><a href="apropos.html">À propos</a></li>
+    <li><a href="don.html">Don</a></li>
+
+    <!-- LANGUE -->
+    <li class="lang-switch">
+      <span>Langue ▾</span>
+      <ul class="submenu">
+        <li><a href="#" onclick="setLanguage('fr')">FR</a></li>
+        <li><a href="#" onclick="setLanguage('en')">EN</a></li>
+        <li><a href="#" onclick="setLanguage('de')">DE</a></li>
+        <li><a href="#" onclick="setLanguage('es')">ES</a></li>
+        <li><a href="#" onclick="setLanguage('it')">IT</a></li>
+      </ul>
+    </li>
+
+    <!-- PAYS -->
+    <li class="lang-switch">
+      <span>Pays ▾</span>
+      <ul class="submenu">
+        <li><a href="#" onclick="filterCountry('all')">Tous</a></li>
+        <li><a href="#" onclick="filterCountry('kabylie')">Kabylie</a></li>
+        <li><a href="#" onclick="filterCountry('italie')">Italie</a></li>
+        <li><a href="#" onclick="filterCountry('allemagne')">Allemagne</a></li>
+        <li><a href="#" onclick="filterCountry('espagne')">Espagne</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
 </header>
 
 <main class="content">
@@ -67,3 +82,4 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
