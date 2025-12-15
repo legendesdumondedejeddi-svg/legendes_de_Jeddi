@@ -1,20 +1,8 @@
 {
-  "menu_home": "Startseite",
-  "menu_legends": "Legenden",
-  "menu_about": "Über",
-  "menu_donate": "Spenden",
-  "menu_language": "Sprache ▾",
+  "title_aubepin": "Aubépin – Die Tochter-Frau",
+  "country_aubepin": "Kabylei",
 
-  "welcome_title": "Willkommen, mutiger Reisender",
-  "welcome_text": "Tritt ein, ohne anzuklopfen — hier öffnen sich die Türen wie von Zauberhand.",
-
-  "legends_title": "Grimoire der Legenden",
-  "legend_1_title": "Das Weißdorn-Einhorn",
-  "legend_1_text": "In uralten Wäldern wacht ein weißes Einhorn über verlorene Seelen.",
-
-  "about_title": "Über dieses Projekt",
-  "about_text": "Diese Seite ist eine Sammlung von Legenden, geschrieben mit Leidenschaft und Poesie.",
-
-  "donate_title": "Das Projekt unterstützen",
-  "donate_text": "Wenn dich diese Legenden berühren, kannst du ihre Entstehung unterstützen."
+  "aubepin_1": "Es war einmal – ja, wir beginnen mit den Klassikern, das bringt Glück – ein Land, in dem der Wald so laut flüsterte, dass man manchmal glaubte, er spreche.",
+  "aubepin_2": "In diesem Land lebte ein rauer Mann, stark wie ein Eichenstamm, und leidenschaftlich nur einer Sache ergeben: der Jagd."
 }
+
