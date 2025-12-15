@@ -4,224 +4,79 @@
     <meta charset="UTF-8">
     <title>Légendes – Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
 
-<header>
-    <nav class="top-menu">
-        <ul class="menu-line">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="legendes.html">Légendes</a></li>
-            <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">DON</a></li>
-        </ul>
-    </nav>
-</header>
+<!-- MENU -->
+<nav class="top-menu">
+    <ul class="menu-line">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="legendes.html">Légendes</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="don.html">DON</a></li>
 
-<main class="content">
+        <!-- MENU LANGUE (AUDIO) -->
+        <li class="lang-switch">
+            <span>Langue ▾</span>
+            <ul class="submenu">
+                <li><a href="#" onclick="changeAudio('fr')">FR</a></li>
+                <li><a href="#" onclick="changeAudio('en')">EN</a></li>
+                <li><a href="#" onclick="changeAudio('de')">DE</a></li>
+                <li><a href="#" onclick="changeAudio('es')">ES</a></li>
+                <li><a href="#" onclick="changeAudio('it')">IT</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 
-<section class="legende-parchemin">
+<!-- BANNIÈRE -->
+<img src="images/licorne.png" class="banner" alt="Bannière Licorne">
 
-<!-- AUDIO (LAISSÉ EN PLACE MÊME S'IL NE FONCTIONNE PAS ENCORE) -->
+<!-- CONTENU -->
+<main class="content parchment">
+
+<h1>Aubépin — La fille-femme</h1>
+<p class="legend-country">(Kabylie)</p>
+
+<!-- AUDIO -->
 <div class="audio-box">
     <p><strong>🎧 Écouter la légende</strong></p>
-
-    <audio id="audio-player" controls preload="metadata">
+    <audio id="audio-player" controls>
         <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l’audio.
     </audio>
 </div>
 
-<!-- TEXTE STRICTEMENT IDENTIQUE — EN GRAS -->
-<div class="texte-legende">
-<strong>
-Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.<br><br>
-
-Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse.<br><br>
-
-Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.<br><br>
-
-Un jour, il ramène à la maison un perdreau encore vivant. L’oiseau tremblait, mais ses yeux étincelaient comme deux perles.<br><br>
-
-Il tend l’animal à sa femme et lui ordonne :<br>
-— Garde-le bien. Au printemps, j’en aurai besoin pour attirer les perdrix. Si tu le perds… gare à toi.<br><br>
-
-La femme, douce et fragile comme un fil de lumière, accepte sans discuter.<br><br>
-
-Ils avaient une fille unique — une petite flamme au regard curieux, toujours prête à attendrir les cœurs.<br><br>
-
-Et évidemment, la petite supplie sa mère :<br>
-— Maman, laisse-moi jouer avec l’oiseau… juste un peu…<br><br>
-
-La mère hésite — mais comment résister à un enfant qui regarde comme ça ?<br><br>
-
-Alors elle accepte, mais avec mille recommandations :<br>
-— Surtout, ne le laisse pas s’envoler. Surtout, ferme la porte. Surtout, tiens la ficelle. Surtout…<br><br>
-
-Tu connais la suite.<br><br>
-
-Il suffit d’un instant — d’une seconde d’inattention — la ficelle glisse, l’oiseau bat des ailes, et hop !<br><br>
-
-Envolé.<br><br>
-
-Disparu dans la lumière du jour.<br><br>
-
-Le soir, le chasseur découvre la catastrophe.<br><br>
-
-Son visage se durcit — sa colère claque comme un fouet.<br><br>
-
-Il met à la porte sa femme et sa fille, sans remords, sans un regard en arrière.<br><br>
-
-Elles n’ont plus qu’un choix : aller chercher l’oiseau, même dans la nuit noire.<br><br>
-
-Elles avancent, trébuchent, appellent.<br><br>
-
-L’air devient étrange — la forêt semble se resserrer autour d’elles.<br><br>
-
-Elles finissent par s’enfoncer dans un fourré où une hase, occupée à arranger son nid, les regarde d’un air surpris.<br><br>
-
-Et la hase leur dit :<br>
-— Fuyez ! Vous êtes dans le repaire des fauves ! Mais il est trop tard… Cachez-vous dans cet arbre !<br><br>
-
-Elles grimpent — la peur au ventre.<br><br>
-
-La nuit tombe — et avec elle reviennent les fauves : le lion, les tigres, les panthères.<br><br>
-
-Ils rugissent — flairent — grognent — cherchant ce qui tremble au-dessus de leurs têtes.<br><br>
-
-Une larme tombe de la joue de la petite fille — une seule — mais c’est assez.<br><br>
-
-Le lion sent l’odeur.<br>
-Il renifle.<br>
-Il grogne.<br><br>
-
-Le tronc se met à trembler.<br><br>
-
-Et soudain — un serpent ! Glissant, sournois, rapide, il mord la mère qui hurle avant de perdre l’équilibre.<br><br>
-
-Elle tombe.<br><br>
-
-Les bêtes se jettent sur elle.<br><br>
-
-Et il ne reste plus… rien.<br><br>
-
-La hase, bouleversée, monte sauver l’enfant.<br><br>
-
-Elle trouve aussi un bébé — le nouveau-né que la mère portait encore.<br><br>
-
-Elle dit à la petite fille :<br>
-— Prends-le. Nourris-le. Protège-le. Voici la moelle de ta mère. Ça vous sauvera. Pars vite avant que le jour ne morde la nuit.<br><br>
-
-La petite fille, tremblante, mais courageuse, s’enfuit avec le bébé dans les bras.<br><br>
-
-Elle l’appelle Aubépin, parce qu’il est né dans les aubépines et qu’il pique autant qu’il protège.<br><br>
-
-Les années passent.<br><br>
-
-La fille devient femme — belle comme un matin sans nuages, mais avec un regard qui en sait long sur la douleur.<br><br>
-
-Aubépin, lui, grandit grâce à elle — fort, droit, reconnaissant.<br><br>
-
-Un jour, il se marie.<br><br>
-
-Mais sa femme, en voyant la beauté et le courage de celle qui l’a élevé, sent germer une jalousie noire — une jalousie qui mord comme une bête invisible.<br><br>
-
-Elle imagine un plan terrible :<br><br>
-
-Elle glisse des œufs de serpent dans la nourriture de la sœur — et accuse la jeune femme d’avoir un monstre dans le ventre.<br><br>
-
-Aubépin, trop confiant, trop aveuglé, croit cette affreuse histoire.<br><br>
-
-La sœur est emmenée dans la forêt — et abandonnée.<br><br>
-
-Seule, encore une fois.<br><br>
-
-Mais la forêt, cette fois, lui envoie un cavalier.<br><br>
-
-Un homme juste — un homme qui écoute.<br><br>
-
-Il la sauve, la soigne, la délivre du poison des serpents.<br><br>
-
-Il l’épouse.<br><br>
-
-Et ensemble, ils ont un enfant lumineux comme une pièce d’argent :<br>
-L’Argenté.<br><br>
-
-La vie semble enfin douce — mais tu connais les histoires : le passé adore se glisser par une fente dans la porte.<br><br>
-
-Un jour, L’Argenté dit :<br>
-— Maman, je veux voir mes oncles.<br><br>
-
-Le cœur de la mère se serre — mais elle acquiesce.<br><br>
-
-Ils partent ensemble — déguisés, comme des voyageurs pauvres.<br><br>
-
-Ils arrivent chez Aubépin.<br><br>
-
-La belle-sœur les rejette.<br><br>
-
-Aubépin les accueille.<br><br>
-
-Sans savoir… sans reconnaitre.<br><br>
-
-Le soir, L’Argenté demande :<br>
-— Raconte-moi une histoire, maman.<br><br>
-
-Alors, elle raconte.<br><br>
-
-Elle raconte tout — du début jusqu’à maintenant.<br><br>
-
-Elle raconte les fauves, la chute, la jalousie, la trahison.<br><br>
-
-Elle raconte la vérité — sans accuser, sans crier — juste en posant les mots comme on allume des lanternes dans la nuit.<br><br>
-
-Et la terre, entendant cela, commence à frémir.<br><br>
-
-Elle saisit les deux coupables — la jalouse et celui qui n’a pas su protéger — et les tire vers le bas.<br><br>
-
-Aubépin crie, demande pardon, se débat.<br><br>
-
-Sa femme, elle, ne dit rien — ses yeux brulent de rage.<br><br>
-
-La terre les avale jusqu’aux genoux — puis jusqu’à la taille — puis jusqu’aux épaules.<br><br>
-
-La sœur s’avance.<br><br>
-
-Elle prend la tête de son frère.<br><br>
-
-Elle tire — fort — très fort.<br><br>
-
-Et Aubépin revient à la vie — lavé de son erreur.<br><br>
-
-La terre referme son ventre sur la jalouse — pour toujours.<br><br>
-
-Aubépin s’effondre, tremblant.<br><br>
-
-Sa sœur le relève — et lui pardonne.<br><br>
-
-Parce que pardonner, parfois, c’est la victoire la plus éclatante.<br><br>
-
-Le mari de la sœur arrive.<br><br>
-
-On se reconnait.<br><br>
-
-On se retrouve.<br><br>
-
-On se relève.<br><br>
-
-Et cette fois — vraiment — ils vécurent tous heureux, mais surtout, ils vécurent justes.
-</strong>
-</div>
-
-</section>
+<!-- TEXTE DE LA LÉGENDE -->
+<p><strong>
+Il était une fois — eh oui, on commence par les classiques, ça porte bonheur —
+un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.
+</strong></p>
+
+<p><strong>
+Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par
+une seule chose : la chasse.
+</strong></p>
+
+<p><strong>
+Pas sa famille, pas son foyer — non, non — juste les bêtes qu’il pourchassait du matin au soir.
+</strong></p>
+
+<!-- TU CONTINUES ICI, PARAGRAPHE PAR PARAGRAPHE -->
+<!-- NE CHANGE PAS LA STRUCTURE -->
 
 </main>
 
+<!-- FOOTER -->
 <footer class="footer">
     © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
+<!-- LICORNE QUI GALOPE -->
+<div class="licorne-run">
+    <img src="images/licorne.gif" alt="Licorne qui galope">
+</div>
+
 </body>
 </html>
-
-
