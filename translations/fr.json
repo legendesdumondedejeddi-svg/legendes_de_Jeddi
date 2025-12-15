@@ -1,7 +1,17 @@
 {
-  "title_aubepin": "Aubépin – La fille-femme",
-  "country_aubepin": "Kabylie",
-
-  "aubepin_1": "Il était une fois — eh oui, on commence par les classiques, ça porte bonheur — un pays où la forêt murmurait si fort qu’on avait parfois l’impression qu’elle parlait.",
-  "aubepin_2": "Dans ce pays vivait un homme rude, solide comme un tronc de chêne, et passionné par une seule chose : la chasse."
+  "menu": {
+    "accueil": "Accueil",
+    "legendes": "Légendes",
+    "apropos": "À propos",
+    "don": "DON",
+    "langue": "Langue"
+  },
+  "apropos": {
+    "title": "À propos",
+    "texte": "Bienvenue sur Légende du Monde de Jeddi ! Ici, nous préservons et partageons des récits anciens."
+  },
+  "don": {
+    "title": "DON",
+    "texte": "Votre aide permet de maintenir ces archives vivantes..."
+  }
 }
