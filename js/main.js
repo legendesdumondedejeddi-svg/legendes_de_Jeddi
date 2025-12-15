@@ -1,43 +1,52 @@
-// main.js
+// Chargement des traductions
+let translations = {};
 
-// Changer la langue du menu et des textes
-function changeLanguage(lang) {
-    fetch("translations/" + lang + ".json")
-        .then(response => response.json())
+// Charger un fichier de langue
+function loadLanguage(lang) {
+    fetch("lang/" + lang + ".json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Fichier langue introuvable");
+            }
+            return response.json();
+        })
         .then(data => {
-            // Menu
-            document.querySelector('a[href="index.html"]').textContent = data.menu.accueil;
-            document.querySelector('a[href="legendes.html"]').textContent = data.menu.legendes;
-            document.querySelector('a[href="apropos.html"]').textContent = data.menu.apropos;
-            document.querySelector('a[href="don.html"]').textContent = data.menu.don;
-            document.querySelector('.lang-switch span').textContent = data.menu.langue + " ▾";
-
-            // Page À propos
-            const aproposTitle = document.querySelector('#apropos-title');
-            const aproposText = document.querySelector('#apropos-text');
-            if (aproposTitle && aproposText) {
-                aproposTitle.textContent = data.apropos.title;
-                aproposText.textContent = data.apropos.texte;
-            }
-
-            // Page DON
-            const donTitle = document.querySelector('#don-title');
-            const donText = document.querySelector('#don-text');
-            if (donTitle && donText) {
-                donTitle.textContent = data.don.title;
-                donText.textContent = data.don.texte;
-            }
+            translations = data;
+            applyLanguage();
+        })
+        .catch(error => {
+            console.error("Erreur de traduction :", error);
         });
 }
 
-// Changer l’audio dans legendes.html
+// Appliquer la langue au texte
+function applyLanguage() {
+    document.getElementById("lang-title").innerText = translations.title;
+    document.getElementById("lang-subtitle").innerText = translations.subtitle;
+    document.getElementById("lang-text").innerHTML = "<strong>" + translations.text + "</strong>";
+}
+
+// Changer la langue (texte + audio)
+function changeLanguage(lang) {
+    loadLanguage(lang);
+    changeAudio(lang);
+}
+
+// Changer l'audio
 function changeAudio(lang) {
     const audio = document.getElementById("audio-player");
+
     if (!audio) {
         alert("Lecteur audio introuvable.");
         return;
     }
+
     audio.src = "audio/aubepin_" + lang + ".mp3";
     audio.load();
     audio.play();
 }
+
+// Langue par défaut au chargement
+document.addEventListener("DOMContentLoaded", function () {
+    loadLanguage("fr");
+});
