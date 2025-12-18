@@ -6,6 +6,32 @@
     "audio": "aubepin_fr.mp3",
     "country": ""
   }
+
+  }"nouvelle_legende": {
+  "title": "alanic_le_petit_vacher_du_bout_du_monde",
+  "subtitle": "France",
+  "text": "Texte complet...",
+  "audio": "alanic_le_petit_vacher_du_bout_du_monde_fr.mp3",
+  "country": "Bretagne"
+}
+
+}"nouvelle_legende": {
+  "title": " Hok_Braz, le géant",
+  "subtitle": "France",
+  "text": "Texte complet...",
+  "audio": " Hok_Braz, le géant_fr.mp3",
+  "country": "Bretagne"
+}
+
+}"nouvelle_legende": {
+  "title": "la_legende_du_patissier_et_du_barbier_sanguinaires",
+  "subtitle": "France",
+  "text": "Texte complet...",
+  "audio": "la_legende_du_patissier_et_du_barbier_sanguinaires_fr.mp3",
+  "country": "Paris"
+}
+
+
 }"nouvelle_legende": {
   "title": "Titre",
   "subtitle": "(Pays)",
