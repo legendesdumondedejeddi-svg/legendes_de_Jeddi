@@ -7,7 +7,7 @@
     "country": ""
   }
 
-  }"nouvelle_legende": {
+  }"alanic_le_petit_vacher_du_bout_du_monde": {
   "title": "alanic_le_petit_vacher_du_bout_du_monde",
   "subtitle": "France",
   "text": "Texte complet...",
@@ -15,15 +15,15 @@
   "country": "Bretagne"
 }
 
-}"nouvelle_legende": {
-  "title": " Hok_Braz, le géant",
+}"Hok_Braz_le_géant": {
+  "title": "Hok_Braz_le_géant",
   "subtitle": "France",
   "text": "Texte complet...",
-  "audio": " Hok_Braz, le géant_fr.mp3",
+  "audio": "Hok_Braz_le_géant_fr.mp3",
   "country": "Bretagne"
 }
 
-}"nouvelle_legende": {
+}"la_legende_du_patissier_et_du_barbier_sanguinaires": {
   "title": "la_legende_du_patissier_et_du_barbier_sanguinaires",
   "subtitle": "France",
   "text": "Texte complet...",
