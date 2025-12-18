@@ -1,16 +1,7 @@
-la légende du pâtissier et du barbier sanguinaires
-(France - Paris)
-
-Un barbier et un pâtissier sanguinaires auraient mené ensemble un projet démoniaque à Paris : tuer et transformer leurs victimes en chair à pâté. Une histoire glaçante.
-La très chic île de la Cité à Paris est un lieu où l’on aime se balader en toute quiétude et profiter des bords de Seine. Elle est pourtant le lieu d’un terrifiant fait divers qui aurait eu lieu au 14ème siècle, mettant en scène un pâtissier et un barbier auraient commis l’innommable. 
-Des pâtés fait de chair humaine
-C’est au cœur de l’Île de la Cité, à l’angle de la rue des Marmousets et de la rue des Deux-Hermites, là où se dresse aujourd’hui l’Hôtel-Dieu, qu’auraient eu lieu des crimes abominables de 1384 à 1387. Selon la légende, le barbier se chargeait d’égorger, dépouiller et dépecer ses victimes, souvent des étudiants du chapitre de Notre-Dame.
-
-Mais il n’en restait pas là, envoyant ensuite la chair hachée par une trappe qui débouchait directement dans la cave de son voisin, le pâtissier, qui en faisait des pâtés. Des mets qui, selon certains auteurs, auraient eu un véritable succès auprès des Parisiens. Il se dit même que le roi Charles VI les appréciait beaucoup. 
-
-La terrible entreprise des deux hommes fut découverte quand le chien d’une des victimes,  un étudiant allemand du nom de Alaric, alerta par ses aboiements la maréchaussée et les voisins de la boutique du pâtissier.
-
-Les deux hommes furent brûlés vifs
- Les deux hommes, pris en flagrant délit, avouèrent leurs crimes et furent brûlés vifs dans des cages de fer peu après en place de Grève le jour même de la sentence.
-
-Conformément à l’usage, la maison où les crimes eurent lieu fut rasée et une petite pyramide expiatoire s’y élevait jusqu’en 1536. 
+{
+  "title": "La légende du pâtissier et du barbier sanguinaires",
+  "subtitle": "France",
+  "text": "Texte complet...\n\nSuite...",
+  "audio": "la_legende_du_patissier_et_du_barbier_sanguinaires_fr.mp3",
+  "country": "Paris"
+}
