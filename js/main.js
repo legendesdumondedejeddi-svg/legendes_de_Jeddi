@@ -1,9 +1,6 @@
-let currentLanguage = "fr";
-let currentLegend = "aubepin";
-
-async function loadLegend(lang, key) {
+async function loadLegend() {
     try {
-        const response = await fetch(`translations/${lang}/${key}.json`);
+        const response = await fetch("translations/fr/aubepin.json");
         const legend = await response.json();
 
         document.getElementById("lang-title").textContent = legend.title;
@@ -16,19 +13,12 @@ async function loadLegend(lang, key) {
                 .join("");
 
         const audio = document.getElementById("audio-player");
-        audio.src = `audio/${legend.audio}`;
+        audio.src = "audio/" + legend.audio;
         audio.load();
 
     } catch (e) {
-        console.error("Impossible de charger la légende.", e);
+        console.error("Erreur chargement légende", e);
     }
 }
 
-function changeLanguage(lang) {
-    currentLanguage = lang;
-    loadLegend(currentLanguage, currentLegend);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    loadLegend(currentLanguage, currentLegend);
-});
+document.addEventListener("DOMContentLoaded", loadLegend);
