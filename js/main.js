@@ -20,10 +20,11 @@ async function loadLegend(key) {
 
         // Texte (respect des retours à la ligne)
         document.getElementById("lang-text").innerHTML =
-            legend.text
-                .split("\n")
-                .map(p => `<p>${p}</p>`)
-                .join("");
+           legend.text
+  .split("\n\n")
+  .map(p => `<p>${p}</p>`)
+  .join("");
+
 
         // Audio
         const audio = document.getElementById("audio-player");
