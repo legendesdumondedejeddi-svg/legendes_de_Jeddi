@@ -8,39 +8,26 @@
 
 <body>
 
-<header>
-    <nav class="top-menu">
-        <ul class="menu-line">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="legendes.html">Légendes</a></li>
-            <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html" class="don-button">Don</a></li>
+<header class="header">
+    <img src="images/licorne.png" alt="Licorne" class="licorne-banner">
 
-            <li class="lang-switch">
-                <span>Langue ▾</span>
-                <ul class="submenu">
-                    <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
-                    <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
-                    <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
-                    <li><a href="#" onclick="changeLanguage('es')">ES</a></li>
-                    <li><a href="#" onclick="changeLanguage('it')">IT</a></li>
-                </ul>
-            </li>
-        </ul>
+    <nav class="top-menu">
+        <a href="index.html">Accueil</a>
+        <a href="legendes.html">Légendes</a>
+        <a href="apropos.html">À propos</a>
+        <a href="don.html" class="don-button">Don</a>
     </nav>
 </header>
 
-<main class="content">
+<main class="main-content">
 
-    <section class="legende parchment">
+    <section class="parchment">
         <h2 id="lang-title"></h2>
         <h3 id="lang-subtitle"></h3>
 
         <div id="lang-text"></div>
 
-        <div class="audio-box">
-            <audio id="audio-player" controls></audio>
-        </div>
+        <audio id="audio-player" controls></audio>
     </section>
 
 </main>
@@ -48,10 +35,6 @@
 <footer class="footer">
     © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
-
-<div class="licorne-run">
-    <img src="images/licorne.png" alt="Licorne">
-</div>
 
 <script src="js/main.js"></script>
 </body>
