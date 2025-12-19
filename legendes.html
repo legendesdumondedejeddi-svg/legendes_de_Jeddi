@@ -15,7 +15,7 @@
             <li><a href="apropos.html">À propos</a></li>
             <li><a href="don.html">DON</a></li>
 
-            <!-- Menu Langue -->
+            <!-- Langue -->
             <li class="lang-switch">
                 <span>Langue ▾</span>
                 <ul class="submenu">
@@ -27,12 +27,12 @@
                 </ul>
             </li>
 
-            <!-- Menu Pays -->
+            <!-- Légendes -->
             <li class="country-switch">
-                <span>Pays ▾</span>
+                <span>Légendes ▾</span>
                 <ul class="submenu">
-                    <li><a href="#" onclick="filterCountry('kabylie')">Kabylie</a></li>
-                    <li><a href="#" onclick="filterCountry('autre')">Autre</a></li>
+                    <li><a href="#" onclick="loadLegend('aubepin')">Aubépin</a></li>
+                    <li><a href="#" onclick="loadLegend('alanic')">Alanic</a></li>
                 </ul>
             </li>
         </ul>
@@ -40,23 +40,21 @@
 </header>
 
 <main class="content">
-
-    <!-- Section légende dynamique -->
-    <section class="legende" data-country="kabylie">
+    <section class="legende">
         <div class="grimoire parchment">
             <h2 id="lang-title"></h2>
             <h3 id="lang-subtitle"></h3>
             <div id="lang-text"></div>
+
             <div class="audio-box">
                 <audio id="audio-player" controls></audio>
             </div>
         </div>
     </section>
-
 </main>
 
 <footer class="footer">
-    © 2025 — legendes.du.monde.de.jeddi@gmail.com
+    © 2025 — Le Monde de Jeddi
 </footer>
 
 <div class="licorne-run">
