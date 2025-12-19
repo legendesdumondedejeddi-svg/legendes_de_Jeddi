@@ -1,6 +1,10 @@
-async function loadLegend() {
+async function loadLegend(key) {
     try {
-        const response = await fetch("translations/fr/aubepin.json");
+        const response = await fetch(`translations/fr/${key}.json`);
+        if (!response.ok) {
+            throw new Error("JSON introuvable");
+        }
+
         const legend = await response.json();
 
         document.getElementById("lang-title").textContent = legend.title;
@@ -13,12 +17,14 @@ async function loadLegend() {
                 .join("");
 
         const audio = document.getElementById("audio-player");
-        audio.src = "audio/" + legend.audio;
+        audio.src = `audio/${legend.audio}`;
         audio.load();
 
     } catch (e) {
-        console.error("Erreur chargement légende", e);
+        console.error(e);
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadLegend);
+document.addEventListener("DOMContentLoaded", () => {
+    loadLegend("aubepin");
+});
