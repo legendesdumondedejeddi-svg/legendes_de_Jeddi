@@ -1,20 +1,22 @@
 /* ===== Reset & Base ===== */
 * {
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Décoratif', serif;
-    line-height: 1.6;
-    color: #000;
-    background: url("../images/parchment_texture.jpg") center/cover no-repeat;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
-    padding: 20px 40px;
+    flex: 1;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
 }
 
 /* ===== MENU ===== */
