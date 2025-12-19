@@ -1,67 +1,69 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%;
+    font-family: Georgia, serif;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    background: #111;
-    font-family: serif;
-}
-
-.header {
-    background: black;
-    text-align: center;
-}
-
-.licorne-banner {
+/* Bannière */
+.banner {
     width: 100%;
-    max-height: 250px;
-    object-fit: contain;
 }
 
-.top-menu {
-    padding: 10px;
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.top-menu a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-}
-
-.don-button {
-    background: crimson;
-    padding: 6px 12px;
-    border-radius: 4px;
-}
-
-.main-content {
-    flex: 1;
+/* Page parchemin */
+.parchment {
+    background-image: url("images/parchment_texture.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+    min-height: 100vh;
     padding: 40px;
 }
 
-.parchment {
-    background: url("../images/parchment_texture.jpg") repeat-y top center;
-    background-size: cover;
-    min-height: 100vh;
-    padding: 60px;
-    color: #2b1b0f;
+/* Texte */
+#lang-title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#lang-subtitle {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
 }
 
 #lang-text p {
+    line-height: 1.6;
     margin-bottom: 1em;
 }
 
+/* Audio */
 audio {
-    margin-top: 30px;
+    display: block;
+    margin: 30px auto;
 }
 
-.footer {
-    background: black;
-    color: #aaa;
+/* Don */
+.don {
     text-align: center;
-    padding: 15px;
+    margin-top: 40px;
+}
+
+.don button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
 }
