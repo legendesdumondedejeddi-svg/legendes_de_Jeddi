@@ -2,40 +2,37 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Légendes – Le Monde de Jeddi</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Légendes du monde</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="header">
-    <img src="images/licorne.png" alt="Licorne" class="licorne-banner">
-
-    <nav class="top-menu">
-        <a href="index.html">Accueil</a>
-        <a href="legendes.html">Légendes</a>
-        <a href="apropos.html">À propos</a>
-        <a href="don.html" class="don-button">Don</a>
-    </nav>
+<!-- BANNIÈRE -->
+<header class="banner">
+    <img src="images/licorne.png" alt="Licorne" class="banner-img">
 </header>
 
-<main class="main-content">
+<!-- PAGE PARCHMENT -->
+<main class="parchment">
 
-    <section class="parchment">
-        <h2 id="lang-title"></h2>
-        <h3 id="lang-subtitle"></h3>
+    <h1 id="lang-title"></h1>
+    <h2 id="lang-subtitle"></h2>
 
-        <div id="lang-text"></div>
+    <div id="lang-text"></div>
 
-        <audio id="audio-player" controls></audio>
-    </section>
+    <audio id="audio-player" controls></audio>
+
+    <div class="don">
+        <button onclick="alert('Merci pour votre soutien ❤️')">Don</button>
+    </div>
 
 </main>
 
-<footer class="footer">
+<!-- FOOTER -->
+<footer>
     © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
