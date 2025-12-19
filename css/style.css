@@ -1,54 +1,67 @@
-html, body {
+body {
     margin: 0;
-    padding: 0;
-    height: 100%;
     font-family: serif;
-    background: #000;
+    background: #111;
+    color: #000;
 }
 
-.banner img {
+.banner {
+    position: relative;
+    text-align: center;
+}
+
+.banner-img {
     width: 100%;
-    display: block;
+    height: 300px;
+    object-fit: cover;
 }
 
 .top-menu {
-    background: #111;
-    padding: 10px;
-    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
 }
 
 .top-menu a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
-}
-
-.don-btn {
-    color: gold;
     font-weight: bold;
 }
 
+.don-btn {
+    background: gold;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
 .content {
-    min-height: calc(100vh - 200px);
-    background: url("../images/parchment_texture.jpg") repeat-y center;
-    background-size: cover;
-    padding: 40px 20px;
+    padding: 40px;
+    min-height: 60vh;
 }
 
 .parchment {
-    max-width: 900px;
-    margin: auto;
-    background: rgba(255,255,255,0.85);
-    padding: 40px;
-}
-
-#lang-text p {
-    margin: 1em 0;
+    background: url("../images/parchment_texture.jpg") repeat;
 }
 
 .footer {
-    background: #111;
-    color: white;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
+    background: #000;
+    color: white;
+}
+
+.licorne-run {
+    position: fixed;
+    bottom: 10px;
+    left: -200px;
+    animation: run 15s linear infinite;
+}
+
+@keyframes run {
+    from { left: -200px; }
+    to { left: 100%; }
 }
