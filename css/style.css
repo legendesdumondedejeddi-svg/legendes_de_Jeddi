@@ -1,34 +1,34 @@
 html, body {
-    height: 100%;
     margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    font-family: serif;
     background: #111;
-    color: #2b1b0f;
+    font-family: serif;
 }
 
-header {
-    background: #000;
+.header {
+    background: black;
+    text-align: center;
 }
 
-.top-menu ul {
-    display: flex;
-    list-style: none;
+.licorne-banner {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.top-menu {
     padding: 10px;
-    margin: 0;
-}
-
-.top-menu li {
-    margin-right: 20px;
-    position: relative;
 }
 
 .top-menu a {
     color: white;
+    margin: 0 15px;
     text-decoration: none;
 }
 
@@ -38,50 +38,30 @@ header {
     border-radius: 4px;
 }
 
-.submenu {
-    display: none;
-    position: absolute;
-    background: #222;
-    padding: 5px;
-}
-
-.lang-switch:hover .submenu {
-    display: block;
-}
-
-main.content {
+.main-content {
     flex: 1;
     padding: 40px;
 }
 
 .parchment {
-    background: url("../images/parchment_texture.jpg") repeat-y center top;
+    background: url("../images/parchment_texture.jpg") repeat-y top center;
     background-size: cover;
+    min-height: 100vh;
     padding: 60px;
-    min-height: 100%;
+    color: #2b1b0f;
 }
 
 #lang-text p {
     margin-bottom: 1em;
 }
 
-.audio-box {
+audio {
     margin-top: 30px;
 }
 
 .footer {
+    background: black;
+    color: #aaa;
     text-align: center;
     padding: 15px;
-    background: #000;
-    color: #aaa;
-}
-
-.licorne-run {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.licorne-run img {
-    width: 120px;
 }
