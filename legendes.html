@@ -5,6 +5,7 @@
     <title>Légendes – Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <header>
@@ -13,9 +14,8 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="legendes.html">Légendes</a></li>
             <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">DON</a></li>
+            <li><a href="don.html" class="don-button">Don</a></li>
 
-            <!-- Langue -->
             <li class="lang-switch">
                 <span>Langue ▾</span>
                 <ul class="submenu">
@@ -26,43 +26,33 @@
                     <li><a href="#" onclick="changeLanguage('it')">IT</a></li>
                 </ul>
             </li>
-
-            <!-- Légendes -->
-            <li class="country-switch">
-                <span>Légendes ▾</span>
-                <ul class="submenu">
-                    <li><a href="#" onclick="loadLegend('aubepin')">Aubépin</a></li>
-                    <li><a href="#" onclick="loadLegend('alanic')">Alanic</a></li>
-                </ul>
-            </li>
         </ul>
     </nav>
 </header>
 
 <main class="content">
-    <section class="legende">
-        <div class="grimoire parchment">
-            <h2 id="lang-title"></h2>
-            <h3 id="lang-subtitle"></h3>
-            <div id="lang-text"></div>
 
-            <div class="audio-box">
-                <audio id="audio-player" controls></audio>
-            </div>
+    <section class="legende parchment">
+        <h2 id="lang-title"></h2>
+        <h3 id="lang-subtitle"></h3>
+
+        <div id="lang-text"></div>
+
+        <div class="audio-box">
+            <audio id="audio-player" controls></audio>
         </div>
     </section>
+
 </main>
 
 <footer class="footer">
-    © 2025 — Le Monde de Jeddi
+    © 2025 — legendes.du.monde.de.jeddi@gmail.com
 </footer>
 
 <div class="licorne-run">
-    <img src="images/licorne.png" alt="Licorne qui galope">
+    <img src="images/licorne.png" alt="Licorne">
 </div>
 
 <script src="js/main.js"></script>
 </body>
 </html>
-
-
