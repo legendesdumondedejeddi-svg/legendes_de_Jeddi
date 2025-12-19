@@ -2,65 +2,25 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos – Le Monde de Jeddi</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
 </head>
 <body>
 
-<header>
-    <nav class="top-menu">
-        <ul class="menu-line">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="legendes.html">Légendes</a></li>
-            <li><a href="apropos.html">À propos</a></li>
-            <li><a href="don.html">DON</a></li>
+<header class="banner">
+    <img src="images/licorne.gif" class="banner-img">
 
-            <li class="lang-switch">
-                <span>Langue ▾</span>
-                <ul class="submenu">
-                    <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
-                    <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
-                    <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
-                    <li><a href="#" onclick="changeLanguage('es')">ES</a></li>
-                    <li><a href="#" onclick="changeLanguage('it')">IT</a></li>
-                </ul>
-            </li>
-        </ul>
+    <nav class="top-menu">
+        <a href="index.html">Accueil</a>
+        <a href="legendes.html">Légendes</a>
+        <a href="apropos.html">À propos</a>
+        <a href="don.html" class="don-btn">DON</a>
     </nav>
 </header>
 
-<main class="content">
-    <section class="apropos">
-        <div class="grimoire">
-
-            <h2 id="title">À propos du site</h2>
-
-            <p>À propos de Légendes du Monde de Jeddi
-Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant, né de la passion, de la créativité et du désir de raconter ensemble.
-Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.
-Légendes du Monde Jeddi est un monde en constante évolution, façonné par ceux qui y participent : écrivains, rêveurs, explorateurs, créateurs d’univers.
-Chacun apporte sa pierre, son souffle, sa lumière — et c’est de cette rencontre que naissent les légendes.
-💫 Notre mission est de bâtir un espace où l’imaginaire devient un terrain de jeu commun.
-Un lieu où la créativité est encouragée, où la communauté se rassemble autour du plaisir de créer, où le partage d’idées et d’histoires unit les esprits.
-Ici, la liberté de création est essentielle : chacun peut inventer, rêver et façonner son propre chemin, sans limite autre que celle de son imagination.
-Que tu viennes pour lire, pour écrire, pour jouer ou simplement pour rêver, Jeddi t’ouvre ses portes.
-Ici, les frontières entre la réalité et le mythe s’effacent un peu…
-Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.
-🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.
-Les légendes rassemblées ici proviennent d’œuvres anciennes, de bibliothèques fascinantes ou de manuscrits oubliés. Nous les restaurons et les rendons accessibles, dans plusieurs langues, pour offrir un espace où l’imaginaire relie chacun.
-</p>
-
-            <div class="audio-box">
-                <audio id="audio-player" controls>
-                    <source src="audio/aubepin_fr.mp3" type="audio/mpeg">
-                    Votre navigateur ne supporte pas l’audio.
-                </audio>
-            </div>
-
-        </div>
-    </section>
+<main class="content parchment">
+    <h1>À propos</h1>
+    <p>Ce site est dédié aux légendes et aux traditions orales.</p>
 </main>
 
 <footer class="footer">
@@ -68,7 +28,7 @@ Les légendes rassemblées ici proviennent d’œuvres anciennes, de bibliothèq
 </footer>
 
 <div class="licorne-run">
-    <img src="images/licorne.gif" alt="Licorne qui galope">
+    <img src="images/licorne.gif">
 </div>
 
 </body>
