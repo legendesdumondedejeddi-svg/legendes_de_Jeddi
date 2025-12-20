@@ -32,10 +32,14 @@ body {
 }
 
 .don-btn {
-    background: gold;
-    color: black;
-    padding: 5px 10px;
-    border-radius: 5px;
+    display: inline-block;
+    padding: 15px 30px;
+    background: #8b0000;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 40px auto;
 }
 
 .content {
@@ -65,3 +69,4 @@ body {
     from { left: -200px; }
     to { left: 100%; }
 }
+
