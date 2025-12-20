@@ -58,15 +58,14 @@ body {
     color: white;
 }
 
-.licorne-run {
-    position: fixed;
-    bottom: 10px;
-    left: -200px;
-    animation: run 15s linear infinite;
+.licorne-run img {
+    width: 80px;
+    height: auto;
 }
 
 @keyframes run {
     from { left: -200px; }
     to { left: 100%; }
 }
+
 
