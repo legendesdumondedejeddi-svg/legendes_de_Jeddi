@@ -12,3 +12,6 @@ async function loadLegend(key) {
     audio.src = `audio/${legend.audio}`;
     audio.load();
 }
+document.addEventListener("DOMContentLoaded", () => {
+    loadLegend("Aubépin la fille femme"),
+}); 
