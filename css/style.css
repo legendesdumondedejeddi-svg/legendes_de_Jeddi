@@ -35,11 +35,12 @@ body {
 }
 
 /* BANNIÈRE */
-.banner img {
-    width: 100%;
-    max-height: 280px;
-    object-fit: cover;
-    display: block;
+.banner {
+  background-image: url("images/licorne.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
 }
 
 /* CONTENU */
@@ -116,4 +117,5 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 
