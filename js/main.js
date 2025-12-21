@@ -5,8 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       document.getElementById("legend-title").textContent = data.title;
       document.getElementById("legend-subtitle").textContent = data.subtitle;
-     document.getElementById("legend-text").innerHTML =
-  data.text.replace(/\n\n/g, "<br><br>");
+
+      document.getElementById("legend-text").innerHTML =
+        data.text.replace(/\n\n/g, "<br><br>");
+
+      const audio = document.getElementById("audio-player");
+      audio.src = "audio/" + data.audio;
+      audio.load();
     })
     .catch(error => {
       console.error("Erreur de chargement de la légende :", error);
