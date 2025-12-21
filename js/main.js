@@ -1,17 +1,14 @@
-async function loadLegend(key) {
-    const response = await fetch(`translations/fr/${key}.json`);
-    const legend = await response.json();
-
-    document.getElementById("lang-title").textContent = legend.title;
-    document.getElementById("lang-subtitle").textContent = legend.subtitle;
-
-    document.getElementById("lang-text").innerHTML =
-        legend.text.split("\n\n").map(p => `<p>${p}</p>`).join("");
-
-    const audio = document.getElementById("audio-player");
-    audio.src = `audio/${legend.audio}`;
-    audio.load();
-}
 document.addEventListener("DOMContentLoaded", () => {
-    loadLegend("Aubépin la fille femme"),
-}); 
+
+  fetch("legends/Aubepin.json")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("legend-title").textContent = data.title;
+      document.getElementById("legend-subtitle").textContent = data.subtitle;
+      document.getElementById("legend-text").innerHTML = data.text;
+    })
+    .catch(error => {
+      console.error("Erreur de chargement de la légende :", error);
+    });
+
+});
