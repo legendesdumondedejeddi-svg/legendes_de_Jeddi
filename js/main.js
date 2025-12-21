@@ -1,20 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  fetch("legends/aubepin_la_fille_femme.json")
-    .then(response => response.json())
+  fetch("legends/aubepin.json")
+    .then(res => res.json())
     .then(data => {
       document.getElementById("legend-title").textContent = data.title;
       document.getElementById("legend-subtitle").textContent = data.subtitle;
 
       document.getElementById("legend-text").innerHTML =
-        data.text.replace(/\n\n/g, "<br><br>");
+        data.text.replace(/\n\n/g, "<p></p>");
 
       const audio = document.getElementById("audio-player");
       audio.src = "audio/" + data.audio;
-      audio.load();
     })
-    .catch(error => {
-      console.error("Erreur de chargement de la légende :", error);
-    });
-
+    .catch(err => console.error("Erreur légende :", err));
 });
