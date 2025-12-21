@@ -91,14 +91,19 @@ body {
 
 /* LICORNE QUI GALOPE */
 .licorne-run {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+  position: fixed;
+  bottom: 10px;
+  left: -150px;
+  animation: licorne-run 15s linear infinite;
 }
 
 .licorne-run img {
-    width: 100px;
-    height: auto;
+  width: 120px;
+}
+
+@keyframes licorne-run {
+  from { left: -150px; }
+  to { left: 100%; }
 }
 
 /* AUDIO */
@@ -111,3 +116,4 @@ img {
     max-width: 100%;
     height: auto;
 }
+
