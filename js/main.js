@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       document.getElementById("legend-title").textContent = data.title;
       document.getElementById("legend-subtitle").textContent = data.subtitle;
-      document.getElementById("legend-text").innerHTML = data.text;
+     document.getElementById("legend-text").innerHTML =
+  data.text.replace(/\n\n/g, "<br><br>");
     })
     .catch(error => {
       console.error("Erreur de chargement de la légende :", error);
