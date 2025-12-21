@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  fetch("legends/Aubepin.json")
+  fetch("legends/aubepin_la_fille_femme.json")
     .then(response => response.json())
     .then(data => {
       document.getElementById("legend-title").textContent = data.title;
