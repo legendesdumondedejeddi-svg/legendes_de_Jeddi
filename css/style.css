@@ -66,14 +66,13 @@ body {
 /* ======================
    CONTENU
    ====================== */
-.content {
-  flex: 1;
+.parchment {
   max-width: 900px;
   margin: 40px auto;
   padding: 40px;
   background: url("../images/parchment_texture.jpg") repeat;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  color: #2b1b0e;
+  border-radius: 10px;
 }
 
 .content h1 {
