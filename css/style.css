@@ -1,50 +1,99 @@
-body {
+/* RESET DE BASE */
+* {
   margin: 0;
-  font-family: serif;
-  background: #111;
-  color: #eee;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORPS DE PAGE */
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: #f4f1ec;
+  color: #2b1b0e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================
+   BANNIÈRE LICORNE
+   ====================== */
+.banner {
+  width: 100%;
+  background-color: #000;
 }
 
 .banner-img {
   width: 100%;
-  max-height: 250px;
+  height: 280px;
   object-fit: cover;
+  display: block;
 }
 
+/* ======================
+   MENU
+   ====================== */
 .menu {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  background: black;
-  padding: 10px;
+  gap: 40px;
+  background-color: #111;
+  padding: 15px 0;
 }
 
 .menu a {
-  color: white;
+  color: #fff;
   text-decoration: none;
+  font-size: 18px;
 }
 
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* BOUTON DON */
 .don-btn {
-  color: gold;
+  background-color: #8b0000;
+  padding: 6px 14px;
+  border-radius: 6px;
   font-weight: bold;
 }
 
-.parchment {
-  background: url("../images/parchment_texture.jpg") repeat;
+.don-btn:hover {
+  background-color: #a00000;
+}
+
+/* ======================
+   CONTENU
+   ====================== */
+.content {
+  flex: 1;
   max-width: 900px;
-  margin: 30px auto;
+  margin: 40px auto;
   padding: 40px;
-  color: #2b1b0e;
+  background: url("../images/parchment_texture.jpg") repeat;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-.licorne-run img {
-  width: 150px;
-  display: block;
-  margin: 20px auto;
-}
-
-footer {
+.content h1 {
   text-align: center;
-  padding: 20px;
-  background: black;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ======================
+   FOOTER
+   ====================== */
+.footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #111;
+  color: #fff;
+  font-size: 14px;
 }
