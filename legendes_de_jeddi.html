@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Légendes du Monde de Jeddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1410;
+            color: #e8d7c3;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* BANNIÈRE */
+        .banniere {
+            width: 100%;
+            background-color: #2a1f1a;
+            border-bottom: 3px solid #8b7355;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .banniere img {
+            max-width: 600px;
+            width: 90%;
+            height: auto;
+        }
+
+        /* PARCHEMIN PLEINE LARGEUR */
+        .parchemin-hero {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .parchemin-hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: #3a2f2a;
+            padding: 15px 0;
+            border-bottom: 2px solid #8b7355;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e8d7c3;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover,
+        nav a.actif {
+            border: 2px solid #d4af37;
+            background-color: #4a3f3a;
+        }
+
+        /* CONTENU PRINCIPAL */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.actif {
+            display: block;
+        }
+
+        h1 {
+            color: #d4af37;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: #d4af37;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #8b7355;
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        /* BLOC LÉGENDE REPRODUCTIBLE */
+        .legende-bloc {
+            background-color: #2a1f1a;
+            border: 2px solid #8b7355;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .legende-bloc h2 {
+            margin-top: 0;
+        }
+
+        .legende-texte {
+            white-space: pre-line;
+        }
+
+        /* BOUTON DON */
+        .bouton-don {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #1a1410;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 3px solid #8b7355;
+            transition: all 0.3s;
+            margin: 20px 0;
+        }
+
+        .bouton-don:hover {
+            background-color: #f0c040;
+            transform: scale(1.05);
+        }
+
+        .section-don {
+            text-align: center;
+        }
+
+        /* PIED DE PAGE */
+        footer {
+            background-color: #2a1f1a;
+            border-top: 3px solid #8b7355;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* LECTEUR AUDIO */
+        .audio-player {
+            background-color: #3a2f2a;
+            padding: 20px;
+            border: 2px solid #8b7355;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BANNIÈRE AVEC LICORNE -->
+    <div class="banniere">
+        <img src="licorne.png" alt="Bannière Licorne">
+    </div>
+
+    <!-- PARCHEMIN PLEINE LARGEUR -->
+    <div class="parchemin-hero">
+        <img src="parchemin.jpg" alt="Parchemin décoratif">
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="#accueil" class="nav-link actif">Accueil</a></li>
+            <li><a href="#legendes" class="nav-link">Légendes</a></li>
+            <li><a href="#don" class="nav-link">Don</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+        <!-- ACCUEIL -->
+        <section id="accueil" class="section actif">
+            <h1>Bienvenue aux Légendes de la Licorne</h1>
+            <p>Bienvenue, voyageur intrépide, sur Légende du Monde de Jeddi !
+Entre donc, sans frapper — ici les portes s’ouvrent comme par enchantement, avec ce petit grincement complice qui promet des aventures. Tu viens de mettre le pied dans un univers où l’imaginaire mène la danse, où les histoires grondent comme des orages lointains et où chaque pas peut réveiller une légende assoupie.
+Prends ton souffle, ton sourire et, si tu en as une, ta bonne vieille curiosité. Ici, je t’emmène explorer des contrées qui n’obéissent qu’à la magie, la poésie, et un soupçon d’audace. On y croise des héros un peu cabossés, des créatures qui ont un avis sur tout, et des mystères qui n’attendent que toi pour se dévoiler.
+Installe-toi, promène-toi, ouvre grand les yeux :
+le Monde de Jeddi t’accueille comme un ami de longue date.
+Que l’aventure commence.
+</p>
+        </section>
+
+        <!-- LÉGENDES -->
+        <section id="legendes" class="section">
+            <h1>Les Légendes</h1>
+            
+            <!-- Lecteur audio (se charge uniquement ici) -->
+            <div class="audio-player">
+                <p><strong>Ambiance sonore</strong></p>
+                <audio id="audioPlayer" controls>
+                    <source src="ambient.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'audio.
+                </audio>
+            </div>
+
+            <!-- LÉGENDE 1 - BLOC REPRODUCTIBLE -->
+            <div class="legende-bloc">
+                <h2>La Licorne de la Forêt d'Émeraude</h2>
+                <div class="legende-texte">Il était une fois, dans la forêt d'Émeraude, une licorne dont la corne brillait comme mille étoiles.
+
+Les villageois racontaient qu'elle apparaissait uniquement aux âmes purifiées par la bonté.
+
+Un jour, un jeune berger la rencontra près d'une source enchantée.
+Elle lui murmura un secret ancien, celui du véritable courage : protéger les faibles sans attendre de récompense.
+
+Depuis ce jour, la l
