@@ -1,7 +1,0 @@
-{
-  "title": "Alanic, le petit vacher du bout du monde",
-  "subtitle": "France",
-  "text": "Texte complet...\n\nSuite du conte...",
-  "audio": "alanic_le_petit_vacher_du_bout_du_monde_fr.mp3",
-  "country": "Bretagne"
-}

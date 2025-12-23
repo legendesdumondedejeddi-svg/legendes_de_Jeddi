@@ -1,7 +1,0 @@
-{
-  "title": "La légende du pâtissier et du barbier sanguinaires",
-  "subtitle": "France",
-  "text": "Texte complet...\n\nSuite...",
-  "audio": "la_legende_du_patissier_et_du_barbier_sanguinaires_fr.mp3",
-  "country": "Paris"
-}

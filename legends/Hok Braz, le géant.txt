@@ -1,7 +1,0 @@
-{
-  "title": "Hok Braz, le géant",
-  "subtitle": "France",
-  "text": "Texte complet...\n\nSuite...",
-  "audio": "hok_braz_le_geant_fr.mp3",
-  "country": "Bretagne"
-}
